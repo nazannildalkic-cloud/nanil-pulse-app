@@ -1,0 +1,4 @@
+# Vorpage als Startseite bei Netlify
+/  /vorpage.html  302!
+/app  /index.html  200
+/app/*  /index.html  200

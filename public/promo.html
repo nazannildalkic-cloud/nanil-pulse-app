@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NANIL Pulse - Promo Reel V2 (Neural)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background: #050505;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #stage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: none;
+            overflow: hidden;
+        }
+
+        /* NEURAL CANVAS BACKGROUND */
+        #neural-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        /* IMAGE LAYER */
+        #bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: 0;
+            transition: opacity 1s ease;
+            filter: contrast(1.1) saturate(1.1);
+        }
+
+        /* ANIMATIONS */
+        .zoom-in {
+            animation: kenBurnsIn 10s ease-out forwards;
+        }
+
+        .zoom-out {
+            animation: kenBurnsOut 10s ease-out forwards;
+        }
+
+        @keyframes kenBurnsIn {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes kenBurnsOut {
+            from {
+                transform: scale(1.2);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* TEXT LAYER */
+        #text-layer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .subtitle {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+            line-height: 1.1;
+            opacity: 1;
+        }
+
+        /* TYPEWRITER CURSOR */
+        .cursor {
+            display: inline-block;
+            width: 4px;
+            background-color: #D4AF37;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* START BUTTON */
+        #start-btn {
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: #000;
+            border: none;
+            padding: 25px 50px;
+            font-size: 24px;
+            font-weight: 800;
+            cursor: pointer;
+            border-radius: 100px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            z-index: 100;
+            position: relative;
+        }
+
+        #start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.6);
+        }
+
+        /* PROGRESS BAR */
+        #progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold-dark, #8B6B1B), #D4AF37);
+            width: 0%;
+            z-index: 20;
+            box-shadow: 0 -2px 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            z-index: 15;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="start-btn" onclick="startReel()">🚀 START NEURAL DEMO</button>
+
+    <div id="stage">
+        <canvas id="neural-canvas"></canvas>
+        <div id="bg-layer"></div>
+        <div class="status-badge" id="scene-status">REC ●</div>
+
+        <div id="text-layer">
+            <h1 id="main-text" class="subtitle"></h1>
+        </div>
+        <div id="progress"></div>
+    </div>
+
+    <script>
+        // --- 1. CONFIG ---
+        const scenes = [
+            { text: "NANIL PULSE.", img: "assets/ring-gold-render.jpg", effect: "zoom-in", duration: 4000 },
+            { text: "Steuerung durch Intention.", img: "assets/ring.jpg.jpg", effect: "zoom-out", duration: 3500 },
+            { text: "THE CORE (Ring).", img: "assets/ring-gold-render.jpg", effect: "zoom-in", duration: 3000 },
+            { text: "THE SHIELD (Patch).", img: "assets/patch.jpg.jpg", effect: "zoom-out", duration: 3500 },
+            { text: "Neural Sync Technologie.", img: "assets/hardware-specs.png", effect: "zoom-in", duration: 4000 },
+            { text: "Die Zukunft am Finger.", img: "assets/system-symbiosis.png", effect: "zoom-out", duration: 4000 },
+            { text: "INVEST NOW.\nBECOME VISIONARY.", img: "assets/ring-gold-render.jpg", effect: "zoom-in", duration: 5000 }
+        ];
+
+        // --- 2. ENGINE ---
+        let currentScene = 0;
+        let charIndex = 0;
+        let typeInterval;
+        let stage = document.getElementById('stage');
+        let bg = document.getElementById('bg-layer');
+        let txt = document.getElementById('main-text');
+        let btn = document.getElementById('start-btn');
+        let prog = document.getElementById('progress');
+
+        function startReel() {
+            btn.style.display = 'none';
+            stage.style.display = 'block';
+
+            // Start Neural Canvas
+            requestAnimationFrame(animateCanvas);
+
+            playScene();
+
+            // Progress Bar simulation
+            prog.style.transition = `width 25s linear`;
+            setTimeout(() => prog.style.width = '100%', 100);
+        }
+
+        function playScene() {
+            if (currentScene >= scenes.length) {
+                txt.innerHTML = "<span style='font-size:30px'>REPLAY ↻</span>";
+                txt.onclick = () => location.reload();
+                txt.style.cursor = "pointer";
+                return;
+            }
+
+            const scene = scenes[currentScene];
+
+            // Setup Image
+            bg.style.backgroundImage = `url('${scene.img}')`;
+            bg.classList.remove('zoom-in', 'zoom-out');
+            void bg.offsetWidth;
+            bg.classList.add(scene.effect);
+
+            // Setup Text (Typing)
+            txt.innerHTML = '';
+            charIndex = 0;
+            clearInterval(typeInterval);
+
+            // Typing Speed Calculation
+            const typeSpeed = Math.min(100, (scene.duration * 0.5) / scene.text.length);
+
+            typeInterval = setInterval(() => {
+                if (charIndex < scene.text.length) {
+                    const char = scene.text.charAt(charIndex);
+                    txt.innerHTML += char === '\n' ? '<br>' : char;
+                    charIndex++;
+                } else {
+                    clearInterval(typeInterval);
+                }
+            }, typeSpeed);
+
+            // Schedule Next
+            setTimeout(() => {
+                currentScene++;
+                playScene();
+            }, scene.duration);
+        }
+
+        // --- 3. NEURAL PARTICLES ---
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const particleCount = 60;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(212, 175, 55, 0.5)'; // Gold
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Update & Draw Particles
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // Draw Connections
+            ctx.strokeStyle = 'rgba(212, 175, 55, 0.1)'; // Gold faint lines
+            ctx.lineWidth = 1;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+    </script>
+</body>
+
+</html>
