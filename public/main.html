@@ -817,10 +817,21 @@
     <script src="script.js" defer></script>
 
     <!-- Lia Voice Agent (ElevenLabs Conversational AI) -->
-    <elevenlabs-convai agent-id="agent_7901kf82k4w0e73vbz0hhakw6xfv" override-language="de" action-text="Frag Lia"
+    <elevenlabs-convai id="lia-widget" agent-id="agent_7901kf82k4w0e73vbz0hhakw6xfv" override-language="de" action-text="Frag Lia"
         start-call-text="Gespräch starten" end-call-text="Gespräch beenden" expand-text="Chat öffnen"
         listening-text="Hört zu..." speaking-text="Lia spricht"></elevenlabs-convai>
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <script>
+    // Auto-detect browser language for Lia widget (DE/EN/TR)
+    (function(){
+        var w=document.getElementById('lia-widget'),l=(navigator.language||'de').slice(0,2);
+        var t={de:{action:'Frag Lia',start:'Gespräch starten',end:'Gespräch beenden',expand:'Chat öffnen',listen:'Hört zu...',speak:'Lia spricht',lang:'de'},
+               en:{action:'Ask Lia',start:'Start call',end:'End call',expand:'Open chat',listen:'Listening...',speak:'Lia speaking',lang:'en'},
+               tr:{action:"Lia'ya sor",start:'Aramay\u0131 ba\u015flat',end:'Aramay\u0131 bitir',expand:'Sohbeti a\u00e7',listen:'Dinliyor...',speak:'Lia konu\u015fuyor',lang:'tr'}};
+        var c=t[l]||t.de;
+        if(w){w.setAttribute('override-language',c.lang);w.setAttribute('action-text',c.action);w.setAttribute('start-call-text',c.start);w.setAttribute('end-call-text',c.end);w.setAttribute('expand-text',c.expand);w.setAttribute('listening-text',c.listen);w.setAttribute('speaking-text',c.speak);}
+    })();
+    </script>
     <script>
         // Override ElevenLabs widget "Need help?" text for Lia
         (function () {
