@@ -970,6 +970,14 @@
             </p>
         </div>
     </div>
+    <!-- Visitor Analytics -->
+    <script>
+    (function(){
+        var d=screen.width<768?'mobile':'desktop';
+        var data={site:'nanilpulse.art',page:location.pathname,ref:document.referrer||'direct',lang:(navigator.language||'de').slice(0,2),device:d};
+        fetch('https://n8n.srv1200351.hstgr.cloud/webhook/analytics',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+    })();
+    </script>
 </body>
 
 </html>
