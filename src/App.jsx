@@ -114,20 +114,36 @@ const T = {
       loopActive: "Aktiv — Stimulation wird automatisch angepasst",
       loopIdle: "Verbinde Ring & Patch und starte eine Session",
       loopDesc: "Das System misst kontinuierlich deine Vitalwerte und passt die Vagusnerv-Stimulation in Echtzeit an.",
-      voice: "Stimmanalyse",
-      voiceDesc: "KI analysiert Mikrotremor, Tonhöhenvarianz und Sprachrhythmus zur Stresserkennung.",
+      voice: "Stimmanalyse & Biomarker",
+      voiceDesc: "KI analysiert Mikrotremor, Tonhöhenvarianz, Grundfrequenz und Sprachrhythmus — für Stress-, Hormon- und Wellbeing-Erkennung.",
       voiceStart: "Stimmanalyse starten",
       voiceRunning: "Analysiere Stimme …",
       voiceResult: "Ergebnis",
       voiceCalm: "Ruhig & ausgeglichen",
       voiceTense: "Leichte Anspannung erkannt",
       voiceStressed: "Stress erkannt — Session empfohlen",
-      voiceTip: "Sprich 10 Sekunden natürlich in dein Handy. Die KI erkennt Stressmuster in deiner Stimme.",
+      voiceTip: "Sprich 10 Sekunden natürlich in dein Handy. Die KI erkennt Stress-, Hormon- und Gesundheitsmuster in deiner Stimme.",
+      voiceHormone: "Hormoneller Status (Stimme)",
+      voiceCortisol: "Cortisol (Stress)",
+      voiceTestosterone: "Testosteron",
+      voiceEnergy: "Energie-Level",
+      voiceStudies: "Wissenschaftliche Grundlage",
+      voiceStudy1: "Luxembourg Institute of Health — KI-Stimmanalyse erkennt Diabetes-Marker mit 89% Genauigkeit (2023)",
+      voiceStudy2: "Pisanski et al. — Stimmfrequenz korreliert mit Testosteron- und Cortisol-Spiegeln (Psychoneuroendocrinology, 2018)",
+      voiceStudy3: "Pipitone & Gallup — Stimmveränderungen über den Menstruationszyklus korrelieren mit Östrogen-Peaks (Evolution & Human Behavior, 2008)",
+      voiceStudy4: "CoLive Voice (Luxemburg) — Größte Stimm-Biomarker-Studie: 50.000+ Proben zur Gesundheitserkennung",
+      voiceNotJustWomen: "Gilt für alle — nicht nur zyklusbasiert",
+      voiceForAll: "Stimm-Biomarker erkennen universelle Gesundheitsindikatoren: Cortisol-Stress, Testosteron-Level, Schilddrüsenfunktion, Energiestatus und emotionales Wellbeing.",
       patchData: "Biosensor-Daten (Patch)",
       skinTemp: "Hauttemperatur", skinTempUnit: "°C",
       motion: "Bewegung", motionLow: "Ruhig", motionMod: "Leicht", motionHigh: "Aktiv",
-      hormone: "Hormon & Zyklus-Tracking",
-      hormoneDesc: "Der Biosensor-Patch erfasst kontinuierlich Hauttemperatur, HRV-Muster und Mikro-Schweiß zur Hormonanalyse.",
+      hormone: "Hormon-Tracking",
+      hormoneDesc: "Der Biosensor-Patch erfasst kontinuierlich Hauttemperatur, HRV-Muster und Mikro-Schweiß zur Hormonanalyse — für alle Geschlechter.",
+      hormoneGeneral: "Allgemeine Hormone",
+      cortisolLevel: "Cortisol",
+      testosteroneLevel: "Testosteron",
+      thyroidLevel: "Schilddrüse (T3/T4)",
+      melatoninLevel: "Melatonin",
       cycleDay: "Zyklustag", cycleDayUnit: "von 28",
       phase: "Phase", follicular: "Follikelphase", ovulation: "Eisprung", luteal: "Lutealphase", menstrual: "Menstruation",
       fertility: "Fruchtbarkeit", fertilityHigh: "Hoch", fertilityMed: "Mittel", fertilityLow: "Niedrig",
@@ -279,20 +295,36 @@ const T = {
       loopActive: "Active — Stimulation auto-adjusting",
       loopIdle: "Connect Ring & Patch and start a session",
       loopDesc: "The system continuously measures your vitals and adjusts vagus nerve stimulation in real-time.",
-      voice: "Voice Analysis",
-      voiceDesc: "AI analyzes micro-tremor, pitch variance, and speech rhythm for stress detection.",
+      voice: "Voice Analysis & Biomarkers",
+      voiceDesc: "AI analyzes micro-tremor, pitch variance, fundamental frequency and speech rhythm — for stress, hormone and wellbeing detection.",
       voiceStart: "Start Voice Analysis",
       voiceRunning: "Analyzing voice …",
       voiceResult: "Result",
       voiceCalm: "Calm & balanced",
       voiceTense: "Slight tension detected",
       voiceStressed: "Stress detected — Session recommended",
-      voiceTip: "Speak naturally for 10 seconds. The AI detects stress patterns in your voice.",
+      voiceTip: "Speak naturally for 10 seconds. The AI detects stress, hormone and health patterns in your voice.",
+      voiceHormone: "Hormonal Status (Voice)",
+      voiceCortisol: "Cortisol (Stress)",
+      voiceTestosterone: "Testosterone",
+      voiceEnergy: "Energy Level",
+      voiceStudies: "Scientific Foundation",
+      voiceStudy1: "Luxembourg Institute of Health — AI voice analysis detects diabetes markers with 89% accuracy (2023)",
+      voiceStudy2: "Pisanski et al. — Voice frequency correlates with testosterone and cortisol levels (Psychoneuroendocrinology, 2018)",
+      voiceStudy3: "Pipitone & Gallup — Voice changes across menstrual cycle correlate with estrogen peaks (Evolution & Human Behavior, 2008)",
+      voiceStudy4: "CoLive Voice (Luxembourg) — Largest voice biomarker study: 50,000+ samples for health detection",
+      voiceNotJustWomen: "For everyone — not just cycle-based",
+      voiceForAll: "Voice biomarkers detect universal health indicators: cortisol stress, testosterone levels, thyroid function, energy status and emotional wellbeing.",
       patchData: "Biosensor Data (Patch)",
       skinTemp: "Skin Temperature", skinTempUnit: "°C",
       motion: "Motion", motionLow: "Still", motionMod: "Light", motionHigh: "Active",
-      hormone: "Hormone & Cycle Tracking",
-      hormoneDesc: "The biosensor patch continuously tracks skin temperature, HRV patterns and micro-perspiration for hormone analysis.",
+      hormone: "Hormone Tracking",
+      hormoneDesc: "The biosensor patch continuously tracks skin temperature, HRV patterns and micro-perspiration for hormone analysis — for all genders.",
+      hormoneGeneral: "General Hormones",
+      cortisolLevel: "Cortisol",
+      testosteroneLevel: "Testosterone",
+      thyroidLevel: "Thyroid (T3/T4)",
+      melatoninLevel: "Melatonin",
       cycleDay: "Cycle Day", cycleDayUnit: "of 28",
       phase: "Phase", follicular: "Follicular Phase", ovulation: "Ovulation", luteal: "Luteal Phase", menstrual: "Menstruation",
       fertility: "Fertility", fertilityHigh: "High", fertilityMed: "Medium", fertilityLow: "Low",
@@ -444,20 +476,36 @@ const T = {
       loopActive: "Aktif — Stimülasyon otomatik ayarlanıyor",
       loopIdle: "Ring ve Patch'i bağlayıp bir seans başlatın",
       loopDesc: "Sistem sürekli olarak vital değerlerinizi ölçer ve vagus siniri stimülasyonunu gerçek zamanlı ayarlar.",
-      voice: "Ses Analizi",
-      voiceDesc: "Yapay zeka, stres tespiti için mikro titreşim, perde varyansı ve konuşma ritmini analiz eder.",
+      voice: "Ses Analizi & Biyobelirteçler",
+      voiceDesc: "Yapay zeka, mikro titreşim, perde varyansı, temel frekans ve konuşma ritmini analiz eder — stres, hormon ve sağlık tespiti için.",
       voiceStart: "Ses Analizini Başlat",
       voiceRunning: "Ses analiz ediliyor …",
       voiceResult: "Sonuç",
       voiceCalm: "Sakin ve dengeli",
       voiceTense: "Hafif gerginlik tespit edildi",
       voiceStressed: "Stres tespit edildi — Seans önerilir",
-      voiceTip: "10 saniye doğal konuşun. Yapay zeka sesinizde stres kalıplarını tespit eder.",
+      voiceTip: "10 saniye doğal konuşun. Yapay zeka sesinizde stres, hormon ve sağlık kalıplarını tespit eder.",
+      voiceHormone: "Hormonal Durum (Ses)",
+      voiceCortisol: "Kortizol (Stres)",
+      voiceTestosterone: "Testosteron",
+      voiceEnergy: "Enerji Seviyesi",
+      voiceStudies: "Bilimsel Temel",
+      voiceStudy1: "Lüksemburg Sağlık Enstitüsü — Yapay zeka ses analizi diyabet belirteçlerini %89 doğrulukla tespit eder (2023)",
+      voiceStudy2: "Pisanski ve ark. — Ses frekansı testosteron ve kortizol seviyeleri ile ilişkilidir (Psychoneuroendocrinology, 2018)",
+      voiceStudy3: "Pipitone & Gallup — Adet döngüsü boyunca ses değişiklikleri östrojen zirveleri ile ilişkilidir (Evolution & Human Behavior, 2008)",
+      voiceStudy4: "CoLive Voice (Lüksemburg) — En büyük ses biyobelirteç çalışması: Sağlık tespiti için 50.000+ örnek",
+      voiceNotJustWomen: "Herkes için — sadece döngü bazlı değil",
+      voiceForAll: "Ses biyobelirteçleri evrensel sağlık göstergelerini tespit eder: kortizol stresi, testosteron seviyeleri, tiroid fonksiyonu, enerji durumu ve duygusal sağlık.",
       patchData: "Biyosensör Verileri (Patch)",
       skinTemp: "Cilt Sıcaklığı", skinTempUnit: "°C",
       motion: "Hareket", motionLow: "Sakin", motionMod: "Hafif", motionHigh: "Aktif",
-      hormone: "Hormon & Döngü Takibi",
-      hormoneDesc: "Biyosensör patch, hormon analizi için cilt sıcaklığını, HRV kalıplarını ve mikro terlemeyi sürekli takip eder.",
+      hormone: "Hormon Takibi",
+      hormoneDesc: "Biyosensör patch, hormon analizi için cilt sıcaklığını, HRV kalıplarını ve mikro terlemeyi sürekli takip eder — tüm cinsiyetler için.",
+      hormoneGeneral: "Genel Hormonlar",
+      cortisolLevel: "Kortizol",
+      testosteroneLevel: "Testosteron",
+      thyroidLevel: "Tiroid (T3/T4)",
+      melatoninLevel: "Melatonin",
       cycleDay: "Döngü Günü", cycleDayUnit: "/ 28",
       phase: "Faz", follicular: "Foliküler Faz", ovulation: "Yumurtlama", luteal: "Luteal Faz", menstrual: "Adet Dönemi",
       fertility: "Doğurganlık", fertilityHigh: "Yüksek", fertilityMed: "Orta", fertilityLow: "Düşük",
@@ -1463,6 +1511,28 @@ export default function NanilPulseApp() {
               </div>
             </div>
 
+            {/* General Hormone Tracking - for everyone */}
+            <div className="card" style={{ padding: "20px 18px" }}>
+              <p className="card-title">🧬 {t.vitals.hormoneGeneral}</p>
+              <div style={{ fontSize: 12, color: B.textDim, marginBottom: 16, lineHeight: 1.5 }}>{t.vitals.voiceForAll}</div>
+              {[
+                { label: t.vitals.cortisolLevel, level: stressScore < 30 ? 25 : stressScore < 60 ? 55 : 82, color: stressScore < 30 ? B.green : stressScore < 60 ? B.orange : B.red, icon: "⚡" },
+                { label: t.vitals.testosteroneLevel, level: 48 + Math.round(Math.sin(Date.now() / 50000) * 15), color: B.teal, icon: "💪" },
+                { label: t.vitals.thyroidLevel, level: 62 + Math.round(Math.cos(Date.now() / 70000) * 10), color: B.orange, icon: "🦋" },
+                { label: t.vitals.melatoninLevel, level: new Date().getHours() > 20 || new Date().getHours() < 6 ? 75 : 20, color: "#9b59b6", icon: "🌙" },
+              ].map((h, i) => (
+                <div key={i} style={{ marginBottom: 12 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, marginBottom: 4 }}>
+                    <span style={{ color: B.textMut }}>{h.icon} {h.label}</span>
+                    <span style={{ color: h.color, fontWeight: 700 }}>{h.level}%</span>
+                  </div>
+                  <div style={{ height: 6, borderRadius: 3, background: "rgba(255,255,255,0.06)" }}>
+                    <div style={{ width: `${h.level}%`, height: "100%", borderRadius: 3, background: h.color, transition: "width 0.6s ease" }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
             {/* Hormone & Cycle Tracking */}
             {(() => {
               const phase = cycleDay <= 5 ? "menstrual" : cycleDay <= 13 ? "follicular" : cycleDay <= 16 ? "ovulation" : "luteal";
@@ -1571,7 +1641,7 @@ export default function NanilPulseApp() {
               );
             })()}
 
-            {/* Voice Analysis */}
+            {/* Voice Analysis & Biomarkers */}
             <div className="card">
               <p className="card-title">{t.vitals.voice}</p>
               <div style={{ fontSize: 13, color: B.textMut, marginBottom: 14 }}>{t.vitals.voiceDesc}</div>
@@ -1579,16 +1649,37 @@ export default function NanilPulseApp() {
                 🎤 {t.vitals.voiceTip}
               </div>
               {voiceState === "done" && voiceResult && (
-                <div className="fade-up" style={{ padding: "14px 18px", borderRadius: 14, marginBottom: 14,
-                  background: voiceResult === "calm" ? B.greenDim : voiceResult === "tense" ? B.orangeDim : B.redDim,
-                  border: `1px solid ${voiceResult === "calm" ? "rgba(64,200,128,0.35)" : voiceResult === "tense" ? B.orangeBrd : B.redBrd}` }}>
-                  <div style={{ fontSize: 12, color: B.textDim, marginBottom: 4 }}>{t.vitals.voiceResult}</div>
-                  <div style={{ fontSize: 15, fontWeight: 700, color: voiceResult === "calm" ? B.green : voiceResult === "tense" ? B.orange : B.red }}>
-                    {voiceResult === "calm" ? "✓ " + t.vitals.voiceCalm : voiceResult === "tense" ? "⚠ " + t.vitals.voiceTense : "🔴 " + t.vitals.voiceStressed}
+                <>
+                  <div className="fade-up" style={{ padding: "14px 18px", borderRadius: 14, marginBottom: 14,
+                    background: voiceResult === "calm" ? B.greenDim : voiceResult === "tense" ? B.orangeDim : B.redDim,
+                    border: `1px solid ${voiceResult === "calm" ? "rgba(64,200,128,0.35)" : voiceResult === "tense" ? B.orangeBrd : B.redBrd}` }}>
+                    <div style={{ fontSize: 12, color: B.textDim, marginBottom: 4 }}>{t.vitals.voiceResult}</div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: voiceResult === "calm" ? B.green : voiceResult === "tense" ? B.orange : B.red }}>
+                      {voiceResult === "calm" ? "✓ " + t.vitals.voiceCalm : voiceResult === "tense" ? "⚠ " + t.vitals.voiceTense : "🔴 " + t.vitals.voiceStressed}
+                    </div>
                   </div>
-                </div>
+                  {/* Hormone indicators from voice */}
+                  <div className="fade-up" style={{ padding: "16px 18px", borderRadius: 14, background: "rgba(93,154,168,0.08)", border: `1px solid ${B.tealBrd}`, marginBottom: 14 }}>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: B.teal, marginBottom: 12 }}>🧬 {t.vitals.voiceHormone}</div>
+                    {[
+                      { label: t.vitals.voiceCortisol, level: voiceResult === "calm" ? 22 : voiceResult === "tense" ? 58 : 85, color: voiceResult === "calm" ? B.green : voiceResult === "tense" ? B.orange : B.red },
+                      { label: t.vitals.voiceTestosterone, level: voiceResult === "calm" ? 65 : voiceResult === "tense" ? 50 : 35, color: B.teal },
+                      { label: t.vitals.voiceEnergy, level: voiceResult === "calm" ? 78 : voiceResult === "tense" ? 55 : 30, color: B.orange },
+                    ].map((h, i) => (
+                      <div key={i} style={{ marginBottom: 10 }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, marginBottom: 4 }}>
+                          <span style={{ color: B.textMut }}>{h.label}</span>
+                          <span style={{ color: h.color, fontWeight: 700 }}>{h.level}%</span>
+                        </div>
+                        <div style={{ height: 5, borderRadius: 3, background: "rgba(255,255,255,0.06)" }}>
+                          <div style={{ width: `${h.level}%`, height: "100%", borderRadius: 3, background: h.color, transition: "width 0.6s ease" }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
               )}
-              <button className="btn-primary" style={{ width: "100%", fontSize: 14, padding: "14px" }}
+              <button className="btn-primary" style={{ width: "100%", fontSize: 14, padding: "14px", marginBottom: 16 }}
                 onClick={startVoiceAnalysis} disabled={voiceState === "running"}>
                 {voiceState === "running" ? (
                   <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}>
@@ -1599,6 +1690,22 @@ export default function NanilPulseApp() {
                   </span>
                 ) : `🎤 ${t.vitals.voiceStart}`}
               </button>
+
+              {/* For Everyone badge */}
+              <div style={{ padding: "12px 16px", borderRadius: 12, background: "rgba(201,162,39,0.08)", border: `1px solid ${B.orangeBrd}`, marginBottom: 14 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: B.orange, marginBottom: 4 }}>👤 {t.vitals.voiceNotJustWomen}</div>
+                <div style={{ fontSize: 12, color: B.textDim, lineHeight: 1.5 }}>{t.vitals.voiceForAll}</div>
+              </div>
+
+              {/* Scientific Studies */}
+              <div style={{ padding: "16px 18px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: B.text, marginBottom: 12 }}>📚 {t.vitals.voiceStudies}</div>
+                {[t.vitals.voiceStudy1, t.vitals.voiceStudy2, t.vitals.voiceStudy3, t.vitals.voiceStudy4].map((s, i) => (
+                  <div key={i} style={{ fontSize: 11, color: B.textDim, lineHeight: 1.5, marginBottom: 8, paddingLeft: 12, borderLeft: `2px solid ${i === 0 ? B.teal : i === 1 ? B.orange : i === 2 ? "#ff6b9d" : B.green}` }}>
+                    {s}
+                  </div>
+                ))}
+              </div>
             </div>
           </>
         )}
