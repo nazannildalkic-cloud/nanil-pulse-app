@@ -19,7 +19,7 @@ window.translations = {
         hero_patent: "📜 Patent angemeldet • Entwickelt in Deutschland",
         hero_sub: "Entwickelt mit Experten für Biofeedback und Resilienz für maximale Unterstützung im Alltag.",
         btn_hero_products: "Kollektion ansehen",
-        btn_hero_voice: "Frag Nanni",
+        btn_hero_voice: "Frag Nanil",
         slider_heading: "Kollektion im Überblick",
         img_slide_1: "NANIL Pulse Kollektion Überblick",
         img_slide_2: "GoldRing Edition - Premium Feedback",
@@ -97,10 +97,10 @@ window.translations = {
 
         // Voice
         voice_title: "Ihre persönliche Gesundheits-KI",
-        voice_sub: "Nanni ist mehr als ein Chatbot – sie ist Ihre Begleiterin.",
-        voice_desc: "Nutzen Sie die Kraft der Sprache. Nanni erklärt Ihnen alles über unsere Technologie und beantwortet Ihre Fragen – auf Deutsch, Englisch oder Türkisch.",
-        btn_start_voice: '<i class="fas fa-microphone"></i> Nanni starten',
-        btn_stop_voice: '<i class="fas fa-stop"></i> Nanni stoppen',
+        voice_sub: "Nanil ist mehr als ein Chatbot – sie ist Ihre Begleiterin.",
+        voice_desc: "Nutzen Sie die Kraft der Sprache. Nanil erklärt Ihnen alles über unsere Technologie und beantwortet Ihre Fragen – auf Deutsch, Englisch oder Türkisch.",
+        btn_start_voice: '<i class="fas fa-microphone"></i> Nanil starten',
+        btn_stop_voice: '<i class="fas fa-stop"></i> Nanil stoppen',
 
         // Contact
         contact_title: "Kontakt aufnehmen",
@@ -116,7 +116,7 @@ window.translations = {
         skip_link: "Zum Inhalt springen",
         legal_text: 'Ich akzeptiere die <a href="datenschutz.html" id="link-privacy" style="color: var(--cyan-primary);">Datenschutzerklärung</a> und <a href="agb.html" id="link-agb" style="color: var(--cyan-primary);">AGB</a>.',
         link_whatsapp_support: "WhatsApp Support öffnen",
-        btn_whatsapp_read: '<i class="fas fa-microphone"></i> Nanni vorlesen lassen',
+        btn_whatsapp_read: '<i class="fas fa-microphone"></i> Nanil vorlesen lassen',
 
         // Footer
         logo_footer_alt: "NANIL Pulse Logo Footer",
@@ -150,7 +150,7 @@ window.translations = {
         banner_text: "🚀 Early Access Phase 1 • Nur €99 (Regulär €249) • Launch Juli 2026",
         about_title: "Was ist NANIL Pulse?",
         about_sub: "Kurz und verständlich: Produkt, Technik und für wen es gedacht ist.",
-        about_p1: "<strong>NANIL Pulse</strong> ist ein intelligenter Gesundheitsring, der deine Vitalwerte rund um die Uhr misst (Herzfrequenz, HRV, Schlaf, Stress, Hormonhaushalt) und dich nicht nur informiert, sondern <strong>aktiv unterstützt</strong>: Durch sanfte Impulse wird der Vagusnerv stimuliert – für mehr Ruhe und Regeneration im Alltag. Zusätzlich bietet NANIL einzigartige Features wie <strong>Telefonieren über den Ring</strong> (Bone Conduction) und die <strong>KI-Assistentin Nanni</strong> für Sprache und Nachrichten.",
+        about_p1: "<strong>NANIL Pulse</strong> ist ein intelligenter Gesundheitsring, der deine Vitalwerte rund um die Uhr misst (Herzfrequenz, HRV, Schlaf, Stress, Hormonhaushalt) und dich nicht nur informiert, sondern <strong>aktiv unterstützt</strong>: Durch sanfte Impulse wird der Vagusnerv stimuliert – für mehr Ruhe und Regeneration im Alltag. Zusätzlich bietet NANIL einzigartige Features wie <strong>Telefonieren über den Ring</strong> (Bone Conduction) und die <strong>KI-Assistentin Nanil</strong> für Sprache und Nachrichten.",
         hrv_title: "Was ist HRV?",
         hrv_desc: "Die Herzfrequenzvariabilität (HRV) zeigt, wie gut dein Körper mit Belastung umgeht. Eine höhere HRV bedeutet mehr Resilienz und bessere Erholung – NANIL misst und verbessert sie durch aktive Regulation.",
         vagus_title: "Vagusnerv & tVNS",
@@ -180,9 +180,9 @@ window.translations = {
         bone_title: "Bone Conduction Telefonie",
         bone_desc: "Revolutionäre Knochenschall-Technologie überträgt Anrufe direkt über deine Fingerknochen. Kristallklarer Sound ohne Kopfhörer. Niemand sonst kann das!",
         msg_title: "Nachrichten abhören",
-        msg_desc: "Nanni liest dir eingehende Nachrichten vor (WhatsApp, SMS, E-Mail). Bleib informiert, ohne auf den Bildschirm zu schauen.",
-        nanni_ai_title: "Nanni KI-Assistent",
-        nanni_ai_desc: "Sprich mit Nanni direkt über den Ring. Frag nach deinen Vitalwerten, stell Fragen oder lass dir Termine vorlesen.",
+        msg_desc: "Nanil liest dir eingehende Nachrichten vor (WhatsApp, SMS, E-Mail). Bleib informiert, ohne auf den Bildschirm zu schauen.",
+        nanni_ai_title: "Nanil KI-Assistent",
+        nanni_ai_desc: "Sprich mit Nanil direkt über den Ring. Frag nach deinen Vitalwerten, stell Fragen oder lass dir Termine vorlesen.",
         future_tagline: "✨ Die Zukunft am Finger: Vitalität + Kommunikation in einem Gerät",
         how_nanil_title: "Wie NANIL funktioniert",
         how_nanil_sub: "Von der Messung zur aktiven Unterstützung",
@@ -234,8 +234,8 @@ window.translations = {
         faq5_q: "Wie funktioniert die App?",
         faq5_a: "Die NANIL App (iOS & Android) zeigt Ihre Vitaldaten in Echtzeit, gibt personalisierte Empfehlungen und benötigt <strong>kein Abo</strong>. Alle Premium-Features sind inkludiert.",
         label_captcha: "Sicherheitsfrage: Was ist 3 + 4?",
-        nanni_status: "Geben Sie Nanni ein Zeichen zum Sprechen.",
-        nanni_hint: "Nanni braucht <strong>https://</strong> oder <strong>localhost</strong>. Lokal: <strong>LAUFEN.bat</strong> starten, dann <strong>http://localhost:5000</strong> öffnen. Mikrofon erlauben (Schloss-Symbol). Wenn VAPI läuft: zuerst stoppen.",
+        nanni_status: "Geben Sie Nanil ein Zeichen zum Sprechen.",
+        nanni_hint: "Nanil braucht <strong>https://</strong> oder <strong>localhost</strong>. Lokal: <strong>LAUFEN.bat</strong> starten, dann <strong>http://localhost:5000</strong> öffnen. Mikrofon erlauben (Schloss-Symbol). Wenn VAPI läuft: zuerst stoppen.",
         opt_interest_general: "Allgemeine Anfrage",
         opt_interest_preorder: "Produkte vorbestellen",
         opt_interest_investor: "Investor / VC",
@@ -262,7 +262,7 @@ window.translations = {
         hero_patent: "📜 Patent pending • Developed in Germany",
         hero_sub: "Developed with experts in biofeedback and resilience for maximum support in everyday life.",
         btn_hero_products: "View Collection",
-        btn_hero_voice: "Ask Nanni",
+        btn_hero_voice: "Ask Nanil",
         slider_heading: "Collection at a Glance",
         img_slide_1: "NANIL Pulse Collection Overview",
         img_slide_2: "GoldRing Edition - Premium Feedback",
@@ -340,10 +340,10 @@ window.translations = {
 
         // Voice
         voice_title: "Your Personal Health AI",
-        voice_sub: "Nanni is more than a chatbot – she is your companion.",
-        voice_desc: "Use the power of voice. Nanni explains everything about our technology and answers your questions – in German, English, or Turkish.",
-        btn_start_voice: '<i class="fas fa-microphone"></i> Start Nanni',
-        btn_stop_voice: '<i class="fas fa-stop"></i> Stop Nanni',
+        voice_sub: "Nanil is more than a chatbot – she is your companion.",
+        voice_desc: "Use the power of voice. Nanil explains everything about our technology and answers your questions – in German, English, or Turkish.",
+        btn_start_voice: '<i class="fas fa-microphone"></i> Start Nanil',
+        btn_stop_voice: '<i class="fas fa-stop"></i> Stop Nanil',
 
         // Contact
         contact_title: "Get in Touch",
@@ -358,7 +358,7 @@ window.translations = {
         btn_contact_toggle: 'Contact Us Now <i class="fas fa-envelope" style="padding-left: 10px;"></i>',
         legal_text: 'I accept the <a href="datenschutz.html" id="link-privacy" style="color: var(--cyan-primary);">Privacy Policy</a> and <a href="agb.html" id="link-agb" style="color: var(--cyan-primary);">GTC</a>.',
         link_whatsapp_support: "Open WhatsApp Support",
-        btn_whatsapp_read: '<i class="fas fa-microphone"></i> Let Nanni read aloud',
+        btn_whatsapp_read: '<i class="fas fa-microphone"></i> Let Nanil read aloud',
 
         // Footer
         logo_footer_alt: "NANIL Pulse Logo Footer",
@@ -391,7 +391,7 @@ window.translations = {
         banner_text: "🚀 Early Access Phase 1 • Only €99 (Regular €249) • Launch July 2026",
         about_title: "What is NANIL Pulse?",
         about_sub: "Short and clear: Product, technology, and who it's for.",
-        about_p1: "<strong>NANIL Pulse</strong> is a smart health ring that measures your vital signs 24/7 (heart rate, HRV, sleep, stress) and doesn't just inform you, but <strong>actively supports</strong> you: Gentle impulses stimulate the vagus nerve – for more calm and regeneration in everyday life. NANIL also offers unique features like <strong>calling via the ring</strong> (Bone Conduction) and the <strong>AI assistant Nanni</strong> for voice and messages.",
+        about_p1: "<strong>NANIL Pulse</strong> is a smart health ring that measures your vital signs 24/7 (heart rate, HRV, sleep, stress) and doesn't just inform you, but <strong>actively supports</strong> you: Gentle impulses stimulate the vagus nerve – for more calm and regeneration in everyday life. NANIL also offers unique features like <strong>calling via the ring</strong> (Bone Conduction) and the <strong>AI assistant Nanil</strong> for voice and messages.",
         hrv_title: "What is HRV?",
         hrv_desc: "Heart rate variability (HRV) shows how well your body handles stress. Higher HRV means more resilience and better recovery – NANIL measures and improves it through active regulation.",
         vagus_title: "Vagus Nerve & tVNS",
@@ -421,9 +421,9 @@ window.translations = {
         bone_title: "Bone Conduction Calling",
         bone_desc: "Revolutionary bone conduction technology transmits calls directly through your finger bones. Crystal-clear sound without headphones. Nobody else can do that!",
         msg_title: "Listen to Messages",
-        msg_desc: "Nanni reads your incoming messages (WhatsApp, SMS, email) aloud. Stay informed without looking at the screen.",
-        nanni_ai_title: "Nanni AI Assistant",
-        nanni_ai_desc: "Talk to Nanni directly via the ring. Ask about your vital values, ask questions, or have appointments read to you.",
+        msg_desc: "Nanil reads your incoming messages (WhatsApp, SMS, email) aloud. Stay informed without looking at the screen.",
+        nanni_ai_title: "Nanil AI Assistant",
+        nanni_ai_desc: "Talk to Nanil directly via the ring. Ask about your vital values, ask questions, or have appointments read to you.",
         future_tagline: "✨ The future on your finger: Vitality + Communication in one device",
         how_nanil_title: "How NANIL works",
         how_nanil_sub: "From measurement to active support",
@@ -475,8 +475,8 @@ window.translations = {
         faq5_q: "How does the app work?",
         faq5_a: "The NANIL app (iOS & Android) shows your vital data in real-time, gives personalized recommendations and requires <strong>no subscription</strong>. All premium features are included.",
         label_captcha: "Security question: What is 3 + 4?",
-        nanni_status: "Give Nanni a sign to speak.",
-        nanni_hint: "Nanni only works over <strong>https://</strong>. Open page with https, allow microphone, check volume.",
+        nanni_status: "Give Nanil a sign to speak.",
+        nanni_hint: "Nanil only works over <strong>https://</strong>. Open page with https, allow microphone, check volume.",
         opt_interest_general: "General inquiry",
         opt_interest_preorder: "Pre-order products",
         opt_interest_investor: "Investor / VC",
@@ -503,7 +503,7 @@ window.translations = {
         hero_sub: "Günlük yaşamda daha fazla dinginlik için biofeedback ve farkındalık uzmanlarıyla birlikte geliştirildi.",
         hero_patent: "📜 Patent başvurusu yapıldı • Almanya'da geliştirildi",
         btn_hero_products: "Koleksiyonu İnceleyin",
-        btn_hero_voice: "Nanni'ye Sor",
+        btn_hero_voice: "Nanil'a Sor",
         slider_heading: "Koleksiyona Genel Bakış",
         img_slide_1: "NANIL Pulse Koleksiyonuna Genel Bakış",
         img_slide_2: "GoldRing Edition - Premium Feedback",
@@ -581,10 +581,10 @@ window.translations = {
 
         // Voice
         voice_title: "Kişisel Sağlık Yapay Zekanız",
-        voice_sub: "Nanni sadece bir bot değil, yoldaşınızdır.",
-        voice_desc: "Sesin gücünü kullanın. Nanni teknolojimiz hakkında her şeyi açıklar ve sorularınızı Almanca, İngilizce veya Türkçe olarak yanıtlar.",
-        btn_start_voice: '<i class="fas fa-microphone"></i> Nanni\'yi Başlat',
-        btn_stop_voice: '<i class="fas fa-stop"></i> Nanni\'yi Durdur',
+        voice_sub: "Nanil sadece bir bot değil, yoldaşınızdır.",
+        voice_desc: "Sesin gücünü kullanın. Nanil teknolojimiz hakkında her şeyi açıklar ve sorularınızı Almanca, İngilizce veya Türkçe olarak yanıtlar.",
+        btn_start_voice: '<i class="fas fa-microphone"></i> Nanil\'yi Başlat',
+        btn_stop_voice: '<i class="fas fa-stop"></i> Nanil\'yi Durdur',
 
         // Contact
         contact_title: "İletişime Geçin",
@@ -600,7 +600,7 @@ window.translations = {
         skip_link: "İçeriğe atla",
         legal_text: '<a href="datenschutz.html" id="link-privacy" style="color: var(--cyan-primary);">Gizlilik Politikası</a> ve <a href="agb.html" id="link-agb" style="color: var(--cyan-primary);">Kullanım Şartları</a>\'nı kabul ediyorum.',
         link_whatsapp_support: "WhatsApp Desteğini Aç",
-        btn_whatsapp_read: '<i class="fas fa-microphone"></i> Nanni\'ye okut',
+        btn_whatsapp_read: '<i class="fas fa-microphone"></i> Nanil\'ye okut',
 
         // Footer
         logo_footer_alt: "NANIL Pulse Logo Footer",
@@ -633,7 +633,7 @@ window.translations = {
         banner_text: "🚀 Erken Erişim Faz 1 • Sadece €99 (Normal €249) • Lansman Temmuz 2026",
         about_title: "NANIL Pulse Nedir?",
         about_sub: "Kısa ve anlaşılır: Ürün, teknoloji ve kimin için.",
-        about_p1: "<strong>NANIL Pulse</strong>, vital değerlerinizi 7/24 ölçen (kalp atışı, HRV, uyku, stres, hormon dengesi) ve sadece bilgilendirmekle kalmayıp <strong>aktif destek</strong> sunan akıllı bir sağlık yüzüğüdür: Nazik darbeler vagus sinirini uyarır – günlük yaşamda daha fazla huzur ve yenilenme. NANIL ayrıca <strong>yüzük üzerinden arama</strong> (Kemik İletimi) ve ses ve mesajlar için <strong>Nanni yapay zeka asistanı</strong> gibi benzersiz özellikler sunar.",
+        about_p1: "<strong>NANIL Pulse</strong>, vital değerlerinizi 7/24 ölçen (kalp atışı, HRV, uyku, stres, hormon dengesi) ve sadece bilgilendirmekle kalmayıp <strong>aktif destek</strong> sunan akıllı bir sağlık yüzüğüdür: Nazik darbeler vagus sinirini uyarır – günlük yaşamda daha fazla huzur ve yenilenme. NANIL ayrıca <strong>yüzük üzerinden arama</strong> (Kemik İletimi) ve ses ve mesajlar için <strong>Nanil yapay zeka asistanı</strong> gibi benzersiz özellikler sunar.",
         hrv_title: "HRV Nedir?",
         hrv_desc: "Kalp atış hızı değişkenliği (HRV), vücudunuzun strese ne kadar iyi tepki verdiğini gösterir. Daha yüksek HRV, daha fazla dayanıklılık ve daha iyi toparlanma demektir – NANIL bunu aktif düzenleme ile ölçer ve iyileştirir.",
         vagus_title: "Vagus Siniri & tVNS",
@@ -663,9 +663,9 @@ window.translations = {
         bone_title: "Kemik İletimi Telefon",
         bone_desc: "Devrim niteliğinde kemik iletim teknolojisi aramaları doğrudan parmak kemikleriniz üzerinden iletir. Kulaklık olmadan kristal netliğinde ses. Başka kimse yapamaz!",
         msg_title: "Mesajları Dinle",
-        msg_desc: "Nanni gelen mesajlarınızı (WhatsApp, SMS, e-posta) size okur. Ekrana bakmadan bilgi alın.",
-        nanni_ai_title: "Nanni Yapay Zeka Asistanı",
-        nanni_ai_desc: "Nanni ile doğrudan yüzük üzerinden konuşun. Vital değerlerinizi sorun, sorular sorun veya randevularınızı okutun.",
+        msg_desc: "Nanil gelen mesajlarınızı (WhatsApp, SMS, e-posta) size okur. Ekrana bakmadan bilgi alın.",
+        nanni_ai_title: "Nanil Yapay Zeka Asistanı",
+        nanni_ai_desc: "Nanil ile doğrudan yüzük üzerinden konuşun. Vital değerlerinizi sorun, sorular sorun veya randevularınızı okutun.",
         future_tagline: "✨ Parmaklarınızda gelecek: Tek cihazda Canlılık + İletişim",
         how_nanil_title: "NANIL Nasıl Çalışır",
         how_nanil_sub: "Ölçümden aktif desteğe",
@@ -717,8 +717,8 @@ window.translations = {
         faq5_q: "Uygulama nasıl çalışır?",
         faq5_a: "NANIL uygulaması (iOS ve Android) vital verilerinizi gerçek zamanlı gösterir, kişiselleştirilmiş öneriler verir ve <strong>abonelik gerektirmez</strong>. Tüm premium özellikler dahildir.",
         label_captcha: "Güvenlik sorusu: 3 + 4 kaç eder?",
-        nanni_status: "Nanni'ye konuşması için işaret verin.",
-        nanni_hint: "Nanni için <strong>https://</strong> veya <strong>localhost</strong> gerekir. Yerel: <strong>LAUFEN.bat</strong> çalıştırın, <strong>http://localhost:5000</strong> açın. Mikrofonu izin verin (kilit simgesi). VAPI çalışıyorsa: önce durdurun.",
+        nanni_status: "Nanil'ye konuşması için işaret verin.",
+        nanni_hint: "Nanil için <strong>https://</strong> veya <strong>localhost</strong> gerekir. Yerel: <strong>LAUFEN.bat</strong> çalıştırın, <strong>http://localhost:5000</strong> açın. Mikrofonu izin verin (kilit simgesi). VAPI çalışıyorsa: önce durdurun.",
         opt_interest_general: "Genel soru",
         opt_interest_preorder: "Ürünleri ön sipariş ver",
         opt_interest_investor: "Yatırımcı / VC",
@@ -953,7 +953,7 @@ window.setLanguage = function (lang) {
     updateText('#btn-founder', t.btn_founder);
     updateText('#link-concept', t.link_concept);
 
-    // Nanni Status & Hint
+    // Nanil Status & Hint
     const nanniStatus = document.getElementById('nanni-status');
     if (nanniStatus) nanniStatus.textContent = t.nanni_status;
     updateText('#nanni-hint', t.nanni_hint);
@@ -1045,6 +1045,26 @@ window.setLanguage = function (lang) {
             b.removeAttribute('aria-current');
         }
     });
+
+    // === ElevenLabs Nanil Widget: Sprache synchronisieren ===
+    try {
+        var nanilWidget = document.getElementById('lia-widget');
+        if (nanilWidget) {
+            var nanilTexts = {
+                de: { action: 'Frag Nanil', start: 'Gespräch starten', end: 'Gespräch beenden', expand: 'Chat öffnen', listen: 'Hört zu...', speak: 'Nanil spricht' },
+                en: { action: 'Ask Nanil', start: 'Start call', end: 'End call', expand: 'Open chat', listen: 'Listening...', speak: 'Nanil speaking' },
+                tr: { action: "Nanil'a sor", start: 'Aramayı başlat', end: 'Aramayı bitir', expand: 'Sohbeti aç', listen: 'Dinliyor...', speak: 'Nanil konuşuyor' }
+            };
+            var lt = nanilTexts[lang] || nanilTexts.de;
+            nanilWidget.setAttribute('override-language', lang);
+            nanilWidget.setAttribute('action-text', lt.action);
+            nanilWidget.setAttribute('start-call-text', lt.start);
+            nanilWidget.setAttribute('end-call-text', lt.end);
+            nanilWidget.setAttribute('expand-text', lt.expand);
+            nanilWidget.setAttribute('listening-text', lt.listen);
+            nanilWidget.setAttribute('speaking-text', lt.speak);
+        }
+    } catch (e) { console.warn('Nanil widget lang update:', e); }
 };
 
 function initLangAndUI() {
