@@ -1124,7 +1124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.slider-dot');
     let currentSlide = 0;
-    const slideInterval = 1500;
+    const slideInterval = 3000;
 
     if (slides.length > 0) {
         function showSlide(index) {

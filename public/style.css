@@ -697,6 +697,7 @@ nav a.active {
     object-fit: cover;
     border-radius: inherit;
     display: block;
+    transform: scale(0.92);
 }
 
 .slide img.slide-crop-top {

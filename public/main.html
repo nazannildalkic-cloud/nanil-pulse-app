@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    <video id="bg-video" autoplay muted loop playsinline style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:0.12;pointer-events:none;filter:brightness(0.55)"><source src="assets/bg-abstract.mp4" type="video/mp4"></video>
+    <video id="bg-video" autoplay muted loop playsinline  style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:0.35;pointer-events:none;filter:brightness(0.8)"><source src="assets/bg-abstract.mp4" type="video/mp4"></video>
     <a href="#home" class="skip-link" id="skip-link-text">Zum Inhalt springen</a>
     <!-- Ganz oben: Vorseite + App -->
     <div class="top-bar">
@@ -814,6 +814,10 @@
                 <a href="datenschutz.html" id="link-privacy-footer" style="margin: 0 10px;">Datenschutz</a>
                 <a href="agb.html" id="link-agb-footer" style="margin: 0 10px;">AGB</a>
             </nav>
+            <div style="display:flex;gap:20px;justify-content:center;margin-bottom:16px;">
+                <a href="https://www.instagram.com/nanil_pulse" target="_blank" rel="noopener" style="color:#8b95a8;font-size:22px;transition:color 0.3s;" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/nazan-dalkic-4ab00a166" target="_blank" rel="noopener" style="color:#8b95a8;font-size:22px;transition:color 0.3s;" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
             <p id="footer-copy">&copy; 2026 NANIL Pulse - Nazan Nil Dalkic. Alle Rechte vorbehalten.</p>
             <p style="font-size:0.75rem;opacity:0.7;margin-top:6px;">Seite zuletzt aktualisiert: 13.02.2026</p>
     </footer>
@@ -821,67 +825,10 @@
     <script src="script.js" defer></script>
 
     <!-- Nanil Voice Agent (ElevenLabs Conversational AI) -->
-    <elevenlabs-convai id="lia-widget" agent-id="agent_7901kf82k4w0e73vbz0hhakw6xfv" override-language="de" action-text="Frag Nanil"
-        start-call-text="Gespräch starten" end-call-text="Gespräch beenden" expand-text="Chat öffnen"
-        listening-text="Hört zu..." speaking-text="Nanil spricht"></elevenlabs-convai>
+    <div id="nanil-widget-slot"></div>
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-    <script>
-    // Auto-detect browser language for Nanil widget (DE/EN/TR)
-    (function(){
-        var w=document.getElementById('lia-widget'),l=(navigator.language||'de').slice(0,2);
-        var t={de:{action:'Frag Nanil',start:'Gespräch starten',end:'Gespräch beenden',expand:'Chat öffnen',listen:'Hört zu...',speak:'Nanil spricht',lang:'de'},
-               en:{action:'Ask Nanil',start:'Start call',end:'End call',expand:'Open chat',listen:'Listening...',speak:'Nanil speaking',lang:'en'},
-               tr:{action:"Nanil'a sor",start:'Aramayı başlat',end:'Aramayı bitir',expand:'Sohbeti aç',listen:'Dinliyor...',speak:'Nanil konuşuyor',lang:'tr'}};
-        var c=t[l]||t.de;
-        if(w){w.setAttribute('override-language',c.lang);w.setAttribute('action-text',c.action);w.setAttribute('start-call-text',c.start);w.setAttribute('end-call-text',c.end);w.setAttribute('expand-text',c.expand);w.setAttribute('listening-text',c.listen);w.setAttribute('speaking-text',c.speak);}
-    })();
-    </script>
-    <script>
-        // Override ElevenLabs widget "Need help?" text for Nanil (optimiert für Mobile)
-        (function () {
-            const labelMap = {
-                de: 'Frag Nanil',
-                tr: "Nanil'a sor",
-                en: 'Ask Nanil'
-            };
-            function getLang() {
-                var activeBtn = document.querySelector('.lang-btn.active');
-                return (activeBtn && activeBtn.getAttribute('data-lang')) || document.documentElement.lang || 'de';
-            }
-            var overrideDone = false;
-            function overrideText() {
-                const widget = document.querySelector('elevenlabs-convai');
-                if (!widget) return;
-                const root = widget.shadowRoot;
-                if (!root) return;
-                root.querySelectorAll('*').forEach(function (el) {
-                    if (el.children.length === 0 && el.textContent.trim() === 'Need help?') {
-                        el.textContent = labelMap[getLang()] || labelMap['de'];
-                        overrideDone = true;
-                    }
-                });
-            }
-            // MutationObserver statt setInterval (viel besser für Mobile Performance)
-            var shadowObsAttached = false;
-            var bodyObs = new MutationObserver(function () {
-                var widget = document.querySelector('elevenlabs-convai');
-                if (widget && widget.shadowRoot && !shadowObsAttached) {
-                    shadowObsAttached = true;
-                    var shadowObs = new MutationObserver(overrideText);
-                    shadowObs.observe(widget.shadowRoot, { childList: true, subtree: true, characterData: true });
-                    overrideText();
-                    // Fallback: nur 5x versuchen, nicht endlos pollen
-                    var attempts = 0;
-                    var fallback = setInterval(function() {
-                        overrideText();
-                        attempts++;
-                        if (overrideDone || attempts > 5) clearInterval(fallback);
-                    }, 1000);
-                }
-            });
-            bodyObs.observe(document.body, { childList: true, subtree: true });
-        })();
-    </script>
+    
+    
     <!-- WhatsApp Floating Button (links unten, damit Nanil-Widget rechts frei bleibt) -->
     <a href="https://wa.me/491776480485" target="_blank" rel="noopener" id="whatsapp-float" title="WhatsApp"
         style="position: fixed; bottom: 24px; left: 24px; background: #25D366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; transition: transform 0.3s ease;">
@@ -989,6 +936,121 @@
         var d=screen.width<768?'mobile':'desktop';
         var data={site:'nanilpulse.art',page:location.pathname,ref:document.referrer||'direct',lang:(navigator.language||'de').slice(0,2),device:d};
         fetch('https://n8n.srv1200351.hstgr.cloud/webhook/analytics',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+    })();
+    </script>
+
+    <style>
+    @media(max-width:768px){
+      
+      .hero-video-wrap video{max-height:300px;object-fit:cover;}
+    }
+    </style>
+    <script>
+    (function(){
+      var sc=document.querySelector('.slider-container');
+      if(!sc) return;
+      var startX=0;
+      sc.addEventListener('touchstart',function(e){startX=e.changedTouches[0].screenX;},{passive:true});
+      sc.addEventListener('touchend',function(e){
+        var diff=startX-e.changedTouches[0].screenX;
+        if(Math.abs(diff)>50){
+          var dots=document.querySelectorAll('.slider-dot');
+          var cur=document.querySelector('.slider-dot.active');
+          var idx=cur?parseInt(cur.dataset.index):0;
+          if(diff>0) idx=(idx+1)%dots.length; else idx=(idx-1+dots.length)%dots.length;
+          dots[idx].click();
+        }
+      },{passive:true});
+    })();
+    </script>
+
+    <script>
+    (function(){
+        var t={
+            de:{action:'Frag Nanil',start:'Gespräch starten',end:'Gespräch beenden',expand:'Chat öffnen',listen:'Hört zu...',speak:'Nanil spricht',lang:'de'},
+            en:{action:'Ask Nanil',start:'Start call',end:'End call',expand:'Open chat',listen:'Listening...',speak:'Nanil speaking',lang:'en'},
+            tr:{action:"Nanil'a sor",start:'Aramayı başlat',end:'Aramayı bitir',expand:'Sohbeti aç',listen:'Dinliyor...',speak:'Nanil konuşuyor',lang:'tr'}
+        };
+        var slot=document.getElementById('nanil-widget-slot');
+        if(!slot) return;
+        var allKnown=['Frag Nanil','Ask Nanil',"Nanil'a sor",'Need help?','Gespräch starten','Start call','Aramayı başlat','Gespräch beenden','End call','Aramayı bitir','Chat öffnen','Open chat','Sohbeti aç'];
+
+        function createWidget(){
+            var lang=document.documentElement.lang||'de';
+            var c=t[lang]||t.de;
+            slot.innerHTML='';
+            var el=document.createElement('elevenlabs-convai');
+            el.setAttribute('agent-id','agent_7901kf82k4w0e73vbz0hhakw6xfv');
+            el.setAttribute('override-language',c.lang);
+            el.setAttribute('action-text',c.action);
+            el.setAttribute('start-call-text',c.start);
+            el.setAttribute('end-call-text',c.end);
+            el.setAttribute('expand-text',c.expand);
+            el.setAttribute('listening-text',c.listen);
+            el.setAttribute('speaking-text',c.speak);
+            slot.appendChild(el);
+            function fixShadow(){
+                if(!el.shadowRoot) return;
+                var startTexts=['Gespräch starten','Start call','Aramayı başlat'];
+                var endTexts=['Gespräch beenden','End call','Aramayı bitir'];
+                var expandTexts=['Chat öffnen','Open chat','Sohbeti aç'];
+                el.shadowRoot.querySelectorAll('*').forEach(function(n){
+                    if(n.children.length===0&&n.textContent){
+                        var txt=n.textContent.trim();
+                        if(allKnown.indexOf(txt)!==-1&&txt!==c.action&&startTexts.indexOf(txt)===-1&&endTexts.indexOf(txt)===-1&&expandTexts.indexOf(txt)===-1) n.textContent=c.action;
+                        if(startTexts.indexOf(txt)!==-1&&txt!==c.start) n.textContent=c.start;
+                        if(endTexts.indexOf(txt)!==-1&&txt!==c.end) n.textContent=c.end;
+                        if(expandTexts.indexOf(txt)!==-1&&txt!==c.expand) n.textContent=c.expand;
+                    }
+                });
+            }
+            function watchShadow(){
+                if(el.shadowRoot){
+                    new MutationObserver(function(){setTimeout(fixShadow,50);}).observe(el.shadowRoot,{childList:true,subtree:true,characterData:true});
+                    fixShadow();
+                } else setTimeout(watchShadow,300);
+            }
+            watchShadow();
+            setTimeout(fixShadow,500);
+            setTimeout(fixShadow,1500);
+        }
+
+        function updateTexts(){
+            var lang=document.documentElement.lang||'de';
+            var btn=document.getElementById('btn-hero-voice');
+            var sub=document.getElementById('voice-sub');
+            if(btn) btn.textContent={de:'Frag Nanil',en:'Ask Nanil',tr:"Nanil'a sor"}[lang]||'Frag Nanil';
+            if(sub) sub.textContent={de:'Fragen Sie Nanil per Sprache.',en:'Ask Nanil by voice.',tr:"Nanil'a sesle sorun."}[lang]||'Fragen Sie Nanil per Sprache.';
+        }
+
+        new MutationObserver(function(muts){
+            muts.forEach(function(m){if(m.attributeName==='lang'){createWidget();updateTexts();}});
+        }).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn){
+            btn.addEventListener('click',function(){setTimeout(function(){createWidget();updateTexts();},100);});
+        });
+
+        createWidget();
+        updateTexts();
+        setInterval(function(){
+            var lang=document.documentElement.lang||'de';
+            var c=t[lang]||t.de;
+            var el=slot.querySelector('elevenlabs-convai');
+            if(!el||!el.shadowRoot) return;
+            var startTexts2=['Gespräch starten','Start call','Aramayı başlat'];
+                var endTexts2=['Gespräch beenden','End call','Aramayı bitir'];
+                var expandTexts2=['Chat öffnen','Open chat','Sohbeti aç'];
+                el.shadowRoot.querySelectorAll('*').forEach(function(n){
+                    if(n.children.length===0&&n.textContent){
+                        var txt=n.textContent.trim();
+                        if(allKnown.indexOf(txt)!==-1&&txt!==c.action&&startTexts2.indexOf(txt)===-1&&endTexts2.indexOf(txt)===-1&&expandTexts2.indexOf(txt)===-1) n.textContent=c.action;
+                        if(startTexts2.indexOf(txt)!==-1&&txt!==c.start) n.textContent=c.start;
+                        if(endTexts2.indexOf(txt)!==-1&&txt!==c.end) n.textContent=c.end;
+                        if(expandTexts2.indexOf(txt)!==-1&&txt!==c.expand) n.textContent=c.expand;
+                    }
+                });
+        },1000);
     })();
     </script>
 </body>

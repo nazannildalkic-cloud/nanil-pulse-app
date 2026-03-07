@@ -769,17 +769,39 @@ function VoiceAI({ lang, t }) {
     }
   };
 
-  const speak = useCallback((text) => {
+  const audioRef = useRef(null);
+  const speak = useCallback(async (text) => {
+    // Stop any current playback
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
     window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = lang === "de" ? "de-DE" : lang === "tr" ? "tr-TR" : "en-US";
-    u.rate = 1.0; u.pitch = 1.05;
-    const voices = window.speechSynthesis.getVoices();
-    const pref = voices.find(v => v.lang.startsWith(u.lang.substring(0,2)));
-    if (pref) u.voice = pref;
     setStatus("speaking");
-    u.onend = () => { setStatus("listening"); startRec(); };
-    window.speechSynthesis.speak(u);
+    try {
+      const resp = await fetch("https://api.elevenlabs.io/v1/text-to-speech/g6xIsTj2HwM6VR4iXFCw/stream", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "xi-api-key": "sk_b76d49f4f0543f2955566f4b0ab1024f61e7d7c348b24b23" },
+        body: JSON.stringify({
+          text: text,
+          model_id: "eleven_multilingual_v2",
+          voice_settings: { stability: 0.25, similarity_boost: 0.9, speed: 1.0 },
+          language_code: lang === "de" ? "de" : lang === "tr" ? "tr" : "en"
+        })
+      });
+      if (!resp.ok) throw new Error("TTS failed");
+      const blob = await resp.blob();
+      const url = URL.createObjectURL(blob);
+      const audio = new Audio(url);
+      audioRef.current = audio;
+      audio.onended = () => { setStatus("listening"); startRec(); URL.revokeObjectURL(url); };
+      audio.onerror = () => { setStatus("listening"); startRec(); };
+      audio.play();
+    } catch(e) {
+      // Fallback to browser TTS if API fails
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = lang === "de" ? "de-DE" : lang === "tr" ? "tr-TR" : "en-US";
+      u.rate = 1.0; u.pitch = 1.05;
+      u.onend = () => { setStatus("listening"); startRec(); };
+      window.speechSynthesis.speak(u);
+    }
   }, [lang]);
 
   const startRec = useCallback(() => {
@@ -821,6 +843,7 @@ function VoiceAI({ lang, t }) {
     setListening(false);
     setStatus("idle");
     window.speechSynthesis.cancel();
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
     if (recRef.current) try { recRef.current.stop(); } catch(e) {}
   };
 
