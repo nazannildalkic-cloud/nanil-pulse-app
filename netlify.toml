@@ -1,8 +1,6 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
-  [build.environment]
-    NODE_VERSION = "18"
+  command = ""
+  publish = "public"
 
 # Root → Vorpage (Startseite)
 [[redirects]]
@@ -11,16 +9,16 @@
   status = 302
   force = true
 
-# React App
+# React App (externe Demo)
 [[redirects]]
   from = "/app"
-  to = "/index.html"
-  status = 200
+  to = "https://nanil-pulse-app.netlify.app"
+  status = 302
 
 [[redirects]]
   from = "/app/*"
-  to = "/index.html"
-  status = 200
+  to = "https://nanil-pulse-app.netlify.app/:splat"
+  status = 302
 
 [[headers]]
   for = "/*"
