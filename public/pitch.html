@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NANIL Pulse – Investor Pitch | Pre-Seed 2026</title>
+<meta name="description" content="NANIL Pulse Investor Pitch – Das erste kontextuelle Wellbeing-System. Pre-Seed Runde €350K. Pitch Deck, Finanzplanung, Technologie & Roadmap.">
+<meta name="theme-color" content="#16161c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NANIL Pulse – Investor Pitch · Pre-Seed 2026">
+<meta property="og:description" content="Das erste kontextuelle Wellbeing-System. Pre-Seed €350K. Kontext schlägt Zahl.">
+<meta property="og:url" content="https://nanilpulse.art/pitch">
+<meta property="og:image" content="https://nanilpulse.art/nanil-pulse-logo.png">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NANIL Pulse – Investor Pitch · Pre-Seed 2026">
+<meta name="twitter:description" content="Das erste kontextuelle Wellbeing-System. Pre-Seed €350K.">
+<meta name="twitter:image" content="https://nanilpulse.art/nanil-pulse-logo.png">
+<link rel="canonical" href="https://nanilpulse.art/pitch">
+<link rel="icon" type="image/jpeg" href="pitch-assets/logo.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pitch.css">
+<style>
+/* Kritisch: Pitch bleibt sichtbar auch wenn CSS-Datei nicht lädt */
+body { background-color: #16161c !important; color: #f4f4f6 !important; font-family: Montserrat, sans-serif !important; min-height: 100vh !important; }
+.pitch-nav { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 10002 !important; background: rgba(5,5,5,0.95) !important; padding: 0 25px !important; height: 72px !important; display: flex !important; align-items: center !important; justify-content: space-between !important; }
+.p-hero { min-height: 100vh !important; display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; text-align: center !important; padding: 120px 25px 60px !important; position: relative !important; }
+.p-hero-title { font-size: clamp(2rem, 6vw, 5rem) !important; color: #f4f4f6 !important; }
+section, .p-section, .metrics-bar, .final-cta, .pitch-footer { position: relative !important; z-index: 1 !important; }
+</style>
+<!-- hreflang -->
+<link rel="alternate" hreflang="de" href="https://nanilpulse.art/pitch">
+<link rel="alternate" hreflang="x-default" href="https://nanilpulse.art/pitch">
+<!-- Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "NANIL Pulse",
+  "url": "https://nanilpulse.art",
+  "logo": "https://nanilpulse.art/assets/logo.jpg",
+  "description": "Das erste kontextuelle Wellbeing-System. Ring + Patch + Stimm-Analyse.",
+  "sameAs": [
+    "https://www.instagram.com/nanil_pulse",
+    "https://www.linkedin.com/in/nazan-dalkic-4ab00a166"
+  ]
+}
+</script>
+</head>
+<body>
+
+<canvas id="bg-grid" aria-hidden="true" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+
+<!-- NAV -->
+<nav class="pitch-nav">
+  <a href="/" class="logo" aria-label="NANIL Pulse – Startseite">
+    <img src="pitch-assets/logo.jpg" alt="NANIL Pulse Logo">
+    <span class="text-gradient-gold">NANIL Pulse</span>
+  </a>
+  <ul class="pitch-nav-links">
+    <li><a href="#slides">Bilder</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#system">System</a></li>
+    <li><a href="#market">Markt</a></li>
+    <li><a href="#traction">Status</a></li>
+    <li><a href="#invest">Investieren</a></li>
+  </ul>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <span class="badge">Pre-Seed · 2026</span>
+    <a href="main.html" class="btn-back">Zurück zur Startseite</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="p-hero">
+  <div class="p-hero-bg"></div>
+  <div class="p-hero-grid"></div>
+  <div class="pulse-ring-container">
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring"></div>
+  </div>
+
+  <div class="p-hero-eyebrow">NANIL Pulse — Hamburg, Germany</div>
+
+  <h1 class="p-hero-title">
+    Kontext<br>
+    schlägt<br>
+    <em>Zahl.</em>
+  </h1>
+
+  <p class="p-hero-sub">
+    Das erste Wellbeing-System, das nicht nur misst —<br>
+    sondern <em>versteht</em>, was Ihre Daten wirklich bedeuten.
+  </p>
+
+  <!-- Pulse wave -->
+  <div class="pulse-wave">
+    <svg viewBox="0 0 500 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="pulse-line" d="M0 30 L80 30 L100 10 L120 50 L140 20 L160 40 L180 30 L260 30 L280 5 L300 55 L320 15 L340 45 L360 30 L500 30"
+        stroke="#5d9aa8" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="p-hero-ctas">
+    <a href="#invest" class="btn-primary">Pitch Deck anfordern</a>
+    <a href="#system" class="btn-ghost">System verstehen</a>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<!-- LOGO & BILDER SLIDES (dein NANIL Logo + Slide-Bilder) -->
+<section id="slides" class="p-section slides-section reveal">
+  <div class="container">
+    <div class="section-tag">Bilder</div>
+    <div class="slides-logo-wrap">
+      <img src="pitch-assets/logo.jpg" alt="NANIL Pulse Logo" class="slides-hero-logo" loading="lazy">
+    </div>
+    <div class="slides-gallery" role="region" aria-label="Pitch-Bilder">
+      <div class="slides-track">
+        <img src="pitch-assets/slides/slide1.png" alt="NANIL Pulse" loading="lazy">
+        <img src="pitch-assets/slides/slide2.png" alt="NANIL App" loading="lazy">
+        <img src="pitch-assets/slides/slide3.png" alt="System Symbiose" loading="lazy">
+        <img src="pitch-assets/slides/slide4.png" alt="Hormon-Dashboard" loading="lazy">
+        <img src="pitch-assets/slides/slide5.png" alt="Vagus-Nerv" loading="lazy">
+        <img src="pitch-assets/slides/slide6.png" alt="Bone Conduction" loading="lazy">
+        <img src="pitch-assets/slides/slide7.jpg" alt="Gold Ring" loading="lazy">
+        <img src="pitch-assets/slides/slide8.jpg" alt="Patch" loading="lazy">
+        <img src="pitch-assets/slides/slide9.jpg" alt="Silver Ring" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<div class="metrics-bar reveal">
+  <div class="metric-item">
+    <div class="metric-num">$87<span class="unit">B</span></div>
+    <div class="metric-label">Globaler Wearable-Markt 2026</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-num">35<span class="unit">+</span></div>
+    <div class="metric-label">Jahre Wellness-Expertise</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-num">0<span class="unit">%</span></div>
+    <div class="metric-label">Subscription-Modell — einmalig, fair</div>
+  </div>
+  <div class="metric-item">
+    <div class="metric-num">1<span class="unit">st</span></div>
+    <div class="metric-label">Kontextuelles Closed-Loop System</div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem" class="p-section reveal">
+  <div class="container">
+    <div class="section-tag">01 · Das Problem</div>
+    <h2 class="section-title">
+      Wearables messen.<br>
+      <em>Niemand versteht.</em>
+    </h2>
+    <p class="section-body">
+      Millionen Menschen tragen Bio-Sensoren. Und wissen trotzdem nicht, was ihre Daten bedeuten. 
+      Das Problem ist nicht die Hardware — es ist die fehlende Intelligenz dahinter.
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-card-num">01</div>
+        <div class="problem-card-title">Daten ohne Bedeutung</div>
+        <div class="problem-card-text">
+          Herzrate, HRV, Schlaf — isolierte Zahlen, die ohne Kontext nichts über das eigentliche Wohlbefinden aussagen. Nutzer sind überwältigt, nicht informiert.
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-num">02</div>
+        <div class="problem-card-title">Reaktiv statt proaktiv</div>
+        <div class="problem-card-text">
+          Bestehende Systeme zeigen, was passiert ist. NANIL zeigt, was passiert — und warum. Der Unterschied zwischen Tagebuch und Kompass.
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-num">03</div>
+        <div class="problem-card-title">Gadget statt System</div>
+        <div class="problem-card-text">
+          Apple Watch, Garmin, Oura — Einzelgeräte. Kein System, das Ring, Patch und Stimme zu einem kontextuellen Gesamtbild verbindet.
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-num">04</div>
+        <div class="problem-card-title">Keine persönliche Resonanz</div>
+        <div class="problem-card-text">
+          Wellness-Apps bieten generische Empfehlungen. NANIL erkennt Ihre persönlichen Muster — und antwortet darauf mit echter, situativer Unterstützung.
+        </div>
+      </div>
+    </div>
+
+    <div class="big-quote">
+      Wir haben nicht zu wenig Gesundheitsdaten.<br>
+      Wir haben zu wenig <em style="color:var(--cyan-primary)">Gesundheitsverständnis.</em>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM / SOLUTION -->
+<div class="system-bg p-section-full" id="system">
+  <div class="container reveal">
+    <div class="section-tag">02 · Die Lösung</div>
+    <h2 class="section-title">
+      Ein System, das<br>
+      <em>Zusammenhänge sieht.</em>
+    </h2>
+    <p class="section-body">
+      NANIL Pulse verbindet Ring-Biosensorik, Patch-Daten und Stimm-Analyse zu einem intelligenten 
+      Netzwerk. Die App ist das Gehirn — Hardware ist das Nervensystem.
+    </p>
+
+    <div class="system-diagram">
+      <div class="sys-node">
+        <div class="sys-icon">💍</div>
+        <div class="sys-label">NANIL Ring<br>Biosensorik</div>
+      </div>
+      <div class="sys-connector"></div>
+      <div class="sys-node">
+        <div class="sys-icon center">🧠</div>
+        <div class="sys-label">NANIL App<br>Kontext-KI</div>
+      </div>
+      <div class="sys-connector"></div>
+      <div class="sys-node">
+        <div class="sys-icon">🩹</div>
+        <div class="sys-label">NANIL Patch<br>Haut-Sensoren</div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:1.5rem;">
+      <div class="sys-connector" style="display:inline-block; width:70px; height:2px; vertical-align:middle;"></div>
+      <div class="sys-node" style="display:inline-flex; flex-direction:column; align-items:center; margin-top:1rem;">
+        <div class="sys-icon" style="margin:0 auto;">🎙️</div>
+        <div class="sys-label">Stimm-Analyse<br>Voice-Signal</div>
+      </div>
+    </div>
+
+    <div class="system-insight">
+      <div class="insight-card">
+        <div class="insight-icon">🔗</div>
+        <div class="insight-title">Muster statt Messwerte</div>
+        <div class="insight-text">
+          Der Mehrwert entsteht nicht durch einzelne Werte, sondern durch deren Beziehung zueinander — über Zeit, Kontext und Verhalten.
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🎯</div>
+        <div class="insight-title">Closed-Loop-Intervention</div>
+        <div class="insight-text">
+          NANIL erkennt Dysregulation und antwortet sofort — nicht erst im nächsten Arztgespräch. Echtzeit-Unterstützung, personalisiert.
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🔬</div>
+        <div class="insight-title">Wissenschaftlich fundiert</div>
+        <div class="insight-text">
+          Forschung zeigt: Stimme trägt messbare metabolische und mentale Signale. NANIL macht diese Erkenntnisse alltagstauglich.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET -->
+<section id="market" class="p-section reveal">
+  <div class="container">
+    <div class="section-tag">03 · Der Markt</div>
+    <h2 class="section-title">
+      Ein Markt, der<br>
+      <em>explodiert.</em>
+    </h2>
+    <p class="section-body">
+      Der globale Wellness-Technologie-Markt wächst schneller als KI, schneller als Cloud — 
+      getrieben von einer Generation, die Gesundheit nicht delegieren will.
+    </p>
+
+    <div class="market-split">
+      <div class="market-numbers">
+        <div class="market-num-row tam">
+          <div class="mnr-label">TAM · Total Addressable Market</div>
+          <div class="mnr-val">$87B</div>
+          <div class="mnr-desc">Globaler Wearable & Digital Health Markt 2026</div>
+        </div>
+        <div class="market-num-row sam">
+          <div class="mnr-label">SAM · Serviceable Available Market</div>
+          <div class="mnr-val">$12B</div>
+          <div class="mnr-desc">Stress & Mental Wellbeing Devices, Europa + DACH</div>
+        </div>
+        <div class="market-num-row som">
+          <div class="mnr-label">SOM · Serviceable Obtainable Market</div>
+          <div class="mnr-val">$340M</div>
+          <div class="mnr-desc">Kontextuelles Wellbeing, App-first Segment, 2027</div>
+        </div>
+      </div>
+      <div>
+        <div class="market-funnel">
+          <div class="funnel-layer fl-1">$87B — Global Wearable Health</div>
+          <div class="funnel-layer fl-2">$12B — DACH + EU Wellness Tech</div>
+          <div class="funnel-layer fl-3">$340M — Kontextuelles Wellbeing</div>
+        </div>
+        <div style="margin-top:2.5rem; padding:1.5rem; border:1px solid rgba(93,154,168,0.12); border-radius:16px; background:rgba(93,154,168,0.03);">
+          <div style="font-size:0.6rem; letter-spacing:0.15em; color:var(--cyan-primary); text-transform:uppercase; margin-bottom:0.8rem;">Warum jetzt?</div>
+          <div style="font-size:1rem; line-height:1.7; color:var(--text-muted);">
+            Post-Pandemie-Bewusstsein. AI-Infrastruktur. Miniaturisierung von Sensoren. 
+            Drei Megatrends konvergieren exakt in dem Moment, in dem NANIL den Markt betritt.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATION -->
+<section class="p-section reveal">
+  <div class="container">
+    <div class="section-tag">04 · Differenzierung</div>
+    <h2 class="section-title">
+      <em>NANIL</em> vs. der Rest.
+    </h2>
+    <p class="section-body">
+      Nicht schneller. Nicht mehr. Anders — auf einer fundamentaleren Ebene.
+    </p>
+
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th>Merkmal</th>
+          <th>Apple Watch / Oura</th>
+          <th>Garmin / Fitbit</th>
+          <th class="nanil-col">✦ NANIL Pulse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Sensorik</td><td>Einzelgerät</td><td>Einzelgerät</td><td class="nanil-col"><span class="check">✓</span> Ring + Patch + Stimme</td></tr>
+        <tr><td>Datenanalyse</td><td>Isolierte KPIs</td><td>Historische Trends</td><td class="nanil-col"><span class="check">✓</span> Kontextuelle Muster</td></tr>
+        <tr><td>Intervention</td><td><span class="cross">✗</span> Keine</td><td><span class="cross">✗</span> Keine</td><td class="nanil-col"><span class="check">✓</span> Closed-Loop, Echtzeit</td></tr>
+        <tr><td>Stimm-Analyse</td><td><span class="cross">✗</span> Nein</td><td><span class="cross">✗</span> Nein</td><td class="nanil-col"><span class="check">✓</span> Ja — KI-gestützt</td></tr>
+        <tr><td>Subscription-Modell</td><td>Ja — monatlich</td><td>Ja — monatlich</td><td class="nanil-col"><span class="check">✓</span> Nein — einmalig & fair</td></tr>
+        <tr><td>Positionierung</td><td>Medizin-nah / Sport</td><td>Fitness / Sport</td><td class="nanil-col"><span class="check">✓</span> Reines Wellbeing-System</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<div class="science-bg p-section-full reveal">
+  <div class="container">
+    <div class="section-tag">05 · Wissenschaft</div>
+    <h2 class="section-title">
+      Nicht Spekulation.<br>
+      <em>Peer-Review.</em>
+    </h2>
+    <p class="section-body">
+      NANIL steht auf dem Fundament aktueller Forschung. Stimme als biomedizinisches Signal 
+      ist keine Theorie — es ist publizierte Wissenschaft.
+    </p>
+    <div class="science-list">
+      <div class="science-item"><div class="science-dot"></div><div class="science-text"><strong>Nature / PMC 2024:</strong> KI-Algorithmen können Typ-2-Diabetes-Status mit hoher Genauigkeit aus Stimmanalyse ableiten — eine 10-sekündige Aufnahme reicht.</div></div>
+      <div class="science-item"><div class="science-dot"></div><div class="science-text"><strong>PLOS Digital Health:</strong> Voice-basiertes AI-Screening zeigt klinisch relevante Ergebnisse für metabolische Erkrankungen ohne invasive Tests.</div></div>
+      <div class="science-item"><div class="science-dot"></div><div class="science-text"><strong>JMIR 2024:</strong> Sprachanalyse als zuverlässiger Indikator für mentale Zustände — Depression, Angst, Burnout-Früherkennung durch Vokalmuster.</div></div>
+      <div class="science-item"><div class="science-dot"></div><div class="science-text"><strong>Luxembourg Institute of Health — Colive Voice:</strong> Nicht-invasives Screening durch KI-Stimm-Tools ist skalierbar, kosteneffizient und bevölkerungsweit einsetzbar.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRACTION / STATUS -->
+<div class="traction-bg p-section-full" id="traction">
+  <div class="container reveal">
+    <div class="section-tag">06 · Status & Traction</div>
+    <h2 class="section-title">
+      Früh. Fundiert.<br>
+      <em class="gold-text">Bereit.</em>
+    </h2>
+    <div class="traction-grid">
+      <div class="traction-card"><div class="tc-icon">🏗️</div><div class="tc-title">Systemarchitektur</div><div class="tc-text">Die Gesamtarchitektur steht. Closed-Loop-Konzept, Datenflüsse, App-Struktur — vollständig definiert und dokumentiert.</div></div>
+      <div class="traction-card"><div class="tc-icon">📱</div><div class="tc-title">App-First Entwicklung</div><div class="tc-text">React/Vite App in aktiver Entwicklung. 12-Tab-Interface, Live-Metriken, Web Audio API, Haptik-Feedback — läuft.</div></div>
+      <div class="traction-card"><div class="tc-icon">⚖️</div><div class="tc-title">IP Gesichert</div><div class="tc-text">Deutsches Gebrauchsmuster (DPMA) zum Schutz des Closed-Loop-Biosensor-Systems eingereicht. Geistiges Eigentum ist gesichert.</div></div>
+      <div class="traction-card"><div class="tc-icon">🔬</div><div class="tc-title">Wissenschaftliche Basis</div><div class="tc-text">8+ peer-reviewed Studien aus Nature, JMIR, PLOS Digital Health — fundierte Validierung des Kernkonzepts durch externe Forschung.</div></div>
+      <div class="traction-card"><div class="tc-icon">🌍</div><div class="tc-title">Multilingual von Anfang an</div><div class="tc-text">Website und System in Deutsch, Englisch, Türkisch — internationaler Go-to-Market von Tag Eins.</div></div>
+      <div class="traction-card"><div class="tc-icon">💡</div><div class="tc-title">35 Jahre Expertise</div><div class="tc-text">Founder-Hintergrund in Wellness, NLP und Stressmanagement: Das Produkt entsteht aus gelebtem Verständnis, nicht aus der Theorie.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<section class="p-section reveal">
+  <div class="container">
+    <div class="section-tag">07 · Roadmap</div>
+    <h2 class="section-title">Von heute<br><em>zum Markt.</em></h2>
+    <div class="roadmap">
+      <div class="rm-item"><div class="rm-period">Q1 2026</div><div><div class="rm-content-title">✓ Systemarchitektur & IP</div><div class="rm-content-text">Gebrauchsmuster eingereicht · App-Grundstruktur fertig · Website live</div></div></div>
+      <div class="rm-item now"><div class="rm-period current">JETZT · Q2 2026</div><div><div class="rm-content-title">⚡ Pre-Seed Fundraising & App-MVP</div><div class="rm-content-text">Aktive Investor-Gespräche · App-MVP in Entwicklung · Co-Founder Onboarding · Early-Access-Community aufbauen</div></div></div>
+      <div class="rm-item future"><div class="rm-period">Q3–Q4 2026</div><div><div class="rm-content-title">App Launch & Nutzer-Validierung</div><div class="rm-content-text">Soft Launch App · Voice-Analyse Beta · 500+ Early Adopters · Erste Umsätze</div></div></div>
+      <div class="rm-item future"><div class="rm-period">2027</div><div><div class="rm-content-title">Hardware Launch & Seed-Runde</div><div class="rm-content-text">Ring + Patch Hardware Prototyp · Seed Fundraising €1–2M · EU-Expansion · B2B-Partnerships</div></div></div>
+      <div class="rm-item future"><div class="rm-period">2028+</div><div><div class="rm-content-title">Scale & Series A</div><div class="rm-content-text">Multi-Market Rollout · Enterprise-Partnerships · 50.000+ aktive Nutzer · Series A Vorbereitung</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="p-section reveal">
+  <div class="container">
+    <div class="section-tag">08 · Das Team</div>
+    <h2 class="section-title">Gegründet von<br><em>Überzeugung.</em></h2>
+    <div class="founder-section">
+      <div style="display:flex; justify-content:center;"><div class="founder-avatar">🌟</div></div>
+      <div>
+        <div class="founder-name">Nazannil</div>
+        <div class="founder-title-text">Founder & CEO · NANIL Pulse Technologies GmbH</div>
+        <div class="founder-bio">
+          35+ Jahre praktische Expertise in Wellness, NLP, Reiki und Stressmanagement — 
+          nicht als akademische Theorie, sondern als gelebtes, angewandtes Wissen.
+          <br><br>
+          Nazannil gründete NANIL Pulse mit einer klaren Mission: Menschen nicht mit Daten zu 
+          überwältigen, sondern ihnen echtes Verständnis zurückzugeben. Das Produkt ist kein 
+          Gadget — es ist die Essenz von drei Jahrzehnten Menschenkenntnis, codiert in Technologie.
+          <br><br>
+          <em>"Never scare, always soothe."</em> — Das Prinzip, das jede Designentscheidung bei NANIL leitet.
+        </div>
+        <div class="founder-tags">
+          <span class="tag">35+ J. Wellness-Expertise</span>
+          <span class="tag">NLP Practitioner</span>
+          <span class="tag">Reiki Master</span>
+          <span class="tag">Tech Founder</span>
+          <span class="tag">Hamburg</span>
+          <span class="tag">Multilingual</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:3rem; padding:2rem; border:1px solid rgba(93,154,168,0.15); border-radius:16px; background:rgba(93,154,168,0.03); text-align:center;">
+      <div style="font-size:0.65rem; letter-spacing:0.2em; color:var(--cyan-primary); text-transform:uppercase; margin-bottom:0.8rem;">Wir suchen</div>
+      <div style="font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:400; line-height:1.7; color:var(--text-muted);">
+        Einen technischen Co-Founder mit Erfahrung in App-Entwicklung & Biosensorik.<br>
+        Ein Seed-Investment-Team, das eine neue Wellbeing-Kategorie definieren will.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVEST / ASK -->
+<div class="ask-section" id="invest">
+  <div class="section-tag" style="justify-content:center; max-width:fit-content; margin:0 auto 1.5rem;">09 · Die Opportunity</div>
+  <h2 class="section-title" style="text-align:center;">
+    Bereit, eine<br>
+    <em>Kategorie zu definieren?</em>
+  </h2>
+  <div class="ask-amount"><span class="cur">€</span>350K</div>
+  <div style="font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; color:var(--text-muted); margin-bottom:2.5rem;">
+    Pre-Seed Runde · Convertible Note / SAFE
+  </div>
+  <div class="ask-breakdown">
+    <div class="ask-item"><div class="ask-item-pct">40%</div><div class="ask-item-label">App-Entwicklung & MVP</div></div>
+    <div class="ask-item"><div class="ask-item-pct">30%</div><div class="ask-item-label">Hardware Prototyp</div></div>
+    <div class="ask-item"><div class="ask-item-pct">20%</div><div class="ask-item-label">Go-to-Market & Community</div></div>
+    <div class="ask-item"><div class="ask-item-pct">10%</div><div class="ask-item-label">Regulatorik & IP</div></div>
+  </div>
+  <div style="margin-top:3rem; display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+    <div style="text-align:center; padding:1.2rem 1.8rem; border:1px solid var(--gold-muted); border-radius:16px; background:var(--gold-faint);">
+      <div style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--gold-primary);">Vision Health Pioneers</div>
+      <div style="font-size:0.6rem; letter-spacing:0.15em; color:var(--text-muted); margin-top:0.3rem; text-transform:uppercase;">Ziel-Accelerator 2026</div>
+    </div>
+    <div style="text-align:center; padding:1.2rem 1.8rem; border:1px solid var(--gold-muted); border-radius:16px; background:var(--gold-faint);">
+      <div style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--gold-primary);">Startupbootcamp</div>
+      <div style="font-size:0.6rem; letter-spacing:0.15em; color:var(--text-muted); margin-top:0.3rem; text-transform:uppercase;">Digital Health Hamburg</div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2 class="final-cta-title">
+    Kontext schlägt Zahl.<br>
+    <em>System schlägt Gadget.</em><br>
+    <span class="gold-text">Zukunft schlägt alles.</span>
+  </h2>
+  <p class="final-cta-sub">
+    Seien Sie von Anfang an dabei. Die nächste Kategorie entsteht jetzt.
+  </p>
+  <div class="final-cta-btns">
+    <a href="investoren.html" class="btn-primary">Pitch Deck anfordern</a>
+    <a href="co-founder.html" class="btn-ghost">Co-Founder werden</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="pitch-footer">
+  <div class="f-logo"><span class="text-gradient-gold">NANIL Pulse</span></div>
+  <div class="f-tagline">Kontext schlägt Zahl · System schlägt Gadget</div>
+  <div class="f-social">
+    <a href="https://www.instagram.com/nanil_pulse" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/nazan-dalkic-4ab00a166" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="f-links">
+    <a href="main.html">Hauptseite</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+  </div>
+  <div class="f-disclaimer">
+    NANIL Pulse Technologies GmbH · Hamburg, Germany<br>
+    NANIL Pulse ist kein medizinisches Produkt. Keine Diagnose, Behandlung oder Therapie.<br>
+    © 2026 NANIL Pulse - Nazan Nil Dalkic. Alle Rechte vorbehalten.
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) el.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth hover on system nodes
+  document.querySelectorAll('.sys-icon').forEach(node => {
+    node.addEventListener('mouseenter', () => { node.style.transform = 'scale(1.15)'; });
+    node.addEventListener('mouseleave', () => { node.style.transform = ''; });
+  });
+</script>
+
+<!-- NANIL 3D-Hintergrund: Gold-Partikel + Linien (wie auf nanilpulse.art / promo) -->
+<script>
+(function(){
+  var canvas = document.getElementById('bg-grid');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  var particles = [];
+  var particleCount = 55;
+  function Particle() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = (Math.random() - 0.5) * 0.6;
+    this.vy = (Math.random() - 0.5) * 0.6;
+    this.size = Math.random() * 2 + 0.5;
+  }
+  for (var i = 0; i < particleCount; i++) particles.push(new Particle());
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.fillStyle = 'rgba(201, 162, 39, 0.55)';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.strokeStyle = 'rgba(93, 154, 168, 0.12)';
+    ctx.lineWidth = 1;
+    for (var i = 0; i < particles.length; i++) {
+      for (var j = i + 1; j < particles.length; j++) {
+        var dx = particles[i].x - particles[j].x;
+        var dy = particles[i].y - particles[j].y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 140) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.strokeStyle = 'rgba(201, 162, 39, 0.08)';
+    for (var i = 0; i < particles.length; i++) {
+      for (var j = i + 1; j < particles.length; j++) {
+        var dx = particles[i].x - particles[j].x;
+        var dy = particles[i].y - particles[j].y;
+        if (Math.sqrt(dx*dx+dy*dy) < 180) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  window.addEventListener('resize', function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+  animate();
+})();
+</script>
+
+<!-- DSGVO Cookie Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;background:rgba(10,10,12,0.97);border-top:1px solid rgba(126,184,196,0.3);padding:18px 24px;font-family:Montserrat,system-ui,sans-serif;backdrop-filter:blur(10px);">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <p style="color:#ccc;font-size:0.85rem;margin:0;flex:1;min-width:280px;">Diese Website verwendet Cookies und ähnliche Technologien für Analyse und Funktionalität. Mehr in unserer <a href="/datenschutz" style="color:#7eb8c4;text-decoration:underline;">Datenschutzerklärung</a>.</p>
+        <div style="display:flex;gap:10px;">
+            <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('nanil_cookies','essential');" style="background:transparent;border:1px solid rgba(126,184,196,0.5);color:#7eb8c4;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:0.8rem;font-weight:600;">Nur notwendige</button>
+            <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('nanil_cookies','all');" style="background:linear-gradient(135deg,#5d9aa8,#7eb8c4);color:#0a0a0c;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:0.8rem;font-weight:700;border:none;">Alle akzeptieren</button>
+        </div>
+    </div>
+</div>
+<script>if(!localStorage.getItem('nanil_cookies')){document.getElementById('cookie-banner').style.display='block';}</script>
+
+<!-- Visitor Analytics -->
+<script>
+(function(){
+    var d=screen.width<768?'mobile':'desktop';
+    var data={site:'nanilpulse.art',page:location.pathname,ref:document.referrer||'direct',lang:(navigator.language||'de').slice(0,2),device:d};
+    fetch('https://n8n.srv1200351.hstgr.cloud/webhook/analytics',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+})();
+</script>
+
+</body>
+</html>
