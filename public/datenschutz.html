@@ -10,8 +10,8 @@
     <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
     <style>
       /* Farben wie Landing Page */
-      :root { --bg: #323842; --text: #f5f5f5; --muted: #9ea2aa; --turquoise: #5d9aa8; --turquoise-light: #7eb8c4; --border: rgba(255,255,255,0.1); }
-      body { background: var(--bg); background-image: radial-gradient(ellipse 100% 80% at 50% 0%, rgba(93,154,168,0.06) 0%, transparent 50%); color: var(--text); font-family: Inter, system-ui, sans-serif; }
+      :root { --bg: #323842; --text: #f5f5f5; --muted: #9ea2aa; --turquoise: #00c4aa; --turquoise-light: #33d4be; --border: rgba(255,255,255,0.1); }
+      body { background: var(--bg); background-image: radial-gradient(ellipse 100% 80% at 50% 0%, rgba(0,196,170,0.06) 0%, transparent 50%); color: var(--text); font-family: Inter, system-ui, sans-serif; }
       main .container { color: var(--muted) !important; }
       h1.text-gradient-gold { color: var(--turquoise) !important; background: none !important; font-family: "Playfair Display", serif; }
       h2, h3 { color: var(--text) !important; }
@@ -26,19 +26,19 @@
 <body style="min-height: 100vh; display: flex; flex-direction: column;">
     <header>
         <div class="container header-inner">
-            <a href="index.html" class="logo">
+            <a href="vorpage.html" class="logo">
                 <img src="assets/logo.jpg" alt="Logo">
                 <span class="text-gradient-gold">NANIL Pulse</span>
             </a>
             <nav>
                 <ul>
-                    <li><a href="index.html">Zurück zur Startseite</a></li>
+                    <li><a href="vorpage.html">Zurück zur Startseite</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main style="flex: 1; padding: 120px 20px 60px;">
-        <div class="container" style="max-width: 800px; color: #ccc;">
+        <div class="container" style="max-width: 800px; color: #e0e3e8;">
             <h1 class="text-gradient-gold" style="margin-bottom: 30px;">Datenschutzerklärung</h1>
 
             <section style="margin-bottom: 30px;">
@@ -93,8 +93,9 @@
     <footer style="text-align: center; padding: 40px 24px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--border);">
         <a href="impressum.html" style="text-decoration: none;">Impressum</a>
         <span style="margin: 0 8px;">·</span>
-        <a href="index.html" style="text-decoration: none;">Startseite</a>
+        <a href="vorpage.html" style="text-decoration: none;">Startseite</a>
     </footer>
+    <script src="bg-animation.js" defer></script>
 </body>
 
 </html>

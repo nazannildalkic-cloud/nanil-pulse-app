@@ -15,14 +15,14 @@ const B = {
   orangeLt: "#e2c96a",
   orangeDim: "rgba(201,162,39,0.12)",
   orangeBrd: "rgba(201,162,39,0.4)",
-  teal: "#5d9aa8",
-  tealD: "#4a7c88",
-  tealLt: "#7eb8c4",
-  tealDim: "rgba(93,154,168,0.12)",
-  tealBrd: "rgba(93,154,168,0.35)",
-  text: "#f4f4f6",
-  textMut: "#9ca3af",
-  textDim: "#4a4a5a",
+  teal: "#00c4aa",
+  tealD: "#009e88",
+  tealLt: "#33d4be",
+  tealDim: "rgba(0,196,170,0.12)",
+  tealBrd: "rgba(0,196,170,0.35)",
+  text: "#ffffff",
+  textMut: "#c8cdd5",
+  textDim: "#7a8494",
   red: "#e05050",
   redDim: "rgba(224,80,80,0.12)",
   redBrd: "rgba(224,80,80,0.35)",
@@ -36,7 +36,7 @@ const T = {
     tagline: "Advanced Wellbeing System",
     taglineBrand: "DECODING WELLNESS. EMPOWERING LIFE.",
     footer: "Demo · Simulation · Kein Wellbeing-Rat",
-    tabs: { session: "Session", device: "Geräte", guide: "Anleitung", events: "Events", sounds: "Sound" },
+    tabs: { session: "Session", device: "Geräte", guide: "Anleitung", events: "Events", sounds: "Sound", wellbeing: "Wellbeing" },
     session: {
       title: "Balance Session", duration: "2 Minuten",
       start: "Session starten", stop: "Session stoppen", resume: "Fortsetzen",
@@ -123,6 +123,28 @@ const T = {
       voiceTense: "Leichte Anspannung erkannt",
       voiceStressed: "Stress erkannt — Session empfohlen",
       voiceTip: "Sprich 10 Sekunden natürlich in dein Handy. Die KI erkennt Stress-, Hormon- und Gesundheitsmuster in deiner Stimme.",
+      voiceTipsTitle: "Persönliche Empfehlungen",
+      voiceTipsCalm: [
+        "💚 Dein System ist im Gleichgewicht — nutze den Moment für bewusste Dankbarkeit.",
+        "🧘 Perfekter Zeitpunkt für eine tiefe Atemübung: 4 Sek. ein, 7 Sek. halten, 8 Sek. aus.",
+        "🌿 Geh 15 Min. an die frische Luft — dein Körper kann gerade besonders gut regenerieren.",
+        "💧 Trink ein großes Glas Wasser — dein Körper verarbeitet Nährstoffe jetzt optimal.",
+      ],
+      voiceTipsTense: [
+        "⚡ Leichte Anspannung erkannt — starte eine 2-Minuten Balance-Session.",
+        "🫁 Deine Atemfrequenz ist leicht erhöht. Versuche: 5 Sek. einatmen, 5 Sek. ausatmen.",
+        "🚶 Kurze Bewegungspause: Steh auf, streck dich, geh 5 Minuten.",
+        "🎵 Beruhigende Musik oder Naturgeräusche können jetzt helfen.",
+        "🍵 Ein warmes Getränk (Kräutertee) senkt nachweislich den Cortisolspiegel.",
+      ],
+      voiceTipsStressed: [
+        "🔴 Dein Stresslevel ist hoch — dein Körper braucht jetzt Unterstützung!",
+        "🧠 Vagusnerv-Stimulation empfohlen: Starte sofort eine Balance-Session.",
+        "❄️ Kühles Wasser ins Gesicht oder kalte Hände aktivieren den Vagusnerv sofort.",
+        "🛑 Wenn möglich: Situation verlassen, 10 Minuten Pause nehmen.",
+        "📞 Sprich mit jemandem — soziale Verbindung senkt Cortisol nachweislich.",
+        "🌙 Plane heute Abend bewusst 30 Min. Bildschirm-frei ein.",
+      ],
       voiceHormone: "Hormoneller Status (Stimme)",
       voiceCortisol: "Cortisol (Stress)",
       voiceTestosterone: "Testosteron",
@@ -151,6 +173,91 @@ const T = {
       ovulationAlert: "Eisprung-Fenster erkannt",
       ovulationDesc: "Basaltemperatur + HRV-Muster deuten auf Eisprung hin.",
       tempTrend: "Basaltemperatur-Trend",
+      nanilTip: "💡 Nanil Tipp",
+      stressTipLow: "Dein Stresslevel ist niedrig — perfekter Moment für kreative Aufgaben oder Meditation.",
+      stressTipMid: "Moderater Stress erkannt. Kurze Atempause: 4 Sek. ein, 4 Sek. aus, 5× wiederholen.",
+      stressTipHigh: "Erhöhter Stress! Starte eine Balance-Session oder geh 10 Min. an die frische Luft.",
+      stressTipCrit: "Kritisch! Sofort Pause machen. Vagusnerv-Stimulation empfohlen. Sprich mit jemandem.",
+      hrTipLow: "Deine Herzfrequenz ist ruhig — dein Körper ist in einem regenerativen Zustand.",
+      hrTipHigh: "Erhöhte Herzfrequenz. Tief atmen und Bewegung reduzieren.",
+      hrvTip: "Gute HRV = gute Anpassungsfähigkeit. Regelmäßiger Schlaf verbessert deine HRV langfristig.",
+      breathTip: "Optimale Atemfrequenz: 6-8 Atemzüge/Min. Versuche langsamer und tiefer zu atmen.",
+      loopTip: "Das Closed-Loop System passt die Stimulation automatisch an deine Werte an — lehne dich zurück.",
+      voiceDemos: "Voice-Demos — probiere es aus",
+      voiceDemosDesc: "Simulierte Szenarien zeigen, wie Nanil deine Stimme analysiert:",
+      demoMorning: "☀️ Morgens entspannt",
+      demoMorningDesc: "Ausgeschlafen, nach dem Aufwachen",
+      demoMeeting: "💼 Nach einer Besprechung",
+      demoMeetingDesc: "Leichte Anspannung nach konzentrierter Arbeit",
+      demoStress: "😤 Stressiger Tag",
+      demoStressDesc: "Viele Termine, wenig Pausen",
+      demoSport: "🏃 Vor dem Sport",
+      demoSportDesc: "Aufgewärmt, motiviert, leicht erhöht",
+      demoMeditation: "🧘 Nach Meditation",
+      demoMeditationDesc: "Tiefenentspannung, innere Ruhe",
+      demoEvening: "🌙 Abends müde",
+      demoEveningDesc: "Langer Tag, Körper braucht Erholung",
+    },
+    wellbeing: {
+      title: "Wellbeing Dashboard",
+      subtitle: "Dein ganzheitlicher Esenlik-Überblick",
+      sleepTitle: "Schlaf-Analyse",
+      sleepDesc: "Schlafphasen, Schlafqualität und Atemüberwachung während der Nacht",
+      sleepScore: "Schlaf-Score", sleepDuration: "Schlafdauer", sleepDeep: "Tiefschlaf", sleepRem: "REM-Schlaf",
+      sleepLight: "Leichtschlaf", sleepAwake: "Wachphasen",
+      sleepApnea: "Atem-Monitoring", sleepApneaDesc: "Überwachung der Atemregelmäßigkeit im Schlaf",
+      sleepApneaOk: "Atemmuster normal", sleepApneaWarn: "Unregelmäßiges Atemmuster erkannt",
+      sleepApneaTip: "Bei auffälligem Muster empfehlen wir einen Facharztbesuch.",
+      heartTitle: "Herz-Wellness",
+      heartDesc: "Kontinuierliche Herzfrequenz- und HRV-Überwachung für dein Wohlbefinden",
+      heartResting: "Ruhe-HF", heartMax: "Max. HF heute", heartAvg: "Ø HF heute",
+      heartZone: "Aktuelle Zone", heartZoneRest: "Ruhe", heartZoneFat: "Fettverbrennung", heartZoneCardio: "Cardio", heartZonePeak: "Peak",
+      heartCoherence: "Herzkohärenz", heartCoherenceDesc: "Gleichmäßigkeit des Herzrhythmus — Zeichen für Balance",
+      stepsTitle: "Schritte & Bewegung",
+      stepsDesc: "Tägliche Aktivität und Bewegungsmuster",
+      stepsToday: "Schritte heute", stepsGoal: "Tagesziel", stepsDistance: "Distanz",
+      stepsCalories: "Kalorien", stepsActive: "Aktive Minuten", stepsFloors: "Stockwerke",
+      skinTitle: "Haut & Umgebung",
+      skinDesc: "Hautfeuchtigkeit, UV-Index und Umgebungsdaten",
+      skinMoisture: "Hautfeuchtigkeit", skinMoistureGood: "Optimal", skinMoistureDry: "Trocken", skinMoistureOily: "Fettig",
+      skinUV: "UV-Index", skinUVLow: "Niedrig", skinUVMod: "Mittel", skinUVHigh: "Hoch",
+      skinTemp: "Hauttemperatur", skinHumidity: "Luftfeuchtigkeit",
+      sportTitle: "Sport & Training",
+      sportDesc: "Trainingsüberwachung und Regenerationsempfehlungen",
+      sportActive: "Aktives Training", sportRecovery: "Erholung", sportReadiness: "Trainingsbereitschaft",
+      sportVO2: "VO2 Max (geschätzt)", sportLoad: "Trainingsbelastung",
+      sportLow: "Niedrig", sportMod: "Moderat", sportHigh: "Hoch", sportPeak: "Peak",
+      sportTip: "Basierend auf HRV und Erholung: Dein Körper ist bereit für",
+      sportTipRest: "leichte Aktivität & Regeneration",
+      sportTipMod: "moderates Training",
+      sportTipHigh: "intensives Training",
+      emergencyTitle: "Sicherheits-Assistent",
+      emergencyDesc: "Automatische Erkennung kritischer Zustände",
+      emergencyFall: "Sturz-Erkennung", emergencyFallDesc: "Erkennt plötzliche Stürze oder Bewusstlosigkeit",
+      emergencyInactive: "Inaktivitäts-Alarm", emergencyInactiveDesc: "Alarm bei ungewöhnlich langer Bewegungslosigkeit",
+      emergencyAlert: "Bist du okay?",
+      emergencyAlertDesc: "Bei Verdacht auf Ohnmacht oder Sturz fragt das System nach deinem Zustand.",
+      emergencyCall: "Notfall-Kontakt anrufen",
+      emergencyOk: "Mir geht es gut",
+      emergencyCountdown: "Notfall-Kontakt wird in {seconds} Sek. benachrichtigt",
+      emergencyContacts: "Notfall-Kontakte",
+      emergencyContactsDesc: "Personen, die im Ernstfall automatisch benachrichtigt werden",
+      emergencyAdd: "Kontakt hinzufügen",
+      emergencyActive: "Aktiv",
+      emergencyTestBtn: "Sicherheits-Check simulieren",
+      nanilSleepTip: "💡 Nanil: Dein Schlaf-Score liegt bei {score}. {tip}",
+      sleepTipGood: "Sehr gut! Halte deinen Rhythmus bei — Regelmäßigkeit ist der Schlüssel.",
+      sleepTipOk: "Solide Nacht. Versuche 30 Min. vor dem Schlafen kein Bildschirmlicht.",
+      sleepTipBad: "Dein Schlaf braucht Aufmerksamkeit. Probiere eine Atem-Session vor dem Einschlafen.",
+      nanilStepsTip: "💡 Nanil: {steps} Schritte heute. {tip}",
+      stepsTipGood: "Großartig! Du bist auf Kurs. Bewegung senkt nachweislich Cortisol.",
+      stepsTipLow: "Noch etwas wenig — ein 15-Min. Spaziergang hebt sofort die Stimmung.",
+      nanilSkinTip: "💡 Nanil: Hautfeuchtigkeit bei {pct}%. {tip}",
+      skinTipGood: "Optimal! Weiter gut hydriert bleiben.",
+      skinTipDry: "Etwas trocken — trink ein großes Glas Wasser und verwende Feuchtigkeitscreme.",
+      nanilSportTip: "💡 Nanil: Trainingsbereitschaft {pct}%. {tip}",
+      nanilSportReady: "Dein Körper ist bereit für ein intensives Training — nutze den Moment!",
+      nanilSportRecover: "Heute lieber regenerieren. Leichtes Yoga oder ein Spaziergang sind ideal.",
     },
     vagus: {
       title: "Vagusnerv-Stimulation",
@@ -217,7 +324,7 @@ const T = {
     tagline: "Advanced Wellbeing System",
     taglineBrand: "DECODING WELLNESS. EMPOWERING LIFE.",
     footer: "Demo · Simulation · Not wellbeing advice",
-    tabs: { session: "Session", device: "Devices", guide: "Guide", events: "Events", sounds: "Sound" },
+    tabs: { session: "Session", device: "Devices", guide: "Guide", events: "Events", sounds: "Sound", wellbeing: "Wellbeing" },
     session: {
       title: "Balance Session", duration: "2 Minutes",
       start: "Start Session", stop: "Stop Session", resume: "Resume",
@@ -313,8 +420,30 @@ const T = {
       voiceStudy2: "Pisanski et al. — Voice frequency correlates with testosterone and cortisol levels (Psychoneuroendocrinology, 2018)",
       voiceStudy3: "Pipitone & Gallup — Voice changes across menstrual cycle correlate with estrogen peaks (Evolution & Human Behavior, 2008)",
       voiceStudy4: "CoLive Voice (Luxembourg) — Largest voice biomarker study: 50,000+ samples for health detection",
+      voiceTipsTitle: "Personal Recommendations",
+      voiceTipsCalm: [
+        "💚 Your system is balanced — use this moment for conscious gratitude.",
+        "🧘 Perfect time for a deep breathing exercise: 4 sec in, 7 sec hold, 8 sec out.",
+        "🌿 Go outside for 15 min — your body can regenerate especially well right now.",
+        "💧 Drink a large glass of water — your body processes nutrients optimally now.",
+      ],
+      voiceTipsTense: [
+        "⚡ Slight tension detected — start a 2-minute Balance Session.",
+        "🫁 Your breathing rate is slightly elevated. Try: 5 sec inhale, 5 sec exhale.",
+        "🚶 Short movement break: Stand up, stretch, walk for 5 minutes.",
+        "🎵 Calming music or nature sounds can help right now.",
+        "🍵 A warm beverage (herbal tea) demonstrably lowers cortisol levels.",
+      ],
+      voiceTipsStressed: [
+        "🔴 Your stress level is high — your body needs support now!",
+        "🧠 Vagus nerve stimulation recommended: Start a Balance Session immediately.",
+        "❄️ Cool water on your face or cold hands activate the vagus nerve instantly.",
+        "🛑 If possible: Leave the situation, take a 10-minute break.",
+        "📞 Talk to someone — social connection demonstrably lowers cortisol.",
+        "🌙 Plan 30 min screen-free time tonight.",
+      ],
       voiceNotJustWomen: "For everyone — not just cycle-based",
-      voiceForAll: "Voice biomarkers detect universal health indicators: cortisol stress, testosterone levels, thyroid function, energy status and emotional wellbeing.",
+      voiceForAll: "Voice biomarkers detect universal wellbeing indicators: cortisol stress, testosterone levels, thyroid function, energy status and emotional wellbeing.",
       patchData: "Biosensor Data (Patch)",
       skinTemp: "Skin Temperature", skinTempUnit: "°C",
       motion: "Motion", motionLow: "Still", motionMod: "Light", motionHigh: "Active",
@@ -332,6 +461,91 @@ const T = {
       ovulationAlert: "Ovulation Window Detected",
       ovulationDesc: "Basal temperature + HRV patterns indicate ovulation.",
       tempTrend: "Basal Temperature Trend",
+      nanilTip: "💡 Nanil Tip",
+      stressTipLow: "Your stress level is low — perfect moment for creative tasks or meditation.",
+      stressTipMid: "Moderate stress detected. Quick breathing break: 4 sec in, 4 sec out, repeat 5×.",
+      stressTipHigh: "Elevated stress! Start a Balance Session or go outside for 10 min.",
+      stressTipCrit: "Critical! Take a break immediately. Vagus nerve stimulation recommended. Talk to someone.",
+      hrTipLow: "Your heart rate is calm — your body is in a regenerative state.",
+      hrTipHigh: "Elevated heart rate. Breathe deeply and reduce movement.",
+      hrvTip: "Good HRV = good adaptability. Regular sleep improves your HRV long-term.",
+      breathTip: "Optimal breathing rate: 6-8 breaths/min. Try breathing slower and deeper.",
+      loopTip: "The Closed-Loop system automatically adjusts stimulation to your values — sit back and relax.",
+      voiceDemos: "Voice Demos — try it out",
+      voiceDemosDesc: "Simulated scenarios show how Nanil analyzes your voice:",
+      demoMorning: "☀️ Morning relaxed",
+      demoMorningDesc: "Well-rested, just woke up",
+      demoMeeting: "💼 After a meeting",
+      demoMeetingDesc: "Slight tension after focused work",
+      demoStress: "😤 Stressful day",
+      demoStressDesc: "Many appointments, few breaks",
+      demoSport: "🏃 Before workout",
+      demoSportDesc: "Warmed up, motivated, slightly elevated",
+      demoMeditation: "🧘 After meditation",
+      demoMeditationDesc: "Deep relaxation, inner peace",
+      demoEvening: "🌙 Evening tired",
+      demoEveningDesc: "Long day, body needs recovery",
+    },
+    wellbeing: {
+      title: "Wellbeing Dashboard",
+      subtitle: "Your holistic wellbeing overview",
+      sleepTitle: "Sleep Analysis",
+      sleepDesc: "Sleep phases, sleep quality and breathing monitoring through the night",
+      sleepScore: "Sleep Score", sleepDuration: "Sleep Duration", sleepDeep: "Deep Sleep", sleepRem: "REM Sleep",
+      sleepLight: "Light Sleep", sleepAwake: "Awake Phases",
+      sleepApnea: "Breathing Monitor", sleepApneaDesc: "Monitoring breathing regularity during sleep",
+      sleepApneaOk: "Breathing pattern normal", sleepApneaWarn: "Irregular breathing pattern detected",
+      sleepApneaTip: "If patterns are noticeable, we recommend consulting a specialist.",
+      heartTitle: "Heart Wellness",
+      heartDesc: "Continuous heart rate and HRV monitoring for your wellbeing",
+      heartResting: "Resting HR", heartMax: "Max HR today", heartAvg: "Avg HR today",
+      heartZone: "Current Zone", heartZoneRest: "Rest", heartZoneFat: "Fat Burn", heartZoneCardio: "Cardio", heartZonePeak: "Peak",
+      heartCoherence: "Heart Coherence", heartCoherenceDesc: "Regularity of heart rhythm — sign of balance",
+      stepsTitle: "Steps & Activity",
+      stepsDesc: "Daily activity and movement patterns",
+      stepsToday: "Steps today", stepsGoal: "Daily goal", stepsDistance: "Distance",
+      stepsCalories: "Calories", stepsActive: "Active Minutes", stepsFloors: "Floors",
+      skinTitle: "Skin & Environment",
+      skinDesc: "Skin moisture, UV index and environmental data",
+      skinMoisture: "Skin Moisture", skinMoistureGood: "Optimal", skinMoistureDry: "Dry", skinMoistureOily: "Oily",
+      skinUV: "UV Index", skinUVLow: "Low", skinUVMod: "Moderate", skinUVHigh: "High",
+      skinTemp: "Skin Temperature", skinHumidity: "Humidity",
+      sportTitle: "Sport & Training",
+      sportDesc: "Training monitoring and recovery recommendations",
+      sportActive: "Active Training", sportRecovery: "Recovery", sportReadiness: "Training Readiness",
+      sportVO2: "VO2 Max (estimated)", sportLoad: "Training Load",
+      sportLow: "Low", sportMod: "Moderate", sportHigh: "High", sportPeak: "Peak",
+      sportTip: "Based on HRV and recovery: Your body is ready for",
+      sportTipRest: "light activity & recovery",
+      sportTipMod: "moderate training",
+      sportTipHigh: "intense training",
+      emergencyTitle: "Safety Assistant",
+      emergencyDesc: "Automatic detection of critical conditions",
+      emergencyFall: "Fall Detection", emergencyFallDesc: "Detects sudden falls or loss of consciousness",
+      emergencyInactive: "Inactivity Alert", emergencyInactiveDesc: "Alert on unusually long immobility",
+      emergencyAlert: "Are you okay?",
+      emergencyAlertDesc: "If a fall or fainting is suspected, the system checks on your condition.",
+      emergencyCall: "Call emergency contact",
+      emergencyOk: "I'm fine",
+      emergencyCountdown: "Emergency contact will be notified in {seconds} sec",
+      emergencyContacts: "Emergency Contacts",
+      emergencyContactsDesc: "People who will be automatically notified in an emergency",
+      emergencyAdd: "Add Contact",
+      emergencyActive: "Active",
+      emergencyTestBtn: "Simulate Safety Check",
+      nanilSleepTip: "💡 Nanil: Your sleep score is {score}. {tip}",
+      sleepTipGood: "Excellent! Keep your rhythm — consistency is key.",
+      sleepTipOk: "Solid night. Try no screen light 30 min before bed.",
+      sleepTipBad: "Your sleep needs attention. Try a breathing session before falling asleep.",
+      nanilStepsTip: "💡 Nanil: {steps} steps today. {tip}",
+      stepsTipGood: "Great! You're on track. Movement demonstrably lowers cortisol.",
+      stepsTipLow: "A bit low — a 15-min walk instantly boosts your mood.",
+      nanilSkinTip: "💡 Nanil: Skin moisture at {pct}%. {tip}",
+      skinTipGood: "Optimal! Keep staying well hydrated.",
+      skinTipDry: "A bit dry — drink a large glass of water and use moisturizer.",
+      nanilSportTip: "💡 Nanil: Training readiness {pct}%. {tip}",
+      nanilSportReady: "Your body is ready for intense training — seize the moment!",
+      nanilSportRecover: "Better to recover today. Light yoga or a walk is ideal.",
     },
     vagus: {
       title: "Vagus Nerve Stimulation",
@@ -398,7 +612,7 @@ const T = {
     tagline: "Gelişmiş Esenlik Sistemi",
     taglineBrand: "DECODING WELLNESS. EMPOWERING LIFE.",
     footer: "Demo · Simülasyon · Tavsiye değil",
-    tabs: { session: "Seans", device: "Cihazlar", guide: "Kılavuz", events: "Olaylar", sounds: "Ses" },
+    tabs: { session: "Seans", device: "Cihazlar", guide: "Kılavuz", events: "Olaylar", sounds: "Ses", wellbeing: "Esenlik" },
     session: {
       title: "Denge Seansı", duration: "2 Dakika",
       start: "Seans Başlat", stop: "Durdur", resume: "Devam Et",
@@ -494,8 +708,30 @@ const T = {
       voiceStudy2: "Pisanski ve ark. — Ses frekansı testosteron ve kortizol seviyeleri ile ilişkilidir (Psychoneuroendocrinology, 2018)",
       voiceStudy3: "Pipitone & Gallup — Adet döngüsü boyunca ses değişiklikleri östrojen zirveleri ile ilişkilidir (Evolution & Human Behavior, 2008)",
       voiceStudy4: "CoLive Voice (Lüksemburg) — En büyük ses biyobelirteç çalışması: Sağlık tespiti için 50.000+ örnek",
+      voiceTipsTitle: "Kişisel Öneriler",
+      voiceTipsCalm: [
+        "💚 Sistemin dengede — bu anı bilinçli şükür için kullan.",
+        "🧘 Derin nefes egzersizi için mükemmel zaman: 4 sn içe, 7 sn tut, 8 sn dışa.",
+        "🌿 15 dk açık havaya çık — vücudun şu anda özellikle iyi yenilenebilir.",
+        "💧 Büyük bir bardak su iç — vücudun besinleri şu anda optimal işliyor.",
+      ],
+      voiceTipsTense: [
+        "⚡ Hafif gerginlik tespit edildi — 2 dakikalık Denge Seansı başlat.",
+        "🫁 Solunum hızın biraz yüksek. Dene: 5 sn nefes al, 5 sn ver.",
+        "🚶 Kısa hareket molası: Ayağa kalk, esneme yap, 5 dakika yürü.",
+        "🎵 Sakinleştirici müzik veya doğa sesleri şu anda yardımcı olabilir.",
+        "🍵 Sıcak bir içecek (bitki çayı) kortizol seviyesini kanıtlanmış şekilde düşürür.",
+      ],
+      voiceTipsStressed: [
+        "🔴 Stres seviyen yüksek — vücudun şu anda desteğe ihtiyaç duyuyor!",
+        "🧠 Vagus siniri stimülasyonu önerilir: Hemen bir Denge Seansı başlat.",
+        "❄️ Yüzüne serin su veya soğuk eller vagus sinirini anında aktive eder.",
+        "🛑 Mümkünse: Durumu terk et, 10 dakika mola ver.",
+        "📞 Biriyle konuş — sosyal bağlantı kortizolü kanıtlanmış şekilde düşürür.",
+        "🌙 Bu akşam bilinçli olarak 30 dk ekransız zaman planla.",
+      ],
       voiceNotJustWomen: "Herkes için — sadece döngü bazlı değil",
-      voiceForAll: "Ses biyobelirteçleri evrensel sağlık göstergelerini tespit eder: kortizol stresi, testosteron seviyeleri, tiroid fonksiyonu, enerji durumu ve duygusal sağlık.",
+      voiceForAll: "Ses biyobelirteçleri evrensel esenlik göstergelerini tespit eder: kortizol stresi, testosteron seviyeleri, tiroid fonksiyonu, enerji durumu ve duygusal esenlik.",
       patchData: "Biyosensör Verileri (Patch)",
       skinTemp: "Cilt Sıcaklığı", skinTempUnit: "°C",
       motion: "Hareket", motionLow: "Sakin", motionMod: "Hafif", motionHigh: "Aktif",
@@ -513,6 +749,91 @@ const T = {
       ovulationAlert: "Yumurtlama Penceresi Tespit Edildi",
       ovulationDesc: "Bazal sıcaklık + HRV kalıpları yumurtlamaya işaret ediyor.",
       tempTrend: "Bazal Sıcaklık Trendi",
+      nanilTip: "💡 Nanil İpucu",
+      stressTipLow: "Stres seviyen düşük — yaratıcı görevler veya meditasyon için mükemmel an.",
+      stressTipMid: "Orta düzey stres tespit edildi. Kısa nefes molası: 4 sn içe, 4 sn dışa, 5× tekrarla.",
+      stressTipHigh: "Yüksek stres! Denge Seansı başlat veya 10 dk dışarı çık.",
+      stressTipCrit: "Kritik! Hemen mola ver. Vagus siniri stimülasyonu önerilir. Biriyle konuş.",
+      hrTipLow: "Kalp atışın sakin — vücudun yenileyici bir durumda.",
+      hrTipHigh: "Yüksek kalp atışı. Derin nefes al ve hareketi azalt.",
+      hrvTip: "İyi HRV = iyi uyum yeteneği. Düzenli uyku uzun vadede HRV'ni iyileştirir.",
+      breathTip: "Optimal solunum hızı: 6-8 nefes/dk. Daha yavaş ve derin nefes almayı dene.",
+      loopTip: "Kapalı Döngü sistemi stimülasyonu değerlerine göre otomatik ayarlar — arkanıza yaslanın.",
+      voiceDemos: "Ses Demoları — deneyin",
+      voiceDemosDesc: "Simüle edilmiş senaryolar Nanil'in sesinizi nasıl analiz ettiğini gösterir:",
+      demoMorning: "☀️ Sabah rahat",
+      demoMorningDesc: "İyi uyumuş, yeni uyanmış",
+      demoMeeting: "💼 Toplantıdan sonra",
+      demoMeetingDesc: "Yoğun çalışmadan sonra hafif gerginlik",
+      demoStress: "😤 Stresli gün",
+      demoStressDesc: "Çok randevu, az mola",
+      demoSport: "🏃 Spor öncesi",
+      demoSportDesc: "Isınmış, motive, hafif yüksek",
+      demoMeditation: "🧘 Meditasyondan sonra",
+      demoMeditationDesc: "Derin rahatlama, iç huzur",
+      demoEvening: "🌙 Akşam yorgun",
+      demoEveningDesc: "Uzun gün, vücut dinlenmeye ihtiyaç duyuyor",
+    },
+    wellbeing: {
+      title: "Esenlik Paneli",
+      subtitle: "Bütünsel esenlik görünümün",
+      sleepTitle: "Uyku Analizi",
+      sleepDesc: "Uyku fazları, uyku kalitesi ve gece boyunca nefes takibi",
+      sleepScore: "Uyku Skoru", sleepDuration: "Uyku Süresi", sleepDeep: "Derin Uyku", sleepRem: "REM Uykusu",
+      sleepLight: "Hafif Uyku", sleepAwake: "Uyanık Fazlar",
+      sleepApnea: "Nefes Monitörü", sleepApneaDesc: "Uyku sırasında nefes düzenliliğini izleme",
+      sleepApneaOk: "Nefes paterni normal", sleepApneaWarn: "Düzensiz nefes paterni tespit edildi",
+      sleepApneaTip: "Dikkat çekici paternlerde uzman görüşü almanızı öneririz.",
+      heartTitle: "Kalp Esenliği",
+      heartDesc: "Esenliğin için sürekli kalp atışı ve HRV takibi",
+      heartResting: "Dinlenme KAH", heartMax: "Maks. KAH bugün", heartAvg: "Ort. KAH bugün",
+      heartZone: "Mevcut Bölge", heartZoneRest: "Dinlenme", heartZoneFat: "Yağ Yakma", heartZoneCardio: "Kardiyo", heartZonePeak: "Zirve",
+      heartCoherence: "Kalp Koherensı", heartCoherenceDesc: "Kalp ritminin düzenliliği — denge işareti",
+      stepsTitle: "Adımlar & Aktivite",
+      stepsDesc: "Günlük aktivite ve hareket kalıpları",
+      stepsToday: "Bugünkü adımlar", stepsGoal: "Günlük hedef", stepsDistance: "Mesafe",
+      stepsCalories: "Kalori", stepsActive: "Aktif Dakikalar", stepsFloors: "Kat",
+      skinTitle: "Cilt & Çevre",
+      skinDesc: "Cilt nemi, UV indeksi ve çevre verileri",
+      skinMoisture: "Cilt Nemi", skinMoistureGood: "Optimal", skinMoistureDry: "Kuru", skinMoistureOily: "Yağlı",
+      skinUV: "UV İndeksi", skinUVLow: "Düşük", skinUVMod: "Orta", skinUVHigh: "Yüksek",
+      skinTemp: "Cilt Sıcaklığı", skinHumidity: "Nem",
+      sportTitle: "Spor & Antrenman",
+      sportDesc: "Antrenman takibi ve toparlanma önerileri",
+      sportActive: "Aktif Antrenman", sportRecovery: "Toparlanma", sportReadiness: "Antrenman Hazırlığı",
+      sportVO2: "VO2 Max (tahmini)", sportLoad: "Antrenman Yükü",
+      sportLow: "Düşük", sportMod: "Orta", sportHigh: "Yüksek", sportPeak: "Zirve",
+      sportTip: "HRV ve toparlanmaya göre: Vücudun şunlar için hazır",
+      sportTipRest: "hafif aktivite & toparlanma",
+      sportTipMod: "orta seviye antrenman",
+      sportTipHigh: "yoğun antrenman",
+      emergencyTitle: "Güvenlik Asistanı",
+      emergencyDesc: "Kritik durumların otomatik tespiti",
+      emergencyFall: "Düşme Tespiti", emergencyFallDesc: "Ani düşmeleri veya bilinç kaybını tespit eder",
+      emergencyInactive: "Hareketsizlik Alarmı", emergencyInactiveDesc: "Olağandışı uzun hareketsizlikte alarm",
+      emergencyAlert: "İyi misin?",
+      emergencyAlertDesc: "Düşme veya bayılma şüphesinde sistem durumunuzu kontrol eder.",
+      emergencyCall: "Acil durum kişisini ara",
+      emergencyOk: "İyiyim",
+      emergencyCountdown: "Acil durum kişisi {seconds} sn içinde bilgilendirilecek",
+      emergencyContacts: "Acil Durum Kişileri",
+      emergencyContactsDesc: "Acil durumda otomatik bilgilendirilecek kişiler",
+      emergencyAdd: "Kişi Ekle",
+      emergencyActive: "Aktif",
+      emergencyTestBtn: "Güvenlik Kontrolü Simüle Et",
+      nanilSleepTip: "💡 Nanil: Uyku skorun {score}. {tip}",
+      sleepTipGood: "Harika! Ritmini koru — düzenlilik anahtar.",
+      sleepTipOk: "İyi gece. Yatmadan 30 dk önce ekran ışığından kaçın.",
+      sleepTipBad: "Uykuna dikkat etmelisin. Uyumadan önce bir nefes seansı dene.",
+      nanilStepsTip: "💡 Nanil: Bugün {steps} adım. {tip}",
+      stepsTipGood: "Harika! Yoldasın. Hareket kortizolü kanıtlanmış şekilde düşürür.",
+      stepsTipLow: "Biraz az — 15 dk yürüyüş anında ruh halini yükseltir.",
+      nanilSkinTip: "💡 Nanil: Cilt nemi %{pct}. {tip}",
+      skinTipGood: "Optimal! İyi hidrate kalmaya devam et.",
+      skinTipDry: "Biraz kuru — büyük bir bardak su iç ve nemlendirici kullan.",
+      nanilSportTip: "💡 Nanil: Antrenman hazırlığı %{pct}. {tip}",
+      nanilSportReady: "Vücudun yoğun antrenman için hazır — anı yakala!",
+      nanilSportRecover: "Bugün toparlanmak daha iyi. Hafif yoga veya yürüyüş ideal.",
     },
     vagus: {
       title: "Vagus Siniri Stimülasyonu",
@@ -864,8 +1185,8 @@ function VoiceAI({ lang, t }) {
             ))}
           </div>
           <div style={{ fontSize: 18, fontWeight: 700, color: B.text }}>
-            {status === "speaking" ? (lang === "de" ? "Zeynah AI spricht..." : lang === "tr" ? "Zeynah AI konuşuyor..." : "Zeynah AI speaking...")
-              : (lang === "de" ? "Zeynah AI hört zu..." : lang === "tr" ? "Zeynah AI dinliyor..." : "Zeynah AI listening...")}
+            {status === "speaking" ? (lang === "de" ? "Nanil spricht..." : lang === "tr" ? "Nanil konuşuyor..." : "Nanil speaking...")
+              : (lang === "de" ? "Nanil hört zu..." : lang === "tr" ? "Nanil dinliyor..." : "Nanil listening...")}
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <div style={{ width: 8, height: 8, borderRadius: "50%", background: navigator.onLine ? B.teal : B.red }} />
@@ -916,6 +1237,12 @@ const LP = {
     f4: "Diskrete Kommunikation", f4d: "Anrufe und Nachrichten per Knochenleitung — privat & unsichtbar",
     f5: "KI-Stimmanalyse", f5d: "Stresserkennung durch Mikrotremor und Sprachrhythmus",
     f6: "Closed-Loop System", f6d: "Automatische Anpassung der Stimulation basierend auf Vitaldaten",
+    f7: "Schlaf-Analyse", f7d: "Schlafphasen, Schlafqualität und Atemüberwachung über Nacht",
+    f8: "Schritte & Aktivität", f8d: "Tägliche Bewegung, Kalorienverbrauch und aktive Minuten",
+    f9: "Hautfeuchtigkeit & UV", f9d: "Hautpflege-Monitoring mit Umgebungsdaten",
+    f10: "Sport & Training", f10d: "Trainingsbereitschaft, VO2 Max und Regenerationsempfehlungen",
+    f11: "Sicherheits-Assistent", f11d: "Sturzerkennung, Inaktivitäts-Alarm und automatischer Notruf",
+    f12: "Wellbeing Dashboard", f12d: "Alle Daten auf einen Blick — dein ganzheitliches Wohlbefinden",
     prodTitle: "Das System", prodRing: "The Core — Smart Ring", prodRingD: "Eleganter Ear Cuff mit Vagusnerv-Stimulation, Knochenleitung und Gestenkontrolle.",
     prodPatch: "The Shield — Biosensor Patch", prodPatchD: "Kontinuierliche Messung von Vitaldaten, Hormonen und Stressmarkern.",
     techTitle: "Technologie",
@@ -937,6 +1264,12 @@ const LP = {
     f4: "Discreet Communication", f4d: "Calls and messages via bone conduction — private & invisible",
     f5: "AI Voice Analysis", f5d: "Stress detection through micro-tremor and speech rhythm",
     f6: "Closed-Loop System", f6d: "Automatic stimulation adjustment based on vital data",
+    f7: "Sleep Analysis", f7d: "Sleep phases, sleep quality and breathing monitoring overnight",
+    f8: "Steps & Activity", f8d: "Daily movement, calorie burn and active minutes",
+    f9: "Skin Moisture & UV", f9d: "Skin care monitoring with environmental data",
+    f10: "Sport & Training", f10d: "Training readiness, VO2 Max and recovery recommendations",
+    f11: "Safety Assistant", f11d: "Fall detection, inactivity alert and automatic emergency call",
+    f12: "Wellbeing Dashboard", f12d: "All data at a glance — your holistic wellbeing",
     prodTitle: "The System", prodRing: "The Core — Smart Ring", prodRingD: "Elegant ear cuff with vagus nerve stimulation, bone conduction, and gesture control.",
     prodPatch: "The Shield — Biosensor Patch", prodPatchD: "Continuous measurement of vitals, hormones, and stress markers.",
     techTitle: "Technology",
@@ -958,6 +1291,12 @@ const LP = {
     f4: "Gizli İletişim", f4d: "Kemik iletimi ile aramalar ve mesajlar — özel ve görünmez",
     f5: "Yapay Zeka Ses Analizi", f5d: "Mikro titreşim ve konuşma ritmi ile stres tespiti",
     f6: "Kapalı Döngü Sistem", f6d: "Vital verilere göre otomatik stimülasyon ayarı",
+    f7: "Uyku Analizi", f7d: "Uyku fazları, uyku kalitesi ve gece boyunca nefes takibi",
+    f8: "Adımlar & Aktivite", f8d: "Günlük hareket, kalori yakma ve aktif dakikalar",
+    f9: "Cilt Nemi & UV", f9d: "Çevre verileriyle cilt bakım takibi",
+    f10: "Spor & Antrenman", f10d: "Antrenman hazırlığı, VO2 Max ve toparlanma önerileri",
+    f11: "Güvenlik Asistanı", f11d: "Düşme tespiti, hareketsizlik alarmı ve otomatik acil çağrı",
+    f12: "Esenlik Paneli", f12d: "Tüm veriler bir bakışta — bütünsel esenliğin",
     prodTitle: "Sistem", prodRing: "The Core — Akıllı Yüzük", prodRingD: "Vagus siniri stimülasyonu, kemik iletimi ve hareket kontrolü ile şık ear cuff.",
     prodPatch: "The Shield — Biyosensör Patch", prodPatchD: "Vital değerlerin, hormonların ve stres belirteçlerinin sürekli ölçümü.",
     techTitle: "Teknoloji",
@@ -1000,6 +1339,13 @@ export default function NanilPulseApp() {
   const [stressHistory, setStressHistory] = useState([42, 38, 45, 40, 35]);
   const [cycleDay, setCycleDay] = useState(14);
   const [basalTemps, setBasalTemps] = useState([36.2, 36.3, 36.2, 36.4, 36.3, 36.5, 36.6]);
+  const [sleepScore, setSleepScore] = useState(82);
+  const [stepsCount, setStepsCount] = useState(7842);
+  const [skinMoisture, setSkinMoisture] = useState(68);
+  const [sportReadiness, setSportReadiness] = useState(72);
+  const [showEmergencyAlert, setShowEmergencyAlert] = useState(false);
+  const [emergencyCountdown, setEmergencyCountdown] = useState(30);
+  const emergencyTimerRef = useRef(null);
   const sesTimerRef = useRef(null);
   const callTimerRef = useRef(null);
   const vitalsRef = useRef(null);
@@ -1030,15 +1376,15 @@ export default function NanilPulseApp() {
     return () => clearInterval(vitalsRef.current);
   }, [sesState, patchConn]);
 
-  const startVoiceAnalysis = () => {
+  const startVoiceAnalysis = (forcedResult) => {
     setVoiceState("running");
     setVoiceResult(null);
     setTimeout(() => {
-      const r = Math.random();
-      setVoiceResult(r < 0.4 ? "calm" : r < 0.75 ? "tense" : "stressed");
+      const result = forcedResult || (Math.random() < 0.4 ? "calm" : Math.random() < 0.65 ? "tense" : "stressed");
+      setVoiceResult(result);
       setVoiceState("done");
-      addLog(r < 0.4 ? t.log.voiceCalm : r < 0.75 ? t.log.voiceTense : t.log.voiceStress);
-    }, 4000);
+      addLog(result === "calm" ? t.log.voiceCalm : result === "tense" ? t.log.voiceTense : t.log.voiceStress);
+    }, forcedResult ? 2500 : 4000);
   };
 
   const addLog = (msg) =>
@@ -1184,7 +1530,7 @@ export default function NanilPulseApp() {
     }, 6000);
   };
 
-  const sesColor = sesState === "active" ? B.teal : sesState === "completed" ? B.orange : B.textDim;
+  const sesColor = sesState === "active" ? B.teal : sesState === "completed" ? B.orange : B.text;
   const sesLabel =
     sesState === "active"
       ? t.session.title
@@ -1229,7 +1575,7 @@ export default function NanilPulseApp() {
         .overlay{position:fixed;inset:0;background:rgba(20,20,28,0.88);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;z-index:300;animation:overlayFade 0.2s ease}
         .card-pop{animation:cardPop 0.32s cubic-bezier(0.34,1.2,0.64,1)}
         .card{background:rgba(55,55,65,0.9);border:1px solid rgba(255,255,255,0.075);border-radius:20px;padding:22px;margin-bottom:16px}
-        .card-title{font-size:10px;font-weight:700;color:${B.textDim};letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px}
+        .card-title{font-size:14px;font-weight:700;color:${B.textMut};letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px}
         .btn-primary{background:linear-gradient(135deg,${B.orange},${B.orangeD});color:#fff;border:none;border-radius:13px;padding:14px 30px;font-weight:700;font-size:15px;cursor:pointer;transition:all 0.2s;font-family:inherit}
         .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(224,112,48,0.4)}
         .btn-primary:disabled{opacity:0.35;cursor:not-allowed;transform:none}
@@ -1237,9 +1583,9 @@ export default function NanilPulseApp() {
         .btn-outline:hover{background:rgba(255,255,255,0.07);color:${B.text}}
         .btn-accept{background:linear-gradient(135deg,${B.teal},${B.tealD});color:#fff;border:none;border-radius:13px;padding:14px 28px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
         .btn-decline{background:rgba(224,80,80,0.14);color:#e07070;border:1px solid rgba(224,80,80,0.35);border-radius:13px;padding:14px 28px;font-weight:700;cursor:pointer;font-family:inherit}
-        .tab-btn{padding:9px 15px;border-radius:11px;font-size:12.5px;font-weight:600;cursor:pointer;border:1px solid transparent;background:none;color:${B.textDim};transition:all 0.18s;font-family:inherit}
+        .tab-btn{padding:11px 18px;border-radius:11px;font-size:15px;font-weight:600;cursor:pointer;border:1px solid transparent;background:none;color:${B.text};transition:all 0.18s;font-family:inherit}
         .tab-btn.active{color:${B.orange};background:${B.orangeDim};border-color:${B.orangeBrd}}
-        .lang-btn{background:none;border:1px solid rgba(255,255,255,0.1);border-radius:7px;color:${B.textDim};padding:4px 9px;font-size:10px;font-weight:700;cursor:pointer;font-family:inherit}
+        .lang-btn{background:none;border:1px solid rgba(255,255,255,0.25);border-radius:7px;color:${B.text};padding:6px 12px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
         .lang-btn.active{border-color:${B.orangeBrd};color:${B.orange};background:${B.orangeDim}}
         .gesture-btn{width:100%;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:15px;padding:16px;cursor:pointer;transition:all 0.2s;color:${B.textMut};font-family:inherit;text-align:center}
         .gesture-btn:hover{background:${B.orangeDim};border-color:${B.orangeBrd};color:${B.orange}}
@@ -1285,7 +1631,7 @@ export default function NanilPulseApp() {
               src="/nanil-pulse-logo.png"
               alt="NANIL Pulse"
               onError={() => setLogoError(true)}
-              style={{ height: 48, width: "auto", objectFit: "contain" }}
+              style={{ height: 64, width: "auto", objectFit: "contain" }}
             />
           ) : (
             <div
@@ -1305,20 +1651,20 @@ export default function NanilPulseApp() {
           )}
           <div>
             <div style={{ display: "flex", alignItems: "baseline", gap: 6, flexWrap: "wrap" }}>
-              <span style={{ fontWeight: 800, fontSize: 20, letterSpacing: "-0.8px", color: B.orange }}>NANIL</span>
-              <span style={{ fontWeight: 800, fontSize: 20, letterSpacing: "-0.8px", color: B.teal }}>PULSE</span>
+              <span style={{ fontWeight: 800, fontSize: 32, letterSpacing: "-0.8px", color: B.orange }}>NANIL</span>
+              <span style={{ fontWeight: 800, fontSize: 32, letterSpacing: "-0.8px", color: B.teal }}>PULSE</span>
             </div>
-            <div style={{ fontSize: 9, color: B.textDim, letterSpacing: "1.5px", textTransform: "uppercase", marginTop: 2 }}>
+            <div style={{ fontSize: 14, color: B.textMut, letterSpacing: "1.5px", textTransform: "uppercase", marginTop: 3 }}>
               {t.taglineBrand}
             </div>
           </div>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
-          <a href="/vorpage.html" style={{ fontSize: 10, fontWeight: 700, color: B.textMut, textDecoration: "none", padding: "5px 10px", borderRadius: 7, border: "1px solid rgba(255,255,255,0.1)", transition: "all 0.2s" }}>
+          <a href="/vorpage.html" style={{ fontSize: 16, fontWeight: 700, color: B.orange, textDecoration: "none", padding: "9px 18px", borderRadius: 7, border: `1px solid ${B.orangeBrd}`, transition: "all 0.2s" }}>
             {lang === "de" ? "Vorseite" : lang === "tr" ? "Giriş" : "Intro"}
           </a>
-          <a href="/main.html" style={{ fontSize: 10, fontWeight: 700, color: B.textMut, textDecoration: "none", padding: "5px 10px", borderRadius: 7, border: "1px solid rgba(255,255,255,0.1)", transition: "all 0.2s" }}>
+          <a href="/main.html" style={{ fontSize: 16, fontWeight: 700, color: B.teal, textDecoration: "none", padding: "9px 18px", borderRadius: 7, border: `1px solid ${B.tealBrd}`, transition: "all 0.2s" }}>
             {lang === "de" ? "Hauptseite" : lang === "tr" ? "Ana Sayfa" : "Main"}
           </a>
           <div style={{ width: 1, height: 16, background: "rgba(255,255,255,0.1)", margin: "0 2px" }} />
@@ -1330,13 +1676,13 @@ export default function NanilPulseApp() {
           <button
             onClick={audio.toggleMute}
             style={{
-              background: audio.muted ? "rgba(255,255,255,0.05)" : B.tealDim,
-              border: `1px solid ${audio.muted ? "rgba(255,255,255,0.1)" : B.tealBrd}`,
+              background: audio.muted ? "rgba(255,255,255,0.08)" : B.tealDim,
+              border: `1px solid ${audio.muted ? "rgba(255,255,255,0.25)" : B.tealBrd}`,
               borderRadius: 10,
-              padding: "6px 14px",
-              color: audio.muted ? B.textDim : B.teal,
+              padding: "8px 16px",
+              color: audio.muted ? B.text : B.teal,
               cursor: "pointer",
-              fontSize: 16,
+              fontSize: 18,
             }}
           >
             {audio.muted ? "🔇" : "🔊"}
@@ -1346,14 +1692,14 @@ export default function NanilPulseApp() {
               display: "flex",
               alignItems: "center",
               gap: 7,
-              padding: "6px 13px",
+              padding: "8px 16px",
               borderRadius: 10,
               background: sesState === "active" ? B.tealDim : B.orangeDim,
               border: `1px solid ${sesState === "active" ? B.tealBrd : B.orangeBrd}`,
             }}
           >
-            <div style={{ width: 7, height: 7, borderRadius: "50%", background: sesColor, ...(sesState === "active" ? { animation: "blink 1s infinite" } : {}) }} />
-            <span style={{ fontSize: 11, fontWeight: 700, color: sesColor }}>{sesLabel}</span>
+            <div style={{ width: 9, height: 9, borderRadius: "50%", background: sesColor, ...(sesState === "active" ? { animation: "blink 1s infinite" } : {}) }} />
+            <span style={{ fontSize: 14, fontWeight: 700, color: sesColor }}>{sesLabel}</span>
           </div>
         </div>
       </header>
@@ -1376,6 +1722,7 @@ export default function NanilPulseApp() {
           ["device", "📡", t.tabs.device],
           ["guide", "📋", t.tabs.guide],
           ["events", "⚡", t.tabs.events],
+          ["wellbeing", "🌿", t.tabs.wellbeing],
           ["sounds", "🔊", t.tabs.sounds],
         ].map(([id, icon, label]) => (
           <button key={id} className={`tab-btn${tab === id ? " active" : ""}`} onClick={() => setTab(id)}>
@@ -1396,7 +1743,7 @@ export default function NanilPulseApp() {
                 </svg>
                 <div className={sesState === "active" ? "pulse-active" : ""} style={{ position: "absolute", inset: "20px", borderRadius: "50%", background: "rgba(46,46,56,0.98)", border: `2px solid ${sesState === "active" ? B.teal : "rgba(255,255,255,0.08)"}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                   <div style={{ fontSize: 38, fontWeight: 800, color: sesState === "active" ? B.teal : sesState === "completed" ? B.orange : B.textDim }}>{fmt(timeLeft)}</div>
-                  <div style={{ marginTop: 8, fontSize: 11, color: B.textDim }}>{sesState === "completed" ? "✓ " + t.session.completed : t.session.ready}</div>
+                  <div style={{ marginTop: 8, fontSize: 14, color: B.textMut, fontWeight: 600 }}>{sesState === "completed" ? "✓ " + t.session.completed : t.session.ready}</div>
                 </div>
               </div>
               <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
@@ -1424,7 +1771,7 @@ export default function NanilPulseApp() {
                   <button key={id} className="gesture-btn" onClick={() => doGesture(id)}>
                     <div style={{ fontSize: 26, marginBottom: 8, color: B.orange }}>{sym}</div>
                     <div style={{ fontSize: 13, fontWeight: 700, color: B.text }}>{label}</div>
-                    <div style={{ fontSize: 11, color: B.textDim }}>{desc}</div>
+                    <div style={{ fontSize: 13, color: B.textMut }}>{desc}</div>
                   </button>
                 ))}
               </div>
@@ -1435,8 +1782,8 @@ export default function NanilPulseApp() {
                 <div style={{ maxHeight: 200, overflowY: "auto" }}>
                   {eventLog.map((e, i) => (
                     <div key={i} className="log-row">
-                      <span style={{ fontSize: 12.5, color: B.textMut }}>{e.msg}</span>
-                      <span style={{ fontSize: 10, color: B.textDim }}>{e.ts}</span>
+                      <span style={{ fontSize: 14, color: B.textMut }}>{e.msg}</span>
+                      <span style={{ fontSize: 12, color: B.textMut }}>{e.ts}</span>
                     </div>
                   ))}
                 </div>
@@ -1464,7 +1811,7 @@ export default function NanilPulseApp() {
                   <div style={{ fontSize: 42, fontWeight: 800, color: stressScore < 25 ? B.green : stressScore < 50 ? B.teal : stressScore < 70 ? B.orange : B.red }}>
                     {Math.round(stressScore)}
                   </div>
-                  <div style={{ fontSize: 11, color: B.textDim, marginTop: 4 }}>
+                  <div style={{ fontSize: 14, color: B.textMut, fontWeight: 600, marginTop: 4 }}>
                     {stressScore < 25 ? t.vitals.stressLow : stressScore < 50 ? t.vitals.stressMid : stressScore < 70 ? t.vitals.stressHigh : t.vitals.stressCrit}
                   </div>
                 </div>
@@ -1477,15 +1824,22 @@ export default function NanilPulseApp() {
                     opacity: 0.5 + (i / stressHistory.length) * 0.5, transition: "height 1s ease" }} />
                 ))}
               </div>
-              <div style={{ fontSize: 11, color: B.textDim }}>{t.ui.trend}</div>
+              <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.ui.trend}</div>
+              {/* Nanil Stress Tip */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: stressScore < 25 ? "rgba(64,200,128,0.06)" : stressScore < 50 ? "rgba(0,196,170,0.06)" : stressScore < 70 ? "rgba(201,162,39,0.06)" : "rgba(224,80,80,0.06)", border: `1px solid ${stressScore < 25 ? "rgba(64,200,128,0.2)" : stressScore < 50 ? B.tealBrd : stressScore < 70 ? "rgba(201,162,39,0.2)" : "rgba(224,80,80,0.2)"}` }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: stressScore < 25 ? B.green : stressScore < 50 ? B.teal : stressScore < 70 ? B.orange : B.red, marginBottom: 4 }}>{t.vitals.nanilTip}</div>
+                <div style={{ fontSize: 14, color: B.textMut, lineHeight: 1.5 }}>
+                  {stressScore < 25 ? t.vitals.stressTipLow : stressScore < 50 ? t.vitals.stressTipMid : stressScore < 70 ? t.vitals.stressTipHigh : t.vitals.stressTipCrit}
+                </div>
+              </div>
             </div>
 
             {/* Vital Cards Grid */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}>
               <div className="card" style={{ textAlign: "center", marginBottom: 0 }}>
-                <div style={{ fontSize: 11, color: B.textDim, marginBottom: 6 }}>{t.vitals.hr}</div>
+                <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600, marginBottom: 6 }}>{t.vitals.hr}</div>
                 <div style={{ fontSize: 36, fontWeight: 800, color: B.teal }}>{Math.round(hrSim)}</div>
-                <div style={{ fontSize: 11, color: B.tealD }}>{t.vitals.hrUnit}</div>
+                <div style={{ fontSize: 13, color: B.textMut }}>{t.vitals.hrUnit}</div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4, marginTop: 8 }}>
                   {[...Array(5)].map((_, i) => (
                     <div key={i} className="wave-bar" style={{ height: `${10 + Math.sin(Date.now() / 300 + i) * 8}px`, background: B.teal, animation: `wave 0.5s ease-in-out ${i * 0.1}s infinite alternate` }} />
@@ -1493,9 +1847,9 @@ export default function NanilPulseApp() {
                 </div>
               </div>
               <div className="card" style={{ textAlign: "center", marginBottom: 0 }}>
-                <div style={{ fontSize: 11, color: B.textDim, marginBottom: 6 }}>{t.vitals.hrv}</div>
+                <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600, marginBottom: 6 }}>{t.vitals.hrv}</div>
                 <div style={{ fontSize: 36, fontWeight: 800, color: hrvSim > 60 ? B.green : hrvSim > 40 ? B.orange : B.red }}>{Math.round(hrvSim)}</div>
-                <div style={{ fontSize: 11, color: B.textDim }}>{t.vitals.hrvUnit}</div>
+                <div style={{ fontSize: 13, color: B.textMut }}>{t.vitals.hrvUnit}</div>
                 <div style={{ marginTop: 8 }}>
                   <div className="bat-track" style={{ height: 8 }}>
                     <div style={{ height: "100%", width: `${Math.min(100, hrvSim)}%`, background: hrvSim > 60 ? `linear-gradient(90deg,${B.green},${B.tealLt})` : hrvSim > 40 ? `linear-gradient(90deg,${B.orange},${B.orangeLt})` : B.red, borderRadius: 4, transition: "width 2s" }} />
@@ -1503,14 +1857,32 @@ export default function NanilPulseApp() {
                 </div>
               </div>
               <div className="card" style={{ textAlign: "center", marginBottom: 0 }}>
-                <div style={{ fontSize: 11, color: B.textDim, marginBottom: 6 }}>{t.vitals.breath}</div>
+                <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600, marginBottom: 6 }}>{t.vitals.breath}</div>
                 <div style={{ fontSize: 36, fontWeight: 800, color: B.orange }}>{Math.round(breathSim)}</div>
-                <div style={{ fontSize: 11, color: B.textDim }}>{t.vitals.breathUnit}</div>
+                <div style={{ fontSize: 13, color: B.textMut }}>{t.vitals.breathUnit}</div>
               </div>
               <div className="card" style={{ textAlign: "center", marginBottom: 0 }}>
-                <div style={{ fontSize: 11, color: B.textDim, marginBottom: 6 }}>{t.vitals.skinTemp}</div>
+                <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600, marginBottom: 6 }}>{t.vitals.skinTemp}</div>
                 <div style={{ fontSize: 36, fontWeight: 800, color: "#f0a050" }}>{skinTemp.toFixed(1)}</div>
-                <div style={{ fontSize: 11, color: B.textDim }}>{t.vitals.skinTempUnit}</div>
+                <div style={{ fontSize: 13, color: B.textMut }}>{t.vitals.skinTempUnit}</div>
+              </div>
+            </div>
+
+            {/* Nanil Tips for Vitals */}
+            <div className="card" style={{ padding: "14px 16px", background: "rgba(0,196,170,0.04)", border: `1px solid ${B.tealBrd}` }}>
+              <div style={{ fontSize: 14, fontWeight: 800, color: B.teal, marginBottom: 10, display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 20 }}>🤖</span> {t.vitals.nanilTip}
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <div style={{ fontSize: 14, color: B.textMut, lineHeight: 1.5, paddingLeft: 10, borderLeft: `2px solid ${hrSim > 85 ? B.red : B.green}40` }}>
+                  ❤️ {hrSim > 85 ? t.vitals.hrTipHigh : t.vitals.hrTipLow}
+                </div>
+                <div style={{ fontSize: 14, color: B.textMut, lineHeight: 1.5, paddingLeft: 10, borderLeft: `2px solid ${B.teal}40` }}>
+                  📊 {t.vitals.hrvTip}
+                </div>
+                <div style={{ fontSize: 14, color: B.textMut, lineHeight: 1.5, paddingLeft: 10, borderLeft: `2px solid ${B.orange}40` }}>
+                  🫁 {t.vitals.breathTip}
+                </div>
               </div>
             </div>
 
@@ -1526,10 +1898,10 @@ export default function NanilPulseApp() {
                   <span style={{ fontSize: 20 }}>{sesState === "active" ? "🔄" : "⏸"}</span>
                 </div>
                 <div>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: sesState === "active" ? B.teal : B.textDim }}>
+                  <div style={{ fontSize: 15, fontWeight: 700, color: sesState === "active" ? B.teal : B.textMut }}>
                     {sesState === "active" ? t.vitals.loopActive : t.vitals.loopIdle}
                   </div>
-                  <div style={{ fontSize: 12, color: B.textDim, marginTop: 4 }}>{t.vitals.loopDesc}</div>
+                  <div style={{ fontSize: 14, color: B.textMut, marginTop: 4 }}>{t.vitals.loopDesc}</div>
                 </div>
               </div>
             </div>
@@ -1537,7 +1909,7 @@ export default function NanilPulseApp() {
             {/* General Hormone Tracking - for everyone */}
             <div className="card" style={{ padding: "20px 18px" }}>
               <p className="card-title">🧬 {t.vitals.hormoneGeneral}</p>
-              <div style={{ fontSize: 12, color: B.textDim, marginBottom: 16, lineHeight: 1.5 }}>{t.vitals.voiceForAll}</div>
+              <div style={{ fontSize: 14, color: B.textMut, marginBottom: 16, lineHeight: 1.5 }}>{t.vitals.voiceForAll}</div>
               {[
                 { label: t.vitals.cortisolLevel, level: stressScore < 30 ? 25 : stressScore < 60 ? 55 : 82, color: stressScore < 30 ? B.green : stressScore < 60 ? B.orange : B.red, icon: "⚡" },
                 { label: t.vitals.testosteroneLevel, level: 48 + Math.round(Math.sin(Date.now() / 50000) * 15), color: B.teal, icon: "💪" },
@@ -1545,11 +1917,11 @@ export default function NanilPulseApp() {
                 { label: t.vitals.melatoninLevel, level: new Date().getHours() > 20 || new Date().getHours() < 6 ? 75 : 20, color: "#9b59b6", icon: "🌙" },
               ].map((h, i) => (
                 <div key={i} style={{ marginBottom: 12 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, marginBottom: 4 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, marginBottom: 4 }}>
                     <span style={{ color: B.textMut }}>{h.icon} {h.label}</span>
                     <span style={{ color: h.color, fontWeight: 700 }}>{h.level}%</span>
                   </div>
-                  <div style={{ height: 6, borderRadius: 3, background: "rgba(255,255,255,0.06)" }}>
+                  <div style={{ height: 7, borderRadius: 3, background: "rgba(255,255,255,0.06)" }}>
                     <div style={{ width: `${h.level}%`, height: "100%", borderRadius: 3, background: h.color, transition: "width 0.6s ease" }} />
                   </div>
                 </div>
@@ -1570,7 +1942,7 @@ export default function NanilPulseApp() {
               return (
                 <div className="card" style={{ padding: "20px 18px" }}>
                   <p className="card-title" style={{ marginBottom: 6 }}>{t.vitals.hormone}</p>
-                  <div style={{ fontSize: 12, color: B.textDim, marginBottom: 18, lineHeight: 1.5 }}>{t.vitals.hormoneDesc}</div>
+                  <div style={{ fontSize: 14, color: B.textMut, marginBottom: 18, lineHeight: 1.5 }}>{t.vitals.hormoneDesc}</div>
 
                   {/* Cycle SVG Visualization */}
                   <div style={{ display: "flex", justifyContent: "center", marginBottom: 18 }}>
@@ -1593,21 +1965,21 @@ export default function NanilPulseApp() {
                         return <circle cx={x} cy={y} r="8" fill={phaseColor} stroke="#fff" strokeWidth="2" />;
                       })()}
                       <text x="100" y="85" textAnchor="middle" fill={B.text} fontSize="28" fontWeight="800">{cycleDay}</text>
-                      <text x="100" y="105" textAnchor="middle" fill={B.textDim} fontSize="10">{t.vitals.cycleDay}</text>
-                      <text x="100" y="125" textAnchor="middle" fill={phaseColor} fontSize="11" fontWeight="700">{phaseLabel}</text>
+                      <text x="100" y="105" textAnchor="middle" fill={B.textMut} fontSize="12">{t.vitals.cycleDay}</text>
+                      <text x="100" y="125" textAnchor="middle" fill={phaseColor} fontSize="13" fontWeight="700">{phaseLabel}</text>
                     </svg>
                   </div>
 
                   {/* Phase & Fertility cards */}
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
-                    <div style={{ padding: "12px 14px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                      <div style={{ fontSize: 11, color: B.textDim, marginBottom: 4 }}>{t.vitals.phase}</div>
-                      <div style={{ fontSize: 15, fontWeight: 700, color: phaseColor }}>{phaseLabel}</div>
-                      <div style={{ fontSize: 11, color: B.textDim }}>{t.vitals.cycleDay} {cycleDay} {t.vitals.cycleDayUnit}</div>
+                    <div style={{ padding: "14px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                      <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600, marginBottom: 4 }}>{t.vitals.phase}</div>
+                      <div style={{ fontSize: 16, fontWeight: 700, color: phaseColor }}>{phaseLabel}</div>
+                      <div style={{ fontSize: 13, color: B.textMut }}>{t.vitals.cycleDay} {cycleDay} {t.vitals.cycleDayUnit}</div>
                     </div>
-                    <div style={{ padding: "12px 14px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                      <div style={{ fontSize: 11, color: B.textDim, marginBottom: 4 }}>{t.vitals.fertility}</div>
-                      <div style={{ fontSize: 15, fontWeight: 700, color: fertColor }}>{fertility === "high" ? "●●●" : fertility === "med" ? "●●○" : "●○○"} {fertLabel}</div>
+                    <div style={{ padding: "14px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                      <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600, marginBottom: 4 }}>{t.vitals.fertility}</div>
+                      <div style={{ fontSize: 16, fontWeight: 700, color: fertColor }}>{fertility === "high" ? "●●●" : fertility === "med" ? "●●○" : "●○○"} {fertLabel}</div>
                     </div>
                   </div>
 
@@ -1619,11 +1991,11 @@ export default function NanilPulseApp() {
                       { label: t.vitals.lh, level: lhLevel, color: B.teal },
                     ].map((h, i) => (
                       <div key={i} style={{ marginBottom: 10 }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, marginBottom: 4 }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, marginBottom: 4 }}>
                           <span style={{ color: B.textMut }}>{h.label}</span>
                           <span style={{ color: h.color, fontWeight: 700 }}>{h.level}%</span>
                         </div>
-                        <div style={{ height: 6, borderRadius: 3, background: "rgba(255,255,255,0.06)" }}>
+                        <div style={{ height: 7, borderRadius: 3, background: "rgba(255,255,255,0.06)" }}>
                           <div style={{ width: `${h.level}%`, height: "100%", borderRadius: 3, background: h.color, transition: "width 0.6s ease" }} />
                         </div>
                       </div>
@@ -1633,21 +2005,21 @@ export default function NanilPulseApp() {
                   {/* Ovulation Alert */}
                   {phase === "ovulation" && (
                     <div className="fade-up" style={{ padding: "14px 16px", borderRadius: 14, background: "rgba(255,107,157,0.1)", border: "1px solid rgba(255,107,157,0.3)", marginBottom: 16 }}>
-                      <div style={{ fontSize: 14, fontWeight: 700, color: "#ff6b9d", marginBottom: 4 }}>🌸 {t.vitals.ovulationAlert}</div>
-                      <div style={{ fontSize: 12, color: "rgba(255,107,157,0.7)" }}>{t.vitals.ovulationDesc}</div>
+                      <div style={{ fontSize: 15, fontWeight: 700, color: "#ff6b9d", marginBottom: 4 }}>🌸 {t.vitals.ovulationAlert}</div>
+                      <div style={{ fontSize: 14, color: "rgba(255,107,157,0.8)" }}>{t.vitals.ovulationDesc}</div>
                     </div>
                   )}
 
                   {/* Basal Temperature Trend */}
                   <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                    <div style={{ fontSize: 12, color: B.textDim, marginBottom: 10 }}>{t.vitals.tempTrend}</div>
+                    <div style={{ fontSize: 14, color: B.textMut, fontWeight: 600, marginBottom: 10 }}>{t.vitals.tempTrend}</div>
                     <div style={{ display: "flex", alignItems: "flex-end", gap: 4, height: 50 }}>
                       {basalTemps.map((temp, i) => {
                         const h = ((temp - 35.8) / 1.6) * 50;
                         const isToday = i === basalTemps.length - 1;
                         return (
                           <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-                            <span style={{ fontSize: 9, color: isToday ? "#ff6b9d" : B.textDim }}>{temp.toFixed(1)}</span>
+                            <span style={{ fontSize: 11, color: isToday ? "#ff6b9d" : B.textMut }}>{temp.toFixed(1)}</span>
                             <div style={{ width: "100%", height: Math.max(4, h), borderRadius: 3, background: isToday ? "#ff6b9d" : temp >= 36.5 ? B.orange : B.teal, opacity: isToday ? 1 : 0.5 }} />
                           </div>
                         );
@@ -1667,8 +2039,8 @@ export default function NanilPulseApp() {
             {/* Voice Analysis & Biomarkers */}
             <div className="card">
               <p className="card-title">{t.vitals.voice}</p>
-              <div style={{ fontSize: 13, color: B.textMut, marginBottom: 14 }}>{t.vitals.voiceDesc}</div>
-              <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", marginBottom: 14, fontSize: 12, color: B.textDim }}>
+              <div style={{ fontSize: 14, color: B.textMut, marginBottom: 14 }}>{t.vitals.voiceDesc}</div>
+              <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", marginBottom: 14, fontSize: 14, color: B.textMut }}>
                 🎤 {t.vitals.voiceTip}
               </div>
               {voiceState === "done" && voiceResult && (
@@ -1676,25 +2048,36 @@ export default function NanilPulseApp() {
                   <div className="fade-up" style={{ padding: "14px 18px", borderRadius: 14, marginBottom: 14,
                     background: voiceResult === "calm" ? B.greenDim : voiceResult === "tense" ? B.orangeDim : B.redDim,
                     border: `1px solid ${voiceResult === "calm" ? "rgba(64,200,128,0.35)" : voiceResult === "tense" ? B.orangeBrd : B.redBrd}` }}>
-                    <div style={{ fontSize: 12, color: B.textDim, marginBottom: 4 }}>{t.vitals.voiceResult}</div>
+                    <div style={{ fontSize: 14, color: B.textMut, fontWeight: 600, marginBottom: 4 }}>{t.vitals.voiceResult}</div>
                     <div style={{ fontSize: 15, fontWeight: 700, color: voiceResult === "calm" ? B.green : voiceResult === "tense" ? B.orange : B.red }}>
                       {voiceResult === "calm" ? "✓ " + t.vitals.voiceCalm : voiceResult === "tense" ? "⚠ " + t.vitals.voiceTense : "🔴 " + t.vitals.voiceStressed}
                     </div>
                   </div>
+                  {/* Voice Tips / Recommendations */}
+                  <div className="fade-up" style={{ padding: "16px 18px", borderRadius: 14, background: voiceResult === "calm" ? "rgba(64,200,128,0.06)" : voiceResult === "tense" ? "rgba(201,162,39,0.06)" : "rgba(224,80,80,0.06)", border: `1px solid ${voiceResult === "calm" ? "rgba(64,200,128,0.2)" : voiceResult === "tense" ? "rgba(201,162,39,0.2)" : "rgba(224,80,80,0.2)"}`, marginBottom: 14 }}>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: voiceResult === "calm" ? B.green : voiceResult === "tense" ? B.orange : B.red, marginBottom: 10 }}>
+                      💡 {t.vitals.voiceTipsTitle}
+                    </div>
+                    {(voiceResult === "calm" ? t.vitals.voiceTipsCalm : voiceResult === "tense" ? t.vitals.voiceTipsTense : t.vitals.voiceTipsStressed)?.map((tip, i) => (
+                      <div key={i} style={{ fontSize: 14, color: B.textMut, lineHeight: 1.6, marginBottom: 8, paddingLeft: 10, borderLeft: `2px solid ${voiceResult === "calm" ? B.green : voiceResult === "tense" ? B.orange : B.red}40` }}>
+                        {tip}
+                      </div>
+                    ))}
+                  </div>
                   {/* Hormone indicators from voice */}
-                  <div className="fade-up" style={{ padding: "16px 18px", borderRadius: 14, background: "rgba(93,154,168,0.08)", border: `1px solid ${B.tealBrd}`, marginBottom: 14 }}>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: B.teal, marginBottom: 12 }}>🧬 {t.vitals.voiceHormone}</div>
+                  <div className="fade-up" style={{ padding: "16px 18px", borderRadius: 14, background: "rgba(0,196,170,0.08)", border: `1px solid ${B.tealBrd}`, marginBottom: 14 }}>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: B.teal, marginBottom: 12 }}>🧬 {t.vitals.voiceHormone}</div>
                     {[
                       { label: t.vitals.voiceCortisol, level: voiceResult === "calm" ? 22 : voiceResult === "tense" ? 58 : 85, color: voiceResult === "calm" ? B.green : voiceResult === "tense" ? B.orange : B.red },
                       { label: t.vitals.voiceTestosterone, level: voiceResult === "calm" ? 65 : voiceResult === "tense" ? 50 : 35, color: B.teal },
                       { label: t.vitals.voiceEnergy, level: voiceResult === "calm" ? 78 : voiceResult === "tense" ? 55 : 30, color: B.orange },
                     ].map((h, i) => (
                       <div key={i} style={{ marginBottom: 10 }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, marginBottom: 4 }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, marginBottom: 4 }}>
                           <span style={{ color: B.textMut }}>{h.label}</span>
                           <span style={{ color: h.color, fontWeight: 700 }}>{h.level}%</span>
                         </div>
-                        <div style={{ height: 5, borderRadius: 3, background: "rgba(255,255,255,0.06)" }}>
+                        <div style={{ height: 7, borderRadius: 3, background: "rgba(255,255,255,0.06)" }}>
                           <div style={{ width: `${h.level}%`, height: "100%", borderRadius: 3, background: h.color, transition: "width 0.6s ease" }} />
                         </div>
                       </div>
@@ -1714,17 +2097,41 @@ export default function NanilPulseApp() {
                 ) : `🎤 ${t.vitals.voiceStart}`}
               </button>
 
+              {/* Voice Demos */}
+              <div style={{ padding: "16px 18px", borderRadius: 14, background: "linear-gradient(135deg, rgba(0,196,170,0.06), rgba(201,162,39,0.06))", border: `1px solid ${B.tealBrd}`, marginBottom: 14 }}>
+                <div style={{ fontSize: 14, fontWeight: 800, color: B.teal, marginBottom: 4 }}>🎙️ {t.vitals.voiceDemos}</div>
+                <div style={{ fontSize: 14, color: B.textMut, marginBottom: 14 }}>{t.vitals.voiceDemosDesc}</div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                  {[
+                    { label: t.vitals.demoMorning, desc: t.vitals.demoMorningDesc, result: "calm", color: B.green },
+                    { label: t.vitals.demoMeeting, desc: t.vitals.demoMeetingDesc, result: "tense", color: B.orange },
+                    { label: t.vitals.demoStress, desc: t.vitals.demoStressDesc, result: "stressed", color: B.red },
+                    { label: t.vitals.demoSport, desc: t.vitals.demoSportDesc, result: "tense", color: B.orange },
+                    { label: t.vitals.demoMeditation, desc: t.vitals.demoMeditationDesc, result: "calm", color: B.green },
+                    { label: t.vitals.demoEvening, desc: t.vitals.demoEveningDesc, result: "stressed", color: B.red },
+                  ].map((demo, i) => (
+                    <button key={i} onClick={() => startVoiceAnalysis(demo.result)} disabled={voiceState === "running"}
+                      style={{ padding: "12px 10px", borderRadius: 12, border: `1px solid ${demo.color}30`, background: `${demo.color}08`,
+                        cursor: voiceState === "running" ? "not-allowed" : "pointer", textAlign: "left", transition: "all 0.2s",
+                        opacity: voiceState === "running" ? 0.5 : 1 }}>
+                      <div style={{ fontSize: 14, fontWeight: 700, color: demo.color, marginBottom: 3 }}>{demo.label}</div>
+                      <div style={{ fontSize: 12, color: B.textMut, lineHeight: 1.4 }}>{demo.desc}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               {/* For Everyone badge */}
               <div style={{ padding: "12px 16px", borderRadius: 12, background: "rgba(201,162,39,0.08)", border: `1px solid ${B.orangeBrd}`, marginBottom: 14 }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: B.orange, marginBottom: 4 }}>👤 {t.vitals.voiceNotJustWomen}</div>
-                <div style={{ fontSize: 12, color: B.textDim, lineHeight: 1.5 }}>{t.vitals.voiceForAll}</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: B.orange, marginBottom: 4 }}>👤 {t.vitals.voiceNotJustWomen}</div>
+                <div style={{ fontSize: 14, color: B.textMut, lineHeight: 1.5 }}>{t.vitals.voiceForAll}</div>
               </div>
 
               {/* Scientific Studies */}
               <div style={{ padding: "16px 18px", borderRadius: 14, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: B.text, marginBottom: 12 }}>📚 {t.vitals.voiceStudies}</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: B.text, marginBottom: 12 }}>📚 {t.vitals.voiceStudies}</div>
                 {[t.vitals.voiceStudy1, t.vitals.voiceStudy2, t.vitals.voiceStudy3, t.vitals.voiceStudy4].map((s, i) => (
-                  <div key={i} style={{ fontSize: 11, color: B.textDim, lineHeight: 1.5, marginBottom: 8, paddingLeft: 12, borderLeft: `2px solid ${i === 0 ? B.teal : i === 1 ? B.orange : i === 2 ? "#ff6b9d" : B.green}` }}>
+                  <div key={i} style={{ fontSize: 13, color: B.textMut, lineHeight: 1.5, marginBottom: 8, paddingLeft: 12, borderLeft: `2px solid ${i === 0 ? B.teal : i === 1 ? B.orange : i === 2 ? "#ff6b9d" : B.green}` }}>
                     {s}
                   </div>
                 ))}
@@ -1738,7 +2145,7 @@ export default function NanilPulseApp() {
             {/* Vagus Nerve Anatomy */}
             <div className="card" style={{ padding: "24px" }}>
               <div style={{ fontSize: 19, fontWeight: 800, color: B.text, marginBottom: 4 }}>{t.vagus.title}</div>
-              <div style={{ fontSize: 13, color: B.textDim, marginBottom: 20 }}>{t.vagus.subtitle}</div>
+              <div style={{ fontSize: 14, color: B.textMut, marginBottom: 20 }}>{t.vagus.subtitle}</div>
 
               <div style={{ borderRadius: 14, overflow: "hidden", background: "#0a1220", marginBottom: 20 }}>
                 <EarRingSVG active={sesState === "active"} activeLabel={t.ui.active} />
@@ -1910,8 +2317,8 @@ export default function NanilPulseApp() {
             <div className="card">
               <p className="card-title">{t.device.patch}</p>
               <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
-                <div style={{ width: 64, height: 48, borderRadius: 12, background: patchConn ? "#1a3a50" : "#1a2234", border: `2px solid ${patchConn ? B.tealBrd : "rgba(255,255,255,0.1)"}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: patchConn ? B.teal : "#3a5060", opacity: 0.8 }} />
+                <div style={{ width: 64, height: 64, borderRadius: 12, overflow: "hidden", border: `2px solid ${patchConn ? B.tealBrd : "rgba(255,255,255,0.1)"}`, flexShrink: 0 }}>
+                  <img src="/patch.jpg" alt="Pulse Core Patch" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 700, fontSize: 18, color: B.text }}>Pulse Core</div>
@@ -2030,13 +2437,318 @@ export default function NanilPulseApp() {
                 <div style={{ maxHeight: 240, overflowY: "auto" }}>
                   {eventLog.map((e, i) => (
                     <div key={i} className="log-row">
-                      <span style={{ fontSize: 12.5, color: B.textMut }}>{e.msg}</span>
-                      <span style={{ fontSize: 10, color: B.textDim }}>{e.ts}</span>
+                      <span style={{ fontSize: 14, color: B.textMut }}>{e.msg}</span>
+                      <span style={{ fontSize: 12, color: B.textMut }}>{e.ts}</span>
                     </div>
                   ))}
                 </div>
               </div>
             )}
+          </>
+        )}
+
+        {tab === "wellbeing" && (
+          <>
+            {/* Wellbeing Dashboard Header */}
+            <div className="card" style={{ padding: "24px", textAlign: "center", background: "linear-gradient(135deg, rgba(0,196,170,0.08), rgba(201,162,39,0.08))", border: `1px solid ${B.tealBrd}` }}>
+              <div style={{ fontSize: 24, fontWeight: 800, color: B.text, marginBottom: 6 }}>🌿 {t.wellbeing?.title}</div>
+              <div style={{ fontSize: 15, color: B.textMut }}>{t.wellbeing?.subtitle}</div>
+            </div>
+
+            {/* Sleep Analysis */}
+            <div className="card">
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                <span style={{ fontSize: 26 }}>🌙</span>
+                <div>
+                  <p className="card-title" style={{ margin: 0 }}>{t.wellbeing?.sleepTitle}</p>
+                  <div style={{ fontSize: 14, color: B.textMut }}>{t.wellbeing?.sleepDesc}</div>
+                </div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 16 }}>
+                <div style={{ padding: "14px", borderRadius: 12, background: "rgba(0,196,170,0.06)", border: `1px solid ${B.tealBrd}`, textAlign: "center" }}>
+                  <div style={{ fontSize: 30, fontWeight: 800, color: B.teal }}>{sleepScore}</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.sleepScore}</div>
+                </div>
+                <div style={{ padding: "14px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", textAlign: "center" }}>
+                  <div style={{ fontSize: 30, fontWeight: 800, color: B.text }}>7h 23m</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.sleepDuration}</div>
+                </div>
+              </div>
+              {/* Sleep phases bar */}
+              <div style={{ marginTop: 16 }}>
+                <div style={{ display: "flex", height: 32, borderRadius: 8, overflow: "hidden", marginBottom: 8 }}>
+                  <div style={{ width: "22%", background: "#1a237e", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontWeight: 700 }}>{t.wellbeing?.sleepDeep}</div>
+                  <div style={{ width: "25%", background: "#4a148c", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontWeight: 700 }}>{t.wellbeing?.sleepRem}</div>
+                  <div style={{ width: "45%", background: "#00695c", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontWeight: 700 }}>{t.wellbeing?.sleepLight}</div>
+                  <div style={{ width: "8%", background: "#bf360c", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontWeight: 700 }}></div>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, color: B.textMut }}>
+                  <span>22:30</span><span>00:00</span><span>02:00</span><span>04:00</span><span>05:53</span>
+                </div>
+              </div>
+              {/* Sleep Apnea Monitor */}
+              <div style={{ marginTop: 16, padding: "14px 16px", borderRadius: 12, background: "rgba(64,200,128,0.06)", border: "1px solid rgba(64,200,128,0.2)" }}>
+                <div style={{ fontSize: 15, fontWeight: 700, color: B.green, marginBottom: 6 }}>🫁 {t.wellbeing?.sleepApnea}</div>
+                <div style={{ fontSize: 14, color: B.textMut, marginBottom: 4 }}>{t.wellbeing?.sleepApneaDesc}</div>
+                <div style={{ fontSize: 15, color: B.green, fontWeight: 600 }}>✓ {t.wellbeing?.sleepApneaOk}</div>
+              </div>
+              {/* Nanil Sleep Tip */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(0,196,170,0.04)", border: `1px solid ${B.tealBrd}` }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: B.teal, marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                  <span>🤖</span> {t.wellbeing?.nanilSleepTip?.replace("{score}", sleepScore).replace("{tip}", sleepScore >= 80 ? t.wellbeing?.sleepTipGood : sleepScore >= 60 ? t.wellbeing?.sleepTipOk : t.wellbeing?.sleepTipBad)}
+                </div>
+              </div>
+            </div>
+
+            {/* Heart Wellness */}
+            <div className="card">
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                <span style={{ fontSize: 26 }}>❤️</span>
+                <div>
+                  <p className="card-title" style={{ margin: 0 }}>{t.wellbeing?.heartTitle}</p>
+                  <div style={{ fontSize: 14, color: B.textMut }}>{t.wellbeing?.heartDesc}</div>
+                </div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginTop: 16 }}>
+                {[
+                  { val: "62", label: t.wellbeing?.heartResting, color: B.green },
+                  { val: "142", label: t.wellbeing?.heartMax, color: B.red },
+                  { val: "78", label: t.wellbeing?.heartAvg, color: B.teal },
+                ].map((item, i) => (
+                  <div key={i} style={{ padding: "14px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", textAlign: "center" }}>
+                    <div style={{ fontSize: 24, fontWeight: 800, color: item.color }}>{item.val}</div>
+                    <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{item.label}</div>
+                  </div>
+                ))}
+              </div>
+              {/* Heart Zone */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(64,200,128,0.06)", border: "1px solid rgba(64,200,128,0.2)" }}>
+                <div style={{ fontSize: 14, color: B.textMut, marginBottom: 4 }}>{t.wellbeing?.heartZone}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: B.green }}>💚 {t.wellbeing?.heartZoneRest}</div>
+              </div>
+              {/* Heart Coherence */}
+              <div style={{ marginTop: 10, padding: "14px 16px", borderRadius: 12, background: "rgba(0,196,170,0.06)", border: `1px solid ${B.tealBrd}` }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: B.teal }}>{t.wellbeing?.heartCoherence}</div>
+                    <div style={{ fontSize: 13, color: B.textMut }}>{t.wellbeing?.heartCoherenceDesc}</div>
+                  </div>
+                  <div style={{ fontSize: 26, fontWeight: 800, color: B.teal }}>78%</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Steps & Activity */}
+            <div className="card">
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                <span style={{ fontSize: 26 }}>🚶</span>
+                <div>
+                  <p className="card-title" style={{ margin: 0 }}>{t.wellbeing?.stepsTitle}</p>
+                  <div style={{ fontSize: 14, color: B.textMut }}>{t.wellbeing?.stepsDesc}</div>
+                </div>
+              </div>
+              {/* Steps circle */}
+              <div style={{ textAlign: "center", margin: "20px 0" }}>
+                <div style={{ position: "relative", width: 160, height: 160, margin: "0 auto" }}>
+                  <svg width="160" height="160" style={{ transform: "rotate(-90deg)" }}>
+                    <circle cx="80" cy="80" r="68" fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="10" />
+                    <circle cx="80" cy="80" r="68" fill="none" stroke={B.teal} strokeWidth="10" strokeLinecap="round"
+                      strokeDasharray={2 * Math.PI * 68} strokeDashoffset={2 * Math.PI * 68 * (1 - stepsCount / 10000)}
+                      style={{ transition: "stroke-dashoffset 0.6s ease" }} />
+                  </svg>
+                  <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ fontSize: 28, fontWeight: 800, color: B.text }}>{stepsCount.toLocaleString()}</div>
+                    <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.stepsToday}</div>
+                  </div>
+                </div>
+                <div style={{ fontSize: 14, color: B.textMut, marginTop: 8 }}>{t.wellbeing?.stepsGoal}: 10.000</div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+                {[
+                  { val: "5.2 km", label: t.wellbeing?.stepsDistance, icon: "📏" },
+                  { val: "342", label: t.wellbeing?.stepsCalories, icon: "🔥" },
+                  { val: "48", label: t.wellbeing?.stepsActive, icon: "⏱" },
+                ].map((item, i) => (
+                  <div key={i} style={{ padding: "14px 10px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", textAlign: "center" }}>
+                    <div style={{ fontSize: 14, marginBottom: 4 }}>{item.icon}</div>
+                    <div style={{ fontSize: 18, fontWeight: 700, color: B.text }}>{item.val}</div>
+                    <div style={{ fontSize: 12, color: B.textMut, fontWeight: 600 }}>{item.label}</div>
+                  </div>
+                ))}
+              </div>
+              {/* Nanil Steps Tip */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(0,196,170,0.04)", border: `1px solid ${B.tealBrd}` }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: B.teal, display: "flex", alignItems: "center", gap: 6 }}>
+                  <span>🤖</span> {t.wellbeing?.nanilStepsTip?.replace("{steps}", stepsCount.toLocaleString()).replace("{tip}", stepsCount >= 7000 ? t.wellbeing?.stepsTipGood : t.wellbeing?.stepsTipLow)}
+                </div>
+              </div>
+            </div>
+
+            {/* Skin & Environment */}
+            <div className="card">
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                <span style={{ fontSize: 26 }}>💧</span>
+                <div>
+                  <p className="card-title" style={{ margin: 0 }}>{t.wellbeing?.skinTitle}</p>
+                  <div style={{ fontSize: 14, color: B.textMut }}>{t.wellbeing?.skinDesc}</div>
+                </div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 16 }}>
+                <div style={{ padding: "16px", borderRadius: 12, background: "rgba(0,196,170,0.06)", border: `1px solid ${B.tealBrd}`, textAlign: "center" }}>
+                  <div style={{ fontSize: 28, fontWeight: 800, color: B.teal }}>{skinMoisture}%</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.skinMoisture}</div>
+                  <div style={{ fontSize: 13, color: B.green, fontWeight: 600, marginTop: 4 }}>✓ {t.wellbeing?.skinMoistureGood}</div>
+                </div>
+                <div style={{ padding: "16px", borderRadius: 12, background: "rgba(201,162,39,0.06)", border: `1px solid ${B.orangeBrd}`, textAlign: "center" }}>
+                  <div style={{ fontSize: 28, fontWeight: 800, color: B.orange }}>3</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.skinUV}</div>
+                  <div style={{ fontSize: 13, color: B.orange, fontWeight: 600, marginTop: 4 }}>{t.wellbeing?.skinUVMod}</div>
+                </div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 10 }}>
+                <div style={{ padding: "14px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", textAlign: "center" }}>
+                  <div style={{ fontSize: 20, fontWeight: 700, color: B.text }}>36.4°C</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.skinTemp}</div>
+                </div>
+                <div style={{ padding: "14px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", textAlign: "center" }}>
+                  <div style={{ fontSize: 20, fontWeight: 700, color: B.text }}>52%</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.skinHumidity}</div>
+                </div>
+              </div>
+              {/* Nanil Skin Tip */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(0,196,170,0.04)", border: `1px solid ${B.tealBrd}` }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: B.teal, display: "flex", alignItems: "center", gap: 6 }}>
+                  <span>🤖</span> {t.wellbeing?.nanilSkinTip?.replace("{pct}", skinMoisture).replace("{tip}", skinMoisture >= 60 ? t.wellbeing?.skinTipGood : t.wellbeing?.skinTipDry)}
+                </div>
+              </div>
+            </div>
+
+            {/* Sport & Training */}
+            <div className="card">
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                <span style={{ fontSize: 26 }}>🏃</span>
+                <div>
+                  <p className="card-title" style={{ margin: 0 }}>{t.wellbeing?.sportTitle}</p>
+                  <div style={{ fontSize: 14, color: B.textMut }}>{t.wellbeing?.sportDesc}</div>
+                </div>
+              </div>
+              {/* Training Readiness */}
+              <div style={{ textAlign: "center", margin: "20px 0" }}>
+                <div style={{ position: "relative", width: 140, height: 140, margin: "0 auto" }}>
+                  <svg width="140" height="140" style={{ transform: "rotate(-90deg)" }}>
+                    <circle cx="70" cy="70" r="58" fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="9" />
+                    <circle cx="70" cy="70" r="58" fill="none"
+                      stroke={sportReadiness > 70 ? B.green : sportReadiness > 40 ? B.orange : B.red}
+                      strokeWidth="9" strokeLinecap="round"
+                      strokeDasharray={2 * Math.PI * 58} strokeDashoffset={2 * Math.PI * 58 * (1 - sportReadiness / 100)} />
+                  </svg>
+                  <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ fontSize: 26, fontWeight: 800, color: sportReadiness > 70 ? B.green : sportReadiness > 40 ? B.orange : B.red }}>{sportReadiness}%</div>
+                    <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.sportReadiness}</div>
+                  </div>
+                </div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                <div style={{ padding: "14px", borderRadius: 12, background: "rgba(0,196,170,0.06)", border: `1px solid ${B.tealBrd}`, textAlign: "center" }}>
+                  <div style={{ fontSize: 20, fontWeight: 700, color: B.teal }}>48</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.sportVO2}</div>
+                </div>
+                <div style={{ padding: "14px", borderRadius: 12, background: "rgba(201,162,39,0.06)", border: `1px solid ${B.orangeBrd}`, textAlign: "center" }}>
+                  <div style={{ fontSize: 20, fontWeight: 700, color: B.orange }}>{t.wellbeing?.sportMod}</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.sportLoad}</div>
+                </div>
+              </div>
+              {/* Training recommendation */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(64,200,128,0.06)", border: "1px solid rgba(64,200,128,0.2)" }}>
+                <div style={{ fontSize: 14, color: B.textMut }}>{t.wellbeing?.sportTip}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: B.green, marginTop: 4 }}>
+                  💪 {sportReadiness > 70 ? t.wellbeing?.sportTipHigh : sportReadiness > 40 ? t.wellbeing?.sportTipMod : t.wellbeing?.sportTipRest}
+                </div>
+              </div>
+              {/* Nanil Sport Tip */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(0,196,170,0.04)", border: `1px solid ${B.tealBrd}` }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: B.teal, display: "flex", alignItems: "center", gap: 6 }}>
+                  <span>🤖</span> {t.wellbeing?.nanilSportTip?.replace("{pct}", sportReadiness).replace("{tip}", sportReadiness > 70 ? t.wellbeing?.nanilSportReady : t.wellbeing?.nanilSportRecover)}
+                </div>
+              </div>
+            </div>
+
+            {/* Safety / Emergency */}
+            <div className="card" style={{ border: `1px solid ${B.redBrd}` }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                <span style={{ fontSize: 26 }}>🛡️</span>
+                <div>
+                  <p className="card-title" style={{ margin: 0 }}>{t.wellbeing?.emergencyTitle}</p>
+                  <div style={{ fontSize: 14, color: B.textMut }}>{t.wellbeing?.emergencyDesc}</div>
+                </div>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 16 }}>
+                {/* Fall Detection */}
+                <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(64,200,128,0.06)", border: "1px solid rgba(64,200,128,0.2)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: B.text }}>🔻 {t.wellbeing?.emergencyFall}</div>
+                    <div style={{ fontSize: 13, color: B.textMut }}>{t.wellbeing?.emergencyFallDesc}</div>
+                  </div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: B.green, padding: "5px 12px", borderRadius: 20, background: B.greenDim }}>✓ {t.wellbeing?.emergencyActive}</div>
+                </div>
+                {/* Inactivity Alert */}
+                <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(64,200,128,0.06)", border: "1px solid rgba(64,200,128,0.2)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: B.text }}>⏰ {t.wellbeing?.emergencyInactive}</div>
+                    <div style={{ fontSize: 13, color: B.textMut }}>{t.wellbeing?.emergencyInactiveDesc}</div>
+                  </div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: B.green, padding: "5px 12px", borderRadius: 20, background: B.greenDim }}>✓ {t.wellbeing?.emergencyActive}</div>
+                </div>
+              </div>
+              {/* Emergency Contacts */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <div style={{ fontSize: 15, fontWeight: 700, color: B.text, marginBottom: 4 }}>📋 {t.wellbeing?.emergencyContacts}</div>
+                <div style={{ fontSize: 13, color: B.textMut, marginBottom: 10 }}>{t.wellbeing?.emergencyContactsDesc}</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 14px", borderRadius: 8, background: "rgba(255,255,255,0.04)" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ fontSize: 20 }}>👩</span>
+                      <div>
+                        <div style={{ fontSize: 15, fontWeight: 600, color: B.text }}>Dr. Sarah M.</div>
+                        <div style={{ fontSize: 13, color: B.textMut }}>+49 176 *** **82</div>
+                      </div>
+                    </div>
+                    <span style={{ fontSize: 14, color: B.green }}>✓</span>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 14px", borderRadius: 8, background: "rgba(255,255,255,0.04)" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <span style={{ fontSize: 20 }}>👨</span>
+                      <div>
+                        <div style={{ fontSize: 15, fontWeight: 600, color: B.text }}>Max M.</div>
+                        <div style={{ fontSize: 13, color: B.textMut }}>+49 151 *** **45</div>
+                      </div>
+                    </div>
+                    <span style={{ fontSize: 14, color: B.green }}>✓</span>
+                  </div>
+                </div>
+                <button style={{ width: "100%", marginTop: 12, padding: "12px", borderRadius: 8, border: `1px dashed ${B.tealBrd}`, background: "transparent", color: B.teal, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
+                  + {t.wellbeing?.emergencyAdd}
+                </button>
+              </div>
+              {/* Test Emergency */}
+              <button className="btn-primary" style={{ width: "100%", marginTop: 14, fontSize: 15, padding: "16px", background: B.redDim, border: `1px solid ${B.redBrd}`, color: B.red }}
+                onClick={() => {
+                  setShowEmergencyAlert(true);
+                  let count = 30;
+                  setEmergencyCountdown(30);
+                  if (emergencyTimerRef.current) clearInterval(emergencyTimerRef.current);
+                  emergencyTimerRef.current = setInterval(() => {
+                    count--;
+                    setEmergencyCountdown(count);
+                    if (count <= 0) {
+                      clearInterval(emergencyTimerRef.current);
+                      setShowEmergencyAlert(false);
+                    }
+                  }, 1000);
+                }}>
+                🛡️ {t.wellbeing?.emergencyTestBtn}
+              </button>
+            </div>
           </>
         )}
 
@@ -2059,7 +2771,7 @@ export default function NanilPulseApp() {
         )}
 
         {/* Contact Card — always visible */}
-        <div className="card" style={{ marginTop: 24, padding: "24px 20px", textAlign: "center", background: `linear-gradient(135deg, rgba(93,154,168,0.08), rgba(201,162,39,0.08))`, border: `1px solid ${B.tealBrd}` }}>
+        <div className="card" style={{ marginTop: 24, padding: "24px 20px", textAlign: "center", background: `linear-gradient(135deg, rgba(0,196,170,0.08), rgba(201,162,39,0.08))`, border: `1px solid ${B.tealBrd}` }}>
           <div style={{ fontSize: 18, fontWeight: 800, color: B.text, marginBottom: 6 }}>{t.ui.contact}</div>
           <div style={{ fontSize: 13, color: B.textMut, marginBottom: 18 }}>{t.ui.contactSub}</div>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
@@ -2131,16 +2843,40 @@ export default function NanilPulseApp() {
         </div>
       )}
 
-      <footer style={{ position: "fixed", bottom: 0, left: 0, right: 0, padding: "9px 20px", textAlign: "center", background: "rgba(46,46,56,0.98)", backdropFilter: "blur(12px)", borderTop: "1px solid rgba(255,255,255,0.05)", fontSize: 10, color: B.textDim }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, flexWrap: "wrap" }}>
+      {/* Emergency Alert Overlay */}
+      {showEmergencyAlert && (
+        <div className="overlay" style={{ zIndex: 9999 }}>
+          <div className="card-pop" style={{ background: "rgba(46,46,56,0.99)", border: `2px solid ${B.redBrd}`, borderRadius: 26, padding: 38, maxWidth: 360, width: "92%", textAlign: "center" }}>
+            <div style={{ width: 96, height: 96, borderRadius: "50%", background: B.redDim, border: `3px solid ${B.red}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", fontSize: 48, animation: "pulse 1s infinite" }}>🚨</div>
+            <div style={{ fontSize: 24, fontWeight: 800, color: B.red, marginBottom: 8 }}>{t.wellbeing?.emergencyAlert}</div>
+            <div style={{ fontSize: 13, color: B.textMut, marginBottom: 16 }}>{t.wellbeing?.emergencyAlertDesc}</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: B.orange, marginBottom: 20, padding: "10px 16px", borderRadius: 12, background: B.orangeDim, border: `1px solid ${B.orangeBrd}` }}>
+              ⏱ {t.wellbeing?.emergencyCountdown?.replace("{seconds}", emergencyCountdown)}
+            </div>
+            <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
+              <button className="btn-primary" style={{ background: B.greenDim, border: `1px solid rgba(64,200,128,0.35)`, color: B.green, fontSize: 14, fontWeight: 700, padding: "14px 24px" }}
+                onClick={() => { clearInterval(emergencyTimerRef.current); setShowEmergencyAlert(false); }}>
+                ✓ {t.wellbeing?.emergencyOk}
+              </button>
+              <button className="btn-primary" style={{ background: B.redDim, border: `1px solid ${B.redBrd}`, color: B.red, fontSize: 14, fontWeight: 700, padding: "14px 24px" }}
+                onClick={() => { clearInterval(emergencyTimerRef.current); setShowEmergencyAlert(false); window.open("tel:112"); }}>
+                📞 112
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <footer style={{ position: "fixed", bottom: 0, left: 0, right: 0, padding: "12px 20px", textAlign: "center", background: "rgba(46,46,56,0.98)", backdropFilter: "blur(12px)", borderTop: "1px solid rgba(255,255,255,0.05)", fontSize: 14, color: B.text }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 20, flexWrap: "wrap" }}>
           <span>{t.footer}</span>
-          <a href="/vorpage.html" style={{ color: B.teal, fontSize: 10, textDecoration: "none", fontWeight: 600 }}>
+          <a href="/vorpage.html" style={{ color: B.teal, fontSize: 14, textDecoration: "none", fontWeight: 700 }}>
             ← {lang === "de" ? "Startseite" : lang === "tr" ? "Giriş" : "Intro"}
           </a>
-          <a href="/main.html" style={{ color: B.orange, fontSize: 10, textDecoration: "none", fontWeight: 600 }}>
+          <a href="/main.html" style={{ color: B.orange, fontSize: 14, textDecoration: "none", fontWeight: 700 }}>
             {lang === "de" ? "Hauptseite" : lang === "tr" ? "Ana Sayfa" : "Main"}
           </a>
-          <a href="https://wa.me/491776480485" target="_blank" rel="noopener" style={{ color: "#25d366", fontSize: 10, textDecoration: "none", fontWeight: 600 }}>
+          <a href="https://wa.me/491776480485" target="_blank" rel="noopener" style={{ color: "#25d366", fontSize: 14, textDecoration: "none", fontWeight: 700 }}>
             {t.ui.contact}
           </a>
         </div>

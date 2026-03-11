@@ -14,26 +14,26 @@
     <style>.lang-btn.active { background: rgba(212, 175, 55, 0.25); color: #D4AF37; border-color: rgba(212, 175, 55, 0.5); }</style>
 </head>
 
-<body style="min-height: 100vh; display: flex; flex-direction: column; background: var(--bg-dark);">
+<body style="min-height: 100vh; display: flex; flex-direction: column; background: transparent;">
 
     <!-- Header -->
     <header>
         <div class="container header-inner">
-            <a href="index.html" class="logo">
+            <a href="vorpage.html" class="logo">
                 <img src="assets/logo.jpg" alt="Logo" id="logo-img">
                 <span class="text-gradient-gold" id="logo-text">NANIL Pulse</span>
             </a>
             <div class="nav-wrapper">
                 <nav class="main-menu">
                     <ul>
-                        <li><a href="index.html" id="nav-back" class="btn-back-home">Zurück zur Startseite</a></li>
+                        <li><a href="vorpage.html" id="nav-back" class="btn-back-home">Zurück zur Startseite</a></li>
                     </ul>
                 </nav>
                 <!-- Language Switcher -->
                 <div class="lang-switcher">
-                    <button class="lang-btn">DE</button>
-                    <button class="lang-btn">EN</button>
-                    <button class="lang-btn">TR</button>
+                    <button class="lang-btn active" data-lang="de">DE</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="tr">TR</button>
                 </div>
             </div>
         </div>
@@ -92,12 +92,13 @@
 
     <footer style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container" style="text-align: center;">
-            <p id="footer-copy" style="color: #666; font-size: 0.9rem;" data-i18n="footer-copy">&copy; 2026 NANIL Pulse - Alle Rechte
+            <p id="footer-copy" style="color: #a0a8b4; font-size: 0.9rem;" data-i18n="footer-copy">&copy; 2026 NANIL Pulse - Alle Rechte
                 vorbehalten.</p>
         </div>
     </footer>
 
     <!-- Script included -->
+    <script src="bg-animation.js" defer></script>
     <script src="script.js"></script>
 </body>
 
