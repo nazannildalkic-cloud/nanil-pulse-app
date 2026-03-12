@@ -1,6 +1,9 @@
 [build]
-  command = ""
-  publish = "public"
+  command = "npx vite build && mkdir -p dist/app && cp dist/index.html dist/app/index.html"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
 
 # Root → Vorpage (Startseite)
 [[redirects]]
@@ -9,16 +12,16 @@
   status = 302
   force = true
 
-# React App (externe Demo)
+# React App — serve built index.html at /app
 [[redirects]]
   from = "/app"
-  to = "https://nanil-pulse-app.netlify.app"
-  status = 302
+  to = "/app/index.html"
+  status = 200
 
 [[redirects]]
   from = "/app/*"
-  to = "https://nanil-pulse-app.netlify.app/:splat"
-  status = 302
+  to = "/app/index.html"
+  status = 200
 
 [[headers]]
   for = "/*"
