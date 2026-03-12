@@ -2370,8 +2370,12 @@ export default function NanilPulseApp() {
                 <div style={{ fontSize: 17, fontWeight: 800, color: B.text }}>◎ {t.guide.ring}</div>
                 <div style={{ fontSize: 12, color: B.textDim }}>{t.guide.ringSub}</div>
               </div>
-              <div style={{ borderRadius: 14, overflow: "hidden", background: "#0a1220", marginBottom: 18 }}>
+              <div style={{ borderRadius: 14, overflow: "hidden", background: "#0a1220", marginBottom: 12 }}>
                 <EarRingSVG active={sesState === "active"} activeLabel={t.ui.active} />
+              </div>
+              <div style={{ borderRadius: 14, overflow: "hidden", marginBottom: 18 }}>
+                <img src="/ring-ear-placement.png" alt="Ring Placement on Ear"
+                  style={{ width: "100%", maxHeight: 280, objectFit: "contain", display: "block", borderRadius: 14 }} />
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
                 {t.guide.ringSteps.map((s, i) => (
