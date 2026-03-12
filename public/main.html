@@ -235,6 +235,60 @@
             </div>
         </section>
 
+        <section style="text-align: center; padding: 40px 20px;">
+            <h2 class="text-gradient-cyan">Stimm-Analyse Demo</h2>
+            <p style="color: #c8cdd5; max-width: 500px; margin: 0 auto 24px; font-size: 16px;">
+                Erleben Sie, wie NANIL Pulse Ihre Stimme interpretiert. Wählen Sie ein Szenario:</p>
+
+            <div id="voice-demos" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 500px; margin: 0 auto 20px;">
+                <button class="voice-demo-btn" data-result="calm" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(64,200,128,0.3); background: rgba(64,200,128,0.08); cursor: pointer; text-align: left;">
+                    <div style="font-size: 14px; font-weight: 700; color: #40c880; margin-bottom: 3px;">☀️ Morgens entspannt</div>
+                    <div style="font-size: 11px; color: #9ca3af;">Ausgeschlafen, nach dem Aufwachen</div>
+                </button>
+                <button class="voice-demo-btn" data-result="tense" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(201,162,39,0.3); background: rgba(201,162,39,0.08); cursor: pointer; text-align: left;">
+                    <div style="font-size: 14px; font-weight: 700; color: #c9a227; margin-bottom: 3px;">💼 Nach einer Besprechung</div>
+                    <div style="font-size: 11px; color: #9ca3af;">Leichte Anspannung nach Arbeit</div>
+                </button>
+                <button class="voice-demo-btn" data-result="stressed" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(224,80,80,0.3); background: rgba(224,80,80,0.08); cursor: pointer; text-align: left;">
+                    <div style="font-size: 14px; font-weight: 700; color: #e05050; margin-bottom: 3px;">😤 Stressiger Tag</div>
+                    <div style="font-size: 11px; color: #9ca3af;">Viele Termine, wenig Pausen</div>
+                </button>
+                <button class="voice-demo-btn" data-result="tense" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(201,162,39,0.3); background: rgba(201,162,39,0.08); cursor: pointer; text-align: left;">
+                    <div style="font-size: 14px; font-weight: 700; color: #c9a227; margin-bottom: 3px;">🏃 Vor dem Sport</div>
+                    <div style="font-size: 11px; color: #9ca3af;">Aufgewärmt, motiviert</div>
+                </button>
+                <button class="voice-demo-btn" data-result="calm" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(64,200,128,0.3); background: rgba(64,200,128,0.08); cursor: pointer; text-align: left;">
+                    <div style="font-size: 14px; font-weight: 700; color: #40c880; margin-bottom: 3px;">🧘 Nach Meditation</div>
+                    <div style="font-size: 11px; color: #9ca3af;">Tiefenentspannung, innere Ruhe</div>
+                </button>
+                <button class="voice-demo-btn" data-result="stressed" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(224,80,80,0.3); background: rgba(224,80,80,0.08); cursor: pointer; text-align: left;">
+                    <div style="font-size: 14px; font-weight: 700; color: #e05050; margin-bottom: 3px;">🌙 Abends müde</div>
+                    <div style="font-size: 11px; color: #9ca3af;">Langer Tag, Erholung nötig</div>
+                </button>
+            </div>
+
+            <div id="voice-analyzing"
+                style="display: none; margin: 24px auto; padding: 30px; max-width: 400px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(0,196,170,0.2);">
+                <p style="color: #00c4aa; font-weight: 600; margin-bottom: 15px; font-size: 16px;">🔊 Stimme wird analysiert...</p>
+                <div style="display: flex; justify-content: center; gap: 4px; height: 40px; align-items: flex-end;">
+                    <div style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out infinite;"></div>
+                    <div style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out 0.1s infinite;"></div>
+                    <div style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out 0.2s infinite;"></div>
+                    <div style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out 0.3s infinite;"></div>
+                    <div style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out 0.4s infinite;"></div>
+                </div>
+            </div>
+
+            <div id="voice-result"
+                style="display: none; margin: 24px auto; padding: 30px; max-width: 450px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.08);">
+            </div>
+
+            <style>
+                @keyframes waveAnim { 0%, 100% { height: 8px; } 50% { height: 32px; } }
+                .voice-demo-btn:hover { background: rgba(0, 196, 170, 0.15) !important; border-color: rgba(0, 196, 170, 0.4) !important; transform: translateY(-2px); }
+            </style>
+        </section>
+
         <section id="how" class="features">
             <div class="container">
                 <div class="section-header">
@@ -1069,6 +1123,8 @@
     })();
     </script>
     <script src="bg-animation.js" defer></script>
+    <script>window.VOICE_DEMO_LANG = 'de';</script>
+    <script src="voice-demo.js"></script>
 </body>
 
 </html>
