@@ -1,5 +1,5 @@
 [build]
-  command = "npx vite build && mkdir -p dist/app && cp dist/index.html dist/app/index.html"
+  command = "npx vite build && node -e \"const fs=require('fs');fs.mkdirSync('dist/app',{recursive:true});fs.copyFileSync('dist/index.html','dist/app/index.html');\""
   publish = "dist"
 
 [build.environment]
