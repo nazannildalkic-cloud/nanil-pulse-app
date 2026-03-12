@@ -1016,7 +1016,7 @@ function EarRingSVG({ active, activeLabel }) {
   return (
     <div style={{ position: "relative" }}>
       <img src="/vagus-nerv.png" alt="Vagus Nerve Stimulation via Smart Ring"
-        style={{ width: "100%", maxHeight: 220, objectFit: "cover", borderRadius: 16, display: "block" }} />
+        style={{ width: "100%", maxHeight: 360, objectFit: "contain", borderRadius: 16, display: "block" }} />
       {active && (
         <div style={{ position: "absolute", top: 12, right: 12, background: B.tealDim, border: `1px solid ${B.tealBrd}`,
           borderRadius: 20, padding: "4px 12px", fontSize: 11, color: B.teal, fontWeight: 700 }}>
@@ -2181,9 +2181,13 @@ export default function NanilPulseApp() {
               </div>
             </div>
 
-            {/* Ring Placement Illustration */}
+            {/* Ring Placement Photo */}
             <div className="card" style={{ padding: "24px" }}>
               <p className="card-title">{t.vagus.placement}</p>
+              <div style={{ borderRadius: 14, overflow: "hidden", marginBottom: 16 }}>
+                <img src="/ring-ear-placement.png" alt="Ring Placement on Ear"
+                  style={{ width: "100%", maxHeight: 300, objectFit: "contain", display: "block", borderRadius: 14 }} />
+              </div>
               <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
                 <svg viewBox="0 0 280 220" width="100%" style={{ maxWidth: 340, height: "auto" }}>
                   {/* Ear outline */}
