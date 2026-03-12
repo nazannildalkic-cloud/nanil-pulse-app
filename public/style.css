@@ -1665,7 +1665,12 @@ footer p {
     }
 }
 
-/* Drei Bilder (Skizze, Vagusnerv, Erklärung) exakt gleich groß */
+/* Vier Bilder (Skizze, Vagusnerv, Ring-Platzierung, Erklärung) exakt gleich groß */
+.three-equal-img-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .three-equal-img-inner {
     width: 100%;
     aspect-ratio: 1 / 1;
