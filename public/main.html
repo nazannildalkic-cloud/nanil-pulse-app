@@ -182,32 +182,32 @@
                         wollen.
                     </p>
                     <!-- Skizze | Vagus | Ring-Platzierung | Erklärung – vier Bilder nebeneinander -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin-top: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto;">
+                    <div class="four-images-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin-top: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto;">
                         <div style="text-align: center;">
                             <h3 class="text-gradient-cyan" id="skizze-heading"
                                 style="font-size: 1rem; margin-bottom: 0.5rem; height: 28px; display: flex; align-items: center; justify-content: center;">Skizze</h3>
-                            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 12px; background: #111;">
+                            <div class="img-box" style="width: 100%; height: 200px; overflow: hidden; border-radius: 12px; background: #111;">
                                 <img src="assets/skizze.png?v=2" alt="NANIL Pulse – Skizze" loading="lazy" style="width: 100%; height: 200px; object-fit: cover;">
                             </div>
                         </div>
                         <div style="text-align: center;">
                             <h3 class="text-gradient-cyan" id="vagus-heading"
                                 style="font-size: 1rem; margin-bottom: 0.5rem; height: 28px; display: flex; align-items: center; justify-content: center;">Vagusnerv</h3>
-                            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 12px; background: #111;">
+                            <div class="img-box" style="width: 100%; height: 200px; overflow: hidden; border-radius: 12px; background: #111;">
                                 <img src="assets/vagus-nerv.png?v=2" alt="Vagusnerv & tVNS" loading="lazy" style="width: 100%; height: 200px; object-fit: cover;">
                             </div>
                         </div>
                         <div style="text-align: center;">
                             <h3 class="text-gradient-cyan" id="placement-heading"
                                 style="font-size: 1rem; margin-bottom: 0.5rem; height: 28px; display: flex; align-items: center; justify-content: center;">Ring-Platzierung</h3>
-                            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 12px; background: #111;">
+                            <div class="img-box" style="width: 100%; height: 200px; overflow: hidden; border-radius: 12px; background: #111;">
                                 <img src="ring-ear-placement.png?v=2" alt="NANIL Ring am Ohr" loading="lazy" style="width: 100%; height: 200px; object-fit: cover;">
                             </div>
                         </div>
                         <div style="text-align: center;">
                             <h3 class="text-gradient-cyan" id="erklaerung-heading"
                                 style="font-size: 1rem; margin-bottom: 0.5rem; height: 28px; display: flex; align-items: center; justify-content: center;">Erklärung</h3>
-                            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 12px; background: #111;">
+                            <div class="img-box" style="width: 100%; height: 200px; overflow: hidden; border-radius: 12px; background: #111;">
                                 <img src="assets/erkaerung.png?v=2" alt="NANIL Pulse – Erklärung" loading="lazy" style="width: 100%; height: 200px; object-fit: cover;">
                             </div>
                         </div>
@@ -951,8 +951,13 @@
 
     <style>
     @media(max-width:768px){
-      
       .hero-video-wrap video{max-height:300px;object-fit:cover;}
+      .four-images-grid{grid-template-columns:1fr 1fr !important;gap:12px !important;}
+      .four-images-grid .img-box{height:160px !important;}
+      .four-images-grid .img-box img{height:160px !important;}
+      .four-images-grid h3{font-size:0.85rem !important;}
+      .three-images-row{grid-template-columns:1fr !important;}
+      .three-images-row .feature-card img{height:180px !important;}
     }
     </style>
     <script>
