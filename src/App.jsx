@@ -2287,10 +2287,6 @@ export default function NanilPulseApp() {
 
         {tab === "device" && (
           <>
-            {/* System Overview */}
-            <div style={{ borderRadius: 16, overflow: "hidden", marginBottom: 16 }}>
-              <img src="/system-symbiosis.png" alt="NANIL Pulse System" style={{ width: "100%", maxHeight: 240, objectFit: "contain", display: "block" }} />
-            </div>
             <div className="card">
               <p className="card-title">{t.device.ring}</p>
               <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20 }}>
