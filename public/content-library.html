@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Library — NANIL Pulse</title>
+  <link rel="canonical" href="https://nanilpulse.art/content-library" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #e07030;
+      --turquoise: #00c4aa;
+      --bg: #0a0a0c;
+      --card-bg: #111114;
+      --card-border: #1a1a1f;
+      --text: #e8e8ec;
+      --text-muted: #888892;
+      --radius: 14px;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 48px 24px 32px;
+      position: relative;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--turquoise));
+      border-radius: 1px;
+    }
+    .back-link {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .back-link:hover { color: var(--turquoise); }
+    .logo-text {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--orange), var(--turquoise));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+    .tagline {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 10px;
+      opacity: .6;
+    }
+
+    /* Filter Tabs */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 32px 24px 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .25s;
+    }
+    .filter-btn:hover {
+      border-color: var(--turquoise);
+      color: var(--text);
+    }
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--orange), var(--turquoise));
+      border-color: transparent;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 24px auto 64px;
+      padding: 0 24px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s, box-shadow .35s, border-color .3s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0,196,170,.25);
+      box-shadow: 0 8px 32px rgba(0,196,170,.08), 0 0 60px rgba(224,112,48,.04);
+    }
+    .card.hidden { display: none; }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(224,112,48,.12);
+      color: var(--orange);
+    }
+    .badge[data-cat="vaskular"]    { background: rgba(224,60,60,.1);  color: #e04848; }
+    .badge[data-cat="hormone"]     { background: rgba(168,80,220,.1); color: #b060e0; }
+    .badge[data-cat="system"]      { background: rgba(0,196,170,.1);  color: var(--turquoise); }
+    .badge[data-cat="produkte"]    { background: rgba(224,112,48,.1); color: var(--orange); }
+    .badge[data-cat="voice"]       { background: rgba(60,140,255,.1); color: #4898f0; }
+    .badge[data-cat="wissenschaft"]{ background: rgba(80,200,120,.1); color: #50c878; }
+    .badge[data-cat="investor"]    { background: rgba(255,200,40,.1); color: #e0b020; }
+
+    .lang-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255,255,255,.05);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .card-text {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      white-space: pre-line;
+      flex: 1;
+      margin-bottom: 18px;
+      overflow-y: auto;
+      max-height: 260px;
+      padding-right: 4px;
+    }
+    .card-text::-webkit-scrollbar { width: 4px; }
+    .card-text::-webkit-scrollbar-track { background: transparent; }
+    .card-text::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 2px; }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .platform-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .platform-tag {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--orange), #c05820);
+      border: none;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .25s;
+      white-space: nowrap;
+    }
+    .copy-btn:hover {
+      background: linear-gradient(135deg, var(--turquoise), #009988);
+      transform: scale(1.04);
+    }
+    .copy-btn.copied {
+      background: linear-gradient(135deg, var(--turquoise), #009988);
+    }
+
+    /* Counter */
+    .counter {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 8px 24px 0;
+    }
+    .counter span { color: var(--turquoise); font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr; }
+      .header { padding: 36px 16px 28px; }
+      .back-link { position: static; display: block; margin-bottom: 12px; }
+      .logo-text { font-size: 22px; }
+      .subtitle { font-size: 18px; }
+      .card { padding: 20px; }
+      .card-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <a href="main.html" class="back-link">&larr; Zurueck</a>
+  <div class="logo-text">NANIL Pulse</div>
+  <div class="subtitle">Content Library</div>
+  <div class="tagline">Decoding Wellness. Empowering Life.</div>
+</div>
+
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="alle">Alle</button>
+  <button class="filter-btn" data-filter="vaskular">Vaskul&auml;r</button>
+  <button class="filter-btn" data-filter="hormone">Hormone</button>
+  <button class="filter-btn" data-filter="system">System</button>
+  <button class="filter-btn" data-filter="produkte">Produkte</button>
+  <button class="filter-btn" data-filter="voice">Voice AI</button>
+  <button class="filter-btn" data-filter="wissenschaft">Wissenschaft</button>
+  <button class="filter-btn" data-filter="investor">Investor</button>
+</div>
+
+<div class="counter" id="counter"></div>
+
+<div class="grid" id="grid">
+
+  <!-- VASKULÄR -->
+  <div class="card" data-category="vaskular">
+    <div class="card-top">
+      <span class="badge" data-cat="vaskular">Vaskul&auml;r</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Vaskul&auml;re Kontext-Interpretation</div>
+    <div class="card-text">Wir messen keinen Blutdruck. Wir interpretieren vaskul&auml;re Muster.
+
+NANIL Pulse nutzt PPG-Sensorik im Patch, um Pulswellengeschwindigkeit (PWV) zu erfassen — nicht als isolierte Zahl, sondern im Kontext von HRV, Stimme und Aktivit&auml;t.
+
+Kein mmHg. Kein Medizinprodukt. Sondern dein vaskul&auml;res Gesamtbild.
+
+#NANILPulse #Vaskul&auml;reInterpretation #WellnessTech #KontextStattZahl</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">LinkedIn</span>
+        <span class="platform-tag">Facebook</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <div class="card" data-category="vaskular">
+    <div class="card-top">
+      <span class="badge" data-cat="vaskular">Vaskul&auml;r</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Kontext statt Blutdruck</div>
+    <div class="card-text">Blutdruck messen kann jeder. Vaskul&auml;re Muster interpretieren — das ist NANIL.
+
+Pulswellengeschwindigkeit + HRV + Stimmanalyse = dein vaskul&auml;res Gesamtbild.
+
+Keine Manschette. Keine mmHg. Keine Diagnose.
+Sondern Kontext.
+
+#NANILPulse #DecodingWellness #Vaskul&auml;reMuster</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">Story</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <div class="card" data-category="vaskular">
+    <div class="card-top">
+      <span class="badge" data-cat="vaskular">Vaskul&auml;r</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">PWV erkl&auml;rt</div>
+    <div class="card-text">Was ist Pulswellengeschwindigkeit (PWV)?
+
+Jedes Mal, wenn dein Herz schl&auml;gt, sendet es eine Druckwelle durch deine Arterien. Wie schnell diese Welle reist, verr&auml;t viel &uuml;ber den Zustand deiner Gef&auml;&szlig;e.
+
+NANIL Pulse misst PWV &uuml;ber den Patch — und interpretiert sie im Kontext deines ganzen K&ouml;rpers.
+
+#PWV #Pulswelle #NANILPulse #Biosensorik</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">LinkedIn</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <!-- HORMONE -->
+  <div class="card" data-category="hormone">
+    <div class="card-top">
+      <span class="badge" data-cat="hormone">Hormone</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Hormon-Vaskul&auml;re Verbindung</div>
+    <div class="card-text">Deine Hormone beeinflussen deine Gef&auml;&szlig;e. NANIL erkennt das.
+
+🔵 &Ouml;strogen (Eisprung) → weitet Gef&auml;&szlig;e, senkt PWV
+🔴 Testosteron → erh&ouml;ht arteriellen Tonus
+🟠 Cortisol (Stress) → verengt Gef&auml;&szlig;e, erh&ouml;ht PWV
+
+NANIL Pulse verbindet hormonelle Zyklen mit vaskul&auml;ren Mustern — automatisch.
+
+#HormonBalance #NANILPulse #Vaskul&auml;reMuster #FrauenGesundheit</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">Facebook</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <div class="card" data-category="hormone">
+    <div class="card-top">
+      <span class="badge" data-cat="hormone">Hormone</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">&Ouml;strogen &amp; Gef&auml;&szlig;e</div>
+    <div class="card-text">Wusstest du? W&auml;hrend des Eisprungs steigt dein &Ouml;strogen — und deine Gef&auml;&szlig;e weiten sich.
+
+NANIL Pulse erkennt dieses Muster in deiner Pulswellengeschwindigkeit und zeigt dir den Zusammenhang.
+
+Kein Raten. Kein Googlen. Kontext.
+
+#&Ouml;strogen #Eisprung #NANILPulse #FemTech</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">Story</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <div class="card" data-category="hormone">
+    <div class="card-top">
+      <span class="badge" data-cat="hormone">Hormone</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Testosteron &amp; Tonus</div>
+    <div class="card-text">Erh&ouml;htes Testosteron = erh&ouml;hter arterieller Tonus.
+
+NANIL Pulse erkennt, wenn dein vaskul&auml;res Muster auf hormonelle Ver&auml;nderungen hindeutet — bei Frauen UND M&auml;nnern.
+
+Kontext-Wellness f&uuml;r alle.
+
+#Testosteron #NANILPulse #M&auml;nnerGesundheit #Wellness</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">LinkedIn</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <!-- SYSTEM -->
+  <div class="card" data-category="system">
+    <div class="card-top">
+      <span class="badge" data-cat="system">System</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Das Closed-Loop-System</div>
+    <div class="card-text">Ring. Patch. Stimme. App.
+
+NANIL Pulse ist kein Ger&auml;t — es ist ein System.
+
+💍 Ring: HRV, SpO2, Temperatur
+🩹 Patch: PPG, Pulswellen, Hautleitwert
+🎙️ Stimme: Metabolische &amp; mentale Signale
+📱 App: KI verbindet alles zu Kontext
+
+Das erste kontextuelle Wellbeing-System der Welt.
+
+#NANILPulse #ClosedLoop #WellbeingSystem #Innovation</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">LinkedIn</span>
+        <span class="platform-tag">Facebook</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <div class="card" data-category="system">
+    <div class="card-top">
+      <span class="badge" data-cat="system">System</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Muster statt Messwerte</div>
+    <div class="card-text">Andere messen. Wir verstehen.
+
+NANIL Pulse zeigt keine isolierten Zahlen. Die KI erkennt Muster — &uuml;ber Zeit, Kontext und Verhalten.
+
+Dein K&ouml;rper ist kein Dashboard. Er ist ein Zusammenspiel.
+
+#NANILPulse #MusterStattMesswerte #KontextWellness</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">Story</span>
+        <span class="platform-tag">Reel</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <!-- PRODUKTE -->
+  <div class="card" data-category="produkte">
+    <div class="card-top">
+      <span class="badge" data-cat="produkte">Produkte</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Pulse Ring</div>
+    <div class="card-text">Der NANIL Pulse Ring.
+
+Silbernes poliertes Metall-Band. Kein schwarzer Tech-Ring.
+Sieht aus wie Schmuck. Arbeitet wie ein Biosensor.
+
+HRV · SpO2 · Temperatur · Schlaf — 24/7 am Finger.
+
+#NANILPulse #PulseRing #Wearable #WellnessTech</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">Facebook</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <div class="card" data-category="produkte">
+    <div class="card-top">
+      <span class="badge" data-cat="produkte">Produkte</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Pulse Patch</div>
+    <div class="card-text">Der NANIL Pulse Patch.
+
+Eine runde, hautfarbene Klebescheibe mit quadratischem Sensor-Modul. Wird auf die Brust geklebt.
+
+PPG · Pulswellen · Hautleitwert · EDA
+
+Tr&auml;gt sich wie eine zweite Haut. Misst wie ein Labor.
+
+#NANILPulse #PulsePatch #Biosensor #Innovation</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">Facebook</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <!-- VOICE AI -->
+  <div class="card" data-category="voice">
+    <div class="card-top">
+      <span class="badge" data-cat="voice">Voice AI</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Stimme als Biomarker</div>
+    <div class="card-text">Deine Stimme verr&auml;t mehr als du denkst.
+
+10 Sekunden sprechen. Die KI erkennt:
+• Stresslevel
+• Metabolische Signale
+• Emotionale Zust&auml;nde
+• Hormonelle Ver&auml;nderungen
+
+Nicht Spekulation. Peer-reviewed Wissenschaft.
+
+#NANILPulse #VoiceAI #StimmeAlsBiomarker #DecodingWellness</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">Instagram</span>
+        <span class="platform-tag">LinkedIn</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <!-- WISSENSCHAFT -->
+  <div class="card" data-category="wissenschaft">
+    <div class="card-top">
+      <span class="badge" data-cat="wissenschaft">Wissenschaft</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Die Forschung dahinter</div>
+    <div class="card-text">NANIL Pulse basiert auf echter Wissenschaft:
+
+📚 Nature/PMC 2024: KI erkennt Diabetes aus Stimmanalyse
+📚 PLOS Digital Health: Voice-Screening f&uuml;r metabolische Erkrankungen
+📚 JMIR 2024: Sprachanalyse f&uuml;r mentale Gesundheit
+📚 Colive Voice: Bev&ouml;lkerungsweites KI-Screening
+
+8+ peer-reviewed Studien. Kein Hype.
+
+#NANILPulse #Wissenschaft #PeerReview #DigitalHealth</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">LinkedIn</span>
+        <span class="platform-tag">Instagram</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <!-- INVESTOR -->
+  <div class="card" data-category="investor">
+    <div class="card-top">
+      <span class="badge" data-cat="investor">Investor</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Pre-Seed 2026</div>
+    <div class="card-text">NANIL Pulse · Pre-Seed Runde
+
+€350K · Convertible Note / SAFE
+
+40% App-Entwicklung &amp; MVP
+30% Hardware Prototyp
+20% Go-to-Market &amp; Community
+10% Regulatorik &amp; IP
+
+$87B Wearable-Markt. Erste kontextuelle Wellness-Kategorie.
+Gebrauchsmuster (DPMA) eingereicht.
+
+Pitch Deck: nanilpulse.art/pitch-v2
+
+#NANILPulse #PreSeed #StartupHamburg #HealthTech #Investment</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">LinkedIn</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+  <div class="card" data-category="investor">
+    <div class="card-top">
+      <span class="badge" data-cat="investor">Investor</span>
+      <span class="lang-tag">DE</span>
+    </div>
+    <div class="card-title">Warum NANIL anders ist</div>
+    <div class="card-text">Apple Watch misst. Oura trackt. Garmin z&auml;hlt.
+
+NANIL versteht.
+
+✓ Ring + Patch + Stimme = Closed-Loop
+✓ Kontextuelle Muster statt isolierte KPIs
+✓ Vaskul&auml;re Interpretation statt Blutdruck
+✓ Kein Abo — einmalig &amp; fair
+✓ Wellness, nicht Medizin
+
+Die n&auml;chste Kategorie entsteht jetzt.
+
+#NANILPulse #Differenzierung #WellbeingSystem</div>
+    <div class="card-footer">
+      <div class="platform-tags">
+        <span class="platform-tag">LinkedIn</span>
+        <span class="platform-tag">Instagram</span>
+      </div>
+      <button class="copy-btn" onclick="copyText(this)">Kopieren</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+  const counter = document.getElementById('counter');
+
+  function updateCounter() {
+    const visible = document.querySelectorAll('.card:not(.hidden)').length;
+    counter.innerHTML = '<span>' + visible + '</span> von ' + cards.length + ' Content Pieces';
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'alle' || card.dataset.category === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      updateCounter();
+    });
+  });
+
+  updateCounter();
+
+  // Copy
+  function copyText(btn) {
+    const card = btn.closest('.card');
+    const text = card.querySelector('.card-text').textContent.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Kopiert! \u2713';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Kopieren';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

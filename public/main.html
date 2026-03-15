@@ -53,6 +53,7 @@
                         <li><a href="#home" class="active" id="nav-home">Home</a></li>
                         <li><a href="#about-nanil" id="nav-about">Über NANIL</a></li>
                         <li><a href="#how" id="nav-science">Wissenschaft</a></li>
+                        <li><a href="#vascular" id="nav-vascular" style="color: #00c4aa;">Vaskulär</a></li>
                         <li><a href="#products" id="nav-products">Produkte</a></li>
                         <li><a href="#contact" id="nav-early">Early Access</a></li>
                         <li><a href="pitch.html" id="nav-investors">Investoren</a></li>
@@ -73,7 +74,7 @@
             </div>
         </div>
         <div class="early-access-banner" role="banner" aria-label="Early Access Hinweis" style="position:absolute !important; top:100% !important; left:0 !important; width:100% !important; margin:0 !important; display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap; padding:10px 24px; box-sizing:border-box;">
-            <p id="banner-text" style="margin:0; font-size:1rem; font-weight:700;">🚀 Early Access Phase 1 • Nur €99 (Regulär €249) • Launch Juli 2026</p>
+            <p id="banner-text" style="margin:0; font-size:1.25rem; font-weight:800; letter-spacing:0.03em;">🚀 Early Access Phase 1 • Nur €99 (Regulär €249) • Launch Juli 2026</p>
             <div style="display:flex; gap:12px; align-items:center;">
                 <a href="vorpage.html" style="background:rgba(0,0,0,0.3); color:#f4f4f6; padding:10px 24px; border-radius:50px; font-size:0.95rem; font-weight:700; text-decoration:none; border:2px solid rgba(255,255,255,0.4);">Vorseite</a>
                 <a href="/app" style="background:var(--cyan-gradient); color:#0a0a0c; padding:10px 24px; border-radius:50px; font-size:0.95rem; font-weight:700; text-decoration:none; border:2px solid transparent;">App</a>
@@ -97,8 +98,8 @@
                         Vitaltracking. Fühle den Unterschied zwischen reinem Monitoring und echter Unterstützung.
                     </p>
                     <p id="hero-patent" class="hero-patent">📜 Patent angemeldet • Entwickelt in Deutschland</p>
-                    <p id="hero-sub" style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 30px;">Entwickelt mit
-                        Experten für Biofeedback und Resilienz für maximale Unterstützung im Alltag.</p>
+                    <p style="font-size: 0.85rem; color: #c9a227; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;">Phase 1 von 5 — Der Ring ist erst der Anfang.</p>
+                    <p id="hero-sub" style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 30px;">Ring. Patch. App. Stimmanalyse. Kontextuelles Wellbeing. Ein Ökosystem, das mit dir wächst.</p>
                     <div class="hero-btns">
                         <a href="#products" class="btn btn-primary" id="btn-hero-products">Kollektion ansehen</a>
                         <a href="#voice" class="btn btn-secondary" id="btn-hero-voice">Frag Nanil</a>
@@ -267,6 +268,33 @@
                 </button>
             </div>
 
+            <!-- NEU: Hormon & Vaskulär Voice Demos -->
+            <div style="max-width: 500px; margin: 0 auto 20px;">
+                <div style="display: flex; align-items: center; gap: 8; margin-bottom: 12px; justify-content: center;">
+                    <span style="font-size: 1.2rem;">🧬</span>
+                    <span style="font-size: 15px; font-weight: 700; color: #e07030;">Hormon & Vaskulär Szenarien</span>
+                    <span style="padding: 3px 8px; border-radius: 10px; background: rgba(224,112,48,0.15); color: #e07030; font-size: 10px; font-weight: 700;">NEU</span>
+                </div>
+                <div id="voice-demos-hv" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <button class="voice-demo-btn" data-result="hormone_ovulation" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(224,112,48,0.3); background: rgba(224,112,48,0.08); cursor: pointer; text-align: left;">
+                        <div style="font-size: 14px; font-weight: 700; color: #e07030; margin-bottom: 3px;">🔴 Eisprung-Phase</div>
+                        <div style="font-size: 11px; color: #9ca3af;">Östrogen-Peak, Gefäße entspannt</div>
+                    </button>
+                    <button class="voice-demo-btn" data-result="hormone_testosterone" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(0,196,170,0.3); background: rgba(0,196,170,0.08); cursor: pointer; text-align: left;">
+                        <div style="font-size: 14px; font-weight: 700; color: #00c4aa; margin-bottom: 3px;">💪 Testosteron hoch</div>
+                        <div style="font-size: 11px; color: #9ca3af;">Morgens, nach Training, hoher Drive</div>
+                    </button>
+                    <button class="voice-demo-btn" data-result="vascular_tense" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(201,162,39,0.3); background: rgba(201,162,39,0.08); cursor: pointer; text-align: left;">
+                        <div style="font-size: 14px; font-weight: 700; color: #c9a227; margin-bottom: 3px;">🫀 Vaskuläre Anspannung</div>
+                        <div style="font-size: 11px; color: #9ca3af;">Cortisol hoch, Gefäße verengt</div>
+                    </button>
+                    <button class="voice-demo-btn" data-result="vascular_relaxed" style="padding: 14px 12px; border-radius: 12px; border: 1px solid rgba(64,200,128,0.3); background: rgba(64,200,128,0.08); cursor: pointer; text-align: left;">
+                        <div style="font-size: 14px; font-weight: 700; color: #40c880; margin-bottom: 3px;">🌊 Vaskuläre Balance</div>
+                        <div style="font-size: 11px; color: #9ca3af;">Entspannt, Gefäße weit, gute PWV</div>
+                    </button>
+                </div>
+            </div>
+
             <div id="voice-analyzing"
                 style="display: none; margin: 24px auto; padding: 30px; max-width: 400px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(0,196,170,0.2);">
                 <p style="color: #00c4aa; font-weight: 600; margin-bottom: 15px; font-size: 16px;">🔊 Stimme wird analysiert...</p>
@@ -349,6 +377,140 @@
                             die den Vagusnerv stimuliert und den Körper binnen Sekunden in einen Zustand der Kohärenz
                             zurückführt.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ NEU: Vaskuläre Kontext-Interpretation ═══ -->
+        <section id="vascular" class="features" style="background: linear-gradient(180deg, rgba(0,196,170,0.08) 0%, rgba(0,0,0,0.3) 50%, rgba(224,112,48,0.06) 100%); padding: 64px 0; position: relative; overflow: hidden;">
+            <!-- Animated pulse wave background -->
+            <div style="position: absolute; top: 50%; left: 0; right: 0; height: 80px; transform: translateY(-50%); opacity: 0.08; pointer-events: none; overflow: hidden;">
+                <svg viewBox="0 0 2160 80" preserveAspectRatio="none" style="width: 200%; height: 100%; animation: vascularScan 4s linear infinite;">
+                    <path d="M0,40 Q60,40 80,40 L120,40 L140,12 L160,68 L180,25 L200,55 L220,40 Q340,40 440,40 L480,40 L500,12 L520,68 L540,25 L560,55 L580,40 Q700,40 800,40 L840,40 L860,12 L880,68 L900,25 L920,55 L940,40 Q1060,40 1160,40 L1200,40 L1220,12 L1240,68 L1260,25 L1280,55 L1300,40 Q1420,40 1520,40 L1560,40 L1580,12 L1600,68 L1620,25 L1640,55 L1660,40 Q1780,40 1880,40 L1920,40 L1940,12 L1960,68 L1980,25 L2000,55 L2020,40 Q2100,40 2160,40" stroke="#00c4aa" stroke-width="3" fill="none"/>
+                </svg>
+            </div>
+            <style>@keyframes vascularScan { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
+
+            <div class="container">
+                <!-- Hero-Style Header mit Patch-Bild -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 48px;">
+                    <div>
+                        <div style="display: inline-block; padding: 6px 18px; border-radius: 50px; background: rgba(0,196,170,0.15); border: 1px solid rgba(0,196,170,0.4); font-size: 0.8rem; font-weight: 700; color: #00c4aa; letter-spacing: 1px; margin-bottom: 16px;">NEU IN PHASE 2</div>
+                        <h2 class="text-gradient-cyan" id="vascular-title" style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 16px;">Vaskuläre<br>Kontext-Interpretation</h2>
+                        <p id="vascular-sub" style="font-size: 1.05rem; line-height: 1.7; opacity: 0.9; margin-bottom: 20px;">
+                            NANIL Pulse misst <strong style="color: #e07030;">keinen Blutdruck</strong>. Stattdessen erfasst der Pulse Patch über PPG-Sensorik die Pulswellen-Geschwindigkeit und erkennt <strong style="color: #00c4aa;">vaskuläre Muster</strong>. Die App interpretiert diese im Kontext mit Stimmanalyse, HRV und Stressdaten.
+                        </p>
+                        <div style="padding: 16px 20px; border-radius: 12px; background: rgba(0,196,170,0.08); border-left: 4px solid #00c4aa; font-size: 0.92rem; line-height: 1.6; color: rgba(244,244,246,0.85);">
+                            <em>"Dein vaskulärer Tonus zeigt seit 3 Tagen ein angespanntes Muster — zusammen mit deiner Stimmanalyse deutet das auf anhaltenden Stress hin."</em>
+                            <div style="margin-top: 8px; font-size: 0.8rem; color: #00c4aa; font-weight: 600;">— So klingt Kontext statt 120/80</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; position: relative;">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="assets/ring-patch.jpg" alt="NANIL Pulse Ring & Patch — Vaskuläre Sensorik" loading="lazy" style="width: 100%; max-width: 420px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,196,170,0.15), 0 0 0 1px rgba(0,196,170,0.2);">
+                            <!-- Animated glow -->
+                            <div style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; border-radius: 22px; background: linear-gradient(135deg, rgba(0,196,170,0.3), transparent, rgba(224,112,48,0.2)); opacity: 0.6; z-index: -1; filter: blur(20px);"></div>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 0.8rem; color: rgba(244,244,246,0.5);">Pulse Ring + Patch — Vaskuläre PPG-Sensorik</p>
+                    </div>
+                </div>
+
+                <!-- Animated SVG Pulse Wave Visualisation -->
+                <div style="max-width: 800px; margin: 0 auto 40px; padding: 24px 32px; border-radius: 16px; background: rgba(0,0,0,0.4); border: 1px solid rgba(0,196,170,0.2); position: relative; overflow: hidden;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <span style="font-size: 0.85rem; font-weight: 700; color: #00c4aa; letter-spacing: 1px;">PULSWELLEN-ANALYSE LIVE</span>
+                        <span style="font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; background: rgba(64,200,128,0.15); color: #40c880; font-weight: 600;">Normal</span>
+                    </div>
+                    <svg viewBox="0 0 800 120" style="width: 100%; height: 120px;" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="pulseGrad" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#00c4aa" stop-opacity="0"/>
+                                <stop offset="40%" stop-color="#00c4aa" stop-opacity="1"/>
+                                <stop offset="100%" stop-color="#33d4be" stop-opacity="1"/>
+                            </linearGradient>
+                            <linearGradient id="pulseFill" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#00c4aa" stop-opacity="0.2"/>
+                                <stop offset="100%" stop-color="#00c4aa" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M0,60 Q40,60 60,60 L100,60 L120,20 L140,90 L155,35 L170,75 L185,50 L200,60 Q280,60 340,60 L380,60 L400,18 L420,92 L435,32 L450,78 L465,48 L480,60 Q560,60 620,60 L660,60 L680,22 L700,88 L715,38 L730,72 L745,52 L760,60 L800,60" stroke="url(#pulseGrad)" stroke-width="2.5" fill="none" stroke-linecap="round">
+                            <animate attributeName="stroke-dashoffset" from="1600" to="0" dur="3s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M0,60 Q40,60 60,60 L100,60 L120,20 L140,90 L155,35 L170,75 L185,50 L200,60 Q280,60 340,60 L380,60 L400,18 L420,92 L435,32 L450,78 L465,48 L480,60 Q560,60 620,60 L660,60 L680,22 L700,88 L715,38 L730,72 L745,52 L760,60 L800,60 L800,120 L0,120 Z" fill="url(#pulseFill)"/>
+                        <line x1="0" y1="60" x2="800" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4"/>
+                    </svg>
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.75rem; color: rgba(244,244,246,0.4);">
+                        <span>PWV: 6.8 m/s</span>
+                        <span>Tonus: Normal</span>
+                        <span>Trend: Stabil</span>
+                    </div>
+                </div>
+
+                <!-- Hormon-Vaskulär Verbindung -->
+                <div style="max-width: 900px; margin: 0 auto 40px; padding: 28px 32px; border-radius: 16px; background: rgba(224,112,48,0.06); border: 1px solid rgba(224,112,48,0.25); position: relative;">
+                    <div style="display: flex; align-items: center; gap: 8; margin-bottom: 16px;">
+                        <span style="font-size: 1.4rem;">🧬</span>
+                        <h3 style="margin: 0; font-size: 1.15rem; color: #e07030;">Hormone beeinflussen deine Gefäße</h3>
+                    </div>
+                    <!-- Bild + Text nebeneinander -->
+                    <div style="display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; margin-bottom: 16px;">
+                        <div style="position: relative;">
+                            <img src="assets/hormone-dashboard.png" alt="NANIL Pulse Hormone Dashboard — Cortisol, Östrogen, Testosteron" loading="lazy" style="width: 100%; border-radius: 14px; box-shadow: 0 12px 40px rgba(224,112,48,0.2), 0 0 0 1px rgba(224,112,48,0.15);">
+                            <div style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; border-radius: 16px; background: linear-gradient(135deg, rgba(224,112,48,0.2), transparent, rgba(0,196,170,0.15)); opacity: 0.5; z-index: -1; filter: blur(15px);"></div>
+                        </div>
+                        <p style="font-size: 0.92rem; line-height: 1.7; opacity: 0.9; margin: 0;">
+                            Vaskuläre Muster sind kein isoliertes Signal — sie spiegeln deinen <strong style="color: #00c4aa;">hormonellen Zustand</strong> wider. Die App zeigt Cortisol, Östrogen-Zyklen und Testosteron-Trends auf einen Blick. NANIL erkennt diese Zusammenhänge und interpretiert sie im Kontext mit deinen Gefäßdaten.
+                        </p>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div style="padding: 18px; border-radius: 12px; background: rgba(0,0,0,0.25); border: 1px solid rgba(224,112,48,0.2);">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: #e07030; letter-spacing: 0.5px; margin-bottom: 8px;">FRAUEN</div>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.8; color: rgba(244,244,246,0.8);">
+                                <li>🔴 <strong>Eisprung</strong> — Östrogen-Peak weitet Gefäße, PWV sinkt</li>
+                                <li>🟡 <strong>Lutealphase</strong> — Progesteron erhöht vaskulären Tonus</li>
+                                <li>🟢 <strong>Zyklusmuster</strong> — NANIL erkennt Phasen an vaskulären Trends</li>
+                            </ul>
+                        </div>
+                        <div style="padding: 18px; border-radius: 12px; background: rgba(0,0,0,0.25); border: 1px solid rgba(0,196,170,0.2);">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: #00c4aa; letter-spacing: 0.5px; margin-bottom: 8px;">MÄNNER</div>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.8; color: rgba(244,244,246,0.8);">
+                                <li>💪 <strong>Testosteron hoch</strong> — erhöhter arterieller Tonus, steifere Gefäße</li>
+                                <li>😤 <strong>Cortisol-Stress</strong> — vaskuläre Anspannung + Stimmanalyse = klares Bild</li>
+                                <li>🧘 <strong>Recovery</strong> — Testosteron-Cortisol-Ratio erkennbar am Gefäß-Muster</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin: 16px 0 0; font-size: 0.88rem; font-weight: 600; color: var(--cyan-primary);">
+                        Vaskuläre Muster + Hormon-Tracking + Stimmanalyse = dein vollständiges Kontext-Bild.
+                    </p>
+                </div>
+
+                <!-- 3 Feature Cards -->
+                <div class="feature-grid" style="grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                    <div class="feature-card" style="padding: 28px; border: 1px solid rgba(0,196,170,0.25); background: rgba(0,196,170,0.04);">
+                        <div class="feature-icon" style="font-size: 2.5rem;"><i class="fas fa-heartbeat" style="color: #00c4aa;"></i></div>
+                        <h3 id="vascular-sensor-title" style="color: var(--cyan-primary); font-size: 1.1rem;">Patch-Sensorik</h3>
+                        <p id="vascular-sensor-desc" style="font-size: 0.9rem; line-height: 1.6; opacity: 0.85;">Der Pulse Patch erfasst per Photoplethysmographie (PPG) die Pulswellen-Geschwindigkeit. Daraus leitet die KI Trends und Muster im arteriellen Tonus ab — kontinuierlich und nicht-invasiv.</p>
+                    </div>
+                    <div class="feature-card" style="padding: 28px; border: 1px solid rgba(224,112,48,0.25); background: rgba(224,112,48,0.04);">
+                        <div class="feature-icon" style="font-size: 2.5rem;"><i class="fas fa-project-diagram" style="color: #e07030;"></i></div>
+                        <h3 id="vascular-context-title" style="color: #e07030; font-size: 1.1rem;">Kontext statt Zahl</h3>
+                        <p id="vascular-context-desc" style="font-size: 0.9rem; line-height: 1.6; opacity: 0.85;">Statt "120/80" bekommst du Kontext: Vaskuläre Muster + Stimmanalyse + HRV + Hormon-Tracking = ein ganzheitliches Bild deines arteriellen Wohlbefindens. Zusammenhänge statt isolierte Werte.</p>
+                    </div>
+                    <div class="feature-card" style="padding: 28px; border: 1px solid rgba(64,200,128,0.25); background: rgba(64,200,128,0.04);">
+                        <div class="feature-icon" style="font-size: 2.5rem;"><i class="fas fa-shield-alt" style="color: #40c880;"></i></div>
+                        <h3 id="vascular-reg-title" style="color: #40c880; font-size: 1.1rem;">Wellness, nicht Medizin</h3>
+                        <p id="vascular-reg-desc" style="font-size: 0.9rem; line-height: 1.6; opacity: 0.85;">Keine mmHg-Werte = kein Medizinprodukt-Risiko. NANIL interpretiert vaskuläre Muster als Wellness-Signal — regulatorisch sicher und trotzdem hochinformativ für dein tägliches Wohlbefinden.</p>
+                    </div>
+                </div>
+
+                <!-- Großer Motto-Banner -->
+                <div style="margin-top: 40px; padding: 28px 40px; border-radius: 16px; background: linear-gradient(135deg, rgba(0,196,170,0.12), rgba(224,112,48,0.08)); border: 1px solid rgba(0,196,170,0.3); text-align: center;">
+                    <p id="vascular-motto" style="font-size: 1.3rem; font-weight: 700; margin: 0; line-height: 1.5;">
+                        <span style="color: #e07030; text-decoration: line-through; opacity: 0.5;">Blutdruck messen.</span>
+                        <span style="color: #00c4aa;"> Vaskuläre Muster interpretieren.</span>
+                    </p>
+                    <p style="font-size: 0.85rem; color: rgba(244,244,246,0.5); margin: 8px 0 0;">Misst nicht mehr. Interpretiert anders.</p>
                 </div>
             </div>
         </section>

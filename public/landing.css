@@ -1,7 +1,7 @@
 /* Landing Page – shared styles */
 :root {
     /* Hintergrund – Dunkler & edel (Mittelweg) */
-    --bg: #2e2e38;
+    --bg: #111118;
     --card: rgba(55, 55, 65, 0.9);
     /* --bg-glass entspricht --card hier in etwa, genutzt für Karten */
 
@@ -102,20 +102,21 @@ header {
 /* Sofort-Strip Navigation */
 .sofort-strip {
     background: linear-gradient(90deg, #a68b1f, #c9a227, #e2c96a);
-    padding: 10px 24px;
+    padding: 14px 24px;
     text-align: center;
 }
 .sofort-strip-inner {
     display: flex;
     justify-content: center;
-    gap: 24px;
+    gap: 28px;
     flex-wrap: wrap;
 }
 .sofort-link {
     color: #0a0a0c !important;
-    font-weight: 700;
-    font-size: 0.95rem;
+    font-weight: 800;
+    font-size: 1.15rem;
     text-decoration: none;
+    letter-spacing: 0.02em;
 }
 .sofort-icon {
     margin-right: 4px;

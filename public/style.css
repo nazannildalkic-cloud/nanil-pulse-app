@@ -2,7 +2,7 @@
 
 :root {
     /* Hintergrund – etwas heller für bessere Lesbarkeit */
-    --bg-dark: #393945;
+    --bg-dark: #111118;
     --bg-card: rgba(65, 65, 78, 0.9);
     --bg-glass: rgba(60, 60, 72, 0.9);
 
@@ -65,8 +65,8 @@
 .early-access-banner p {
     margin: 0;
     color: #0a0a0c;
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 800;
 }
 
 /* Hero-Pulse: optimal – weicher Glow + dezente Skalierung, ruhiger Rhythmus */

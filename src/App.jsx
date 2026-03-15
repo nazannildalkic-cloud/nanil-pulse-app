@@ -197,6 +197,15 @@ const T = {
       demoMeditationDesc: "Tiefenentspannung, innere Ruhe",
       demoEvening: "🌙 Abends müde",
       demoEveningDesc: "Langer Tag, Körper braucht Erholung",
+      demoHormoneTitle: "Hormon & Vaskulär Szenarien",
+      demoOvulation: "🔴 Eisprung-Phase",
+      demoOvulationDesc: "Östrogen-Peak, Gefäße entspannt",
+      demoTestosterone: "💪 Testosteron hoch",
+      demoTestosteroneDesc: "Morgens, nach Training, hoher Drive",
+      demoVascularTense: "🫀 Vaskuläre Anspannung",
+      demoVascularTenseDesc: "Cortisol hoch, Gefäße verengt",
+      demoVascularRelax: "🌊 Vaskuläre Balance",
+      demoVascularRelaxDesc: "Entspannt, Gefäße weit, gute PWV",
     },
     wellbeing: {
       title: "Wellbeing Dashboard",
@@ -258,6 +267,33 @@ const T = {
       nanilSportTip: "💡 Nanil: Trainingsbereitschaft {pct}%. {tip}",
       nanilSportReady: "Dein Körper ist bereit für ein intensives Training — nutze den Moment!",
       nanilSportRecover: "Heute lieber regenerieren. Leichtes Yoga oder ein Spaziergang sind ideal.",
+      vascularTitle: "Vaskuläre Balance",
+      vascularDesc: "Pulswellen-Analyse und vaskuläre Kontext-Interpretation via Patch",
+      vascularPWV: "Pulswellen-Geschwindigkeit",
+      vascularPWVUnit: "m/s",
+      vascularTonus: "Vaskulärer Tonus",
+      vascularTonusRelaxed: "Entspannt",
+      vascularTonusNormal: "Normal",
+      vascularTonusTense: "Angespannt",
+      vascularTonusElevated: "Erhöht",
+      vascularContext: "Kontext-Interpretation",
+      vascularContextCalm: "Dein vaskuläres Muster zeigt Entspannung — arterielle Balance im grünen Bereich.",
+      vascularContextNormal: "Vaskulärer Tonus normal. Zusammen mit deiner HRV deutet alles auf gute Balance hin.",
+      vascularContextTense: "Dein vaskulärer Tonus zeigt seit heute ein angespanntes Muster — zusammen mit deiner Stimmanalyse deutet das auf anhaltenden Stress hin.",
+      vascularContextHigh: "Vaskuläre Anspannung erhöht. Starte eine Balance-Session zur Vagusnerv-Aktivierung.",
+      vascularTrend: "3-Tage-Trend",
+      vascularNote: "Keine Blutdruck-Messung. Vaskuläre Muster als Wellness-Signal.",
+      nanilVascularTip: "💡 Nanil: Vaskulärer Tonus {status}. {tip}",
+      nanilVascularCalm: "Alles im Gleichgewicht — perfekter Moment für bewusste Entspannung.",
+      nanilVascularTense: "Dein Körper zeigt vaskuläre Anspannung. Eine Atemsession könnte jetzt helfen.",
+      vascularHormoneTitle: "Hormone & Gefäße",
+      vascularOvulation: "Eisprung",
+      vascularOvulationDesc: "Östrogen-Peak weitet Gefäße, PWV sinkt — NANIL erkennt Zyklusphasen",
+      vascularTestosterone: "Testosteron hoch",
+      vascularTestosteroneDesc: "Erhöhter arterieller Tonus, steifere Gefäße — erkennbar am Muster",
+      vascularCortisol: "Cortisol-Stress",
+      vascularCortisolDesc: "Vaskuläre Anspannung + Stimmanalyse = klares Stressbild",
+      vascularHormoneNote: "Vaskuläre Muster + Hormon-Tracking + Stimmanalyse = dein Kontext-Bild",
     },
     vagus: {
       title: "Vagusnerv-Stimulation",
@@ -485,6 +521,15 @@ const T = {
       demoMeditationDesc: "Deep relaxation, inner peace",
       demoEvening: "🌙 Evening tired",
       demoEveningDesc: "Long day, body needs recovery",
+      demoHormoneTitle: "Hormone & Vascular Scenarios",
+      demoOvulation: "🔴 Ovulation Phase",
+      demoOvulationDesc: "Estrogen peak, vessels relaxed",
+      demoTestosterone: "💪 Testosterone high",
+      demoTestosteroneDesc: "Morning, after training, high drive",
+      demoVascularTense: "🫀 Vascular Tension",
+      demoVascularTenseDesc: "Cortisol high, vessels constricted",
+      demoVascularRelax: "🌊 Vascular Balance",
+      demoVascularRelaxDesc: "Relaxed, vessels wide, good PWV",
     },
     wellbeing: {
       title: "Wellbeing Dashboard",
@@ -546,6 +591,33 @@ const T = {
       nanilSportTip: "💡 Nanil: Training readiness {pct}%. {tip}",
       nanilSportReady: "Your body is ready for intense training — seize the moment!",
       nanilSportRecover: "Better to recover today. Light yoga or a walk is ideal.",
+      vascularTitle: "Vascular Balance",
+      vascularDesc: "Pulse wave analysis and vascular context interpretation via patch",
+      vascularPWV: "Pulse Wave Velocity",
+      vascularPWVUnit: "m/s",
+      vascularTonus: "Vascular Tonus",
+      vascularTonusRelaxed: "Relaxed",
+      vascularTonusNormal: "Normal",
+      vascularTonusTense: "Tense",
+      vascularTonusElevated: "Elevated",
+      vascularContext: "Context Interpretation",
+      vascularContextCalm: "Your vascular pattern shows relaxation — arterial balance in the green zone.",
+      vascularContextNormal: "Vascular tonus normal. Together with your HRV, everything points to good balance.",
+      vascularContextTense: "Your vascular tonus has been showing a tense pattern today — together with your voice analysis, this suggests ongoing stress.",
+      vascularContextHigh: "Vascular tension elevated. Start a balance session for vagus nerve activation.",
+      vascularTrend: "3-Day Trend",
+      vascularNote: "Not a blood pressure measurement. Vascular patterns as a wellness signal.",
+      nanilVascularTip: "💡 Nanil: Vascular tonus {status}. {tip}",
+      nanilVascularCalm: "Everything in balance — perfect moment for mindful relaxation.",
+      nanilVascularTense: "Your body shows vascular tension. A breathing session could help right now.",
+      vascularHormoneTitle: "Hormones & Vessels",
+      vascularOvulation: "Ovulation",
+      vascularOvulationDesc: "Estrogen peak dilates vessels, PWV drops — NANIL detects cycle phases",
+      vascularTestosterone: "Testosterone high",
+      vascularTestosteroneDesc: "Elevated arterial tonus, stiffer vessels — detectable in the pattern",
+      vascularCortisol: "Cortisol stress",
+      vascularCortisolDesc: "Vascular tension + voice analysis = clear stress picture",
+      vascularHormoneNote: "Vascular patterns + hormone tracking + voice analysis = your context picture",
     },
     vagus: {
       title: "Vagus Nerve Stimulation",
@@ -773,6 +845,15 @@ const T = {
       demoMeditationDesc: "Derin rahatlama, iç huzur",
       demoEvening: "🌙 Akşam yorgun",
       demoEveningDesc: "Uzun gün, vücut dinlenmeye ihtiyaç duyuyor",
+      demoHormoneTitle: "Hormon & Vasküler Senaryolar",
+      demoOvulation: "🔴 Yumurtlama Fazı",
+      demoOvulationDesc: "Östrojen zirvesi, damarlar rahat",
+      demoTestosterone: "💪 Testosteron yüksek",
+      demoTestosteroneDesc: "Sabah, antrenman sonrası, yüksek enerji",
+      demoVascularTense: "🫀 Vasküler Gerilim",
+      demoVascularTenseDesc: "Kortizol yüksek, damarlar daralmış",
+      demoVascularRelax: "🌊 Vasküler Denge",
+      demoVascularRelaxDesc: "Rahat, damarlar geniş, iyi PWV",
     },
     wellbeing: {
       title: "Esenlik Paneli",
@@ -834,6 +915,33 @@ const T = {
       nanilSportTip: "💡 Nanil: Antrenman hazırlığı %{pct}. {tip}",
       nanilSportReady: "Vücudun yoğun antrenman için hazır — anı yakala!",
       nanilSportRecover: "Bugün toparlanmak daha iyi. Hafif yoga veya yürüyüş ideal.",
+      vascularTitle: "Vasküler Denge",
+      vascularDesc: "Patch ile nabız dalgası analizi ve vasküler bağlam yorumlama",
+      vascularPWV: "Nabız Dalga Hızı",
+      vascularPWVUnit: "m/s",
+      vascularTonus: "Vasküler Tonus",
+      vascularTonusRelaxed: "Rahat",
+      vascularTonusNormal: "Normal",
+      vascularTonusTense: "Gergin",
+      vascularTonusElevated: "Yüksek",
+      vascularContext: "Bağlam Yorumu",
+      vascularContextCalm: "Vasküler paternin rahatlama gösteriyor — arteriyel denge yeşil bölgede.",
+      vascularContextNormal: "Vasküler tonus normal. HRV ile birlikte her şey iyi dengeye işaret ediyor.",
+      vascularContextTense: "Vasküler tonusun bugün gergin bir patern gösteriyor — ses analizinle birlikte bu devam eden strese işaret ediyor.",
+      vascularContextHigh: "Vasküler gerilim yüksek. Vagus siniri aktivasyonu için bir denge seansı başlat.",
+      vascularTrend: "3 Günlük Trend",
+      vascularNote: "Tansiyon ölçümü değil. Esenlik sinyali olarak vasküler paternler.",
+      nanilVascularTip: "💡 Nanil: Vasküler tonus {status}. {tip}",
+      nanilVascularCalm: "Her şey dengede — bilinçli rahatlama için mükemmel an.",
+      nanilVascularTense: "Vücudun vasküler gerilim gösteriyor. Bir nefes seansı şimdi yardımcı olabilir.",
+      vascularHormoneTitle: "Hormonlar & Damarlar",
+      vascularOvulation: "Yumurtlama",
+      vascularOvulationDesc: "Östrojen zirvesi damarları genişletir, PWV düşer — NANIL döngü fazlarını tanır",
+      vascularTestosterone: "Testosteron yüksek",
+      vascularTestosteroneDesc: "Yüksek arteriyel tonus, daha sert damarlar — patternde tespit edilebilir",
+      vascularCortisol: "Kortizol stresi",
+      vascularCortisolDesc: "Vasküler gerilim + ses analizi = net stres tablosu",
+      vascularHormoneNote: "Vasküler paternler + hormon takibi + ses analizi = bağlam tablonuz",
     },
     vagus: {
       title: "Vagus Siniri Stimülasyonu",
@@ -1060,33 +1168,36 @@ function VoiceAI({ lang, t }) {
       ring: "Der NANIL Pulse Ring ist ein eleganter Ear Cuff der auf der Cymba Conchae platziert wird. Er stimuliert den auriculären Ast des Vagusnervs per transkutaner Mikrostimulation. Knochenleitung ermöglicht diskrete Anrufe und Nachrichten. Verfügbar in Gold und Silber.",
       patch: "Der Pulse Core Patch ist ein Biosensor der auf dem oberen Sternalbereich getragen wird. Er misst kontinuierlich Herzfrequenz, HRV, Hauttemperatur, Bewegung und Mikro-Schweiß. Die Daten werden per Bluetooth an die App übertragen.",
       vagus: "Die Vagusnerv-Stimulation aktiviert den Parasympathikus — das Entspannungssystem des Körpers. Studien zeigen: reduzierte Herzfrequenz, verbesserte HRV, niedrigeres Cortisol. Der Ring stimuliert die Cymba Conchae, den einzigen Punkt am Ohr wo der Vagusnerv direkt unter der Haut liegt.",
-      hormone: "Der Biosensor-Patch erfasst Basaltemperatur, HRV-Muster und Mikro-Schweiß-Veränderungen zur Hormonanalyse. Er trackt den Menstruationszyklus, erkennt Eisprung-Fenster, und zeigt Östrogen-, Progesteron- und LH-Trends.",
-      stress: "Unser Closed-Loop System misst Stress über mehrere Biomarker: HRV, Hauttemperatur, Bewegung und Stimmanalyse. Bei erhöhtem Stress passt das System die Vagusnerv-Stimulation automatisch an.",
+      hormone: "Der Biosensor-Patch erfasst Basaltemperatur, HRV-Muster und Mikro-Schweiß-Veränderungen zur Hormonanalyse. Er trackt den Menstruationszyklus, erkennt Eisprung-Fenster, und zeigt Östrogen-, Progesteron- und LH-Trends. Wichtig: Hormone beeinflussen direkt deine Gefäße. Während des Eisprungs weitet der Östrogen-Peak die Gefäße und die Pulswellen-Geschwindigkeit sinkt. Bei Männern zeigt erhöhtes Testosteron einen strafferen arteriellen Tonus. NANIL erkennt diese Zusammenhänge automatisch.",
+      vascular: "NANIL Pulse misst keinen Blutdruck. Stattdessen erfasst der Pulse Patch über PPG-Sensorik, also Photoplethysmographie, die Pulswellen-Geschwindigkeit und erkennt vaskuläre Muster. Die App interpretiert diese im Kontext mit Stimmanalyse, HRV und Stressdaten. Statt isolierter Blutdruck-Werte wie 120 über 80 bekommst du Kontext-Interpretation. Zum Beispiel: Dein vaskulärer Tonus zeigt seit 3 Tagen ein angespanntes Muster, zusammen mit deiner Stimmanalyse deutet das auf anhaltenden Stress hin. Das ist der NANIL-Ansatz: Kontext statt Zahlen. Keine Medizinprodukt-Regulierung nötig, weil wir keine mmHg-Werte anzeigen, sondern Wellness-Signale interpretieren. Hormone spielen dabei eine große Rolle: Östrogen weitet die Gefäße beim Eisprung, Testosteron erhöht den arteriellen Tonus, Cortisol verengt die Gefäße bei Stress. Alles wird zusammen interpretiert.",
+      stress: "Unser Closed-Loop System misst Stress über mehrere Biomarker: HRV, Hauttemperatur, Bewegung und Stimmanalyse. Bei erhöhtem Stress passt das System die Vagusnerv-Stimulation automatisch an. Stress zeigt sich auch in den Gefäßen: Cortisol verengt die Arterien und erhöht die Pulswellen-Geschwindigkeit. NANIL erkennt dieses Muster und kombiniert es mit deiner Stimmanalyse für ein klares Stressbild.",
       invest: "NANIL Pulse ist ein Wellbeing-Tech Startup mit einem patentierten Closed-Loop Wellbeing-System. Wir suchen Investoren, Co-Founder und strategische Partner. Kontaktieren Sie uns für Pitch-Deck und Finanzierungsdetails.",
       price: "NANIL Pulse ist aktuell in der Entwicklungsphase. Early-Access Pakete werden demnächst verfügbar sein. Registrieren Sie sich für Updates und Sonderkonditionen.",
-      fallback: "Verstanden. Kann ich Ihnen noch bei etwas anderem helfen? Fragen Sie mich über Ring, Patch, Vagusnerv, Hormone, Stressmanagement oder Investitionsmöglichkeiten."
+      fallback: "Verstanden. Kann ich Ihnen noch bei etwas anderem helfen? Fragen Sie mich über Ring, Patch, Vagusnerv, Hormone, vaskuläre Interpretation, Stressmanagement oder Investitionsmöglichkeiten."
     },
     en: {
       greeting: "Welcome to NANIL Pulse. I'm your AI assistant. Ask me anything about our wellbeing system, smart ring, biosensor patch, vagus nerve stimulation, or hormone tracking.",
       ring: "The NANIL Pulse Ring is an elegant ear cuff placed on the Cymba Conchae. It stimulates the auricular branch of the vagus nerve via transcutaneous micro-stimulation. Bone conduction enables discreet calls and messages. Available in gold and silver.",
       patch: "The Pulse Core Patch is a biosensor worn on the upper sternal area. It continuously measures heart rate, HRV, skin temperature, motion, and micro-perspiration. Data is transmitted via Bluetooth to the app.",
       vagus: "Vagus nerve stimulation activates the parasympathetic nervous system — the body's relaxation system. Studies show: reduced heart rate, improved HRV, lower cortisol. The ring stimulates the Cymba Conchae, the only point on the ear where the vagus nerve lies directly beneath the skin.",
-      hormone: "The biosensor patch tracks basal temperature, HRV patterns, and micro-sweat changes for hormone analysis. It tracks the menstrual cycle, detects ovulation windows, and shows estrogen, progesterone, and LH trends.",
-      stress: "Our closed-loop system measures stress via multiple biomarkers: HRV, skin temperature, motion, and voice analysis. When stress is elevated, the system automatically adjusts vagus nerve stimulation.",
+      hormone: "The biosensor patch tracks basal temperature, HRV patterns, and micro-sweat changes for hormone analysis. It tracks the menstrual cycle, detects ovulation windows, and shows estrogen, progesterone, and LH trends. Importantly, hormones directly affect your vessels. During ovulation, the estrogen peak widens vessels and pulse wave velocity drops. In men, elevated testosterone shows tighter arterial tonus. NANIL detects these connections automatically.",
+      vascular: "NANIL Pulse does not measure blood pressure. Instead, the Pulse Patch uses PPG sensors, photoplethysmography, to capture pulse wave velocity and detect vascular patterns. The app interprets these in context with voice analysis, HRV, and stress data. Instead of isolated blood pressure values like 120 over 80, you get context interpretation. For example: Your vascular tonus has been showing a tense pattern for 3 days, together with your voice analysis this suggests ongoing stress. That is the NANIL approach: context instead of numbers. No medical device regulation needed because we don't display mmHg values, we interpret wellness signals. Hormones play a major role: estrogen widens vessels during ovulation, testosterone increases arterial tonus, cortisol constricts vessels during stress. Everything is interpreted together.",
+      stress: "Our closed-loop system measures stress via multiple biomarkers: HRV, skin temperature, motion, and voice analysis. When stress is elevated, the system automatically adjusts vagus nerve stimulation. Stress also shows in the vessels: cortisol constricts arteries and increases pulse wave velocity. NANIL detects this pattern and combines it with your voice analysis for a clear stress picture.",
       invest: "NANIL Pulse is a wellbeing-tech startup with a patented closed-loop wellbeing system. We're looking for investors, co-founders, and strategic partners. Contact us for pitch deck and funding details.",
       price: "NANIL Pulse is currently in development phase. Early-access packages will be available soon. Register for updates and special conditions.",
-      fallback: "Understood. Can I help with anything else? Ask me about the ring, patch, vagus nerve, hormones, stress management, or investment opportunities."
+      fallback: "Understood. Can I help with anything else? Ask me about the ring, patch, vagus nerve, hormones, vascular interpretation, stress management, or investment opportunities."
     },
     tr: {
       greeting: "NANIL Pulse'a hoş geldiniz. Ben yapay zeka asistanınızım. Wellbeing sistemimiz, akıllı yüzük, biyosensör patch, vagus siniri stimülasyonu veya hormon takibi hakkında her şeyi sorabilirsiniz.",
       ring: "NANIL Pulse Yüzük, Cymba Conchae üzerine yerleştirilen şık bir ear cuff'tır. Transkutan mikro stimülasyon ile vagus sinirinin auriküler dalını uyarır. Kemik iletimi sayesinde gizli aramalar ve mesajlar mümkündür. Altın ve gümüş renklerde mevcuttur.",
       patch: "Pulse Core Patch, üst sternum bölgesine takılan bir biyosensördür. Sürekli olarak kalp atış hızı, HRV, cilt sıcaklığı, hareket ve mikro terlemeyi ölçer. Veriler Bluetooth ile uygulamaya aktarılır.",
       vagus: "Vagus siniri stimülasyonu parasempatik sinir sistemini aktive eder — vücudun rahatlama sistemi. Çalışmalar gösterir: azalan kalp atış hızı, gelişmiş HRV, düşük kortizol. Yüzük, vagus sinirinin doğrudan cildin altında olduğu kulaktaki tek nokta olan Cymba Conchae'yi uyarır.",
-      hormone: "Biyosensör patch, hormon analizi için bazal sıcaklık, HRV kalıpları ve mikro ter değişikliklerini takip eder. Adet döngüsünü izler, yumurtlama pencerelerini tespit eder, östrojen, progesteron ve LH trendlerini gösterir.",
-      stress: "Kapalı döngü sistemimiz stresi birden fazla biyobelirteç ile ölçer: HRV, cilt sıcaklığı, hareket ve ses analizi. Stres yükseldiğinde sistem vagus siniri stimülasyonunu otomatik olarak ayarlar.",
+      hormone: "Biyosensör patch, hormon analizi için bazal sıcaklık, HRV kalıpları ve mikro ter değişikliklerini takip eder. Adet döngüsünü izler, yumurtlama pencerelerini tespit eder, östrojen, progesteron ve LH trendlerini gösterir. Önemli: Hormonlar doğrudan damarları etkiler. Yumurtlama sırasında östrojen zirvesi damarları genişletir ve nabız dalga hızı düşer. Erkeklerde yüksek testosteron daha sıkı arteriyel tonus gösterir.",
+      vascular: "NANIL Pulse tansiyon ölçmez. Bunun yerine Pulse Patch, PPG sensörleri yani fotopletismografi ile nabız dalga hızını yakalayarak vasküler paternleri tespit eder. Uygulama bunları ses analizi, HRV ve stres verileriyle bağlamda yorumlar. 120 üzerinden 80 gibi izole tansiyon değerleri yerine bağlam yorumu alırsınız. Örneğin: Vasküler tonusunuz 3 gündür gergin bir patern gösteriyor, ses analizinizle birlikte bu devam eden strese işaret ediyor. Bu NANIL yaklaşımıdır: sayılar yerine bağlam. mmHg değerleri göstermediğimiz için tıbbi cihaz düzenlemesi gerekmiyor, esenlik sinyallerini yorumluyoruz.",
+      stress: "Kapalı döngü sistemimiz stresi birden fazla biyobelirteç ile ölçer: HRV, cilt sıcaklığı, hareket ve ses analizi. Stres yükseldiğinde sistem vagus siniri stimülasyonunu otomatik olarak ayarlar. Stres damarlardan da anlaşılır: kortizol arterleri daraltır ve nabız dalga hızını artırır.",
       invest: "NANIL Pulse, patentli kapalı döngü wellbeing sistemi ile bir wellbeing teknolojisi girişimidir. Yatırımcı, kurucu ortak ve stratejik partner arıyoruz.",
       price: "NANIL Pulse şu anda geliştirme aşamasındadır. Erken erişim paketleri yakında sunulacaktır.",
-      fallback: "Anlaşıldı. Başka bir konuda yardımcı olabilir miyim?"
+      fallback: "Anlaşıldı. Başka bir konuda yardımcı olabilir miyim? Yüzük, patch, vagus siniri, hormonlar, vasküler yorumlama veya yatırım hakkında sorabilirsiniz."
     }
   };
 
@@ -1138,11 +1249,12 @@ function VoiceAI({ lang, t }) {
       const text = e.results[0][0].transcript.toLowerCase();
       const k = kb[lang] || kb.de;
       let resp = k.fallback;
-      if (text.match(/ring|ohr|ear|kulak|yüzük/i)) resp = k.ring;
+      if (text.match(/blutdruck|blood.?press|tansiyon|vaskulär|vascular|vasküler|gefäß|vessel|damar|pulswelle|pulse.?wave|nabız.?dalga|pwv|arterie|arteri/i)) resp = k.vascular;
+      else if (text.match(/ring|ohr|ear|kulak|yüzük/i)) resp = k.ring;
       else if (text.match(/patch|sensor|brust|chest|göğüs/i)) resp = k.patch;
       else if (text.match(/vagus|nerv|nerve|sinir|stimul/i)) resp = k.vagus;
-      else if (text.match(/hormon|zyklus|cycle|döngü|eisprung|ovul|östrogen|estrogen/i)) resp = k.hormone;
-      else if (text.match(/stress|entspann|relax|rahat/i)) resp = k.stress;
+      else if (text.match(/hormon|zyklus|cycle|döngü|eisprung|ovul|östrogen|estrogen|testosteron|progesteron/i)) resp = k.hormone;
+      else if (text.match(/stress|entspann|relax|rahat|cortisol|kortisol/i)) resp = k.stress;
       else if (text.match(/invest|geld|money|fund|partner|yatırım/i)) resp = k.invest;
       else if (text.match(/preis|price|kost|cost|fiyat|kaufen|buy/i)) resp = k.price;
       else if (text.match(/hallo|hi|hey|merhaba|selam/i)) resp = k.greeting;
@@ -2119,6 +2231,29 @@ export default function NanilPulseApp() {
                     </button>
                   ))}
                 </div>
+
+                {/* NEU: Hormon & Vaskulär Voice Demos */}
+                <div style={{ marginTop: 16, display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
+                  <span style={{ fontSize: 16 }}>🧬</span>
+                  <span style={{ fontSize: 13, fontWeight: 700, color: "#e07030" }}>{t.vitals.demoHormoneTitle}</span>
+                  <span style={{ padding: "2px 8px", borderRadius: 10, background: "rgba(224,112,48,0.15)", color: "#e07030", fontSize: 10, fontWeight: 700 }}>NEU</span>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                  {[
+                    { label: t.vitals.demoOvulation, desc: t.vitals.demoOvulationDesc, result: "calm", color: "#e07030" },
+                    { label: t.vitals.demoTestosterone, desc: t.vitals.demoTestosteroneDesc, result: "tense", color: B.teal },
+                    { label: t.vitals.demoVascularTense, desc: t.vitals.demoVascularTenseDesc, result: "stressed", color: B.orange },
+                    { label: t.vitals.demoVascularRelax, desc: t.vitals.demoVascularRelaxDesc, result: "calm", color: B.green },
+                  ].map((demo, i) => (
+                    <button key={`hv-${i}`} onClick={() => startVoiceAnalysis(demo.result)} disabled={voiceState === "running"}
+                      style={{ padding: "12px 10px", borderRadius: 12, border: `1px solid ${demo.color}30`, background: `${demo.color}08`,
+                        cursor: voiceState === "running" ? "not-allowed" : "pointer", textAlign: "left", transition: "all 0.2s",
+                        opacity: voiceState === "running" ? 0.5 : 1 }}>
+                      <div style={{ fontSize: 14, fontWeight: 700, color: demo.color, marginBottom: 3 }}>{demo.label}</div>
+                      <div style={{ fontSize: 12, color: B.textMut, lineHeight: 1.4 }}>{demo.desc}</div>
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* For Everyone badge */}
@@ -2673,6 +2808,127 @@ export default function NanilPulseApp() {
               <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(0,196,170,0.04)", border: `1px solid ${B.tealBrd}` }}>
                 <div style={{ fontSize: 14, fontWeight: 700, color: B.teal, display: "flex", alignItems: "center", gap: 6 }}>
                   <span>🤖</span> {t.wellbeing?.nanilSportTip?.replace("{pct}", sportReadiness).replace("{tip}", sportReadiness > 70 ? t.wellbeing?.nanilSportReady : t.wellbeing?.nanilSportRecover)}
+                </div>
+              </div>
+            </div>
+
+            {/* Vascular Balance — NEU */}
+            <div className="card" style={{ border: `1px solid ${B.tealBrd}`, background: "linear-gradient(180deg, rgba(0,196,170,0.06) 0%, rgba(0,0,0,0) 100%)" }}>
+              {/* Header mit Badge */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ fontSize: 26 }}>🫀</span>
+                  <div>
+                    <p className="card-title" style={{ margin: 0 }}>{t.wellbeing?.vascularTitle}</p>
+                    <div style={{ fontSize: 14, color: B.textMut }}>{t.wellbeing?.vascularDesc}</div>
+                  </div>
+                </div>
+                <div style={{ padding: "4px 10px", borderRadius: 20, background: "rgba(0,196,170,0.15)", border: `1px solid ${B.tealBrd}`, fontSize: 11, fontWeight: 700, color: B.teal, letterSpacing: 0.5, whiteSpace: "nowrap" }}>NEU</div>
+              </div>
+
+              {/* Patch Bild + Beschreibung */}
+              <div style={{ display: "flex", gap: 14, marginBottom: 16, padding: 14, borderRadius: 14, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                <img src="/patch.jpg" alt="Pulse Patch" style={{ width: 80, height: 80, borderRadius: 12, objectFit: "cover", flexShrink: 0, border: `1px solid ${B.tealBrd}` }} />
+                <div style={{ fontSize: 13, color: B.textMut, lineHeight: 1.5 }}>
+                  Der <span style={{ color: B.teal, fontWeight: 700 }}>Pulse Patch</span> erfasst per PPG-Sensorik die Pulswellen-Geschwindigkeit und erkennt vaskuläre Muster. Keine mmHg-Werte — <span style={{ color: B.text, fontWeight: 600 }}>Kontext statt Blutdruck</span>.
+                </div>
+              </div>
+
+              {/* Animierte Pulswellen SVG */}
+              <div style={{ padding: "14px 16px", borderRadius: 12, background: "rgba(0,0,0,0.3)", border: `1px solid ${B.tealBrd}`, marginBottom: 14, overflow: "hidden", position: "relative" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: B.teal, letterSpacing: 0.8 }}>PULSWELLEN-ANALYSE</span>
+                  <span style={{ fontSize: 11, padding: "3px 8px", borderRadius: 12, background: "rgba(64,200,128,0.15)", color: B.green, fontWeight: 600 }}>Normal</span>
+                </div>
+                <svg viewBox="0 0 400 60" style={{ width: "100%", height: 60 }} preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="vGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor={B.teal} stopOpacity="0.25" />
+                      <stop offset="100%" stopColor={B.teal} stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <line x1="0" y1="30" x2="400" y2="30" stroke="rgba(255,255,255,0.06)" strokeWidth="1" strokeDasharray="3 3" />
+                  <path d="M0,30 Q20,30 40,30 L60,30 L70,10 L80,50 L88,18 L96,42 L104,28 L115,30 Q150,30 180,30 L200,30 L210,8 L220,52 L228,16 L236,44 L244,26 L255,30 Q290,30 320,30 L340,30 L350,12 L360,48 L368,20 L376,40 L384,30 L400,30 L400,60 L0,60 Z" fill="url(#vGrad)" />
+                  <path d="M0,30 Q20,30 40,30 L60,30 L70,10 L80,50 L88,18 L96,42 L104,28 L115,30 Q150,30 180,30 L200,30 L210,8 L220,52 L228,16 L236,44 L244,26 L255,30 Q290,30 320,30 L340,30 L350,12 L360,48 L368,20 L376,40 L384,30 L400,30" stroke={B.teal} strokeWidth="2" fill="none" strokeLinecap="round" />
+                </svg>
+              </div>
+
+              {/* PWV + Tonus */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                <div style={{ padding: "16px", borderRadius: 12, background: "rgba(0,196,170,0.06)", border: `1px solid ${B.tealBrd}`, textAlign: "center" }}>
+                  <div style={{ fontSize: 28, fontWeight: 800, color: B.teal }}>6.8</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.vascularPWV}</div>
+                  <div style={{ fontSize: 11, color: B.textDim }}>{t.wellbeing?.vascularPWVUnit}</div>
+                </div>
+                <div style={{ padding: "16px", borderRadius: 12, background: "rgba(64,200,128,0.06)", border: `1px solid rgba(64,200,128,0.3)`, textAlign: "center" }}>
+                  <div style={{ fontSize: 28, fontWeight: 800, color: B.green }}>OK</div>
+                  <div style={{ fontSize: 13, color: B.textMut, fontWeight: 600 }}>{t.wellbeing?.vascularTonus}</div>
+                  <div style={{ fontSize: 12, color: B.green, fontWeight: 600 }}>{t.wellbeing?.vascularTonusNormal}</div>
+                </div>
+              </div>
+
+              {/* Context Interpretation */}
+              <div style={{ marginTop: 14, padding: "16px", borderRadius: 12, background: "rgba(0,196,170,0.04)", borderLeft: `3px solid ${B.teal}`, border: `1px solid ${B.tealBrd}`, borderLeftWidth: 3, borderLeftColor: B.teal }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: B.teal, marginBottom: 6 }}>{t.wellbeing?.vascularContext}</div>
+                <div style={{ fontSize: 14, color: B.textMut, lineHeight: 1.6 }}>{t.wellbeing?.vascularContextNormal}</div>
+              </div>
+
+              {/* 3-Day Trend */}
+              <div style={{ marginTop: 10, padding: "12px 16px", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: B.textMut, marginBottom: 10 }}>{t.wellbeing?.vascularTrend}</div>
+                <div style={{ display: "flex", alignItems: "flex-end", gap: 8, height: 50 }}>
+                  {[{ v: 7.1, d: "Mo" }, { v: 6.9, d: "Di" }, { v: 6.8, d: "Mi" }].map((item, i) => (
+                    <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+                      <div style={{ fontSize: 12, color: B.teal, fontWeight: 700 }}>{item.v}</div>
+                      <div style={{ width: "100%", height: `${(item.v / 8) * 35}px`, background: `linear-gradient(to top, ${B.teal}, ${B.tealLt})`, borderRadius: 6, opacity: 0.6 + i * 0.2 }} />
+                      <div style={{ fontSize: 10, color: B.textDim }}>{item.d}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Hormon-Vaskulär Verbindung */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(224,112,48,0.06)", border: "1px solid rgba(224,112,48,0.2)" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
+                  <span style={{ fontSize: 16 }}>🧬</span>
+                  <span style={{ fontSize: 13, fontWeight: 700, color: "#e07030" }}>{t.wellbeing?.vascularHormoneTitle}</span>
+                </div>
+                {/* Hormone Dashboard Bild */}
+                <div style={{ marginBottom: 12, borderRadius: 10, overflow: "hidden", border: "1px solid rgba(224,112,48,0.15)", boxShadow: "0 8px 24px rgba(224,112,48,0.1)" }}>
+                  <img src="/hormone-dashboard.png" alt="Hormone Dashboard" style={{ width: "100%", height: "auto", display: "block" }} />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: B.textMut, lineHeight: 1.4 }}>
+                    <span style={{ fontSize: 14, flexShrink: 0 }}>🔴</span>
+                    <span><strong style={{ color: "#e07030" }}>{t.wellbeing?.vascularOvulation}</strong> — {t.wellbeing?.vascularOvulationDesc}</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: B.textMut, lineHeight: 1.4 }}>
+                    <span style={{ fontSize: 14, flexShrink: 0 }}>💪</span>
+                    <span><strong style={{ color: B.teal }}>{t.wellbeing?.vascularTestosterone}</strong> — {t.wellbeing?.vascularTestosteroneDesc}</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: B.textMut, lineHeight: 1.4 }}>
+                    <span style={{ fontSize: 14, flexShrink: 0 }}>😤</span>
+                    <span><strong style={{ color: B.orange }}>{t.wellbeing?.vascularCortisol}</strong> — {t.wellbeing?.vascularCortisolDesc}</span>
+                  </div>
+                </div>
+                <div style={{ marginTop: 10, fontSize: 11, color: "rgba(244,244,246,0.5)", textAlign: "center", fontStyle: "italic" }}>{t.wellbeing?.vascularHormoneNote}</div>
+              </div>
+
+              {/* Motto */}
+              <div style={{ marginTop: 14, textAlign: "center", padding: "12px", borderRadius: 10, background: "linear-gradient(135deg, rgba(0,196,170,0.08), rgba(224,112,48,0.05))", border: "1px solid rgba(0,196,170,0.15)" }}>
+                <span style={{ color: "rgba(224,80,80,0.5)", textDecoration: "line-through", fontSize: 13 }}>Blutdruck messen</span>
+                <span style={{ color: B.teal, fontWeight: 700, fontSize: 13, marginLeft: 6 }}>Vaskuläre Muster interpretieren</span>
+              </div>
+
+              {/* Note */}
+              <div style={{ marginTop: 10, fontSize: 11, color: B.textDim, textAlign: "center", fontStyle: "italic" }}>
+                {t.wellbeing?.vascularNote}
+              </div>
+
+              {/* Nanil Vascular Tip */}
+              <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 12, background: "rgba(0,196,170,0.04)", border: `1px solid ${B.tealBrd}` }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: B.teal, display: "flex", alignItems: "center", gap: 6 }}>
+                  <span>🤖</span> {t.wellbeing?.nanilVascularTip?.replace("{status}", t.wellbeing?.vascularTonusNormal).replace("{tip}", t.wellbeing?.nanilVascularCalm)}
                 </div>
               </div>
             </div>

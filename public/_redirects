@@ -1,4 +1,4 @@
 # Vorpage als Startseite
 /  /vorpage.html  302!
-/app  https://nanil-pulse-app.netlify.app  302
-/app/*  https://nanil-pulse-app.netlify.app/:splat  302
+/app  /app/index.html  200
+/app/*  /app/index.html  200

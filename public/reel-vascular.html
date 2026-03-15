@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!-- NANIL Pulse – Vaskuläre Kontext-Interpretation Reel | Erstellt: 12.03.2026 -->
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NANIL Pulse – Vaskuläre Kontext-Interpretation | Reel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            width: 1080px;
+            height: 1920px;
+            background: #0a0a0c;
+            font-family: 'Montserrat', sans-serif;
+            color: #f4f4f6;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background pulse animation */
+        .bg-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,196,170,0.15) 0%, rgba(0,196,170,0.05) 40%, transparent 70%);
+            animation: bgPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+        }
+
+        .bg-pulse-2 {
+            position: absolute;
+            top: 25%;
+            left: 30%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(224,112,48,0.1) 0%, transparent 70%);
+            animation: bgPulse 4s ease-in-out 1s infinite;
+        }
+
+        /* Content container */
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        /* Logo area */
+        .logo-area {
+            margin-bottom: 60px;
+        }
+
+        .logo-text {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        .logo-nanil { color: #e07030; }
+        .logo-pulse { color: #00c4aa; }
+
+        .tagline {
+            font-size: 16px;
+            letter-spacing: 6px;
+            color: rgba(244,244,246,0.5);
+            margin-top: 12px;
+            text-transform: uppercase;
+        }
+
+        /* Main statement */
+        .statement {
+            margin-bottom: 80px;
+        }
+
+        .strike-text {
+            font-size: 64px;
+            font-weight: 800;
+            color: rgba(244,244,246,0.25);
+            text-decoration: line-through;
+            text-decoration-color: #e05050;
+            text-decoration-thickness: 4px;
+            margin-bottom: 40px;
+            line-height: 1.2;
+            animation: fadeSlideIn 0.8s ease-out;
+        }
+
+        .main-text {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.3;
+            animation: fadeSlideIn 0.8s ease-out 0.3s both;
+        }
+
+        .highlight-teal {
+            background: linear-gradient(135deg, #00c4aa, #33d4be);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .highlight-orange {
+            background: linear-gradient(135deg, #e07030, #f09050);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Feature points */
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-bottom: 80px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px 32px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(0,196,170,0.2);
+            animation: fadeSlideIn 0.6s ease-out both;
+        }
+
+        .feature-item:nth-child(1) { animation-delay: 0.5s; }
+        .feature-item:nth-child(2) { animation-delay: 0.7s; }
+        .feature-item:nth-child(3) { animation-delay: 0.9s; }
+
+        .feature-icon {
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            text-align: left;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: rgba(244,244,246,0.85);
+        }
+
+        /* Motto */
+        .motto {
+            font-size: 30px;
+            font-weight: 700;
+            color: #00c4aa;
+            padding: 28px 40px;
+            border: 2px solid rgba(0,196,170,0.4);
+            border-radius: 20px;
+            background: rgba(0,196,170,0.06);
+            animation: fadeSlideIn 0.8s ease-out 1.2s both;
+            max-width: 800px;
+        }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            animation: fadeSlideIn 0.8s ease-out 1.5s both;
+        }
+
+        .cta-text {
+            font-size: 20px;
+            color: rgba(244,244,246,0.5);
+            letter-spacing: 2px;
+        }
+
+        .cta-url {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00c4aa;
+            margin-top: 8px;
+        }
+
+        /* Pulse wave line */
+        .pulse-line {
+            position: absolute;
+            bottom: 220px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+
+        .pulse-line svg {
+            width: 200%;
+            height: 100%;
+            animation: pulseScan 3s linear infinite;
+        }
+
+        @keyframes pulseScan {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pulse"></div>
+    <div class="bg-pulse-2"></div>
+
+    <div class="content">
+        <div class="logo-area">
+            <div class="logo-text">
+                <span class="logo-nanil">NANIL</span> <span class="logo-pulse">Pulse</span>
+            </div>
+            <div class="tagline">Decoding Wellness. Empowering Life.</div>
+        </div>
+
+        <div class="statement">
+            <div class="strike-text">Blutdruck messen</div>
+            <div class="main-text">
+                <span class="highlight-teal">Vaskuläre Muster</span><br>
+                <span class="highlight-orange">interpretieren.</span>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-item">
+                <span class="feature-icon">🫀</span>
+                <span class="feature-text">PPG-Sensorik erkennt Pulswellen-Muster im Patch</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🧠</span>
+                <span class="feature-text">KI interpretiert im Kontext: Stimme + HRV + Stress</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🌊</span>
+                <span class="feature-text">Keine Zahlen — sondern dein vaskuläres Gesamtbild</span>
+            </div>
+        </div>
+
+        <div class="motto">
+            Kontext statt Blutdruck.<br>Muster statt mmHg.
+        </div>
+    </div>
+
+    <div class="pulse-line">
+        <svg viewBox="0 0 2160 60" preserveAspectRatio="none">
+            <path d="M0,30 Q60,30 80,30 L120,30 L140,10 L160,50 L180,20 L200,40 L220,30 Q280,30 360,30 Q420,30 440,30 L480,30 L500,10 L520,50 L540,20 L560,40 L580,30 Q640,30 720,30 Q780,30 800,30 L840,30 L860,10 L880,50 L900,20 L920,40 L940,30 Q1000,30 1080,30 Q1140,30 1160,30 L1200,30 L1220,10 L1240,50 L1260,20 L1280,40 L1300,30 Q1360,30 1440,30 Q1500,30 1520,30 L1560,30 L1580,10 L1600,50 L1620,20 L1640,40 L1660,30 Q1720,30 1800,30 Q1860,30 1880,30 L1920,30 L1940,10 L1960,50 L1980,20 L2000,40 L2020,30 Q2080,30 2160,30"
+                  stroke="#00c4aa" stroke-width="2" fill="none"/>
+        </svg>
+    </div>
+
+    <div class="bottom-cta">
+        <div class="cta-text">EARLY ACCESS</div>
+        <div class="cta-url">nanilpulse.art</div>
+    </div>
+</body>
+</html>
