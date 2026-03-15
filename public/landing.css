@@ -28,6 +28,11 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
 body {
     background: transparent;
     background-image: none;
@@ -423,6 +428,11 @@ footer a[href*="system-notes"]:hover {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    position: relative;
+    z-index: 10;
+    -webkit-tap-highlight-color: rgba(0,196,170,0.3);
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
 .audience-vorpage-link:hover {
