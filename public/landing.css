@@ -403,7 +403,88 @@ footer a[href*="system-notes"]:hover {
     opacity: 0.9;
 }
 
+.audience-vorpage-inner {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.audience-vorpage-link {
+    color: #c8cdd5;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.audience-vorpage-link:hover {
+    color: #fff;
+    border-color: rgba(0,196,170,0.5);
+    background: rgba(0,196,170,0.08);
+}
+
+.audience-vorpage-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.audience-vorpage-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.audience-vorpage-card h3 {
+    color: #00c4aa;
+    margin-bottom: 8px;
+}
+
+.audience-vorpage-card p {
+    margin-bottom: 16px;
+}
+
+.audience-vorpage-btn {
+    color: #c9a227;
+    border: 1px solid #c9a227;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.audience-vorpage-btn:hover {
+    background: #c9a227;
+    color: #0a0a0c;
+}
+
 @media (max-width: 640px) {
+    .audience-vorpage-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .audience-vorpage-inner {
+        gap: 10px;
+    }
+
+    .audience-vorpage-link {
+        font-size: 0.8rem;
+        padding: 8px 14px;
+    }
+
     header {
         padding: 12px 16px;
         flex-wrap: wrap;
