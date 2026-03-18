@@ -2,6 +2,19 @@
   command = "npx vite build && node -e \"const fs=require('fs');fs.mkdirSync('dist/app',{recursive:true});fs.copyFileSync('dist/index.html','dist/app/index.html');\""
   publish = "dist"
 
+# Blog Proxy -> VPS
+[[redirects]]
+  from = "/blog/*"
+  to = "https://n8n.srv1200351.hstgr.cloud/blog-nanil/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/blog"
+  to = "https://n8n.srv1200351.hstgr.cloud/blog-nanil/"
+  status = 200
+  force = true
+
 [build.environment]
   NODE_VERSION = "18"
 
