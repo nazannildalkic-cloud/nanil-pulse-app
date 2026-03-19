@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>NANIL Pulse – Live Stimmanalyse</title>
     <meta name="description" content="Testen Sie Ihre Stimme als Biomarker. KI-basierte Wellness-Analyse in Echtzeit. Stress-Level, Energie, emotionaler Zustand.">
     <meta property="og:title" content="NANIL Pulse – Live Stimmanalyse">
@@ -51,6 +51,31 @@
         .nanil-logo img { height: 40px; border-radius: 8px; }
         .nanil-logo span { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em; }
     </style>
+
+<!-- === MOBILE OPT (18.03.2026) === -->
+<style>
+@media (max-width: 768px) {
+  h1 { font-size: 1.8rem !important; }
+  .container { padding: 40px 16px !important; }
+  #voice-record-btn { width: 110px !important; height: 110px !important; font-size: 2.5rem !important; }
+  .metrics { grid-template-columns: 1fr !important; gap: 12px !important; }
+  #voice-results { padding: 20px 16px !important; }
+  .top-bar { padding: 10px 16px !important; }
+  .top-bar a { font-size: 0.85rem !important; }
+}
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem !important; }
+  .subtitle { font-size: 1rem !important; }
+  #voice-record-btn { width: 100px !important; height: 100px !important; font-size: 2rem !important; }
+}
+@media (pointer: coarse) {
+  #voice-record-btn, .top-bar a, button, a { min-height: 44px; }
+}
+*:focus-visible { outline: 2px solid #00c4aa; outline-offset: 2px; }
+html { scroll-behavior: smooth; }
+body { -webkit-overflow-scrolling: touch; }
+</style>
+
 </head>
 <body>
     <div class="top-bar"><a href="/vorpage">← Zurück zu NANIL Pulse</a></div>

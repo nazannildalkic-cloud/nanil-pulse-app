@@ -28,9 +28,77 @@
         rel="stylesheet">
     <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
     <!-- Lia: ElevenLabs Conversational AI -->
+
+<!-- === MOBILE OPTIMIZATION Step 2 (18.03.2026) === -->
+<style>
+@media (max-width: 768px) {
+  .early-access-banner {
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    text-align: center !important;
+    position: relative !important;
+    top: auto !important;
+  }
+  .early-access-banner p { font-size: 0.85rem !important; letter-spacing: 0 !important; }
+  .early-access-banner > div { flex-wrap: wrap !important; justify-content: center !important; gap: 8px !important; }
+  .early-access-banner > div > a { padding: 8px 16px !important; font-size: 0.82rem !important; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .hero-text h1 { font-size: 1.8rem !important; line-height: 1.2 !important; }
+  .hero-visual { max-width: 100% !important; }
+  .hero-media-box { max-height: 280px !important; }
+  .slider-container { max-height: 250px !important; overflow: hidden !important; }
+  #about-nanil .feature-card { padding: 16px !important; }
+  div[style*="width:100vw"][style*="flex-direction:row"] { flex-direction: column !important; width: 100% !important; margin-left: 0 !important; padding: 0 16px !important; }
+  div[style*="width:100vw"][style*="flex-direction:row"] > img { width: 100% !important; max-width: 320px !important; margin: 0 auto !important; }
+  div[style*="width:100vw"][style*="flex-direction:row"] > div { padding: 16px 0 0 0 !important; }
+  #voice-demos { grid-template-columns: 1fr !important; max-width: 100% !important; }
+  #voice-demos-hv { grid-template-columns: 1fr !important; }
+  .feature-grid[style*="repeat(3"] { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .symbiosis-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  #vascular div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 20px !important; }
+  #vascular div[style*="grid-template-columns: 220px 1fr"] { grid-template-columns: 1fr !important; gap: 16px !important; }
+  #vascular div[style*="grid-template-columns: 220px"] > div:first-child img { max-width: 220px !important; margin: 0 auto !important; display: block !important; }
+  #vascular h2 { font-size: 1.6rem !important; }
+  #vascular div[style*="padding: 28px 40px"] { padding: 20px 16px !important; }
+  .product-row { flex-direction: column !important; gap: 24px !important; align-items: center !important; }
+  .product-card { max-width: 300px !important; width: 100% !important; }
+  .product-captions { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .specs-four { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .how-nanil-three { flex-direction: column !important; gap: 16px !important; }
+  .table-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; margin: 0 -12px !important; padding: 0 12px !important; }
+  .comparison-table { min-width: 600px !important; font-size: 0.82rem !important; }
+  .faq-item summary { padding: 14px 12px !important; font-size: 0.95rem !important; }
+  .contact-form { padding: 20px 16px !important; }
+  #footer-nav { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; gap: 8px !important; }
+  #footer-nav a { margin: 0 4px !important; font-size: 0.85rem !important; }
+  #studies-modal > div { width: 95% !important; padding: 1.5rem !important; max-height: 85vh !important; }
+  #whatsapp-float { width: 48px !important; height: 48px !important; font-size: 24px !important; bottom: 16px !important; left: 16px !important; }
+}
+@media (max-width: 480px) {
+  .hero-text h1 { font-size: 1.5rem !important; }
+  .hero-btns { flex-direction: column !important; gap: 10px !important; }
+  .hero-btns .btn { width: 100% !important; text-align: center !important; }
+  .early-access-banner p { font-size: 0.75rem !important; }
+  .early-access-banner > div > a { padding: 6px 12px !important; font-size: 0.78rem !important; }
+  #vascular h2 { font-size: 1.3rem !important; }
+  .section-header h2 { font-size: 1.4rem !important; }
+  .section-header p { font-size: 0.85rem !important; }
+  .voice-demo-btn { padding: 10px 8px !important; }
+  #footer-nav a { font-size: 0.78rem !important; }
+}
+@media (pointer: coarse) {
+  .btn, .lang-btn, .faq-item summary, .voice-demo-btn, .slider-dot, #footer-nav a, .product-card .btn { min-height: 44px !important; }
+  .slider-dot { width: 14px !important; height: 14px !important; }
+}
+*:focus-visible { outline: 2px solid var(--cyan-primary, #00c4aa) !important; outline-offset: 2px !important; }
+html { scroll-behavior: smooth; }
+body { -webkit-overflow-scrolling: touch; }
+</style>
+
 </head>
 
-<body>
+<body style="touch-action: pan-y;">
     <video id="bg-video" autoplay muted loop playsinline style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:0.2;pointer-events:none;filter:brightness(0.7) saturate(0.2) contrast(1.1)"><source src="assets/bg-abstract.mp4" type="video/mp4"></video>
     <a href="#home" class="skip-link" id="skip-link-text">Zum Inhalt springen</a>
     <!-- Top-Bar ausgeblendet, Vorseite+App jetzt im Banner -->
@@ -940,6 +1008,104 @@
             </div>
         </section>
 
+        <!-- TEAM Section -->
+        <section id="team" class="features" style="padding: 50px 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="text-gradient-cyan">Das Team</h2>
+                    <p style="max-width: 640px; margin: 0 auto;">Die Menschen hinter NANIL Pulse.</p>
+                </div>
+                <div style="max-width: 720px; margin: 28px auto 0;">
+                    <div style="background: var(--bg-card, rgba(255,255,255,0.04)); border-radius: 16px; padding: 32px; border: 1px solid rgba(0,196,170,0.2); display: flex; align-items: center; gap: 24px;">
+                        <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #e07030, #00c4aa); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; color: #000; flex-shrink: 0;">N</div>
+                        <div>
+                            <p style="font-weight: 700; color: #fff; font-size: 16px; margin: 0 0 4px;">Nazan Dalkic</p>
+                            <p style="color: #00c4aa; font-size: 13px; font-weight: 600; margin: 0 0 10px;">Founder & CEO, Hamburg</p>
+                            <p style="color: #c8cdd5; font-size: 13px; line-height: 1.6; margin: 0;">Hintergrund in KI-Automatisierung und Digital Health. Verbindet technologische Expertise mit einem tiefen Verstaendnis fuer kontextuelles Wohlbefinden und innovative Sensorik-Loesungen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNOLOGY ROADMAP Section -->
+        <section id="technology-roadmap" class="features" style="background: rgba(0,0,0,0.06); padding: 50px 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="text-gradient-cyan">Technology Roadmap</h2>
+                    <p style="max-width: 640px; margin: 0 auto;">Vom Prototyp zur Marktreife — unser technologischer Fahrplan.</p>
+                </div>
+                <div style="max-width: 720px; margin: 28px auto 0; display: flex; flex-direction: column; gap: 16px;">
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(0,196,170,0.15); border: 2px solid #00c4aa; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #00c4aa; flex-shrink: 0;">Q2</div>
+                        <div>
+                            <p style="font-weight: 700; color: #00c4aa; margin: 0 0 4px; font-size: 14px;">Q2 2026 — Prototyp Ring + Patch</p>
+                            <p style="color: #c8cdd5; font-size: 13px; margin: 0; line-height: 1.6;">Erster funktionaler Prototyp des Smart Ring und Pulse Patch mit BLE-Sensorik und PPG-Integration.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(224,112,48,0.15); border: 2px solid #e07030; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #e07030; flex-shrink: 0;">Q3</div>
+                        <div>
+                            <p style="font-weight: 700; color: #e07030; margin: 0 0 4px; font-size: 14px;">Q3 2026 — Klinische Studie mit Uni Hamburg</p>
+                            <p style="color: #c8cdd5; font-size: 13px; margin: 0; line-height: 1.6;">Wissenschaftliche Validierung der Stimmanalyse und Sensorik-Korrelationen in Zusammenarbeit mit der Universitaet Hamburg.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(212,175,55,0.15); border: 2px solid #D4AF37; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #D4AF37; flex-shrink: 0;">Q4</div>
+                        <div>
+                            <p style="font-weight: 700; color: #D4AF37; margin: 0 0 4px; font-size: 14px;">Q4 2026 — DiGA-Antrag beim BfArM</p>
+                            <p style="color: #c8cdd5; font-size: 13px; margin: 0; line-height: 1.6;">Einreichung als Digitale Gesundheitsanwendung beim Bundesinstitut fuer Arzneimittel und Medizinprodukte — der Weg zur Krankenkassen-Erstattung.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(0,196,170,0.15); border: 2px solid #00c4aa; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #00c4aa; flex-shrink: 0;">Q1</div>
+                        <div>
+                            <p style="font-weight: 700; color: #00c4aa; margin: 0 0 4px; font-size: 14px;">Q1 2027 — Market Launch</p>
+                            <p style="color: #c8cdd5; font-size: 13px; margin: 0; line-height: 1.6;">Offizielle Markteinfuehrung von Ring, Patch und App als integriertes Kontext-Wellness-System in Deutschland.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADVISORY Section -->
+        <section id="advisory" class="features" style="padding: 50px 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="text-gradient-cyan">Advisory Board</h2>
+                    <p style="max-width: 640px; margin: 0 auto;">Expertise aus Medizin, Technologie und Wellness.</p>
+                </div>
+                <div style="max-width: 720px; margin: 28px auto 0; text-align: center;">
+                    <div style="background: var(--bg-card, rgba(255,255,255,0.04)); border-radius: 16px; padding: 32px; border: 1px solid rgba(212,175,55,0.2);">
+                        <p style="color: #c8cdd5; font-size: 15px; line-height: 1.7; margin: 0 0 20px;">Wir bauen unser Advisory Board auf — mit Experten aus Digital Health, Sensorik, klinischer Forschung und Wellness-Technologie. Wenn Sie Erfahrung in diesen Bereichen mitbringen und an der Zukunft kontextuellen Wohlbefindens mitwirken moechten, freuen wir uns auf Ihre Nachricht.</p>
+                        <a href="mailto:co-founder@nanilpulse.art" style="display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, #D4AF37, #c09a20); color: #0a0a0c; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 14px;">Interesse? co-founder@nanilpulse.art</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNERSHIP Section -->
+        <section id="partnerships" class="features" style="background: rgba(0,0,0,0.06); padding: 50px 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="text-gradient-cyan">Forschung & Partnerschaften</h2>
+                    <p style="max-width: 640px; margin: 0 auto;">Gemeinsam Kontext-Wellness auf ein neues Level bringen.</p>
+                </div>
+                <div style="max-width: 720px; margin: 28px auto 0;">
+                    <div style="background: var(--bg-card, rgba(255,255,255,0.04)); border-radius: 16px; padding: 32px; border: 1px solid rgba(0,196,170,0.2);">
+                        <p style="color: #c8cdd5; font-size: 15px; line-height: 1.7; margin: 0 0 16px;">Forschungspartner gesucht — Universitaeten, Kliniken und Digital Health Unternehmen, die an der Schnittstelle von Sensorik, KI und Wohlbefinden arbeiten. Wir suchen Partner fuer klinische Studien, Datenvalidierung und gemeinsame Produktentwicklung.</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+                            <span style="padding: 6px 14px; border-radius: 20px; background: rgba(0,196,170,0.1); border: 1px solid rgba(0,196,170,0.3); color: #00c4aa; font-size: 12px; font-weight: 600;">Universitaeten</span>
+                            <span style="padding: 6px 14px; border-radius: 20px; background: rgba(0,196,170,0.1); border: 1px solid rgba(0,196,170,0.3); color: #00c4aa; font-size: 12px; font-weight: 600;">Kliniken</span>
+                            <span style="padding: 6px 14px; border-radius: 20px; background: rgba(0,196,170,0.1); border: 1px solid rgba(0,196,170,0.3); color: #00c4aa; font-size: 12px; font-weight: 600;">Digital Health</span>
+                            <span style="padding: 6px 14px; border-radius: 20px; background: rgba(0,196,170,0.1); border: 1px solid rgba(0,196,170,0.3); color: #00c4aa; font-size: 12px; font-weight: 600;">Sensorik-Forschung</span>
+                        </div>
+                        <a href="mailto:partnership@nanilpulse.art" style="display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, #009e88, #00c4aa); color: #0a0a0c; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 14px;">Kontakt: partnership@nanilpulse.art</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="contact">
             <div class="container">
                 <div class="section-header">
@@ -1045,7 +1211,7 @@
                 <a href="https://www.linkedin.com/in/nazan-dalkic-4ab00a166" target="_blank" rel="noopener" style="color:#c8cdd5;font-size:22px;transition:color 0.3s;" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
             <p id="footer-copy">&copy; 2026 NANIL Pulse - Nazan Nil Dalkic. Alle Rechte vorbehalten.</p>
-            <p style="font-size:0.75rem;opacity:0.7;margin-top:6px;">Seite zuletzt aktualisiert: 13.02.2026</p>
+            <p style="font-size:0.75rem;opacity:0.7;margin-top:6px;">Seite zuletzt aktualisiert: 18.03.2026</p>
     </footer>
 
     <script src="script.js" defer></script>

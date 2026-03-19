@@ -610,3 +610,144 @@ html {
     background: var(--turquoise);
     color: var(--bg);
 }
+
+/* =============================================
+   MOBILE OPTIMIERUNGEN – Ergänzt am 18.03.2026
+   ============================================= */
+
+/* Bessere Touch-Targets für alle interaktiven Elemente */
+@media (pointer: coarse) {
+  .cta-btn, .audience-vorpage-btn, .audience-vorpage-link, .sofort-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lang-switcher a {
+    min-width: 40px;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* 768px Breakpoint – Tablets */
+@media (max-width: 768px) {
+  .hero-section h1, .hero-headline {
+    font-size: 36px !important;
+    line-height: 1.1 !important;
+  }
+  .hero-section p {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+  .audience-vorpage-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .top-bar-vorpage {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .highlight-box {
+    padding: 20px 16px;
+  }
+  .final-cta {
+    padding: 40px 16px !important;
+  }
+  .final-cta h2 {
+    font-size: 24px !important;
+  }
+  #voice-check {
+    padding: 40px 16px !important;
+    margin: 24px 12px !important;
+  }
+  #voice-check h2 {
+    font-size: 1.5rem !important;
+  }
+  #voice-demo-section {
+    padding: 40px 16px !important;
+  }
+}
+
+/* 480px Breakpoint – Kleine Handys */
+@media (max-width: 480px) {
+  .hero-section h1, .hero-headline {
+    font-size: 28px !important;
+    line-height: 1.1 !important;
+  }
+  .hero-tagline {
+    font-size: 9px !important;
+    letter-spacing: 0.2em !important;
+  }
+  .hero-section p {
+    font-size: 15px !important;
+  }
+  .audience-vorpage-cards {
+    grid-template-columns: 1fr;
+  }
+  .audience-vorpage-card {
+    padding: 18px 14px;
+  }
+  .image-box {
+    border-radius: 16px;
+    height: 200px;
+  }
+  main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .sofort-strip {
+    padding: 10px 12px;
+  }
+  .sofort-link {
+    font-size: 0.75rem !important;
+  }
+  .cta-btn {
+    padding: 12px 24px;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+  }
+  footer {
+    padding: 30px 16px 24px;
+  }
+  .logo-link img {
+    height: 50px;
+  }
+  h2 {
+    font-size: 22px !important;
+  }
+  #voice-widget {
+    max-width: 100% !important;
+  }
+  #voice-record-btn {
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 2rem !important;
+  }
+  #voice-results [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Smooth scrolling + Performance */
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Verbesserte Focus-States für Accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--turquoise);
+  outline-offset: 2px;
+}
+
+/* Studies Modal mobile */
+@media (max-width: 640px) {
+  #studies-modal > div {
+    width: 95% !important;
+    padding: 1.5rem !important;
+    max-height: 85vh !important;
+  }
+}

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>NANIL Pulse - Investoren</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,6 +12,205 @@
         rel="stylesheet">
     <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
     <style>.lang-btn.active { background: rgba(212, 175, 55, 0.25); color: #D4AF37; border-color: rgba(212, 175, 55, 0.5); }</style>
+
+<!-- === MOBILE OPT (18.03.2026) === -->
+<style>
+@media (max-width: 768px) {
+  main { padding: 100px 16px 40px !important; }
+  .header-inner { padding: 8px 12px !important; }
+  .highlight-box, .feature-card, .cta-box { padding: 20px 16px !important; }
+}
+@media (max-width: 480px) {
+  h1, .text-gradient-cyan { font-size: 1.5rem !important; }
+  h2 { font-size: 1.2rem !important; }
+  .btn { width: 100% !important; text-align: center !important; }
+}
+@media (pointer: coarse) {
+  .btn, .lang-btn, button, a { min-height: 44px; }
+}
+*:focus-visible { outline: 2px solid #00c4aa; outline-offset: 2px; }
+html { scroll-behavior: smooth; }
+body { -webkit-overflow-scrolling: touch; }
+
+/* === Investoren-spezifische Styles === */
+.inv-hero { text-align: center; padding: 60px 20px 40px; }
+.inv-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+  border: 1px solid rgba(212,175,55,0.4);
+  color: #D4AF37;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.inv-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+}
+@media (max-width: 768px) { .inv-stats-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px) { .inv-stats-row { grid-template-columns: 1fr; } }
+.inv-stat-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 16px;
+  padding: 24px 16px;
+  text-align: center;
+}
+.inv-stat-card .stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #D4AF37, #f0d060);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.inv-stat-card .stat-label { color: var(--text-muted); font-size: 0.8rem; font-weight: 500; }
+.inv-section { margin: 60px 0; }
+.inv-section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+.inv-section-sub { color: var(--text-muted); margin-bottom: 32px; font-size: 0.95rem; }
+.inv-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.inv-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+@media (max-width: 768px) { .inv-grid-3, .inv-grid-2 { grid-template-columns: 1fr; } }
+.inv-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 24px;
+}
+.inv-card.gold-border { border-color: rgba(212,175,55,0.3); }
+.inv-card.cyan-border { border-color: rgba(0,196,170,0.3); }
+.inv-card-icon { font-size: 2rem; margin-bottom: 12px; }
+.inv-card-title { color: white; font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+.inv-card-text { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+.inv-card-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00c4aa, #33d4be);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+.funds-bar-wrap { margin: 8px 0 4px; }
+.funds-bar-bg { background: rgba(255,255,255,0.08); border-radius: 8px; height: 8px; overflow: hidden; }
+.funds-bar-fill { height: 100%; border-radius: 8px; background: linear-gradient(90deg, #00c4aa, #009e88); }
+.funds-pct { font-size: 0.78rem; color: #00c4aa; font-weight: 600; }
+.timeline-inv { position: relative; padding-left: 32px; border-left: 2px solid rgba(212,175,55,0.25); }
+.timeline-inv-item { position: relative; margin-bottom: 36px; }
+.timeline-inv-item::before {
+  content: '';
+  position: absolute;
+  left: -39px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D4AF37, #f0d060);
+  border: 2px solid #0a0a0c;
+}
+.timeline-inv-item.active::before { background: linear-gradient(135deg, #00c4aa, #33d4be); }
+.timeline-inv-phase { color: #D4AF37; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.timeline-inv-item.active .timeline-inv-phase { color: #00c4aa; }
+.timeline-inv-title { color: white; font-weight: 700; margin-bottom: 4px; font-size: 1rem; }
+.timeline-inv-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+.founder-inv-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--bg-card);
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 20px;
+  padding: 28px;
+}
+@media (max-width: 600px) { .founder-inv-card { flex-direction: column; text-align: center; } }
+.founder-inv-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #009e88, #00c4aa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.founder-inv-name { color: white; font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
+.founder-inv-role { color: #D4AF37; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+.founder-inv-bio { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+.inv-form-box {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+.pitch-cta-btn {
+  display: block;
+  margin-bottom: 30px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg,#009e88,#00c4aa,#33d4be);
+  border-radius: 14px;
+  color: #0a0a0c;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 6px 20px rgba(0,196,170,0.3);
+  text-align: center;
+}
+.pitch-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,196,170,0.4); }
+select {
+  width: 100%;
+  border-radius: 10px;
+  background: var(--bg-input, rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.12);
+  color: white;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  appearance: none;
+  cursor: pointer;
+}
+select option { background: #1a1a2e; color: white; }
+textarea {
+  width: 100%;
+  border-radius: 10px;
+  background: var(--bg-input, rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.12);
+  color: white;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 100px;
+}
+textarea::placeholder { color: rgba(255,255,255,0.3); }
+.confidential-note {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(212,175,55,0.05);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 10px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+</style>
+
 </head>
 
 <body style="min-height: 100vh; display: flex; flex-direction: column; background: transparent;">
@@ -38,54 +237,288 @@
         </div>
     </header>
 
-    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 120px 20px;">
-        <div class="container" style="max-width: 600px; width: 100%;">
-            <div
-                style="background: var(--bg-card); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-xl); text-align: center; border: 1px solid rgba(212, 175, 55, 0.2);">
-                <!-- Pitch Deck CTA -->
-                <a href="pitch.html" style="display:block; margin-bottom:30px; padding:16px 24px; background:linear-gradient(135deg,#009e88,#00c4aa,#33d4be); border-radius:14px; color:#0a0a0c; font-weight:700; font-size:1rem; letter-spacing:0.5px; text-decoration:none; transition:all 0.3s; box-shadow:0 6px 20px rgba(0,196,170,0.3);">
-                    📊 Pitch Deck jetzt ansehen →
-                </a>
+    <main style="flex: 1; padding: 100px 20px 60px;">
+        <div class="container" style="max-width: 860px; width: 100%;">
 
-                <!-- Unified section header for script targeting -->
-                <div class="section-header">
-                    <h1 style="color: white; font-size: 2.5rem; margin-bottom: 10px;">Investoren Zugang</h1>
-                    <p style="color: var(--text-muted); margin-bottom: 30px;">
-                        Detaillierte Unterlagen und Finanzplanung anfordern. Wir senden Ihnen alles nach Prüfung per E-Mail zu.
-                    </p>
+            <!-- Hero -->
+            <div class="inv-hero">
+                <div class="inv-badge">Seed-Runde · Früheinstieg offen</div>
+                <h1 style="color: white; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px; line-height: 1.2;">
+                    Investiere in die Zukunft<br>
+                    <span style="background: linear-gradient(135deg, #D4AF37, #f0d060); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">kontextuellen Wohlbefindens</span>
+                </h1>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.05rem; line-height: 1.7;">
+                    NANIL Pulse ist kein Fitness-Tracker. Es ist ein Kontext-Wellness-System, das versteht, <em>warum</em> Menschen erschöpft oder energielos sind — und personalisiert darauf antwortet.
+                </p>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="inv-stats-row">
+                <div class="inv-stat-card">
+                    <div class="stat-number">€500k</div>
+                    <div class="stat-label">Seed-Ziel</div>
+                </div>
+                <div class="inv-stat-card">
+                    <div class="stat-number">Phase 1</div>
+                    <div class="stat-label">von 5 geplanten</div>
+                </div>
+                <div class="inv-stat-card">
+                    <div class="stat-number">€80 Mrd.</div>
+                    <div class="stat-label">Wellness-Tech-Markt 2030</div>
+                </div>
+                <div class="inv-stat-card">
+                    <div class="stat-number">3 Märkte</div>
+                    <div class="stat-label">DE · TR · EU</div>
+                </div>
+            </div>
+
+            <!-- Was wir bauen -->
+            <div class="inv-section">
+                <div class="inv-section-title">Was wir bauen</div>
+                <div class="inv-section-sub">Ein KI-gestütztes System, das Wohlbefinden in seinen Kontext einbettet.</div>
+                <div class="inv-grid-3">
+                    <div class="inv-card cyan-border">
+                        <div class="inv-card-icon">🧠</div>
+                        <div class="inv-card-title">Kontext-Engine</div>
+                        <div class="inv-card-text">Analysiert Tageszeit, Wetter, Stress-Marker, Aktivität und persönliche Muster — nicht nur Schritte.</div>
+                    </div>
+                    <div class="inv-card cyan-border">
+                        <div class="inv-card-icon">🎙️</div>
+                        <div class="inv-card-title">Voice AI Coach</div>
+                        <div class="inv-card-text">Personalisiertes Audio-Briefing täglich. KI-Gespräch mit echtem Kontext-Verständnis, kein Chat-Bot.</div>
+                    </div>
+                    <div class="inv-card cyan-border">
+                        <div class="inv-card-icon">📊</div>
+                        <div class="inv-card-title">Pulse Dashboard</div>
+                        <div class="inv-card-text">Langfristige Muster erkennen. Nicht was du getan hast — sondern warum du dich wie fühlst.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marktchance -->
+            <div class="inv-section">
+                <div class="inv-section-title">Warum jetzt</div>
+                <div class="inv-section-sub">Der Markt ist bereit — und unterversorgt.</div>
+                <div class="inv-grid-2">
+                    <div class="inv-card gold-border">
+                        <div class="inv-card-icon">📈</div>
+                        <div class="inv-card-title">Wachsender Markt</div>
+                        <div class="inv-card-text">Der globale Wellness-Tech-Markt wächst auf über €80 Mrd. bis 2030. Mental Health Apps, KI-Coaching und kontextuelles Biofeedback sind die stärksten Segmente.</div>
+                    </div>
+                    <div class="inv-card gold-border">
+                        <div class="inv-card-icon">🎯</div>
+                        <div class="inv-card-title">Underserved Nische</div>
+                        <div class="inv-card-text">Bestehende Tools tracken Symptome. NANIL Pulse trackt <strong style="color: #D4AF37;">Kontext</strong>. Kein direkter Wettbewerber in diesem spezifischen Segment — weder in DE noch TR.</div>
+                    </div>
+                    <div class="inv-card gold-border">
+                        <div class="inv-card-icon">🌍</div>
+                        <div class="inv-card-title">Zweisprachiger Vorteil</div>
+                        <div class="inv-card-text">Deutsch-türkische Zielgruppe in Europa: 3+ Millionen Menschen, kaum mit KI-Wellness-Produkten bedient. Kulturelles Verständnis als Moat.</div>
+                    </div>
+                    <div class="inv-card gold-border">
+                        <div class="inv-card-icon">🤝</div>
+                        <div class="inv-card-title">B2B2C Potenzial</div>
+                        <div class="inv-card-text">Einstieg B2C, schnelle Erweiterung auf HR/Corporate Wellness, Krankenkassen, BGM-Anbieter. Hoher LTV durch Abonnement-Modell.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mittelverwendung -->
+            <div class="inv-section">
+                <div class="inv-section-title">Mittelverwendung (€500k Seed)</div>
+                <div class="inv-section-sub">So wird das Investment eingesetzt:</div>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="inv-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div class="inv-card-title" style="margin:0;">🛠️ Produkt & Tech-Entwicklung</div>
+                            <div class="funds-pct">40% · €200k</div>
+                        </div>
+                        <div class="funds-bar-wrap"><div class="funds-bar-bg"><div class="funds-bar-fill" style="width:40%;"></div></div></div>
+                        <div class="inv-card-text" style="margin-top:8px;">App-Entwicklung (iOS/Android), KI-Backend, Voice-Engine Integration, Datenschutz-Infrastruktur (DSGVO).</div>
+                    </div>
+                    <div class="inv-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div class="inv-card-title" style="margin:0;">📣 Go-to-Market & Wachstum</div>
+                            <div class="funds-pct">30% · €150k</div>
+                        </div>
+                        <div class="funds-bar-wrap"><div class="funds-bar-bg"><div class="funds-bar-fill" style="width:30%;"></div></div></div>
+                        <div class="inv-card-text" style="margin-top:8px;">Community-Aufbau, Influencer-Kooperationen, Content-Pipeline, Early Adopter Programm DE + TR.</div>
+                    </div>
+                    <div class="inv-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div class="inv-card-title" style="margin:0;">👥 Team & Partnerships</div>
+                            <div class="funds-pct">20% · €100k</div>
+                        </div>
+                        <div class="funds-bar-wrap"><div class="funds-bar-bg"><div class="funds-bar-fill" style="width:20%;"></div></div></div>
+                        <div class="inv-card-text" style="margin-top:8px;">Co-Founder, Tech-Lead, klinische Berater (Psychologie/Medizin), strategische Partnerschaften.</div>
+                    </div>
+                    <div class="inv-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div class="inv-card-title" style="margin:0;">⚖️ Recht, Compliance & Reserve</div>
+                            <div class="funds-pct">10% · €50k</div>
+                        </div>
+                        <div class="funds-bar-wrap"><div class="funds-bar-bg"><div class="funds-bar-fill" style="width:10%; background: linear-gradient(90deg, #D4AF37, #c09a20);"></div></div></div>
+                        <div class="inv-card-text" style="margin-top:8px;">IP-Schutz, DSGVO-Compliance, Medical Device Regulation Prüfung, Betriebsreserve.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roadmap -->
+            <div class="inv-section">
+                <div class="inv-section-title">Roadmap</div>
+                <div class="inv-section-sub">5 Phasen bis zur Marktführerschaft im DACH-TR Wellness-Segment.</div>
+                <div class="timeline-inv">
+                    <div class="timeline-inv-item active">
+                        <div class="timeline-inv-phase">Phase 1 · Jetzt · 2026</div>
+                        <div class="timeline-inv-title">Foundation & Seed</div>
+                        <div class="timeline-inv-desc">MVP entwickeln, Early Adopter Community aufbauen, Seed-Runde schließen. Ziel: 500 Beta-Nutzer.</div>
+                    </div>
+                    <div class="timeline-inv-item">
+                        <div class="timeline-inv-phase">Phase 2 · Q3 2026</div>
+                        <div class="timeline-inv-title">Beta Launch & Validierung</div>
+                        <div class="timeline-inv-desc">Öffentlicher Beta-Start (DE + TR), Voice AI Coach einführen, erste Retention-Metriken, Product-Market Fit validieren.</div>
+                    </div>
+                    <div class="timeline-inv-item">
+                        <div class="timeline-inv-phase">Phase 3 · Q1 2027</div>
+                        <div class="timeline-inv-title">Scale & Series A</div>
+                        <div class="timeline-inv-desc">10.000+ aktive Nutzer, B2B-Piloten mit 3 Unternehmenspartnern, Series-A-Runde vorbereiten.</div>
+                    </div>
+                    <div class="timeline-inv-item">
+                        <div class="timeline-inv-phase">Phase 4 · 2027</div>
+                        <div class="timeline-inv-title">B2B & Krankenkassen</div>
+                        <div class="timeline-inv-desc">Corporate Wellness Verträge, BGM-Integrationen, Krankenversicherungs-Kooperationen (AOK, TK-Türkiye).</div>
+                    </div>
+                    <div class="timeline-inv-item">
+                        <div class="timeline-inv-phase">Phase 5 · 2028+</div>
+                        <div class="timeline-inv-title">EU-weite Expansion</div>
+                        <div class="timeline-inv-desc">Internationale Skalierung, klinische Studie, Medical-Grade Wellness Zertifizierung anstreben.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DiGA-Chance, Marktgröße & Wettbewerbsvorteil -->
+            <div class="inv-section">
+                <div class="inv-section-title">Der strategische Vorteil</div>
+                <div class="inv-section-sub">Drei Faktoren, die NANIL Pulse von jedem Wettbewerber unterscheiden.</div>
+                <div class="inv-grid-3">
+                    <div class="inv-card gold-border">
+                        <div class="inv-card-icon">🏥</div>
+                        <div class="inv-card-title">DiGA-Chance: Krankenkassen zahlen</div>
+                        <div class="inv-card-text">
+                            Digitale Gesundheitsanwendungen (DiGA) werden in Deutschland von gesetzlichen Krankenkassen erstattet. NANIL Pulse strebt die DiGA-Zulassung beim BfArM an — das bedeutet: Aerzte koennen das Produkt verschreiben, Krankenkassen uebernehmen die Kosten. Ein voellig anderer Vertriebskanal als klassische Consumer-Wearables. Ueber 70 Millionen gesetzlich Versicherte als adressierbarer Markt.
+                        </div>
+                    </div>
+                    <div class="inv-card gold-border">
+                        <div class="inv-card-icon">📈</div>
+                        <div class="inv-card-title">22 Mrd. USD Wearable-Markt bis 2030</div>
+                        <div class="inv-card-text">
+                            Der globale Wearable-Markt waechst explosiv — von 14 Mrd. USD (2024) auf prognostizierte 22 Mrd. USD bis 2030. Smart Rings sind das am schnellsten wachsende Segment innerhalb der Wearables. NANIL Pulse positioniert sich genau in der Schnittmenge von Wellness-Wearables und Digital Health — dem Segment mit dem hoechsten Wachstumspotenzial und den besten Unit Economics.
+                        </div>
+                    </div>
+                    <div class="inv-card cyan-border">
+                        <div class="inv-card-icon">🎙️</div>
+                        <div class="inv-card-title">Stimme als Biomarker — kein Konkurrent hat das</div>
+                        <div class="inv-card-text">
+                            Oura, Whoop, Apple Watch — alle messen Herzfrequenz und Schritte. Keiner nutzt die Stimme als Biomarker. NANIL Pulse kombiniert Stimmanalyse mit HRV, Hauttemperatur und Pulswellen-Daten zu einem kontextuellen Gesamtbild. Wissenschaftlich fundiert durch Studien zu Vocal Biomarkers (Colive Voice, JMIR). Ein einzigartiger Wettbewerbsvorteil, der schwer kopierbar ist — weil er nicht nur Technologie erfordert, sondern eine voellig neue Interpretation von Wohlbefinden.
+                        </div>
+                    </div>
                 </div>
 
-                <form class="contact-form" id="investoren_anfrage" action="https://formspree.io/f/xreezyov"
-                    method="POST">
-                    <input type="hidden" name="_subject" value="Neue Investoren Anfrage">
-
-                    <div class="form-group" style="margin-bottom: 20px; text-align: left;">
-                        <label id="label-name"
-                            style="color: var(--gold-primary); font-weight: 600; display: block; margin-bottom: 8px;" data-i18n="label-name-short">Name</label>
-                        <input type="text" name="name" placeholder="Name" required
-                            style="width: 100%; border-radius: 10px;">
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 20px; text-align: left;">
-                        <label id="label-company"
-                            style="color: var(--gold-primary); font-weight: 600; display: block; margin-bottom: 8px;">Firma
-                            / VC</label>
-                        <input type="text" name="company" placeholder="Firma" style="width: 100%; border-radius: 10px;">
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 30px; text-align: left;">
-                        <label id="label-email"
-                            style="color: var(--gold-primary); font-weight: 600; display: block; margin-bottom: 8px;" data-i18n="label-email">E-Mail
-                            Adresse</label>
-                        <input type="email" name="email" placeholder="Email" required
-                            style="width: 100%; border-radius: 10px;">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;">Unterlagen
-                        anfordern</button>
-                    <input type="hidden" name="subject" value="Investoren Anfrage">
-                </form>
+                <div style="margin-top: 24px; padding: 20px 24px; background: rgba(0,196,170,0.06); border-radius: 14px; border: 1px solid rgba(0,196,170,0.15); text-align: center;">
+                    <p style="color: #00c4aa; font-weight: 700; font-size: 1rem; margin: 0 0 6px;">Zusammenfassung: Warum NANIL Pulse investierbar ist</p>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0; line-height: 1.6;">DiGA-faehiges Produkt mit Krankenkassen-Erstattung. Riesiger und wachsender Markt. Einzigartiger Tech-Stack mit Stimmanalyse als Alleinstellungsmerkmal. Kein direkter Wettbewerber im DACH-Raum.</p>
+                </div>
             </div>
+
+            <!-- Gründerin -->
+            <div class="inv-section">
+                <div class="inv-section-title">Die Gründerin</div>
+                <div class="inv-section-sub">Aus eigener Erfahrung. Mit echter Vision.</div>
+                <div class="founder-inv-card">
+                    <div class="founder-inv-avatar">N</div>
+                    <div>
+                        <div class="founder-inv-name">Nazan Nil Dalkıç</div>
+                        <div class="founder-inv-role">Founder & CEO · NANIL Pulse</div>
+                        <div class="founder-inv-bio">Unternehmerin, KI-Spezialistin und Wellness-Pionierin. Aufgewachsen zwischen zwei Kulturen, hat Nazan ein tiefes Verständnis für den Bedarf an kontextuell intelligenten Lösungen. Sie baut NANIL Pulse aus eigener Erschöpfungs-Erfahrung heraus — und weiß, dass ein Schrittzähler keine Antwort ist.</div>
+                        <div style="display:flex; gap:12px; margin-top:14px; flex-wrap:wrap;">
+                            <a href="https://www.linkedin.com/in/nazan-dalkic-4ab00a166" target="_blank" rel="noopener" style="color:#00c4aa; font-size:0.85rem; text-decoration:none;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://www.instagram.com/nanil_pulse" target="_blank" rel="noopener" style="color:#00c4aa; font-size:0.85rem; text-decoration:none;"><i class="fab fa-instagram"></i> @nanil_pulse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investoren-Formular -->
+            <div class="inv-section">
+                <div class="inv-section-title" style="text-align:center;">Investoren-Zugang anfragen</div>
+                <div class="inv-section-sub" style="text-align:center;">Pitch Deck, Finanzplanung und Term Sheet auf Anfrage. Vertraulich.</div>
+
+                <div class="inv-form-box">
+                    <!-- Pitch Deck CTA -->
+                    <a href="pitch.html" class="pitch-cta-btn">
+                        📊 Pitch Deck jetzt ansehen →
+                    </a>
+
+                    <form class="contact-form" id="investoren_anfrage" action="https://formspree.io/f/xreezyov"
+                        method="POST">
+                        <input type="hidden" name="_subject" value="Neue Investoren Anfrage">
+
+                        <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+                            <label style="color: var(--gold-primary); font-weight: 600; display: block; margin-bottom: 8px;" data-i18n="label-name-short">Name</label>
+                            <input type="text" name="name" placeholder="Vor- und Nachname" required
+                                style="width: 100%; border-radius: 10px;">
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+                            <label style="color: var(--gold-primary); font-weight: 600; display: block; margin-bottom: 8px;">Firma / Fonds / VC</label>
+                            <input type="text" name="company" placeholder="Firma oder VC-Name" style="width: 100%; border-radius: 10px;">
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+                            <label style="color: var(--gold-primary); font-weight: 600; display: block; margin-bottom: 8px;" data-i18n="label-email">E-Mail Adresse</label>
+                            <input type="email" name="email" placeholder="ihre@email.com" required
+                                style="width: 100%; border-radius: 10px;">
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+                            <label style="color: var(--gold-primary); font-weight: 600; display: block; margin-bottom: 8px;">Investitionsvolumen (Schätzung)</label>
+                            <select name="investment_range">
+                                <option value="" disabled selected>Bitte wählen</option>
+                                <option value="unter_25k">Unter €25.000</option>
+                                <option value="25k_50k">€25.000 – €50.000</option>
+                                <option value="50k_100k">€50.000 – €100.000</option>
+                                <option value="100k_250k">€100.000 – €250.000</option>
+                                <option value="ueber_250k">Über €250.000</option>
+                                <option value="strategic">Strategischer Partner (Nicht-finanziell)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 30px; text-align: left;">
+                            <label style="color: var(--gold-primary); font-weight: 600; display: block; margin-bottom: 8px;">Nachricht / Hintergrund (optional)</label>
+                            <textarea name="message" placeholder="Kurz: Was interessiert Sie an NANIL Pulse? Wie können wir zusammenarbeiten?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1rem;">
+                            Unterlagen anfordern
+                        </button>
+                        <input type="hidden" name="subject" value="Investoren Anfrage">
+
+                        <div class="confidential-note">
+                            🔒 Alle Anfragen werden vertraulich behandelt. Kein Spam. Wir melden uns innerhalb von 48h.
+                        </div>
+                    </form>
+
+                    <div style="margin-top: 24px; text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06);">
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">Direkter Kontakt bevorzugt?</p>
+                        <a href="https://wa.me/4917657519048?text=Hallo%20Nazan%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Investition%20in%20NANIL%20Pulse."
+                           target="_blank" rel="noopener"
+                           style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; background:rgba(37,211,102,0.1); border:1px solid rgba(37,211,102,0.3); border-radius:10px; color:#25d366; font-weight:600; font-size:0.9rem; text-decoration:none;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp: +49 176 57519048
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 

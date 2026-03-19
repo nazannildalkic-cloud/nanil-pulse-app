@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Vielen Dank | NANIL Pulse</title>
     <!-- Fonts -->
     <link
@@ -85,6 +85,27 @@
             }
         }
     </style>
+
+<!-- === MOBILE OPT (18.03.2026) === -->
+<style>
+@media (max-width: 768px) {
+  main { padding: 100px 16px 40px !important; }
+  .header-inner { padding: 8px 12px !important; }
+  .highlight-box, .feature-card, .cta-box { padding: 20px 16px !important; }
+}
+@media (max-width: 480px) {
+  h1, .text-gradient-cyan { font-size: 1.5rem !important; }
+  h2 { font-size: 1.2rem !important; }
+  .btn { width: 100% !important; text-align: center !important; }
+}
+@media (pointer: coarse) {
+  .btn, .lang-btn, button, a { min-height: 44px; }
+}
+*:focus-visible { outline: 2px solid #00c4aa; outline-offset: 2px; }
+html { scroll-behavior: smooth; }
+body { -webkit-overflow-scrolling: touch; }
+</style>
+
 </head>
 
 <body style="min-height: 100vh; display: flex; flex-direction: column;">

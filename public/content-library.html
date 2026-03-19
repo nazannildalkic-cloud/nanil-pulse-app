@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Content Library — NANIL Pulse</title>
   <link rel="canonical" href="https://nanilpulse.art/content-library" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -262,6 +262,23 @@
       .card-footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
+
+<!-- === MOBILE OPT (18.03.2026) === -->
+<style>
+@media (max-width: 768px) {
+  .content-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .filter-bar { flex-wrap: wrap !important; gap: 8px !important; }
+  .filter-bar button { font-size: 0.82rem !important; padding: 8px 12px !important; }
+  h1 { font-size: 1.8rem !important; }
+}
+@media (pointer: coarse) {
+  .filter-bar button, .content-card a, button, a { min-height: 44px; }
+}
+*:focus-visible { outline: 2px solid #00c4aa; outline-offset: 2px; }
+html { scroll-behavior: smooth; }
+body { -webkit-overflow-scrolling: touch; }
+</style>
+
 </head>
 <body>
 

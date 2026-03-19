@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>NANIL Pulse – Ein System für Kontext</title>
     <meta name="description" content="Gesundheits-Wearables messen nur Daten. Wir leiten Kontext ab.">
     <link rel="canonical" href="https://nanilpulse.art/">
@@ -42,6 +42,36 @@
         body.vorpage-compact p { margin-bottom: 8px; }
         body.vorpage-compact .highlight-box { margin-top: 12px; margin-bottom: 12px; }
         body.vorpage-compact .final-cta { padding-top: 30px !important; }
+    </style>
+
+    <!-- Mobile-Optimierungen vorpage – ergänzt 18.03.2026 -->
+    <style>
+    @media (max-width: 768px) {
+      .top-bar-vorpage { padding: 6px 12px !important; }
+      .top-bar-vorpage a { font-size: 0.8rem !important; padding: 6px 12px !important; }
+      .sofort-strip { position: relative; z-index: 50; }
+      body.vorpage-compact main { padding-top: 110px !important; }
+    }
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 32px !important; }
+      .hero-section .cta-btn { width: 100%; text-align: center; }
+      .hero-section [style*="display: flex"][style*="gap: 14px"] { flex-direction: column !important; }
+      body.vorpage-compact main { padding-top: 100px !important; }
+      .top-bar-vorpage + header { top: 36px !important; }
+    }
+    /* Smooth loading animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-section { animation: fadeInUp 0.8s ease-out; }
+    .audience-vorpage { animation: fadeInUp 0.8s ease-out 0.2s both; }
+    </style>
+
+    <style>
+    /* Touch + Performance Boost */
+    body { -webkit-overflow-scrolling: touch; touch-action: pan-y; }
+    img { content-visibility: auto; }
     </style>
 </head>
 
@@ -276,7 +306,7 @@
         </div>
         <p class="footer-disclaimer">NANIL Pulse ist kein medizinisches Produkt. Keine Diagnose, Behandlung oder
             Therapie.</p>
-        <p style="font-size:0.75rem;opacity:0.7;margin-top:8px;">Seite zuletzt aktualisiert: 13.02.2026</p>
+        <p style="font-size:0.75rem;opacity:0.7;margin-top:8px;">Seite zuletzt aktualisiert: 18.03.2026</p>
     </footer>
 
     <div id="studies-modal"

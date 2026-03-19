@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Nanil Pulse — Bağlam için Bir Sistem</title>
     <meta name="description" content="Sağlık takılabilirleri sadece veri ölçer. Biz bağlam türetiyoruz.">
     <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
@@ -19,6 +19,33 @@
         .float-buttons-fixed,
         .float-buttons-fixed a { visibility: visible !important; opacity: 1 !important; display: flex !important; pointer-events: auto !important; }
     </style>
+
+<!-- === MOBILE OPT (18.03.2026) === -->
+<style>
+@media (max-width: 768px) {
+  .header-nav { gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .header-nav a { font-size: 0.82rem; padding: 4px 8px; }
+  .lang-switcher { gap: 4px; }
+  .lang-switcher a { padding: 4px 8px; font-size: 0.78rem; }
+  .highlight-box { padding: 16px !important; font-size: 0.9rem; }
+  .audience-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .float-buttons-fixed { bottom: 12px !important; right: 12px !important; gap: 8px !important; }
+  .float-buttons-fixed a { width: 44px !important; height: 44px !important; font-size: 1rem !important; }
+}
+@media (max-width: 480px) {
+  h1 { font-size: 1.6rem !important; }
+  h2 { font-size: 1.3rem !important; }
+  .hero-section h1 { font-size: 1.5rem !important; }
+  .cta-btn { width: 100%; text-align: center; }
+}
+@media (pointer: coarse) {
+  .cta-btn, .lang-switcher a, button, a { min-height: 44px; }
+}
+*:focus-visible { outline: 2px solid #00c4aa; outline-offset: 2px; }
+html { scroll-behavior: smooth; }
+body { -webkit-overflow-scrolling: touch; }
+</style>
+
 </head>
 
 <body>
