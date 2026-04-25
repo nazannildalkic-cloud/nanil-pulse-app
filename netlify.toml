@@ -2,6 +2,16 @@
   command = "npx vite build && node -e \"const fs=require('fs');fs.mkdirSync('dist/app',{recursive:true});fs.copyFileSync('dist/index.html','dist/app/index.html');\""
   publish = "dist"
 
+[build.environment]
+  NODE_VERSION = "18"
+
+# Root → Vorpage (Startseite)
+[[redirects]]
+  from = "/"
+  to = "/vorpage.html"
+  status = 302
+  force = true
+
 # Blog Proxy -> VPS
 [[redirects]]
   from = "/blog/*"
@@ -15,17 +25,93 @@
   status = 200
   force = true
 
-[build.environment]
-  NODE_VERSION = "18"
-
-# Root → Vorpage (Startseite)
+# Pretty URLs → HTML files
 [[redirects]]
-  from = "/"
-  to = "/vorpage.html"
-  status = 302
-  force = true
+  from = "/science"
+  to = "/about.html"
+  status = 200
 
-# React App — serve built index.html at /app
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/about-en"
+  to = "/about-en.html"
+  status = 200
+
+[[redirects]]
+  from = "/about-tr"
+  to = "/about-tr.html"
+  status = 200
+
+[[redirects]]
+  from = "/main"
+  to = "/main.html"
+  status = 200
+
+[[redirects]]
+  from = "/co-founder"
+  to = "/co-founder.html"
+  status = 200
+
+[[redirects]]
+  from = "/pitch-v2"
+  to = "/pitch-v2.html"
+  status = 200
+
+[[redirects]]
+  from = "/pitch"
+  to = "/pitch.html"
+  status = 200
+
+[[redirects]]
+  from = "/investoren"
+  to = "/investoren.html"
+  status = 200
+
+[[redirects]]
+  from = "/stimmanalyse"
+  to = "/stimmanalyse.html"
+  status = 200
+
+[[redirects]]
+  from = "/promo"
+  to = "/promo.html"
+  status = 200
+
+[[redirects]]
+  from = "/early-access"
+  to = "/early-access.html"
+  status = 200
+
+[[redirects]]
+  from = "/en"
+  to = "/en.html"
+  status = 200
+
+[[redirects]]
+  from = "/tr"
+  to = "/tr.html"
+  status = 200
+
+[[redirects]]
+  from = "/impressum"
+  to = "/impressum.html"
+  status = 200
+
+[[redirects]]
+  from = "/datenschutz"
+  to = "/datenschutz.html"
+  status = 200
+
+[[redirects]]
+  from = "/agb"
+  to = "/agb.html"
+  status = 200
+
+# React App
 [[redirects]]
   from = "/app"
   to = "/app/index.html"
@@ -36,12 +122,99 @@
   to = "/app/index.html"
   status = 200
 
+# Security headers for all pages
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Content-Type fix for extensionless HTML pages
+[[headers]]
+  for = "/science"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/about"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/about-en"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/about-tr"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/main"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/co-founder"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/pitch-v2"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/pitch"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/investoren"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/stimmanalyse"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/promo"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/early-access"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/en"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/tr"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/impressum"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/datenschutz"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/agb"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
 
 [[headers]]
   for = "/assets/*.jpg"
