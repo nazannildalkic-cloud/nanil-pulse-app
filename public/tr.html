@@ -1,283 +1,1792 @@
 <!DOCTYPE html>
-<html lang="tr">
-
+<html lang="tr" class="notranslate" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Nanil Pulse — Bağlam için Bir Sistem</title>
-    <meta name="description" content="Sağlık takılabilirleri sadece veri ölçer. Biz bağlam türetiyoruz.">
-    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <title>NANIL Pulse – Stresi algılar. Çözer.</title>
+    <meta name="description" content="Sadece ölçmekle kalmayıp aktif olarak destek veren ilk wellness sistemi. Yüzük + Pulse-Patch (Biopatch) + Ses Analizi. Early Access €199.">
+    <link rel="canonical" href="https://nanilpulse.art/">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NANIL Pulse – Artık ölçme. Anla." />
+    <meta property="og:description" content="Yüzük + Pulse-Patch (Biopatch) + Ses Analizi. Aktif olarak destek veren ilk wellness sistemi." />
+    <meta property="og:url" content="https://nanilpulse.art/" />
+    <meta property="og:image" content="https://nanilpulse.art/nanil-pulse-logo.png" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NANIL Pulse – Artık ölçme. Anla." />
+    <meta name="twitter:image" content="https://nanilpulse.art/nanil-pulse-logo.png" />
+    <link rel="icon" type="image/png" href="assets/logo-nav-final.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="landing.css?v=4">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Float-Buttons immer sichtbar */
-        .float-buttons-fixed,
-        .float-buttons-fixed a { visibility: visible !important; opacity: 1 !important; display: flex !important; pointer-events: auto !important; }
-    </style>
+        :root {
+            --teal: #00c4aa;
+            --teal-light: #33d4be;
+            --gold: #d4a843;
+            --gold-light: #e8c76e;
+            --dark: #0a0a12;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            color: #1a1a2e;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background: #fafafa;
+        }
+        h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+        a { text-decoration: none; color: inherit; }
 
-<!-- === MOBILE OPT (18.03.2026) === -->
+        /* ====== NAV (Apple frosted glass) ====== */
+        nav.topnav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            height: 52px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 clamp(20px, 4vw, 48px);
+            background: rgba(255,255,255,0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 0.5px solid rgba(0,0,0,0.1);
+            transition: all 0.4s;
+        }
+        nav.topnav.dark-mode {
+            background: rgba(10,10,18,0.82);
+            border-bottom-color: rgba(255,255,255,0.08);
+        }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; border: none; outline: none; padding: 0; margin: 0; }
+        .nav-logo img { height: 44px; background: none; border: none; outline: none; padding: 0; margin: 0; display: block; }
+        .nav-logo-wrap { position: relative; display: inline-block; line-height: 0; }
+        .nav-logo-wrap img { height: 44px; background: none; border: none; outline: none; padding: 0; margin: 0; display: block; }
+        .nav-logo-pulse {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: rgba(0, 196, 170, 0.95);
+            box-shadow: 0 0 8px 2px rgba(0,196,170,0.55), 0 0 18px 4px rgba(0,196,170,0.25);
+            animation: navLogoHeartbeat 1.2s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .nav-logo-pulse::after {
+            content: '';
+            position: absolute; inset: -5px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,196,170,0.35);
+            animation: navLogoHeartRing 1.2s ease-out infinite;
+        }
+        @keyframes navLogoHeartbeat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+            15% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+            30% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+            45% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+            60% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+        }
+        @keyframes navLogoHeartRing {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(2.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .nav-logo span {
+            font-family: 'Syne'; font-weight: 700; font-size: 0.92rem;
+            transition: color 0.4s;
+        }
+        nav.dark-mode .nav-logo span { color: #fff; }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .nav-links a {
+            font-size: 0.8rem; font-weight: 500; color: rgba(0,0,0,0.5);
+            transition: color 0.3s; letter-spacing: 0.01em;
+        }
+        .nav-links a:hover { color: #000; }
+        nav.dark-mode .nav-links a { color: rgba(255,255,255,0.5); }
+        nav.dark-mode .nav-links a:hover { color: #fff; }
+        .nav-cta {
+            background: var(--teal) !important; color: #000 !important;
+            padding: 6px 16px; border-radius: 980px; font-weight: 600 !important;
+            transition: transform 0.25s, box-shadow 0.25s !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,196,170,0.3); }
+        .nav-lang { display: flex; gap: 6px; padding-left: 12px; border-left: 1px solid rgba(0,0,0,0.08); }
+        nav.dark-mode .nav-lang { border-left-color: rgba(255,255,255,0.1); }
+        .nav-lang a { font-size: 0.75rem !important; }
+        .nav-lang a.active { color: var(--teal) !important; font-weight: 600; }
+        .nav-burger { display: none; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666; padding: 8px; }
+
+        /* ====== HERO (Dark cinematic — Apple iPhone style) ====== */
+        .hero {
+            position: relative; min-height: 92vh;
+            background: var(--dark);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center; padding: 90px 24px 60px;
+            overflow: hidden;
+        }
+        .hero-video-bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-video-bg video { width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
+        .hero-video-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 30%, rgba(0,196,170,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 50% 80%, rgba(201,162,39,0.06) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(10,10,18,0.2) 0%, rgba(10,10,18,0.5) 50%, var(--dark) 100%);
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 720px; }
+        .hero-logo-wrap {
+            position: relative; display: inline-block;
+            margin-bottom: 28px;
+            opacity: 1; transform: none;
+        }
+        .hero-logo {
+            width: 120px;
+            filter: drop-shadow(0 0 30px rgba(0,196,170,0.3));
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+        .logo-pulse {
+            position: absolute;
+            top: 42%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: rgba(0, 196, 170, 0.9);
+            box-shadow: 0 0 12px 4px rgba(0,196,170,0.5), 0 0 28px 6px rgba(0,196,170,0.25);
+            animation: heartbeat 1.2s ease-in-out infinite;
+        }
+        .logo-pulse::after {
+            content: '';
+            position: absolute; inset: -8px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(0,196,170,0.3);
+            animation: heartRing 1.2s ease-out infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+            15% { transform: translate(-50%, -50%) scale(1.6); opacity: 1; }
+            30% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+            45% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+            60% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+        }
+        @keyframes heartRing {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(2.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .hero-eyebrow {
+            font-family: 'Syne'; font-size: 0.72rem; letter-spacing: 0.4em;
+            text-transform: uppercase; color: var(--teal); font-weight: 600;
+            margin-bottom: 20px; opacity: 1; transform: none;
+        }
+        .hero h1 {
+            font-size: clamp(2.6rem, 6vw, 4.5rem);
+            line-height: 1.05; letter-spacing: -0.03em; font-weight: 800;
+            color: #fff; margin-bottom: 20px;
+            opacity: 1; transform: none;
+        }
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--gold) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-sub {
+            font-size: 1.05rem; line-height: 1.65; color: rgba(255,255,255,0.68);
+            max-width: 460px; margin: 0 auto 28px;
+            opacity: 1; transform: none;
+        }
+        .hero-btns {
+            display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+            margin-bottom: 36px; opacity: 1; transform: none;
+        }
+        .btn-p {
+            background: var(--teal); color: #000; padding: 12px 28px; border-radius: 980px;
+            font-weight: 700; font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .btn-p:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 30px rgba(0,196,170,0.35); }
+        .btn-g {
+            color: #fff; padding: 14px 32px; border-radius: 980px;
+            font-weight: 500; font-size: 1rem;
+            border: 1.5px solid rgba(255,255,255,0.2); transition: all 0.3s;
+        }
+        .btn-g:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
+        .hero-trust {
+            display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+            opacity: 1; transform: none;
+        }
+        .hero-trust span { font-size: 0.82rem; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 8px; }
+        .td { width: 5px; height: 5px; border-radius: 50%; display: inline-block; }
+        .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); opacity: 0; animation: scrollIn 1s 2.5s forwards; }
+        .scroll-line { width: 1px; height: 36px; background: linear-gradient(180deg, var(--teal), transparent); animation: scrollPulse 2s infinite; }
+
+        /* ====== FILM (Light — Apple product reveal) ====== */
+        .film-section { background: #fafafa; padding: 120px 24px; text-align: center; }
+        .slabel {
+            font-family: 'Syne'; font-size: 0.7rem; letter-spacing: 0.35em;
+            text-transform: uppercase; font-weight: 600; margin-bottom: 12px;
+        }
+        .slabel.teal { color: var(--teal); }
+        .slabel.gold { color: var(--gold); }
+        .slabel.white { color: rgba(255,255,255,0.4); }
+        .film-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 48px; color: #1a1a2e;
+        }
+        .film-frame {
+            max-width: 760px; margin: 0 auto; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+            transform: perspective(1200px) rotateX(2deg);
+            transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), box-shadow 0.6s;
+        }
+        .film-frame:hover {
+            transform: perspective(1200px) rotateX(0deg);
+            box-shadow: 0 32px 80px rgba(0,0,0,0.18);
+        }
+        .film-frame video { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; background: #000; }
+        .film-caption { max-width: 840px; margin: 32px auto 0; padding: 0 20px; text-align: center; }
+        .film-caption p { color: #4a4a52; font-size: 1.02rem; line-height: 1.7; font-weight: 400; margin: 0 0 10px; }
+        .film-caption p strong { color: #0a0a0c; font-weight: 700; }
+        .film-caption .film-tagline { color: #888; font-size: 0.88rem; font-style: italic; margin-top: 14px; letter-spacing: 0.01em; }
+        @media (max-width: 640px) { .film-caption { margin-top: 24px; padding: 0 16px; } .film-caption p { font-size: 0.95rem; } }
+
+
+        /* ====== LIFESTYLE SPLIT (Apple-style image+text) ====== */
+        .split-section {
+            display: grid; grid-template-columns: 1fr 1fr;
+            max-width: 1100px; margin: 0 auto;
+            min-height: auto;
+        }
+        .split-img {
+            overflow: hidden; position: relative;
+            max-height: 380px;
+        }
+        .split-img picture { display: contents; }
+        .split-img img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 8s cubic-bezier(0.22,1,0.36,1);
+            transform: scale(1.08);
+        }
+        .split-img:hover img { transform: scale(1.05); }
+        .split-text {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: clamp(32px, 4vw, 56px);
+        }
+        .split-text h2 {
+            font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+            letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px;
+        }
+        .split-text p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 10px; }
+        .split-text .muted { color: #6b7280; }
+        .split-dark { background: var(--dark); }
+        .split-dark .split-text { color: #fff; }
+        .split-dark .split-text .muted { color: rgba(255,255,255,0.45); }
+        .split-light { background: #f5f5f7; }
+
+        /* ====== FEATURES (Stripe gradient mesh) ====== */
+        .features-section {
+            position: relative; padding: 120px 24px; overflow: hidden;
+            background: linear-gradient(160deg, #f0fdfa 0%, #fafafa 30%, #fffbf0 70%, #faf5ff 100%);
+        }
+        .features-section::before {
+            content: ''; position: absolute; top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0,196,170,0.1), transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+        .features-section::after {
+            content: ''; position: absolute; bottom: -200px; left: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(201,162,39,0.08), transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+        .features-header {
+            text-align: center; max-width: 560px; margin: 0 auto 48px;
+            position: relative; z-index: 1;
+        }
+        .features-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.08;
+            letter-spacing: -0.02em; margin-bottom: 14px;
+        }
+        .features-header p { font-size: 1.05rem; color: #525866; line-height: 1.7; }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 20px; max-width: 900px; margin: 0 auto;
+            position: relative; z-index: 1;
+        }
+        .feat-card {
+            background: rgba(255,255,255,0.75); backdrop-filter: blur(12px);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 16px; padding: 28px 24px;
+            transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s;
+        }
+        .feat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.08); }
+        .feat-icon {
+            width: 48px; height: 48px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+        }
+        .feat-icon.teal { background: rgba(0,196,170,0.1); color: var(--teal); }
+        .feat-icon.gold { background: rgba(201,162,39,0.1); color: var(--gold); }
+        .feat-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .feat-card p { font-size: 0.9rem; color: #525866; line-height: 1.65; }
+
+        /* ====== PRODUCT SHOWCASE (Dark — Apple hero product) ====== */
+        .showcase-section {
+            background: var(--dark); padding: 120px 24px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .showcase-section::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px; height: 500px;
+            background: radial-gradient(ellipse, rgba(0,196,170,0.06), transparent 70%);
+            pointer-events: none;
+        }
+        .showcase-header { max-width: 560px; margin: 0 auto 48px; position: relative; z-index: 1; }
+        .showcase-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.08;
+            letter-spacing: -0.02em; color: #fff;
+        }
+        .showcase-header p { font-size: 1rem; color: rgba(255,255,255,0.4); margin-top: 14px; line-height: 1.6; }
+        .showcase-track {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 20px; max-width: 760px; margin: 0 auto;
+            position: relative; z-index: 1;
+        }
+        .scard {
+            border-radius: 20px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
+            transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s, border-color 0.4s;
+        }
+        .scard:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.3), 0 0 50px rgba(0,196,170,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+        .scard img {
+            width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+            transition: transform 0.6s;
+        }
+        .scard:hover img { transform: scale(1.06); }
+        .scard-info { padding: 24px; }
+        .scard-info h3 { font-size: 1.05rem; color: #fff; margin-bottom: 6px; }
+        .scard-info p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.55; }
+
+        /* ====== APP SECTION (Light — Big phone mockup style) ====== */
+        .app-section {
+            background: #f5f5f7; padding: 120px 24px; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .app-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -0.025em;
+            line-height: 1.1; margin-bottom: 16px;
+        }
+        .app-section > p { font-size: 1.05rem; color: #525866; max-width: 500px; margin: 0 auto 56px; line-height: 1.7; }
+        .phone-mockup {
+            position: relative;
+            border-radius: 40px; overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
+            transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+            border: 8px solid #1a1a2e;
+            flex: 1;
+            max-width: 260px;
+            background: #1a1a2e;
+        }
+        .phone-mockup::before {
+            content: '';
+            position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 22px;
+            background: #1a1a2e; border-radius: 0 0 14px 14px;
+            z-index: 2;
+        }
+        .phone-mockup:hover { transform: translateY(-8px) scale(1.02); }
+        .phone-mockup img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 32px; }
+        .app-phones {
+            display: flex; gap: 28px; justify-content: center; align-items: stretch;
+            max-width: 560px; margin: 0 auto;
+        }
+        /* ====== APP 3-CATEGORY CARDS ====== */
+        .app-categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 960px; margin: 72px auto 0; text-align: left; }
+        .app-cat { background: #ffffff; border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; padding: 32px 28px; box-shadow: 0 4px 16px rgba(0,0,0,0.04); transition: transform 0.3s, box-shadow 0.3s; }
+        .app-cat:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+        .app-cat-num { font-family: 'Syne'; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.12em; color: #00c4aa; margin-bottom: 12px; }
+        .app-cat-title { font-family: 'Syne'; font-weight: 700; font-size: 1.3rem; color: #1a1a2e; margin-bottom: 12px; line-height: 1.2; }
+        .app-cat-desc { font-size: 0.92rem; color: #525866; line-height: 1.6; }
+        @media (max-width: 720px) { .app-categories { grid-template-columns: 1fr; gap: 14px; margin-top: 48px; } }
+
+        /* ====== SCIENCE BANNER (Dark — immersive) ====== */
+        .science-section {
+            display: grid; grid-template-columns: 1fr 1fr;
+            min-height: 50vh; background: var(--dark);
+        }
+        .science-visual {
+            display: flex; align-items: center; justify-content: center;
+            padding: 60px; position: relative;
+        }
+        .science-visual img {
+            max-width: 200px; width: 100%;
+            filter: drop-shadow(0 0 40px rgba(0,196,170,0.2));
+            animation: heroFloat 8s ease-in-out infinite;
+        }
+        .science-text {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: clamp(40px, 6vw, 80px); color: #fff;
+        }
+        .science-text h2 {
+            font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+            letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px;
+        }
+        .science-text p { font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+        .science-text .highlight {
+            display: inline-flex; gap: 24px; margin-top: 16px; flex-wrap: wrap;
+        }
+        .science-text .highlight span {
+            font-family: 'Syne'; font-weight: 700; font-size: 1.5rem; color: var(--teal);
+        }
+        .science-text .highlight small {
+            display: block; font-family: 'DM Sans'; font-size: 0.75rem;
+            font-weight: 400; color: rgba(255,255,255,0.35); letter-spacing: 0.05em;
+        }
+
+
+        /* ====== FAQ (Pre-CTA) ====== */
+        .faq-section { padding: 80px 24px 40px; background: #fafafa; }
+        .faq-wrap { max-width: 720px; margin: 0 auto; }
+        .faq-section .slabel { margin-bottom: 16px; text-align: center; }
+        .faq-section h2 {
+            text-align: center; font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 40px;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(20,27,45,0.08);
+            transition: border-color .2s ease;
+        }
+        .faq-item[open] { border-color: rgba(20,27,45,0.18); }
+        .faq-item summary {
+            cursor: pointer; list-style: none;
+            padding: 20px 0; display: flex; justify-content: space-between;
+            align-items: center; gap: 16px;
+            font-size: 1.02rem; font-weight: 500; color: #141b2d;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+'; font-weight: 300; font-size: 1.6rem;
+            color: #5ec4b6; flex-shrink: 0; line-height: 1;
+            transition: transform .25s ease;
+        }
+        .faq-item[open] summary::after { content: '−'; transform: rotate(0); }
+        .faq-item .faq-a {
+            padding: 0 0 22px; color: #525866; font-size: 0.98rem;
+            line-height: 1.65; max-width: 640px;
+        }
+        /* ====== CTA (Stripe gradient) ====== */
+        .cta-section {
+            position: relative; padding: 120px 24px; text-align: center;
+            background: linear-gradient(160deg, #edfcf9 0%, #fafafa 40%, #fef9ec 100%);
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(0,196,170,0.07), transparent 65%);
+            border-radius: 50%; pointer-events: none;
+        }
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1;
+            letter-spacing: -0.02em; margin-bottom: 16px; position: relative; z-index: 1;
+        }
+        .cta-section h2 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--teal), var(--gold));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .cta-section > p {
+            font-size: 1.1rem; color: #525866; max-width: 460px;
+            margin: 0 auto 36px; line-height: 1.7; position: relative; z-index: 1;
+        }
+        .cta-actions {
+            display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+            position: relative; z-index: 1; margin-bottom: 14px;
+        }
+        .btn-dark {
+            background: #1a1a2e; color: #fff; padding: 16px 40px;
+            border-radius: 980px; font-weight: 700; font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .btn-dark:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+        .cta-note { font-size: 0.82rem; color: #525866; position: relative; z-index: 1; }
+
+        /* ====== LINKS ====== */
+        .links-section { padding: 100px 24px; background: #fafafa; }
+        .links-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 14px; max-width: 880px; margin: 0 auto;
+        }
+        .link-card {
+            background: #fff; border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 16px; padding: 28px 20px; text-align: center;
+            transition: all 0.35s;
+        }
+        .link-card:hover { border-color: rgba(0,0,0,0.12); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+        .link-card .li { font-size: 1.3rem; margin-bottom: 10px; display: block; }
+        .link-card .ll { font-family: 'Syne'; font-size: 0.85rem; font-weight: 600; }
+
+        /* ====== FOOTER ====== */
+        footer {
+            background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 56px 24px 32px; text-align: center;
+        }
+        .footer-social { display: flex; gap: 16px; justify-content: center; margin-bottom: 28px; }
+        .footer-social a {
+            width: 38px; height: 38px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.4); font-size: 0.95rem; transition: all 0.3s;
+        }
+        .footer-social a:hover { border-color: var(--teal); color: var(--teal); }
+        .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+        .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.3); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--teal); }
+        .footer-disc { font-size: 0.78rem; color: rgba(255,255,255,0.2); margin-bottom: 6px; }
+        .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+        /* ====== FAB ====== */
+            position: fixed; bottom: 24px; left: 24px;
+            width: 52px; height: 52px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; z-index: 90;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+            transition: transform 0.3s;
+        }
+
+        /* ====== ANIMATIONS ====== */
+        @keyframes heroFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes scrollPulse { 0%, 100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.3; transform: scaleY(0.4); } }
+        @keyframes scrollIn { to { opacity: 0.4; } }
+
+        .reveal {
+            opacity: 1; transform: none;
+            transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .stagger > *:nth-child(1) { transition-delay: 0s; }
+        .stagger > *:nth-child(2) { transition-delay: 0.15s; }
+        .stagger > *:nth-child(3) { transition-delay: 0.3s; }
+
+        /* ====== LUSION: Cursor Glow ====== */
+        .cursor-glow {
+            position: fixed; top: 0; left: 0;
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            pointer-events: none; z-index: 9999;
+            background: radial-gradient(circle, rgba(0,196,170,0.04) 0%, transparent 60%);
+            transform: translate(-50%, -50%);
+            transition: opacity 0.6s;
+            
+            will-change: transform;
+        }
+        .cursor-glow.on-dark {
+            background: radial-gradient(circle, rgba(0,196,170,0.06) 0%, transparent 60%);
+        }
+        .cursor-dot {
+            position: fixed; top: 0; left: 0;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+            pointer-events: none; z-index: 10000;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px rgba(0,196,170,0.4);
+            transition: width 0.35s, height 0.35s, background 0.35s;
+            will-change: transform;
+        }
+        .cursor-dot.hover {
+            width: 48px; height: 48px;
+            background: transparent;
+            box-shadow: none;
+            border: 1px solid rgba(0,196,170,0.3);
+        }
+
+        /* ====== LUSION: Magnetic buttons ====== */
+        .magnetic { transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); }
+
+        /* ====== LUSION: Smooth text reveal ====== */
+        .text-reveal {
+            overflow: hidden; display: inline-block;
+        }
+        .text-reveal > span {
+            display: inline-block;
+            transform: translateY(110%);
+            transition: transform 1s cubic-bezier(0.16,1,0.3,1);
+        }
+        .text-reveal.visible > span { transform: translateY(0); }
+
+        /* ====== LUSION: Image parallax depth ====== */
+        .parallax-img {
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+
+        /* ====== LUSION: Gradient orbs ====== */
+        .orb {
+            position: absolute; border-radius: 50%;
+            filter: blur(80px); pointer-events: none;
+            will-change: transform;
+            animation: orbFloat 12s ease-in-out infinite;
+        }
+        .orb-teal {
+            width: 350px; height: 350px;
+            background: rgba(0,196,170,0.06);
+        }
+        .orb-gold {
+            width: 300px; height: 300px;
+            background: rgba(201,162,39,0.05);
+        }
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.05); }
+            66% { transform: translate(-20px, 15px) scale(0.95); }
+        }
+
+        /* ====== LUSION: Line draw effect ====== */
+        .line-draw {
+            position: relative;
+        }
+        .line-draw::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--teal), var(--gold));
+            transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+        }
+        .line-draw.visible::after { width: 100%; }
+
+        /* ====== MOBILE ====== */
+        @media (max-width: 768px) {
+            .nav-links { gap: 12px; }
+            .nav-links a { font-size: 0.7rem; }
+            .nav-cta { padding: 4px 10px; font-size: 0.7rem !important; } .nav-lang a { font-size: 0.65rem !important; } .nav-burger { display: none; }
+            #particles { display: none !important; }
+            .orb { display: none !important; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-logo { width: 150px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .showcase-track { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+            .split-section { grid-template-columns: 1fr; }
+            .split-img { max-height: 50vh; }
+            .science-section { grid-template-columns: 1fr; }
+            .science-visual { padding: 40px; }
+            .science-visual img { max-width: 220px; }
+            .app-phones { flex-direction: column; align-items: center; }
+            .phone-small { margin-top: 0; }
+            .links-grid { grid-template-columns: repeat(2, 1fr); }
+            .film-frame { transform: none !important; border-radius: 14px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero-trust { flex-direction: column; gap: 10px; }
+            .links-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ====== LUSION: Page load curtain ====== */
+        .page-curtain {
+            position: fixed; inset: 0; z-index: 99999;
+            background: var(--dark);
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), visibility 0.8s;
+        }
+        .page-curtain.done { opacity: 0; visibility: hidden; pointer-events: none; }
+        .page-curtain img { width: 180px; filter: drop-shadow(0 0 30px rgba(0,196,170,0.3)); animation: curtainFloat 2s ease-in-out infinite; }
+        .curtain-dot {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: rgba(0,196,170,0.9);
+            box-shadow: 0 0 12px 4px rgba(0,196,170,0.5), 0 0 28px 6px rgba(0,196,170,0.25);
+            animation: curtainBeat 1.2s ease-in-out infinite;
+        }
+        @keyframes curtainFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes curtainBeat {
+            0%,100% { transform: scale(1); opacity: 0.7; }
+            15% { transform: scale(1.8); opacity: 1; }
+            30% { transform: scale(1); opacity: 0.7; }
+            45% { transform: scale(1.4); opacity: 1; }
+            60% { transform: scale(1); opacity: 0.5; }
+        }
+
+        /* Film grain removed — Lusion keeps it clean */
+
+        /* ====== Animated gradient border ====== */
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::before {
+            content: ''; position: absolute; inset: -1px;
+            border-radius: inherit;
+            background: conic-gradient(from var(--angle, 0deg), var(--teal), var(--gold), var(--teal));
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: -1;
+        }
+        .glow-border:hover::before {
+            opacity: 1;
+            animation: rotateBorder 3s linear infinite;
+        }
+        @keyframes rotateBorder { to { --angle: 360deg; } }
+        @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+        /* ====== Scroll progress indicator ====== */
+        .scroll-progress {
+            position: fixed; top: 52px; left: 0; right: 0;
+            height: 2px; z-index: 1001;
+            background: transparent;
+        }
+        .scroll-progress-bar {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, var(--teal), var(--gold));
+            transition: width 0.1s linear;
+        }
+
+        /* ====== Hero character animation ====== */
+        .char-wrap { display: inline-block; overflow: hidden; }
+        .char {
+            display: inline-block;
+            transform: translateY(110%);
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .char.visible { transform: translateY(0); }
+
+        /* ====== Counter animation ====== */
+        .count-up {
+            display: inline-block;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ====== Section transition shapes ====== */
+        .section-wave {
+            width: 100%; height: 60px;
+            margin-top: -1px;
+        }
+        .section-wave-dark { fill: var(--dark); }
+        .section-wave-light { fill: #fafafa; }
+        .section-wave-gray { fill: #f5f5f7; }
+
+        /* ====== Enhanced showcase hover glow ====== */
+        .scard::after {
+            content: ''; position: absolute; inset: 0;
+            border-radius: 20px;
+            opacity: 0;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(0,196,170,0.12), transparent 60%);
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+        .scard:hover::after { opacity: 1; }
+        .scard { position: relative; }
+
+        /* ====== Team Section ====== */
+        .team-section {
+            padding: 120px 24px;
+            background: #fafafa;
+            text-align: center;
+        }
+        .team-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 14px;
+        }
+        .team-section > p {
+            font-size: 0.95rem; color: #525866; max-width: 480px;
+            margin: 0 auto 48px; line-height: 1.7;
+        }
+        .team-grid {
+            display: flex; gap: 24px; justify-content: center;
+            flex-wrap: wrap; max-width: 800px; margin: 0 auto;
+        }
+        .team-card {
+            flex: 1; min-width: 200px; max-width: 240px;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s;
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+        }
+        .team-avatar {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal), var(--gold));
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+            font-family: 'Syne'; font-weight: 800; font-size: 1.4rem; color: #fff;
+        }
+        .team-card h4 { font-size: 1rem; margin-bottom: 4px; }
+        .team-card .role {
+            font-size: 0.78rem; color: var(--teal); font-weight: 600;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .team-card p { font-size: 0.82rem; color: #525866; line-height: 1.55; }
+        .team-card a {
+            display: inline-block; margin-top: 12px;
+            color: var(--teal); font-size: 0.8rem; font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        .team-card a:hover { opacity: 0.7; }
+
+        /* ====== Page transition ====== */
+        /* page-exit removed */
+
+        /* ====== Accessibility: reduced motion ====== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+            .cursor-glow, .cursor-dot, .grain, .page-curtain { display: none !important; }
+            .reveal { opacity: 1; transform: none; }
+            .hero-logo, .hero-eyebrow, .hero h1, .hero-sub, .hero-btns, .hero-trust { opacity: 1; transform: none; }
+            .split-img img { transform: none; }
+        }
+
+        /* ====== Social Proof Counter ====== */
+        .social-proof {
+            display: flex; align-items: center; gap: 16px;
+            justify-content: center; margin-top: 20px;
+        }
+        .proof-bar {
+            width: 200px; height: 4px; border-radius: 4px;
+            background: rgba(0,0,0,0.08); overflow: hidden;
+        }
+        .proof-fill {
+            height: 100%; border-radius: 4px;
+            background: linear-gradient(90deg, var(--teal), var(--gold));
+            transition: width 1.5s cubic-bezier(0.16,1,0.3,1);
+        }
+        .proof-text { font-size: 0.82rem; color: #525866; }
+        .proof-text strong { color: #1a1a2e; }
+
+        /* Dark version */
+        .social-proof-dark .proof-bar { background: rgba(255,255,255,0.08); }
+        .social-proof-dark .proof-text { color: rgba(255,255,255,0.4); }
+        .social-proof-dark .proof-text strong { color: #fff; }
+
+        /* ====== Waitlist inline ====== */
+        .waitlist {
+            display: flex; gap: 10px; max-width: 400px; margin: 0 auto;
+            justify-content: center; flex-wrap: wrap;
+        }
+        .waitlist input {
+            flex: 1; min-width: 200px;
+            padding: 12px 20px; border-radius: 980px;
+            border: 1.5px solid rgba(0,0,0,0.1);
+            font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+            background: #fff; color: #1a1a2e;
+            outline: none; transition: border-color 0.3s;
+        }
+        .waitlist input:focus { border-color: var(--teal); }
+        .waitlist input::placeholder { color: #aaa; }
+        .btn-waitlist {
+            padding: 12px 24px; border-radius: 980px;
+            background: var(--teal); color: #000;
+            font-weight: 600; font-size: 0.88rem;
+            border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s;
+        }
+        .btn-waitlist:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,196,170,0.3); }
+        .waitlist-success {
+            display: flex; flex-direction: column; align-items: center; gap: 12px;
+        }
+        .check-circle {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal), var(--gold));
+            display: flex; align-items: center; justify-content: center;
+            animation: successPop 0.5s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .check-circle svg { width: 28px; height: 28px; stroke: #fff; stroke-width: 3; fill: none; }
+        .check-circle svg path {
+            stroke-dasharray: 40; stroke-dashoffset: 40;
+            animation: checkDraw 0.5s 0.3s forwards ease-out;
+        }
+        .success-pulse {
+            position: absolute; width: 56px; height: 56px; border-radius: 50%;
+            border: 2px solid var(--teal); animation: successRing 0.8s 0.2s ease-out forwards;
+            opacity: 0;
+        }
+        .success-text { font-size: 0.9rem; color: var(--teal); font-weight: 600; opacity: 0; animation: fadeUp 0.4s 0.5s forwards; }
+        @keyframes successPop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+        @keyframes checkDraw { to { stroke-dashoffset: 0; } }
+        @keyframes successRing { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.5); opacity: 0; } }
+        @keyframes fadeUp { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
+
+        /* ====== Mid-CTA (between sections) ====== */
+        .mid-cta {
+            text-align: center; padding: 48px 24px;
+            background: var(--dark); position: relative;
+        }
+        .mid-cta .btn-p { font-size: 0.92rem; padding: 12px 28px; }
+        .mid-cta p { font-size: 0.78rem; color: rgba(255,255,255,0.3); margin-top: 10px; }
+
+        /* ====== Scroll-driven hero fade ====== */
+        .hero-content { will-change: transform, opacity; }
+        .section-dark { background: #0a0a12; padding: 120px 24px; }
+        .section-dark .section-header h2 { color: #fff; }
+        .section-dark .section-header p { color: rgba(255,255,255,0.6); }
+        .section-dark h2 { color: #fff !important; }
+        .section-dark h3 { color: #fff !important; }
+        .section-dark p { color: rgba(255,255,255,0.65) !important; }
+        .section-dark strong { color: #fff !important; }
+        .section-dark .about-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+        .section-dark .product-card { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.08) !important; }
+        .section-dark .product-price { color: var(--teal) !important; }
+        .section-dark .faq-item { border-bottom-color: rgba(255,255,255,0.08); }
+        .section-dark .faq-item summary { color: #fff !important; }
+        .section-dark .faq-item summary::after { color: rgba(255,255,255,0.4); }
+        .section-dark .form-group label { color: rgba(255,255,255,0.8) !important; }
+        .section-dark .form-group input, .section-dark .form-group select, .section-dark .form-group textarea { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.15) !important; color: #fff !important; }
+        .section-dark .form-group input::placeholder, .section-dark .form-group textarea::placeholder { color: rgba(255,255,255,0.35) !important; }
+        .section-dark .form-group select option { background: #1a1a2e; color: #fff; }
+    </style>
+</head>
+<body>
+<script src="/nanil-torus-splash.js?v=10" defer></script>
+<!-- LUSION: Page Load Curtain -->
+
+
+
+<!-- Film Grain removed — Lusion keeps it clean -->
+
+<!-- Scroll Progress -->
+<div class="scroll-progress"><div class="scroll-progress-bar" id="scrollBar"></div></div>
+
+<!-- Scroll-to-Top Button -->
+<button id="scrollTop" aria-label="Yukarı" style="position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--teal);color:#000;border:none;cursor:pointer;z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);box-shadow:0 4px 16px rgba(0,196,170,0.3);">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
 <style>
-@media (max-width: 768px) {
-  .header-nav { gap: 8px; flex-wrap: wrap; justify-content: center; }
-  .header-nav a { font-size: 0.82rem; padding: 4px 8px; }
-  .lang-switcher { gap: 4px; }
-  .lang-switcher a { padding: 4px 8px; font-size: 0.78rem; }
-  .highlight-box { padding: 16px !important; font-size: 0.9rem; }
-  .audience-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
-  .float-buttons-fixed { bottom: 12px !important; right: 12px !important; gap: 8px !important; }
-  .float-buttons-fixed a { width: 44px !important; height: 44px !important; font-size: 1rem !important; }
-}
-@media (max-width: 480px) {
-  h1 { font-size: 1.6rem !important; }
-  h2 { font-size: 1.3rem !important; }
-  .hero-section h1 { font-size: 1.5rem !important; }
-  .cta-btn { width: 100%; text-align: center; }
-}
-@media (pointer: coarse) {
-  .cta-btn, .lang-switcher a, button, a { min-height: 44px; }
-}
-*:focus-visible { outline: 2px solid #00c4aa; outline-offset: 2px; }
-html { scroll-behavior: smooth; }
-body { -webkit-overflow-scrolling: touch; }
+#scrollTop:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,196,170,0.4); }
+#scrollTop.visible { opacity: 1; visibility: visible; }
 </style>
 
-</head>
+<!-- PARTICLE CANVAS -->
+<canvas id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
 
-<body>
-    <header>
-        <a href="tr.html" class="logo-link" aria-label="Nanil Pulse – Ana Sayfa">
-            <img src="assets/logo.jpg" alt="Nanil Pulse">
-        </a>
-        <div class="header-nav">
-            <a href="main.html" class="main-site-link"
-                style="margin-right: 10px; font-weight: bold; border: 1px solid currentColor; padding: 5px 10px; border-radius: 4px;">ANA
-                SÜRÜME GİT</a>
-            <a href="https://nanilpulse.art/" target="_blank" class="main-site-link">Sistemi
-                Keşfet</a>
-            <div class="lang-switcher">
-                <a href="index1.html">DE</a>
-                <a href="en.html">EN</a>
-                <a href="tr.html" class="active">TR</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero-section">
-            <h1>Bio-giyilebilirler eskidi.<br>Gelecek bağlamsal.</h1>
-            <p>Sadece ölçmeyen, anlayan – ve vücudunuzun kalıplarını size gösteren bir sistem.</p>
-            <a href="#final-cta" class="cta-btn">Potansiyeli keşfet</a>
-        </section>
-
-        <section id="erster-abschnitt">
-            <div class="image-box">
-                <img src="assets/ring-patch.jpg" alt="Nanil Yüzük ve Patch Sistemi">
-            </div>
-            <h1>Nanil bir giyilebilir değil.<br>O bir sistem.</h1>
-            <p>Sensörlerden bağlamı sistematik olarak türeten ve günlük yaşamdaki bağlantıları görünür kılan uygulama
-                öncelikli bir sistem.</p>
-            <p class="disclaimer">İyilik odaklı. Tıbbi değil.</p>
-        </section>
-
-        <section class="system-section">
-            <h2>Sistem böyle düşünüldü</h2>
-            <div class="image-box">
-                <img src="assets/final-zeichnung.jpg" alt="Nanil Sistem Mantığı – Uygulama Merkez">
-            </div>
-            <p>Uygulama merkezi sistemdir.<br>Yüzük ve Patch ham veri sağlar.</p>
-            <p>Değer tek tek verilerden değil, bunların birbirleriyle olan ilişkisinden doğar.</p>
-        </section>
-
-        <section>
-            <h2>Ayrım</h2>
-            <p class="bold">Nanil artık ölçmüyor.<br>Nanil farklı yorumluyor.</p>
-            <p>İzole KPI'lara odaklanmak yok.<br>Günlük değerlere optimize etmek yok.<br>Zaman, bağlam ve davranış
-                üzerinden kalıplar var.</p>
-            <div class="highlight-box">
-                <p><span>Bilimsel Arkaplan:</span> Güncel araştırmalar, insan durumundaki değişikliklerin ince ses
-                    desenlerinde yankılandığını göstermektedir. Metabolik ve ruh sağlığı araştırmalarından elde edilen
-                    çalışmalar, yapay zeka modellerinin bu tür sapmaları tespit edebildiğini ve bunları stres veya
-                    düzensizlik göstergesi olarak kullanabildiğini kanıtlamaktadır. Nanil bu bulgulara dayanarak sesi
-                    bir sistem sinyali olarak anlar – teşhis için değil, erken yönlendirme ve durumsal destek için.</p>
-                <br><br>
-                <button id="btn-view-studies"
-                    style="background: #BD9642; color: #000; padding: 12px 24px; border-radius: 8px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; font-size: 1rem; font-weight: 700; margin-top: 15px; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-                    <i class="fas fa-book-open" style="margin-right: 8px;"></i> Çalışmaları Görüntüle
-                </button>
-            </div>
-        </section>
-
-        <section>
-            <h2>Durum</h2>
-            <p class="bold">Nanil erken aşama bir projedir.</p>
-            <p>Sistem mimarisi hazır.<br>Önce uygulama geliştiriliyor.<br>Sistem oturduğunda donanım gelecek.</p>
-        </section>
-
-        <section>
-            <h2>Kurucu</h2>
-            <p class="bold">NANIL Pulse'un arkasında vizyon ve uzmanlığa sahip bir kişi var.</p>
-            <p><strong>Nazan Nil Dalkıc (Nazannil)</strong></p>
-            <p>Wellness ve stres yönetiminde 35+ yıl deneyim. NLP Master, Reiki Master. Çok dilli: Almanca, Türkçe,
-                İngilizce. Misyonu: Teknolojiyi terapötik yetkinlikle birleştirmek – NANIL Pulse böyle doğdu.</p>
-        </section>
-
-        <!-- Voice Demo Section -->
-        <section id="voice-demo-section" style="padding: 60px 20px; text-align: center;">
-            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">🎙️ Sesli Analiz Demosu</h2>
-            <p style="color: #c8cdd5; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
-                Nanil Pulse sesinizi nasıl yorumladığını keşfedin. Bir senaryo seçin ve simülasyonu başlatın.</p>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; max-width: 500px; margin: 0 auto 30px;">
-                <button class="voice-demo-btn" data-result="calm"
-                    style="padding: 14px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.3s ease;">
-                    ☀️ Sabah rahat</button>
-                <button class="voice-demo-btn" data-result="tense"
-                    style="padding: 14px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.3s ease;">
-                    💼 Toplantıdan sonra</button>
-                <button class="voice-demo-btn" data-result="stressed"
-                    style="padding: 14px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.3s ease;">
-                    😤 Stresli gün</button>
-                <button class="voice-demo-btn" data-result="calm"
-                    style="padding: 14px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.3s ease;">
-                    🏃 Spor öncesi</button>
-                <button class="voice-demo-btn" data-result="calm"
-                    style="padding: 14px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.3s ease;">
-                    🧘 Meditasyondan sonra</button>
-                <button class="voice-demo-btn" data-result="tense"
-                    style="padding: 14px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.3s ease;">
-                    🌙 Akşam yorgun</button>
-            </div>
-
-            <!-- Analyzing Animation -->
-            <div id="voice-analyzing"
-                style="display: none; margin: 30px auto; padding: 30px; max-width: 400px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(0,196,170,0.2);">
-                <p style="color: #00c4aa; font-weight: 600; margin-bottom: 15px;">🔊 Ses analiz ediliyor...</p>
-                <div style="display: flex; justify-content: center; gap: 4px; height: 40px; align-items: flex-end;">
-                    <div class="wave-bar"
-                        style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out infinite;">
-                    </div>
-                    <div class="wave-bar"
-                        style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out 0.1s infinite;">
-                    </div>
-                    <div class="wave-bar"
-                        style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out 0.2s infinite;">
-                    </div>
-                    <div class="wave-bar"
-                        style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out 0.3s infinite;">
-                    </div>
-                    <div class="wave-bar"
-                        style="width: 4px; background: #00c4aa; border-radius: 2px; animation: waveAnim 0.8s ease-in-out 0.4s infinite;">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Result Area -->
-            <div id="voice-result"
-                style="display: none; margin: 30px auto; padding: 30px; max-width: 450px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.08);">
-            </div>
-        </section>
-
-        <style>
-            @keyframes waveAnim {
-                0%, 100% { height: 8px; }
-                50% { height: 32px; }
-            }
-            .voice-demo-btn:hover {
-                background: rgba(0, 196, 170, 0.15) !important;
-                border-color: rgba(0, 196, 170, 0.4) !important;
-                transform: translateY(-2px);
-            }
-        </style>
-
-        <section class="final-cta" id="final-cta">
-            <h2>Kişiselleştirilmiş esenliğin geleceğini şekillendirin.</h2>
-            <p>Yeni bir kategori tanımlamaya hazır vizyoner kurucu ortaklar, partnerler ve tohum yatırımcılar arıyoruz.
-                Bu, en başından itibaren orada olma fırsatıdır.</p>
-            <a href="main.html#contact" class="cta-btn">İletişime Geç & Pitch Deck İste</a>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-links">
-            <a href="impressum.html">Künye</a>
-            <a href="datenschutz.html">Gizlilik</a>
-            <a href="agb.html">Şartlar</a>
-        </div>
-        <p class="footer-disclaimer">Nanil Pulse tıbbi bir ürün değildir. Teşhis, tedavi veya terapi yoktur.</p>
-    </footer>
-
-    <!-- Floating Buttons: Nanni (Voice) + WhatsApp -->
-    <div class="float-buttons-fixed" style="position: fixed; bottom: 24px; right: 24px; z-index: 2000; display: flex !important; flex-direction: column; gap: 12px; align-items: flex-end; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;" aria-label="Nanni'ye Sor ve WhatsApp">
-        <a href="main.html#voice" class="float-btn-nanni" title="Nanni'ye Sor – Sesli Yapay Zeka"
-            style="display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #00CED1, #20B2AA); color: #fff; font-size: 24px; box-shadow: 0 4px 16px rgba(0,206,209,0.4); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease;"
-            onmouseenter="this.style.transform='scale(1.08)'; this.style.boxShadow='0 6px 20px rgba(0,206,209,0.5)'"
-            onmouseleave="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 16px rgba(0,206,209,0.4)'">
-            <i class="fas fa-microphone" aria-hidden="true"></i>
-        </a>
-        <a href="https://wa.me/491776480485" target="_blank" rel="noopener" title="WhatsApp"
-            style="display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #FFF; font-size: 28px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.2s ease;"
-            onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        </a>
-    </div>
-
-    <!-- Studies Modal -->
-    <div id="studies-modal"
-        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 3000; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
-        <div
-            style="background: #fff; padding: 2.5rem; border-radius: 16px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; border: 1px solid #ddd; text-align: left; position: relative; box-shadow: 0 0 30px rgba(0,0,0,0.2);">
-            <button id="close-studies-modal"
-                style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: #333; font-size: 1.8rem; cursor: pointer; line-height: 1;">&times;</button>
-            <h3
-                style="color: #333; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-                Bilimsel Kaynaklar</h3>
-            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11658629/" target="_blank"
-                        style="color: #00c4aa; text-decoration: none;">A voice-based algorithm can predict type 2
-                        diabetes status <i class="fas fa-external-link-alt"></i></a></li>
-                <li><a href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000679"
-                        target="_blank" style="color: #00c4aa; text-decoration: none;">PLOS Digital Health – AI for
-                        diabetes screening <i class="fas fa-external-link-alt"></i></a></li>
-                <li><a href="https://www.lih.lu/en/article/say-hello-to-non-invasive-screening-new-ai-tool-identifies-diabetes-using-voice-analysis/"
-                        target="_blank" style="color: #00c4aa; text-decoration: none;">Luxembourg Institute of Health –
-                        Colive Voice <i class="fas fa-external-link-alt"></i></a></li>
-                <li><a href="https://www.colivevoice.org/de/die-studie/seite-publikationen/" target="_blank"
-                        style="color: #00c4aa; text-decoration: none;">Colive Voice – Publications <i
-                            class="fas fa-external-link-alt"></i></a></li>
-                <li><a href="https://www.jmir.org/2024/1/e58572/" target="_blank"
-                        style="color: #00c4aa; text-decoration: none;">JMIR – Speech analysis for mental state <i
-                            class="fas fa-external-link-alt"></i></a></li>
-                <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10415910/" target="_blank"
-                        style="color: #00c4aa; text-decoration: none;">Systematic Review – Vocal Biomarkers <i
-                            class="fas fa-external-link-alt"></i></a></li>
-                <li><a href="https://arxiv.org/abs/2411.19204" target="_blank"
-                        style="color: #00c4aa; text-decoration: none;">Voice-based triage using AI <i
-                            class="fas fa-external-link-alt"></i></a></li>
-                <li><a href="https://arxiv.org/abs/1910.10082" target="_blank"
-                        style="color: #00c4aa; text-decoration: none;">Estimating well-being from voice <i
-                            class="fas fa-external-link-alt"></i></a></li>
-            </ul>
+<!-- NAV -->
+<nav class="topnav" id="navbar">
+    <a class='nav-logo' href='/vorpage'>
+        <span class="nav-logo-wrap"><img src="assets/logo-nav-final.png" alt="NANIL Pulse"><span class="nav-logo-pulse"></span></span>
+        <span><span style="color:#c0c8d0 !important;">NANIL</span> <span style="color:#5ec4b6 !important;">Pulse</span></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+        <a href='/main-tr'>Ürünler</a>
+        <a href='/science-tr'>Bilim</a>
+        <a href="/app" class="nav-cta">Uygulamayı Dene</a>
+        <a href='/about-tr'>Hakkımızda</a>
+        <div class="nav-lang">
+            <a href='/vorpage'>DE</a>
+            <a href='/en'>EN</a>
+            <a class='active' href='/tr'>TR</a>
         </div>
     </div>
-    <script src="bg-animation.js" defer></script>
-    <script>window.VOICE_DEMO_LANG = 'tr';</script>
-    <script src="voice-demo.js"></script>
+    <button class="nav-burger" id="burger" aria-label="Menü" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+</nav>
 
-    <script>
-        const btn = document.getElementById('btn-view-studies');
-        const modal = document.getElementById('studies-modal');
-        const close = document.getElementById('close-studies-modal');
-        if (btn && modal && close) {
-            btn.onclick = (e) => { e.preventDefault(); modal.style.display = 'flex'; };
-            close.onclick = () => modal.style.display = 'none';
-            modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+    <div class="hero-video-bg">
+        <video autoplay muted loop playsinline preload="none" poster="assets/hero-poster.webp"><source src="assets/nanil-animation-opt.mp4" type="video/mp4"></video>
+    </div>
+    <div class="hero-content">
+        <div class="hero-logo-wrap" id="heroLogo">
+        <img src="assets/logo-nav-final.png" alt="NANIL Pulse" class="hero-logo">
+        <div class="logo-pulse"></div>
+    </div>
+        <div class="hero-eyebrow" id="heroEyebrow">DECODING WELLNESS. EMPOWERING LIFE.</div>
+        <h1 id="heroTitle">Stresi algılar —<br><em>ve çözer.</em></h1>
+        <p class="hero-sub" id="heroSub">Sadece ölçmekle kalmayıp aktif olarak etki eden ilk wellness yüzüğü. Pulse-Patch (Biopatch) + Ses Analizi + hafif vagus siniri stimülasyonu.</p>
+        <div class="hero-btns" id="heroBtns">
+            <a class='btn-p' href='/early-access'>Early Access · €199</a>
+        </div>
+        <div class="hero-trust" id="heroTrust">
+            <span><span class="td" style="background:var(--teal);"></span>Hamburg, Almanya</span>
+            <span><span class="td" style="background:var(--teal);"></span>KVKK uyumlu</span>
+            <span><span class="td" style="background:var(--teal);"></span>30 gün iade</span>
+            <span><span class="td" style="background:var(--teal);"></span>Stripe ile güvenli ödeme</span>
+        </div>
+    </div>
+    <div class="scroll-hint"><div class="scroll-line"></div></div>
+</section>
+
+<!-- Wave: Dark -> Light -->
+<svg class="section-wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,0 C360,60 1080,60 1440,0 L1440,60 L0,60 Z" class="section-wave-light" style="fill:#fafafa;"/></svg>
+
+<main>
+<!-- ============ FILM ============ -->
+<section class="film-section">
+    <div class="slabel teal reveal">FİLM</div>
+    <h2 class="reveal">Pulse'ın neler yapabildiğini kendin gör.</h2>
+    <div class="film-frame reveal" id="filmBox">
+        <video id="filmVideo" playsinline controls preload="metadata" poster="assets/film-poster.webp"><source src="assets/nanil-film-voice-tr-opt.mp4?v=4" type="video/mp4"></video>
+    </div>
+    <div class="film-caption reveal">
+        <p>Üç sinyal. Tek vücut. <strong>Tek net resim.</strong></p>
+        <p>Parmağındaki yüzük sürekli ölçüm yapar. Pulse yaması vücudunun bağlamını gerçek zamanlı yakalar. Sesin analiz edilir — asla kaydedilmez, asla gönderilmez. Üç sinyal birleşir ve tek bir net karara dönüşür.</p>
+        <p><strong>Kalp atışın düşer. Kafan rahatlar. Her zaman yanında.</strong></p>
+        <div class="film-tagline">Ekran yok. Gürültü yok. Sadece sen ve vücudun — anlaşıldın.</div>
+    </div>
+</section>
+
+<!-- Spacer between Film and Splits -->
+<div style="height:40px;background:#fafafa;"></div>
+
+<!-- ============ SPLIT: Lifestyle Sport ============ -->
+<div class="split-section split-light reveal">
+    <div class="split-img">
+        <picture><source srcset="assets/lifestyle-sport.webp" type="image/webp"><img src="assets/lifestyle-sport.png" alt="Sporda Pulse Ring" loading="lazy"></picture>
+    </div>
+    <div class="split-text">
+        <div class="slabel teal">HER ZAMAN YANINIZDA</div>
+        <h2>Sessiz yol arkadaşın. Koşarken de, yaşarken de.</h2>
+        <p class="muted">Pulse Ring bağlama dayalı ölçüm yapar — antrenman mı, uyku mu, iş mi otomatik olarak algılar. Ve sen fark etmeden kendini ayarlar.</p>
+    </div>
+</div>
+
+<!-- ============ SPLIT: Vagus-Stimulation (Dark) ============ -->
+<div class="split-section split-dark reveal">
+    <div class="split-text">
+        <div class="slabel teal">VAGUS STİMÜLASYONU</div>
+        <h2>Yüzüğü kulağına tut.<br>Anında huzur.</h2>
+        <p class="muted">Stres anında: Elini kulağına götür — parmağındaki yüzük hafif titreşimlerle vagus sinirini doğrudan uyarır. Nabız düşer, kafa rahatlar. Saniyeler içinde.</p>
+    </div>
+    <div class="split-img">
+        <picture><source srcset="assets/ring-ear-placement.webp" type="image/webp"><img src="assets/ring-ear-placement.png" alt="Kulakta vagus stimülasyonu" loading="lazy"></picture>
+    </div>
+</div>
+
+<!-- ============ SPLIT: Bone Conduction (Light) ============ -->
+<div class="split-section split-light reveal">
+    <div class="split-img">
+        <picture><source srcset="assets/bone-conduction.webp" type="image/webp"><img src="assets/bone-conduction.png" alt="Bone Conduction Technologie" loading="lazy"></picture>
+    </div>
+    <div class="split-text">
+        <div class="slabel gold">BONE CONDUCTION</div>
+        <h2>Kemik iletimi<br>ile duy.</h2>
+        <p class="muted">Yüzüğü kulağına tut — ses, parmak kemiklerinden doğrudan iç kulağına iletilir. Kulaklık yok, hoparlör yok. Nanil her şeyi sana okur. Ekransız, diskret, eller serbest.</p>
+    </div>
+</div>
+
+<!-- ============ SPLIT: Lifestyle Call (Dark) ============ -->
+<div class="split-section split-dark reveal">
+    <div class="split-text">
+        <div class="slabel gold">SCREEN-FREE</div>
+        <h2>İş. Ekransız.</h2>
+        <p class="muted">WhatsApp, SMS, E-Posta — hepsi kemik iletimi ile kulağında. Ellerin serbest. Kafan da.</p>
+    </div>
+    <div class="split-img">
+        <picture><source srcset="assets/lifestyle_call.webp" type="image/webp"><img src="assets/lifestyle_call.png" alt="Günlük hayatta yüzük" loading="lazy"></picture>
+    </div>
+</div>
+
+<!-- ============ FEATURES (Stripe + Lusion orbs) ============ -->
+<section class="features-section" id="features">
+    <div class="orb orb-teal" style="top:10%;right:5%;animation-delay:-2s;"></div>
+    <div class="orb orb-gold" style="bottom:10%;left:8%;animation-delay:-6s;"></div>
+    <div class="features-header reveal">
+        <div class="slabel gold">CLOSED-LOOP SYSTEM</div>
+        <h2>Üç boyut.<br>Tek sistem.</h2>
+        <p>Tek tek değerler değil, bağlam. Yüzük, Pulse-Patch (Biopatch) ve ses birlikte hiçbir takipçinin tek başına sunamayacağı bir tablo oluşturur.</p>
+    </div>
+    <div class="features-grid stagger">
+        <div class="feat-card reveal">
+            <div class="feat-icon teal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Gerçek zamanlı yaşamsal değerler</h3>
+            <p>HRV, kalp atış hızı, uyku, cilt iletkenliği, sıcaklık, ter. 7/24 bağlama dayalı — izole değil.</p>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-icon gold">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            </div>
+            <h3>Ses biyobelirteç olarak</h3>
+            <p>Yapay zeka ses analizi stresi, yorgunluğu ve duygusal kalıpları algılar — sen fark etmeden önce.</p>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-icon teal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+            </div>
+            <h3>Aktif stimülasyon</h3>
+            <p>Kulaktaki hafif titreşimlerle vagus siniri stimülasyonu. Sistem tepki verir — sadece ölçmek değil, harekete geçmek.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PRODUCT SHOWCASE (Dark) ============ -->
+<section class="showcase-section" id="produkte">
+    <div class="showcase-header reveal">
+        <div class="slabel white">HARDWARE</div>
+        <h2>Designed to disappear.</h2>
+        <p>Mücevher gibi taktığın teknoloji. Görünmez. Her zaman yanında.</p>
+    </div>
+    <div class="showcase-track stagger">
+        <div class="scard glow-border reveal">
+            <img src="assets/gold-ring.jpg" alt="Gold Ring" loading="lazy">
+            <div class="scard-info">
+                <h3>Pulse Ring · Gold</h3>
+                <p>Cilalı 18K altın kaplama bant. İç kısımda dalga sensörleri.</p>
+            </div>
+        </div>
+        <div class="scard glow-border reveal">
+            <img src="assets/silver-ring.jpg" alt="Silver Ring" loading="lazy">
+            <div class="scard-info">
+                <h3>Pulse Ring · Silver</h3>
+                <p>Cerrahi çelik, hipoalerjenik. Entegre kemik iletim transdüseri.</p>
+            </div>
+        </div>
+        <div class="scard glow-border reveal">
+            <img src="assets/patch.jpg" alt="Pulse-Patch (Biopatch)" loading="lazy">
+            <div class="scard-info">
+                <h3>Pulse-Patch (Biopatch)</h3>
+                <p>Ten rengi yapışkan disk, dalga sensörlü. Göğüste görünmez.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mid-CTA removed — Apple never interrupts the flow -->
+
+<!-- ============ APP (Light) ============ -->
+<section class="app-section">
+    <div class="slabel teal reveal">UYGULAMA</div>
+    <h2 class="reveal">Kalbi.<br>Elinde.</h2>
+    <p class="reveal">Rakamlarla dolu bir kontrol paneli daha değil. Bağlantıları anlayan ve günler, haftalar, aylar boyunca kalıpları görünür kılan bir sistem.</p>
+    <div class="app-phones stagger">
+        <div class="phone-mockup reveal">
+            <picture><source srcset="assets/hormone-dashboard.webp" type="image/webp"><img src="assets/hormone-dashboard.png" alt="NANIL Pulse Hormone Dashboard" loading="lazy"></picture>
+        </div>
+        <div class="phone-mockup reveal" style="background:#0a0a12;">
+            <img src="assets/ring-patch.jpg" alt="Pulse Ring ve Pulse-Patch (Biopatch)" loading="lazy" style="object-fit:contain;padding:16px;">
+        </div>
+    </div>
+    <div class="app-categories stagger">
+        <div class="app-cat reveal">
+            <div class="app-cat-num">01 · ÖLÇ</div>
+            <div class="app-cat-title">Vücudun.<br>Gerçek zamanlı.</div>
+            <div class="app-cat-desc">Yüzük, Pulse-Patch ve ses sürekli olarak HRV, uyku, stres, hormon sinyalleri ve nefesini kaydeder — sen hiçbir şey yapmadan.</div>
+        </div>
+        <div class="app-cat reveal">
+            <div class="app-cat-num">02 · ANLA</div>
+            <div class="app-cat-title">Tek değerler değil.<br>Kalıplar.</div>
+            <div class="app-cat-desc">NANIL YZ tüm sinyalleri günlük bir iyi oluş profiline bağlar. Trendleri, döngüleri ve erken uyarı işaretlerini sen hissetmeden tanır.</div>
+        </div>
+        <div class="app-cat reveal">
+            <div class="app-cat-num">03 · HAREKETE GEÇ</div>
+            <div class="app-cat-title">Rehberli<br>müdahaleler.</div>
+            <div class="app-cat-desc">Nazik vagus darbeleri, nefes koçluğu ve ses terapisi — yüzük ve patch üzerinden. Sadece veri değil. Etki.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SCIENCE (Dark split) ============ -->
+<section class="science-section" id="science">
+    <div class="science-visual reveal">
+        <picture><source srcset="assets/vagus-nerv.webp" type="image/webp"><img src="assets/vagus-nerv.png" alt="Vagus siniri anatomisi" loading="lazy"></picture>
+    </div>
+    <div class="science-text reveal">
+        <div class="slabel teal">BİLİM</div>
+        <h2>Epigenetik, günlük<br>zeka ile buluşuyor.</h2>
+        <p>Ses analizi, hormon takibi, uyku apnesi algılama, acil durum tespiti. Fitness takipçisi değil — bağlamsal wellness sistemi.</p>
+        <p>Artık ölçmüyor. <span style="color:#5ec4b6 !important;">Farklı yorumluyor.</span></p>
+        <div class="highlight">
+            <span><span class="count-up" data-target="12">0</span>+<small>Biyobelirteç</small></span>
+            <span><span class="count-up" data-target="24">0</span>/7<small>İzleme</small></span>
+            <span><span class="count-up" data-target="5">0</span><small>Aşama</small></span>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="team-section">
+    <div class="slabel teal reveal">EKİP</div>
+    <h2 class="reveal">Pulse'ın arkasındaki insanlar.</h2>
+    <p class="reveal">Hamburg'dan bir ekip, tek bir misyonla: Wellness'ı yeniden tanımlamak.</p>
+    <div class="team-grid stagger">
+        <div class="team-card reveal">
+            <div class="team-avatar">ND</div>
+            <h4>Nazan Nil Dalkic</h4>
+            <div class="role">Kurucu & CEO</div>
+            <p>Vizyon, ürün, strateji. NANIL Pulse'ı fikirden Closed-Loop sistemine dönüştürüyor.</p>
+            <a href="https://www.linkedin.com/in/nazannildalkic" target="_blank" rel="noopener">LinkedIn →</a>
+        </div>
+        <div class="team-card reveal">
+            <div class="team-avatar" style="background:linear-gradient(135deg, var(--gold), #e07030);">+</div>
+            <h4>CTO aranıyor</h4>
+            <div class="role">Co-Founder · Hardware/ML</div>
+            <p>Biyosensör, gömülü sistemler veya ML deneyimine sahip teknik bir Co-Founder arıyoruz.</p>
+            <a href='/co-founder-tr'>Başvur →</a>
+        </div>
+        <div class="team-card reveal">
+            <div class="team-avatar" style="background:linear-gradient(135deg, #33d4be, var(--teal));">+</div>
+            <h4>Danışman aranıyor</h4>
+            <div class="role">Medical / Regulatory</div>
+            <p>CE sertifikasyonu için tıbbi uzmanlık ve düzenleyici bilgi birikimi.</p>
+            <a href='/co-founder-tr'>İletişim →</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============ FAQ ============ -->
+<section class="faq-section reveal">
+    <div class="faq-wrap">
+        <div class="slabel teal">SIKÇA SORULANLAR</div>
+        <h2>Sipariş vermeden önce.</h2>
+
+        <details class="faq-item">
+            <summary>Sipariş verdikten sonra ne olur?</summary>
+            <div class="faq-a">Bir onay ve düzenli üretim güncellemeleri alırsın. Ücret yalnızca kargoya verildiğinde tahsil edilir — önceden değil.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Hangi yüzük bedenine ihtiyacım var?</summary>
+            <div class="faq-a">Sipariş sonrası sana ücretsiz bir Ring-Sizer göndeririz. Pulse üretilmeden önce doğru bedenini onunla ölçersin.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Pulse-Patch (Biopatch) ne kadar dayanır?</summary>
+            <div class="faq-a">Her patch 14 güne kadar dayanır. Yenileme abonelik olarak (daha uygun) veya tek seferlik satın alımla — senin tercihin.</div>
+        </details>
+        <details class="faq-item">
+            <summary>İptal edebilir veya iade edebilir miyim?</summary>
+            <div class="faq-a">Evet. Teslim tarihinden itibaren 30 gün para iade garantisi. Küçük yazı yok, soru sorulmaz.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Sağlık verilerim ne olur?</summary>
+            <div class="faq-a">Verilerin sende kalır. Ses analizi cihaz üzerinde yerel olarak çalışır. Tamamen KVKK/GDPR uyumlu. Paylaşım yok, satış yok, takip yok.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Abonelik gerekiyor mu?</summary>
+            <div class="faq-a">Hayır. Early Access 12 ay ücretsiz Nanil AI içerir. Sonrasında uygulama kullanımı isteğe bağlı — yüzük bağımsız çalışmaya devam eder.</div>
+        </details>
+    </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+    <h2 class="reveal">Wellness'ın<br><em>geleceğine hazır mısın?</em></h2>
+    <p class="reveal">Başından itibaren katıl. Wellness'ın geleceğini birlikte şekillendir.</p>
+    <div class="cta-actions reveal">
+        <a class='btn-dark' href='/early-access'>Early Access kapmak · €199</a>
+    </div>
+    <div class="cta-note reveal" style="margin-top:20px;">Hamburg, Almanya · 30 gün para iade garantisi · Güvenli ödeme</div>
+
+    <div style="margin-top:36px;position:relative;z-index:1;" class="reveal">
+        <p style="font-size:0.85rem;color:#525866;margin-bottom:12px;">Henüz hazır değil misin? Haber vermemizi iste:</p>
+        <form class="waitlist" id="waitlistForm" onsubmit="submitWaitlist(event)">
+            <input type="email" name="email" placeholder="E-posta adresin" required id="waitlistEmail">
+            <button type="submit" class="btn-waitlist" id="waitlistBtn">Beni hatırlat</button>
+        </form>
+    </div>
+</section>
+
+<!-- ============ LINKS ============ -->
+<section class="links-section">
+    <div class="links-grid">
+        <a class='link-card' href='/main'><span class="li" style="color:#5ec4b6 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></span><span class="ll">Tüm Ürünler</span></a>
+        <a class='link-card' href='/science-tr'><span class="li" style="color:#c0c8d0 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24A2.5 2.5 0 0 0 14.5 2z"/></svg></span><span class="ll">Bilim & Vizyon</span></a>
+        <a class='link-card' href='/pitch-v2'><span class="li" style="color:#c0c8d0 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="ll">Yatırımcılar</span></a>
+        <a class='link-card' href='/co-founder-tr'><span class="li" style="color:#5ec4b6 !important;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="ll">Co-Founder</span></a>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-social">
+        <a href="https://www.instagram.com/nanil_pulse" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/nazannildalkic" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    </div>
+    <div class="footer-links">
+        <a href='/main'>Ana Sayfa</a>
+        <a href='/early-access'>Early Access</a>
+        <a href='/impressum'>Künye</a>
+        <a href='/datenschutz'>Gizlilik Politikası</a>
+        <a href='/agb'>Kullanım Koşulları</a>
+    </div>
+    <p class="footer-disc">NANIL Pulse bir wellness cihazıdır. Tıbbi bir ürün değildir.</p>
+    <p class="footer-copy">© 2026 NANIL Pulse Technologies · Hamburg</p>
+</footer>
+
+
+
+<script>
+(function() {
+    'use strict';
+
+    // ========= PARTICLES (Lusion — hero only) =========
+    var canvas = document.getElementById('particles');
+    var ctx = canvas.getContext('2d');
+    var W, H, particles = [], mouse = { x: -1000, y: -1000 };
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    resize(); window.addEventListener('resize', resize);
+
+    var COUNT = Math.min(30, Math.floor(window.innerWidth / 40));
+    for (var i = 0; i < COUNT; i++) {
+        particles.push({
+            x: Math.random() * (W||1920), y: Math.random() * (H||1080),
+            vx: (Math.random()-0.5)*0.15, vy: (Math.random()-0.5)*0.15,
+            r: Math.random()*1.2+0.3,
+            color: Math.random()>0.5 ? '0,196,170' : '201,162,39',
+            alpha: Math.random()*0.12+0.03
+        });
+    }
+    document.addEventListener('mousemove', function(e) { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+    var heroEl = document.getElementById('hero');
+    var canvasVis = true;
+    function checkVis() {
+        var s = window.scrollY || window.pageYOffset;
+        var hb = heroEl ? heroEl.offsetTop + heroEl.offsetHeight : 0;
+        canvasVis = s < hb + 100;
+        canvas.style.opacity = canvasVis ? '1' : '0';
+        canvas.style.transition = 'opacity 0.5s';
+    }
+    window.addEventListener('scroll', checkVis); checkVis();
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        if (!canvasVis) { requestAnimationFrame(draw); return; }
+        for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+            if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+            var dx = p.x-mouse.x, dy = p.y-mouse.y, dist = Math.sqrt(dx*dx+dy*dy);
+            if (dist < 140) { var f = (140-dist)/140; p.vx += (dx/dist)*f*0.12; p.vy += (dy/dist)*f*0.12; }
+            p.vx *= 0.99; p.vy *= 0.99;
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+            ctx.fillStyle = 'rgba('+p.color+','+p.alpha+')'; ctx.fill();
+            for (var j = i+1; j < particles.length; j++) {
+                var p2 = particles[j], dd = Math.sqrt(Math.pow(p.x-p2.x,2)+Math.pow(p.y-p2.y,2));
+                if (dd < 90) {
+                    ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y);
+                    ctx.strokeStyle = 'rgba(0,196,170,'+(0.025*(1-dd/90))+')';
+                    ctx.lineWidth = 0.3; ctx.stroke();
+                }
+            }
         }
-    </script>
-</body>
+        requestAnimationFrame(draw);
+    }
+    draw();
 
+    // ========= NAV dark/light toggle =========
+    var nav = document.getElementById('navbar');
+    var darkSections = [];
+    function cacheDarkSections() {
+        darkSections = [];
+        document.querySelectorAll('.hero, .showcase-section, .science-section, .mid-cta, footer').forEach(function(el) {
+            darkSections.push({ top: el.offsetTop, bottom: el.offsetTop + el.offsetHeight });
+        });
+        document.querySelectorAll('.split-dark').forEach(function(el) {
+            darkSections.push({ top: el.offsetTop, bottom: el.offsetTop + el.offsetHeight });
+        });
+    }
+    cacheDarkSections();
+    window.addEventListener('resize', cacheDarkSections);
+
+    function updateNav() {
+        var s = (window.scrollY || window.pageYOffset) + 30;
+        var inDark = darkSections.some(function(d) { return s >= d.top && s < d.bottom; });
+        nav.classList.toggle('dark-mode', inDark);
+    }
+    window.addEventListener('scroll', updateNav); updateNav();
+
+    // ========= HERO ENTRANCE =========
+    ['heroLogo','heroEyebrow','heroTitle','heroSub','heroBtns','heroTrust'].forEach(function(id, i) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function() {
+            el.style.transition = 'opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)';
+            el.style.opacity = '1'; el.style.transform = 'translateY(0) scale(1)';
+        }, 300 + i * 200);
+    });
+
+    // ========= SCROLL REVEAL =========
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+    reveals.forEach(function(el) { observer.observe(el); });
+
+    // ========= FILM 3D TILT =========
+    var filmBox = document.getElementById('filmBox');
+    if (filmBox && window.innerWidth > 768) {
+        filmBox.addEventListener('mousemove', function(e) {
+            var r = filmBox.getBoundingClientRect();
+            var x = (e.clientX-r.left)/r.width-0.5, y = (e.clientY-r.top)/r.height-0.5;
+            filmBox.style.transform = 'perspective(1200px) rotateY('+(x*5)+'deg) rotateX('+(-y*4)+'deg)';
+        });
+        filmBox.addEventListener('mouseleave', function() {
+            filmBox.style.transform = 'perspective(1200px) rotateX(0) rotateY(0)';
+        });
+    }
+
+    // ========= MOBILE BURGER =========
+    var burger = document.getElementById('burger');
+    var navLinks = document.getElementById('navLinks');
+    if (burger) {
+        burger.addEventListener('click', function() {
+            var isOpen = navLinks.style.display === 'flex';
+            if (isOpen) {
+                navLinks.style.cssText = '';
+                navLinks.querySelectorAll('a').forEach(function(a) { a.style.display=''; a.style.color=''; });
+                burger.setAttribute('aria-expanded', 'false');
+            } else {
+                navLinks.style.cssText = 'display:flex;position:fixed;top:52px;left:0;right:0;flex-direction:column;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);padding:20px;gap:18px;border-bottom:1px solid rgba(0,0,0,0.08);z-index:999;';
+                navLinks.querySelectorAll('a').forEach(function(a) { a.style.display='block'; a.style.color='#1a1a2e'; });
+                burger.setAttribute('aria-expanded', 'true');
+            }
+        });
+    }
+
+    // Cursor effects removed
+    if (false) {
+        var glow = document.getElementById('cursorGlow');
+        var dot = document.getElementById('cursorDot');
+        var mx = 0, my = 0, gx = 0, gy = 0, dx = 0, dy = 0;
+
+        document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; });
+
+        function animCursor() {
+            // Dot follows instantly
+            dx += (mx - dx) * 0.2;
+            dy += (my - dy) * 0.2;
+            dot.style.transform = 'translate(' + dx + 'px,' + dy + 'px) translate(-50%,-50%)';
+
+            // Glow follows with delay (Lusion-style lag)
+            gx += (mx - gx) * 0.08;
+            gy += (my - gy) * 0.08;
+            glow.style.transform = 'translate(' + gx + 'px,' + gy + 'px) translate(-50%,-50%)';
+
+            // Dark section detection for glow intensity
+            var s = (window.scrollY || 0) + my;
+            var onDark = darkSections.some(function(d) { return s >= d.top && s < d.bottom; });
+            glow.classList.toggle('on-dark', onDark);
+
+            requestAnimationFrame(animCursor);
+        }
+        animCursor();
+
+        // Cursor hover effect on interactive elements
+        document.querySelectorAll('a, button, .feat-card, .scard, .link-card, .phone-mockup').forEach(function(el) {
+            el.addEventListener('mouseenter', function() { dot.classList.add('hover'); });
+            el.addEventListener('mouseleave', function() { dot.classList.remove('hover'); });
+        });
+
+        // Hide default cursor
+        document.body.style.cursor = 'none';
+        document.querySelectorAll('a, button').forEach(function(el) { el.style.cursor = 'none'; });
+    }
+
+    // ========= LUSION: Magnetic Buttons =========
+    document.querySelectorAll('.btn-p, .btn-g, .btn-dark, .nav-cta').forEach(function(btn) {
+        if (window.innerWidth <= 768) return;
+        btn.classList.add('magnetic');
+        btn.addEventListener('mousemove', function(e) {
+            var r = btn.getBoundingClientRect();
+            var x = e.clientX - r.left - r.width / 2;
+            var y = e.clientY - r.top - r.height / 2;
+            btn.style.transform = 'translate(' + (x * 0.25) + 'px,' + (y * 0.25) + 'px)';
+        });
+        btn.addEventListener('mouseleave', function() {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+
+    // (Parallax moved to smoothParallax below)
+
+    // ========= LUSION: 3D Tilt on Showcase Cards =========
+    document.querySelectorAll('.scard').forEach(function(card) {
+        if (window.innerWidth <= 768) return;
+        card.addEventListener('mousemove', function(e) {
+            var r = card.getBoundingClientRect();
+            var x = (e.clientX - r.left) / r.width - 0.5;
+            var y = (e.clientY - r.top) / r.height - 0.5;
+            card.style.transform = 'perspective(800px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg) translateY(-8px) scale(1.02)';
+        });
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = '';
+        });
+    });
+
+    // ========= LUSION: Feature Card Tilt =========
+    document.querySelectorAll('.feat-card').forEach(function(card) {
+        if (window.innerWidth <= 768) return;
+        card.addEventListener('mousemove', function(e) {
+            var r = card.getBoundingClientRect();
+            var x = (e.clientX - r.left) / r.width - 0.5;
+            var y = (e.clientY - r.top) / r.height - 0.5;
+            card.style.transform = 'perspective(600px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg) translateY(-6px)';
+        });
+        card.addEventListener('mouseleave', function() {
+            card.style.transform = '';
+        });
+    });
+
+    // ========= SCROLL-DRIVEN: Hero content fades + parallax on scroll =========
+    var heroContent = document.querySelector('.hero-content');
+    var lastScroll = 0;
+    function heroParallax() {
+        var s = window.scrollY || 0;
+        if (s === lastScroll) { requestAnimationFrame(heroParallax); return; }
+        lastScroll = s;
+        var heroH = heroEl ? heroEl.offsetHeight : 800;
+        var progress = Math.min(s / heroH, 1);
+        if (heroContent) {
+            heroContent.style.opacity = 1 - progress * 1.5;
+            heroContent.style.transform = 'translateY(' + (s * 0.3) + 'px) scale(' + (1 - progress * 0.1) + ')';
+        }
+        requestAnimationFrame(heroParallax);
+    }
+    if (window.innerWidth > 768) heroParallax();
+
+    // ========= FILM: Scroll-triggered play with audio + pause on call/tab =========
+    var filmVideo = document.getElementById('filmVideo');
+    var filmUserPaused = false;
+    var filmInView = false;
+    if (filmVideo) {
+        // Scroll-triggered: play when visible, pause when not
+        var filmObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                filmInView = entry.isIntersecting;
+                if (entry.isIntersecting && !filmUserPaused) {
+                    filmVideo.play();
+                } else {
+                    filmVideo.pause();
+                }
+            });
+        }, { threshold: 0.3 });
+        filmObserver.observe(filmVideo);
+
+        // User clicks pause/play
+        filmVideo.addEventListener('pause', function() {
+            if (filmInView) filmUserPaused = true;
+        });
+        filmVideo.addEventListener('play', function() {
+            filmUserPaused = false;
+        });
+
+        // Pause on tab switch or call (visibilitychange)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                filmVideo.pause();
+            } else if (filmInView && !filmUserPaused) {
+                filmVideo.play();
+            }
+        });
+
+        // Pause on window blur (call overlay, notification)
+        window.addEventListener('blur', function() {
+            filmVideo.pause();
+        });
+        window.addEventListener('focus', function() {
+            if (filmInView && !filmUserPaused) {
+                filmVideo.play();
+            }
+        });
+    }
+
+    // ========= ENHANCED PARTICLES: Glow + size pulse =========
+    var origAlpha = particles.map(function(p) { return p.alpha; });
+    var time = 0;
+    setInterval(function() {
+        time += 0.02;
+        for (var i = 0; i < particles.length; i++) {
+            particles[i].alpha = origAlpha[i] * (0.7 + 0.3 * Math.sin(time + i));
+            particles[i].r = (origAlpha[i] * 4) * (0.8 + 0.2 * Math.sin(time * 0.5 + i * 0.3));
+        }
+    }, 50);
+
+    // ========= PAGE LOAD CURTAIN =========
+    var curtain = document.getElementById('curtain');
+    window.addEventListener('load', function() {
+        setTimeout(function() { curtain.classList.add('done'); }, 600);
+    });
+
+    // ========= SCROLL PROGRESS BAR =========
+    var scrollBar = document.getElementById('scrollBar');
+    function updateScrollBar() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        var p = ((window.scrollY || 0) / h) * 100;
+        scrollBar.style.width = p + '%';
+    }
+    window.addEventListener('scroll', updateScrollBar);
+
+    // ========= SCROLL TO TOP BUTTON =========
+    var scrollTopBtn = document.getElementById('scrollTop');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', function() {
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+        });
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ========= COUNTER ANIMATION =========
+    document.querySelectorAll('.count-up').forEach(function(el) {
+        var target = parseInt(el.dataset.target);
+        var counted = false;
+        var cObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !counted) {
+                    counted = true;
+                    var start = 0;
+                    var duration = 1200;
+                    var startTime = null;
+                    function step(ts) {
+                        if (!startTime) startTime = ts;
+                        var prog = Math.min((ts - startTime) / duration, 1);
+                        var eased = 1 - Math.pow(1 - prog, 3);
+                        el.textContent = Math.round(eased * target);
+                        if (prog < 1) requestAnimationFrame(step);
+                    }
+                    requestAnimationFrame(step);
+                    cObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        cObserver.observe(el);
+    });
+
+    // ========= SHOWCASE CARD: Glow follows mouse =========
+    document.querySelectorAll('.scard').forEach(function(card) {
+        card.addEventListener('mousemove', function(e) {
+            var r = card.getBoundingClientRect();
+            var x = ((e.clientX - r.left) / r.width * 100);
+            var y = ((e.clientY - r.top) / r.height * 100);
+            card.style.setProperty('--mx', x + '%');
+            card.style.setProperty('--my', y + '%');
+        });
+    });
+
+    // ========= ORBS: React to cursor =========
+    var orbs = document.querySelectorAll('.orb');
+    if (orbs.length && window.innerWidth > 768) {
+        document.addEventListener('mousemove', function(e) {
+            orbs.forEach(function(orb, i) {
+                var speed = i === 0 ? 0.02 : 0.015;
+                var rect = orb.parentElement.getBoundingClientRect();
+                var cx = e.clientX - rect.left - rect.width / 2;
+                var cy = e.clientY - rect.top - rect.height / 2;
+                orb.style.transform = 'translate(' + (cx * speed) + 'px,' + (cy * speed) + 'px)';
+            });
+        });
+    }
+
+    // ========= SMOOTH SCROLL PARALLAX: Split images depth =========
+    var scrollElements = [];
+    document.querySelectorAll('.split-img img').forEach(function(img) {
+        scrollElements.push({ el: img, speed: 0.15, type: 'img' });
+    });
+    document.querySelectorAll('.science-visual img').forEach(function(img) {
+        scrollElements.push({ el: img, speed: 0.1, type: 'float' });
+    });
+
+    var raf2 = false;
+    function smoothParallax() {
+        var sy = window.scrollY || 0;
+        scrollElements.forEach(function(item) {
+            var rect = item.el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                var center = rect.top + rect.height / 2 - window.innerHeight / 2;
+                var offset = center * item.speed;
+                if (item.type === 'img') {
+                    item.el.style.transform = 'scale(1.08) translateY(' + (-offset) + 'px)';
+                } else {
+                    item.el.style.transform = 'translateY(' + (-offset) + 'px)';
+                }
+            }
+        });
+    }
+    window.addEventListener('scroll', function() {
+        if (!raf2) { requestAnimationFrame(function() { smoothParallax(); raf2 = false; }); raf2 = true; }
+    });
+
+    // ========= NAV: Smooth scroll for anchor links =========
+    document.querySelectorAll('a[data-scroll]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Close mobile menu if open
+                if (navLinks && navLinks.style.display === 'flex') {
+                    navLinks.style.cssText = '';
+                    burger.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+    });
+
+    // ========= NAV: Scroll Spy — highlight active section =========
+    var spySections = document.querySelectorAll('section[id]');
+    var navAnchors = document.querySelectorAll('a[data-scroll]');
+    function updateSpy() {
+        var scrollPos = (window.scrollY || 0) + 120;
+        spySections.forEach(function(section) {
+            if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
+                navAnchors.forEach(function(a) {
+                    a.style.color = '';
+                    if (a.getAttribute('href') === '#' + section.id) {
+                        a.style.color = 'var(--teal)';
+                    }
+                });
+            }
+        });
+    }
+    window.addEventListener('scroll', updateSpy);
+
+    // Page transitions removed
+
+})();
+
+// ========= WAITLIST: Formspree submission =========
+function submitWaitlist(e) {
+    e.preventDefault();
+    var email = document.getElementById('waitlistEmail').value;
+    var btn = document.getElementById('waitlistBtn');
+    var input = document.getElementById('waitlistEmail');
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    fetch('https://formspree.io/f/xreezyov', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'nanil-pulse-waitlist' })
+    }).then(function(r) {
+        if (r.ok) {
+            var form = document.getElementById('waitlistForm');
+            form.innerHTML = '<div class="waitlist-success">' +
+                '<div style="position:relative;"><div class="check-circle"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
+                '<div class="success-pulse"></div></div>' +
+                '<span class="success-text">Listedesin. Sana ulaşacağız.</span></div>';
+        } else {
+            btn.textContent = 'Tekrar dene';
+            btn.disabled = false;
+        }
+    }).catch(function() {
+        btn.textContent = 'Hata';
+        btn.style.background = '#e07030';
+        btn.disabled = false;
+        setTimeout(function() { btn.textContent = 'Beni hatırlat'; btn.style.background = 'var(--teal)'; }, 2500);
+    });
+}
+</script>
+<button id="scrollDown" style="position:fixed;bottom:140px;left:24px;width:44px;height:44px;border-radius:50%;background:#00c4aa;color:#000;border:none;cursor:pointer;z-index:9999;display:flex;align-items:center;justify-content:center;transition:all 0.3s;box-shadow:0 4px 16px rgba(0,196,170,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+<script>var sd=document.getElementById("scrollDown");sd.onclick=function(){window.scrollBy({top:window.innerHeight,behavior:"smooth"});};window.addEventListener("scroll",function(){var atBottom=(window.innerHeight+window.scrollY)>=document.body.scrollHeight-100;sd.style.opacity=atBottom?"0":"1";sd.style.visibility=atBottom?"hidden":"visible";});</script>
+
+<script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+<elevenlabs-convai agent-id="agent_7901kf82k4w0e73vbz0hhakw6xfv" override-language="tr" action-text="Nanil'e Sor"></elevenlabs-convai>
+</body>
 </html>
