@@ -1,126 +1,382 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>NANIL Pulse - Early Access</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-        rel="stylesheet">
-    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
-    <style>.lang-btn.active { background: rgba(212, 175, 55, 0.25); color: #D4AF37; border-color: rgba(212, 175, 55, 0.5); }</style>
+    <title>NANIL Pulse – Early Access</title>
+    <meta name="description" content="Sichern Sie sich Ihren Platz auf der exklusiven Warteliste für die erste NANIL Pulse Kollektion.">
+    <link rel="icon" type="image/png" href="assets/logo-nav-final.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --teal: #00c4aa; --teal-light: #33d4be; --gold: #d4a843; --gold-light: #e8c76e; --dark: #0a0a12; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+        body { font-family: 'DM Sans', system-ui, sans-serif; color: #1a1a2e; -webkit-font-smoothing: antialiased; overflow-x: hidden; background: #fafafa; min-height: 100vh; display: flex; flex-direction: column; }
+        h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+        a { text-decoration: none; color: inherit; }
 
-<!-- === MOBILE OPT (18.03.2026) === -->
-<style>
-@media (max-width: 768px) {
-  main { padding: 100px 16px 40px !important; }
-  .header-inner { padding: 8px 12px !important; }
-  .highlight-box, .feature-card, .cta-box { padding: 20px 16px !important; }
-}
-@media (max-width: 480px) {
-  h1, .text-gradient-cyan { font-size: 1.5rem !important; }
-  h2 { font-size: 1.2rem !important; }
-  .btn { width: 100% !important; text-align: center !important; }
-}
-@media (pointer: coarse) {
-  .btn, .lang-btn, button, a { min-height: 44px; }
-}
-*:focus-visible { outline: 2px solid #00c4aa; outline-offset: 2px; }
-html { scroll-behavior: smooth; }
-body { -webkit-overflow-scrolling: touch; }
-</style>
+        /* NAV */
+        nav.topnav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(20px, 4vw, 48px); background: rgba(255,255,255,0.72); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 0.5px solid rgba(0,0,0,0.1); }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; border: none; outline: none; padding: 0; margin: 0; }
+        .nav-logo img { height: 44px; background: none; border: none; outline: none; padding: 0; margin: 0; display: block; }
+        .nav-logo span { font-family: 'Syne'; font-weight: 700; font-size: 0.92rem; }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .nav-links a { font-size: 0.8rem; font-weight: 500; color: rgba(0,0,0,0.5); transition: color 0.3s; }
+        .nav-links a:hover { color: #000; }
+        .nav-cta { background: var(--teal) !important; color: #000 !important; padding: 6px 16px; border-radius: 980px; font-weight: 600 !important; transition: transform 0.25s, box-shadow 0.25s !important; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,196,170,0.3); }
+        .nav-lang { display: flex; gap: 6px; padding-left: 12px; border-left: 1px solid rgba(0,0,0,0.08); }
+        .nav-lang a { font-size: 0.75rem !important; }
+        .nav-lang a.active { color: var(--teal) !important; font-weight: 600; }
+        .nav-burger { display: none; background: none; border: none; cursor: pointer; color: #666; padding: 8px; }
 
+        /* MAIN */
+        main {
+            flex: 1; display: flex; align-items: center; justify-content: center;
+            padding: 120px 24px 60px;
+            background: linear-gradient(160deg, #f0fdfa 0%, #fafafa 30%, #fffbf0 70%, #faf5ff 100%);
+            position: relative; overflow: hidden;
+        }
+        main::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,196,170,0.08), transparent 70%); border-radius: 50%; pointer-events: none; }
+        main::after { content: ''; position: absolute; bottom: -200px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,162,39,0.06), transparent 70%); border-radius: 50%; pointer-events: none; }
+
+        .ea-container { max-width: 920px; width: 100%; position: relative; z-index: 1; }
+
+        /* HEADER */
+        .ea-header { text-align: center; margin-bottom: 32px; }
+        .slabel { font-family: 'Syne'; font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; color: var(--teal); }
+        .ea-header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; margin-bottom: 14px;
+        }
+        .ea-header h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--teal), var(--gold));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .ea-header p { font-size: 1.05rem; color: #525866; line-height: 1.7; }
+
+        /* VIDEO */
+        .film-frame {
+            margin-bottom: 32px; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+            transform: perspective(1200px) rotateX(2deg);
+            transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), box-shadow 0.6s;
+        }
+        .film-frame:hover { transform: perspective(1200px) rotateX(0deg); box-shadow: 0 32px 80px rgba(0,0,0,0.18); }
+        .film-frame video { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; background: #000; }
+
+        /* FORM */
+        .form-card {
+            background: #fff; padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; font-size: 0.82rem; font-weight: 600; color: #1a1a2e; margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%; padding: 12px 16px; border-radius: 12px;
+            border: 1.5px solid rgba(0,0,0,0.1);
+            font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+            background: #fff; color: #1a1a2e;
+            outline: none; transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus { border-color: var(--teal); }
+        .form-group input::placeholder { color: #aaa; }
+        .form-group select { cursor: pointer; }
+        .btn-submit {
+            width: 100%; padding: 16px; border-radius: 980px;
+            background: var(--teal); color: #000;
+            font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1rem;
+            border: none; cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+            margin-top: 8px;
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,196,170,0.3); }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 56px 24px 32px; text-align: center;
+        }
+        .footer-social { display: flex; gap: 16px; justify-content: center; margin-bottom: 28px; }
+        .footer-social a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); transition: all 0.3s; }
+        .footer-social a:hover { border-color: var(--teal); color: var(--teal); }
+        .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+        .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.3); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--teal); }
+        .footer-disc { font-size: 0.78rem; color: rgba(255,255,255,0.2); margin-bottom: 6px; }
+        .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+        /* ANIMATIONS */
+        .reveal { opacity: 1; transform: none; transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .nav-links { gap: 12px; } .nav-links a { font-size: 0.7rem; } .nav-lang a { font-size: 0.65rem !important; } .nav-cta { padding: 4px 10px; font-size: 0.7rem !important; } .nav-burger { display: none; }
+            .form-card { padding: 28px 20px; }
+        }
+        @media (max-width: 480px) { .ea-header h1 { font-size: 1.8rem; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; } .reveal { opacity: 1; transform: none; } }
+        .section-dark { background: #0a0a12; padding: 120px 24px; }
+        .section-dark .section-header h2 { color: #fff; }
+        .section-dark .section-header p { color: rgba(255,255,255,0.6); }
+        .section-dark h2 { color: #fff !important; }
+        .section-dark h3 { color: #fff !important; }
+        .section-dark p { color: rgba(255,255,255,0.65) !important; }
+        .section-dark strong { color: #fff !important; }
+        .section-dark .about-card { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+        .section-dark .product-card { background: rgba(255,255,255,0.04) !important; border-color: rgba(255,255,255,0.08) !important; }
+        .section-dark .product-price { color: var(--teal) !important; }
+        .section-dark .faq-item { border-bottom-color: rgba(255,255,255,0.08); }
+        .section-dark .faq-item summary { color: #fff !important; }
+        .section-dark .faq-item summary::after { color: rgba(255,255,255,0.4); }
+        .section-dark .form-group label { color: rgba(255,255,255,0.8) !important; }
+        .section-dark .form-group input, .section-dark .form-group select, .section-dark .form-group textarea { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.15) !important; color: #fff !important; }
+        .section-dark .form-group input::placeholder, .section-dark .form-group textarea::placeholder { color: rgba(255,255,255,0.35) !important; }
+        .section-dark .form-group select option { background: #1a1a2e; color: #fff; }
+
+        /* EA OVERHAUL: trust-strip */
+        .trust-strip { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:20px auto 8px; }
+        .trust-strip span { display:inline-flex; align-items:center; gap:8px; background:rgba(0,196,170,0.08); border:1px solid rgba(0,196,170,0.2); padding:6px 14px; border-radius:980px; font-size:0.78rem; font-weight:600; color:#0a7a6a; }
+        .trust-strip span::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--teal); }
+        .price-anchor { display:inline-block; margin-top:18px; padding:8px 20px; background:linear-gradient(135deg,#fff,#f5f5f5); border:1px solid rgba(0,0,0,0.08); border-radius:980px; font-family:'Syne',sans-serif; font-weight:700; font-size:0.95rem; color:#1a1a2e; box-shadow:0 4px 12px rgba(0,0,0,0.04); }
+        .price-anchor strong { background:linear-gradient(135deg,var(--teal),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+        /* EA OVERHAUL: variants grid */
+        .variants-title { font-family:'Syne',sans-serif; font-size:1.45rem; font-weight:700; text-align:center; margin:40px 0 6px; }
+        .variants-sub { text-align:center; color:#525866; font-size:0.95rem; margin-bottom:24px; }
+        .variants-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-bottom:32px; }
+        .variant-card { background:#fff; border:1.5px solid rgba(0,0,0,0.08); border-radius:18px; padding:22px 18px; display:flex; flex-direction:column; position:relative; transition:all 0.3s; }
+        .variant-card.featured { border-color:var(--teal); box-shadow:0 12px 36px rgba(0,196,170,0.15); }
+        .variant-card.featured::before { content:'Meistgewählt'; position:absolute; top:-10px; left:50%; transform:translateX(-50%); background:var(--teal); color:#000; font-size:0.68rem; font-weight:700; padding:3px 10px; border-radius:980px; letter-spacing:0.06em; text-transform:uppercase; }
+        .variant-name { font-family:'Syne',sans-serif; font-weight:700; font-size:1.05rem; margin-bottom:4px; }
+        .variant-tag { font-size:0.72rem; color:var(--teal); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; margin-bottom:10px; }
+        .variant-price { font-family:'Syne',sans-serif; font-weight:800; font-size:1.6rem; margin-bottom:4px; }
+        .variant-price .unit { font-size:0.75rem; color:#888; font-weight:500; margin-left:4px; }
+        .variant-old { color:#999; text-decoration:line-through; font-size:0.8rem; margin-bottom:12px; }
+        .variant-feats { list-style:none; padding:0; margin:12px 0 0; font-size:0.82rem; color:#444; }
+        .variant-feats li { padding:5px 0; border-top:1px solid rgba(0,0,0,0.05); display:flex; align-items:flex-start; gap:8px; }
+        .variant-feats li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; }
+        @media (max-width:768px) { .variants-grid { grid-template-columns:1fr; } }
+
+        /* EA OVERHAUL: delivery banner */
+        .delivery-banner { background:linear-gradient(135deg,rgba(0,196,170,0.06),rgba(212,168,67,0.06)); border:1px solid rgba(0,196,170,0.15); border-radius:16px; padding:20px 24px; margin-bottom:28px; display:flex; gap:18px; align-items:center; }
+        .delivery-banner .db-icon { font-size:1.8rem; flex-shrink:0; }
+        .delivery-banner .db-text { flex:1; }
+        .delivery-banner strong { display:block; font-family:'Syne',sans-serif; font-size:0.98rem; margin-bottom:3px; color:#1a1a2e; }
+        .delivery-banner p { font-size:0.85rem; color:#525866; margin:0; line-height:1.5; }
+
+        /* EA OVERHAUL: social proof */
+        .social-proof { text-align:center; padding:20px 0 32px; color:#525866; font-size:0.88rem; }
+        .social-proof-stats { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; margin-top:8px; }
+        .social-proof-stats div { display:flex; flex-direction:column; align-items:center; }
+        .social-proof-stats .num { font-family:'Syne',sans-serif; font-weight:800; font-size:1.4rem; background:linear-gradient(135deg,var(--teal),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .social-proof-stats .lbl { font-size:0.72rem; color:#888; text-transform:uppercase; letter-spacing:0.1em; }
+
+        /* EA OVERHAUL: mini-FAQ */
+        .ea-faq { background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:16px; padding:8px 22px; margin-bottom:28px; }
+        .ea-faq details { border-bottom:1px solid rgba(0,0,0,0.06); }
+        .ea-faq details:last-child { border-bottom:none; }
+        .ea-faq summary { cursor:pointer; padding:14px 0; font-weight:600; font-size:0.92rem; list-style:none; position:relative; padding-right:24px; }
+        .ea-faq summary::-webkit-details-marker { display:none; }
+        .ea-faq summary::after { content:'+'; position:absolute; right:0; top:14px; color:var(--teal); font-weight:700; font-size:1.2rem; transition:transform 0.3s; }
+        .ea-faq details[open] summary::after { transform:rotate(45deg); }
+        .ea-faq p { padding:0 0 14px; color:#525866; font-size:0.86rem; line-height:1.6; margin:0; }
+    </style>
 </head>
+<body>
+<nav class="topnav" id="navbar">
+    <a class='nav-logo' href='/vorpage'><img src="assets/logo-nav-final.png" alt="NANIL Pulse"><span><span style="color:#c0c8d0 !important;">NANIL</span> <span style="color:#5ec4b6 !important;">Pulse</span></span></a>
+    <div class="nav-links">
+        <a href='/vorpage'>Home</a>
+        <a href='/main'>Produkte</a>
+        <a href='/science'>Wissenschaft</a>
+        <a href='/pitch-v2'>Investoren</a>
+        <a href="blog/">Blog</a>
+        <a href="/app" class="nav-cta">App testen</a>
+        <a href='/about'>Über uns</a>
+        <div class="nav-lang">
+            <a class='active' href='/early-access'>DE</a>
+            <a href='/early-access-en'>EN</a>
+            <a href='/early-access-tr'>TR</a>
+        </div>
+    </div>
+    <button class="nav-burger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+</nav>
 
-<body style="min-height: 100vh; display: flex; flex-direction: column; background: transparent;">
-
-    <!-- Header -->
-    <header>
-        <div class="container header-inner">
-            <a href="vorpage.html" class="logo">
-                <img src="assets/logo.jpg" alt="Logo" id="logo-img">
-                <span class="text-gradient-gold" id="logo-text">NANIL Pulse</span>
-            </a>
-            <div class="nav-wrapper">
-                <nav class="main-menu">
-                    <ul>
-                        <li><a href="vorpage.html" id="nav-back" class="btn-back-home">Zurück zur Startseite</a></li>
-                    </ul>
-                </nav>
-                <!-- Language Switcher -->
-                <div class="lang-switcher">
-                    <button class="lang-btn active" data-lang="de">DE</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="tr">TR</button>
-                </div>
+<main>
+    <div class="ea-container">
+        <div class="ea-header reveal">
+            <div class="slabel">EXKLUSIVER ZUGANG</div>
+            <h1><em>Early Access</em></h1>
+            <p>Sichern Sie sich Ihren Platz auf der exklusiven Warteliste für die erste Auslieferung der NANIL Pulse Kollektion.</p>
+            <div class="price-anchor">ab <strong>€199</strong> · Keine Abo-Gebühren</div>
+            <div class="trust-strip">
+                <span>Hamburg · Made in EU</span>
+                <span>DSGVO-konform</span>
+                <span>30 Tage Rückgabe</span>
+                <span>Sichere Zahlung via Stripe</span>
             </div>
         </div>
-    </header>
 
-    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 120px 20px 60px;">
-        <div class="container" style="max-width: 600px;">
-            <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-                <h1 class="text-gradient-gold" style="font-size: 3rem; margin-bottom: 15px;" data-i18n="early-title">Early Access</h1>
-                <p style="color: var(--text-muted); font-size: 1.1rem;" data-i18n="early-subtitle">
-                    Sichern Sie sich Ihren Platz auf der exklusiven Warteliste für die erste Auslieferung der NANIL
-                    Pulse Kollektion.
-                </p>
+        <div class="film-frame reveal">
+            <video id="filmVideo" autoplay muted loop playsinline controls preload="metadata" poster="assets/film-poster.webp">
+                <source src="assets/nanil-film-de-new.mp4" type="video/mp4">
+            </video>
+<button onclick="var v=document.getElementById('filmVideo');v.muted=false;this.style.display='none';" style="position:absolute;bottom:16px;right:16px;background:rgba(0,0,0,0.7);color:#fff;border:none;border-radius:8px;padding:8px 14px;cursor:pointer;font-size:0.85rem;z-index:2;">🔊 Ton an</button>
+        </div>
+
+        <h2 class="variants-title reveal">Wähle deine Edition</h2>
+        <p class="variants-sub reveal">Alle Varianten enthalten die NANIL-App mit 12 Monaten Nanil AI.</p>
+        <div class="variants-grid reveal">
+            <div class="variant-card">
+                <div class="variant-tag">Essential</div>
+                <div class="variant-name">BioPatch</div>
+                <div class="variant-price">€199<span class="unit">einmalig</span></div>
+                <ul class="variant-feats">
+                    <li>Pulse-Patch (Biopatch)</li>
+                    <li>HRV · Haut-Korrelate</li>
+                    <li>App + 12 Monate Nanil AI</li>
+                    <li>Reichweite: ca. 48 h pro Patch</li>
+                </ul>
             </div>
+            <div class="variant-card featured">
+                <div class="variant-tag">Classic</div>
+                <div class="variant-name">SilverRing</div>
+                <div class="variant-price">€349<span class="unit">einmalig</span></div>
+                <ul class="variant-feats">
+                    <li>Pulse Ring (Titan/Silber)</li>
+                    <li>HRV · Stimme · Vagus-Puls</li>
+                    <li>App + 12 Monate Nanil AI</li>
+                    <li>7 Tage Akku</li>
+                </ul>
+            </div>
+            <div class="variant-card">
+                <div class="variant-tag">Premium</div>
+                <div class="variant-name">GoldRing Edition</div>
+                <div class="variant-price">€549<span class="unit">einmalig</span></div>
+                <ul class="variant-feats">
+                    <li>Pulse Ring + BioPatch-Bundle</li>
+                    <li>Alle Biomarker-Kanäle</li>
+                    <li>App + 24 Monate Nanil AI</li>
+                    <li>Priority Support</li>
+                </ul>
+            </div>
+        </div>
 
-            <!-- Pre-order Form -->
-            <form class="contact-form" id="early-access-form" action="https://formspree.io/f/xreezyov" method="POST"
-                style="background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); box-shadow: var(--shadow-xl);">
+        <div class="delivery-banner reveal">
+            <div class="db-icon">📦</div>
+            <div class="db-text">
+                <strong>Early-Access Lieferung: Q3 2026</strong>
+                <p>Du sicherst dir einen Platz in der ersten Produktionscharge. Keine Vorauszahlung — du bezahlst erst bei Versand. Versand kostenfrei innerhalb DE/AT/CH.</p>
+            </div>
+        </div>
+
+        <div class="social-proof reveal">
+            <div>Bereits vorgemerkt von Teilnehmer:innen aus DE · AT · CH · TR</div>
+            <div class="social-proof-stats">
+                <div><span class="num">3</span><span class="lbl">Biomarker-Signale</span></div>
+                <div><span class="num">12</span><span class="lbl">Monate Nanil AI inkl.</span></div>
+                <div><span class="num">30</span><span class="lbl">Tage Rückgabe</span></div>
+            </div>
+        </div>
+
+        <div class="ea-faq reveal">
+            <details><summary>Wann werde ich beliefert?</summary><p>Die erste Produktionscharge wird voraussichtlich im Q3 2026 ausgeliefert. Als Early-Access-Mitglied erhältst du vorrangig Zugang und wirst vor dem öffentlichen Launch informiert.</p></details>
+            <details><summary>Wird jetzt schon abgebucht?</summary><p>Nein. Die Registrierung reserviert deinen Platz in der Early-Access-Liste. Die Zahlung erfolgt erst beim tatsächlichen Versand — mit Rückgaberecht von 30 Tagen.</p></details>
+            <details><summary>Ist ein Abo nötig?</summary><p>Nein. Early Access enthält 12 Monate Nanil AI kostenlos (24 Monate bei der GoldRing Edition). Danach ist die App-Nutzung optional — Ring und Patch funktionieren weiter.</p></details>
+            <details><summary>Ist das ein Medizinprodukt?</summary><p>Nein. NANIL Pulse ist ein Wellness- und Lifestyle-Gerät zur Selbstwahrnehmung. Es ersetzt keine medizinische Diagnose oder Behandlung.</p></details>
+        </div>
+
+        <div class="form-card reveal">
+            <form id="early-access-form" action="https://formspree.io/f/xreezyov" method="POST">
                 <input type="hidden" name="_subject" value="Neue Early Access Registrierung">
-
                 <div class="form-group">
-                    <label id="label-name"
-                        style="color: var(--gold-primary); font-weight: 600; margin-bottom: 8px; display: block;">Vollständiger
-                        Name</label>
-                    <input type="text" name="name" placeholder="Name" required
-                        style="width: 100%; border-radius: 10px;">
+                    <label>Vollständiger Name</label>
+                    <input type="text" name="name" placeholder="Name" required>
                 </div>
-
-                <div class="form-group" style="margin-top: 20px;">
-                    <label id="label-email"
-                        style="color: var(--gold-primary); font-weight: 600; margin-bottom: 8px; display: block;" data-i18n="label-email">E-Mail-Adresse</label>
-                    <input type="email" name="email" placeholder="Email" required
-                        style="width: 100%; border-radius: 10px;">
+                <div class="form-group">
+                    <label>E-Mail-Adresse</label>
+                    <input type="email" name="email" placeholder="Email" required>
                 </div>
-
-                <div class="form-group" style="margin-top: 20px;">
-                    <label id="label-interest"
-                        style="color: var(--gold-primary); font-weight: 600; margin-bottom: 8px; display: block;">Interesse
-                        an:</label>
-                    <select name="product" required
-                        style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 10px; cursor: pointer;">
-                        <option value="gold-ring">GoldRing Edition</option>
-                        <option value="silver-ring">SilverRing Classic</option>
-                        <option value="biopatch">BioPatch Essential</option>
+                <div class="form-group">
+                    <label>Interesse an:</label>
+                    <select name="product" required>
+                        <option value="" disabled selected>Bitte wählen</option>
+                        <option value="biopatch-199">BioPatch Essential · €199</option>
+                        <option value="silverring-349">SilverRing Classic · €349</option>
+                        <option value="goldring-549">GoldRing Edition · €549</option>
+                        <option value="unsure">Noch unsicher — bitte beraten</option>
                     </select>
                 </div>
-
-                <div class="form-group" style="margin-top: 30px;">
-                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1rem;" data-i18n="btn-register">
-                        Jetzt registrieren
-                    </button>
-                </div>
+                <button type="submit" class="btn-submit">Jetzt registrieren</button>
             </form>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05);">
-        <div class="container" style="text-align: center;">
-            <p id="footer-copy" style="color: #a0a8b4; font-size: 0.9rem;" data-i18n="footer-copy">&copy; 2026 NANIL Pulse - Alle Rechte
-                vorbehalten.</p>
-        </div>
-    </footer>
+<footer>
+    <div class="footer-social">
+        <a href="https://www.instagram.com/nanil_pulse" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.linkedin.com/in/nazannildalkic" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    </div>
+    <div class="footer-links">
+        <a href='/main'>Hauptseite</a>
+        <a href='/co-founder'>Co-Founder</a>
+        <a href='/impressum'>Impressum</a>
+        <a href='/datenschutz'>Datenschutz</a>
+        <a href='/agb'>AGB</a>
+    </div>
+    <p class="footer-disc">NANIL Pulse ist ein Wellness-Gerät. Kein medizinisches Produkt.</p>
+    <p class="footer-copy">&copy; 2026 NANIL Pulse Technologies &middot; Hamburg</p>
+</footer>
 
-    <!-- Script included -->
-    <script src="bg-animation.js" defer></script>
-    <script src="script.js"></script>
+<script>
+(function() {
+    'use strict';
+    var form = document.getElementById('early-access-form');
+    if (form) form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} })
+        .then(function(r) {
+            if (r.ok) {
+                form.innerHTML = '<div style="text-align:center;padding:40px 0;"><div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--gold));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><h3 style="color:var(--teal);margin-bottom:8px;font-family:Syne,sans-serif;">Registrierung erfolgreich!</h3><p style="color:#525866;">Du bist auf der Early Access Liste. Wir melden uns bei dir.</p></div>';
+            } else {
+                form.innerHTML = '<div style="text-align:center;padding:40px 0;"><h3 style="color:#e07030;font-family:Syne,sans-serif;">Fehler</h3><p style="color:#525866;">Bitte versuche es erneut.</p></div>';
+            }
+        });
+    });
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+    reveals.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+<script>
+var filmVideo = document.getElementById("filmVideo");
+if (filmVideo) {
+    var filmObs = new IntersectionObserver(function(e) {
+        e.forEach(function(entry) { if (entry.isIntersecting) filmVideo.play(); else filmVideo.pause(); });
+    }, { threshold: 0.3 });
+    filmObs.observe(filmVideo);
+    document.addEventListener("visibilitychange", function() { if (document.hidden) filmVideo.pause(); });
+}
+</script>
+<button id="scrollTop" style="position:fixed;bottom:140px;right:24px;width:44px;height:44px;border-radius:50%;background:#00c4aa;color:#000;border:none;cursor:pointer;z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 16px rgba(0,196,170,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg></button>
+<script>var st=document.getElementById("scrollTop");window.addEventListener("scroll",function(){st.style.opacity=window.scrollY>400?"1":"0";st.style.visibility=window.scrollY>400?"visible":"hidden";});st.onclick=function(){window.scrollTo({top:0,behavior:"smooth"});};</script>
+<button id="scrollDown" style="position:fixed;bottom:140px;left:24px;width:44px;height:44px;border-radius:50%;background:#00c4aa;color:#000;border:none;cursor:pointer;z-index:9999;display:flex;align-items:center;justify-content:center;transition:all 0.3s;box-shadow:0 4px 16px rgba(0,196,170,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+<script>var sd=document.getElementById("scrollDown");sd.onclick=function(){window.scrollBy({top:window.innerHeight,behavior:"smooth"});};window.addEventListener("scroll",function(){var atBottom=(window.innerHeight+window.scrollY)>=document.body.scrollHeight-100;sd.style.opacity=atBottom?"0":"1";sd.style.visibility=atBottom?"hidden":"visible";});</script>
+<script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+<elevenlabs-convai agent-id="agent_7901kf82k4w0e73vbz0hhakw6xfv" override-language="de" action-text="Frag Nanil"></elevenlabs-convai>
 </body>
-
 </html>
