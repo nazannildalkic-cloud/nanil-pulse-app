@@ -5,31 +5,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NANIL Pulse - Allgemeine Geschäftsbedingungen (AGB)</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/logo-nav-final.png">
+    <style>
+        :root {
+            --teal: #00c4aa;
+            --teal-dark: #00a892;
+            --gold: #d4a843;
+            --gold-light: #e8c76e;
+            --dark: #0a0a12;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            color: #1a1a2e;
+            background: #fafafa;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Nav - frosted glass */
+        nav.topnav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            height: 52px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 clamp(20px, 4vw, 48px);
+            background: rgba(255,255,255,0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 0.5px solid rgba(0,0,0,0.1);
+        }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; border: none; outline: none; padding: 0; margin: 0; }
+        .nav-logo img { height: 44px; background: none; border: none; outline: none; padding: 0; margin: 0; display: block; }
+        .nav-logo span { font-family: 'Syne'; font-weight: 700; font-size: 0.92rem; color: #1a1a2e; }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .nav-links a { font-size: 0.8rem; font-weight: 500; color: rgba(0,0,0,0.5); transition: color 0.3s; }
+        .nav-links a:hover { color: #000; }
+        .nav-cta { background: #00c4aa !important; color: #000 !important; padding: 6px 16px; border-radius: 980px; font-weight: 600 !important; }
+        .nav-burger { display: none; background: none; border: none; cursor: pointer; color: #666; padding: 8px; }
+        @media(max-width:768px) { .nav-links { gap: 12px; } .nav-links a { font-size: 0.7rem; } .nav-cta { padding: 4px 10px; font-size: 0.7rem !important; } .nav-burger { display: none; } }
+
+        /* Main content */
+        main { flex: 1; padding: 100px 20px 60px; }
+        .legal-container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .legal-container h1 {
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 30px; font-size: 2rem;
+        }
+        .legal-container section { margin-bottom: 30px; }
+        .legal-container h2 { color: #1a1a2e; margin-bottom: 10px; font-size: 1.2rem; }
+        .legal-container p { color: #425466; line-height: 1.7; margin-bottom: 8px; }
+        .legal-container .legal-date { margin-top: 50px; padding-top: 20px; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #8898aa; }
+
+        /* Footer */
+        footer {
+            background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 56px 24px 32px; text-align: center;
+        }
+        .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+        .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.3); transition: color 0.3s; text-decoration: none; }
+        .footer-links a:hover { color: var(--teal); }
+        .footer-disc { font-size: 0.78rem; color: rgba(255,255,255,0.2); margin-bottom: 6px; }
+        .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+        @media (max-width: 768px) {
+            main { padding: 80px 16px 40px; }
+            .legal-container h1 { font-size: 1.5rem; }
+        }
+    </style>
 </head>
 
-<body style="min-height: 100vh; display: flex; flex-direction: column;">
-    <header>
-        <div class="container header-inner">
-            <a href="vorpage.html" class="logo">
-                <img src="assets/logo.jpg" alt="Logo">
-                <span class="text-gradient-gold">NANIL Pulse</span>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="vorpage.html">Zurück zur Startseite</a></li>
-                </ul>
-            </nav>
+<body>
+<!-- Nav - frosted glass -->
+    <nav class="topnav" id="navbar">
+        <a class='nav-logo' href='/vorpage'>
+            <img src="assets/logo-nav-final.png" alt="NANIL Pulse">
+            <span><span style="color:#c0c8d0 !important;">NANIL</span> <span style="color:#5ec4b6 !important;">Pulse</span></span>
+        </a>
+        <div class="nav-links">
+            <a href='/vorpage'>Home</a>
+            <a href='/main'>Produkte</a>
+            <a href='/science'>Wissenschaft</a>
+            <a href='/pitch-v2'>Investoren</a>
+        <a href="blog/">Blog</a>
+        <a href="/app" class="nav-cta">App testen</a>
         </div>
-    </header>
-    <main style="flex: 1; padding: 120px 20px 60px;">
-        <div class="container" style="max-width: 800px; color: #e0e3e8;">
-            <h1 class="text-gradient-gold" style="margin-bottom: 30px;">Allgemeine Geschäftsbedingungen</h1>
+        <button class="nav-burger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </nav>
 
-            <section style="margin-bottom: 30px;">
-                <h2 style="color: white; margin-bottom: 10px;">§ 1 Geltungsbereich</h2>
+    <main>
+        <div class="legal-container">
+            <h1>Allgemeine Geschäftsbedingungen</h1>
+
+            <section>
+                <h2>§ 1 Geltungsbereich</h2>
                 <p>
                     (1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Geschäftsbeziehungen zwischen NANIL
                     Pulse (nachfolgend: Anbieter) und seinen Kunden in der zum Zeitpunkt des Vertragsschlusses gültigen
@@ -41,8 +118,8 @@
                 </p>
             </section>
 
-            <section style="margin-bottom: 30px;">
-                <h2 style="color: white; margin-bottom: 10px;">§ 2 Vertragsschluss</h2>
+            <section>
+                <h2>§ 2 Vertragsschluss</h2>
                 <p>
                     (1) Die Präsentation der Waren im Online-Shop stellt kein rechtlich bindendes Angebot, sondern eine
                     Aufforderung zur Bestellung dar.
@@ -53,16 +130,16 @@
                 </p>
             </section>
 
-            <section style="margin-bottom: 30px;">
-                <h2 style="color: white; margin-bottom: 10px;">§ 3 Widerrufsrecht</h2>
+            <section>
+                <h2>§ 3 Widerrufsrecht</h2>
                 <p>
                     Verbrauchern steht grundsätzlich ein Widerrufsrecht zu. Nähere Informationen zum Widerrufsrecht
                     ergeben sich aus der Widerrufsbelehrung des Anbieters.
                 </p>
             </section>
 
-            <section style="margin-bottom: 30px;">
-                <h2 style="color: white; margin-bottom: 10px;">§ 4 Haftung</h2>
+            <section>
+                <h2>§ 4 Haftung</h2>
                 <p>
                     (1) Ansprüche des Kunden auf Schadensersatz sind ausgeschlossen. Hiervon ausgenommen sind
                     Schadensersatzansprüche des Kunden aus der Verletzung des Lebens, des Körpers, der Gesundheit oder
@@ -75,7 +152,7 @@
             </section>
 
             <section>
-                <h2 style="color: white; margin-bottom: 10px;">§ 5 Schlussbestimmungen</h2>
+                <h2>§ 5 Schlussbestimmungen</h2>
                 <p>
                     (1) Auf Verträge zwischen dem Anbieter und den Kunden findet das Recht der Bundesrepublik
                     Deutschland unter Ausschluss des UN-Kaufrechts Anwendung.
@@ -87,12 +164,30 @@
                 </p>
             </section>
 
-            <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #333; font-size: 0.8rem;">
-                Stand: Januar 2026
-            </div>
+            <div class="legal-date">Stand: Januar 2026</div>
         </div>
     </main>
-    <script src="bg-animation.js" defer></script>
+
+    <footer>
+        <div class="footer-links">
+            <a href='/vorpage'>Startseite</a>
+            <a href='/impressum'>Impressum</a>
+            <a href='/datenschutz'>Datenschutz</a>
+            <a href='/agb'>AGB</a>
+        </div>
+        <p class="footer-disc">NANIL Pulse ist ein Wellness-Gerät. Kein medizinisches Produkt.</p>
+        <p class="footer-copy">&copy; 2026 NANIL Pulse Technologies &middot; Hamburg</p>
+    </footer>
+<button id="scrollTop" style="position:fixed;bottom:140px;right:24px;width:44px;height:44px;border-radius:50%;background:#00c4aa;color:#000;border:none;cursor:pointer;z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s;box-shadow:0 4px 16px rgba(0,196,170,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg></button>
+<script>var st=document.getElementById("scrollTop");window.addEventListener("scroll",function(){st.style.opacity=window.scrollY>400?"1":"0";st.style.visibility=window.scrollY>400?"visible":"hidden";});st.onclick=function(){window.scrollTo({top:0,behavior:"smooth"});};</script>
+<button id="scrollDown" style="position:fixed;bottom:140px;left:24px;width:44px;height:44px;border-radius:50%;background:#00c4aa;color:#000;border:none;cursor:pointer;z-index:9999;display:flex;align-items:center;justify-content:center;transition:all 0.3s;box-shadow:0 4px 16px rgba(0,196,170,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+<script>var sd=document.getElementById("scrollDown");sd.onclick=function(){window.scrollBy({top:window.innerHeight,behavior:"smooth"});};window.addEventListener("scroll",function(){var atBottom=(window.innerHeight+window.scrollY)>=document.body.scrollHeight-100;sd.style.opacity=atBottom?"0":"1";sd.style.visibility=atBottom?"hidden":"visible";});</script>
+<script>window.addEventListener("load",function(){setTimeout(function(){var c=document.getElementById("curtain");if(c)c.classList.add("done");},600);});</script>
+
+
+
+<script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+<elevenlabs-convai agent-id="agent_7901kf82k4w0e73vbz0hhakw6xfv" override-language="de" action-text="Frag Nanil"></elevenlabs-convai>
 </body>
 
 </html>
