@@ -1,35 +1,50 @@
 /science
   Content-Type: text/html; charset=UTF-8
 
-  /about
-    Content-Type: text/html; charset=UTF-8
+/about
+  Content-Type: text/html; charset=UTF-8
 
-    /main
-      Content-Type: text/html; charset=UTF-8
+/about-en
+  Content-Type: text/html; charset=UTF-8
 
-      /pitch-v2
-        Content-Type: text/html; charset=UTF-8
+/about-tr
+  Content-Type: text/html; charset=UTF-8
 
-        /co-founder
-          Content-Type: text/html; charset=UTF-8
+/main
+  Content-Type: text/html; charset=UTF-8
 
-          /investoren
-            Content-Type: text/html; charset=UTF-8
+/co-founder
+  Content-Type: text/html; charset=UTF-8
 
-            /stimmanalyse
-              Content-Type: text/html; charset=UTF-8
+/pitch-v2
+  Content-Type: text/html; charset=UTF-8
 
-              /promo
-                Content-Type: text/html; charset=UTF-8
+/pitch
+  Content-Type: text/html; charset=UTF-8
 
-                /early-access
-                  Content-Type: text/html; charset=UTF-8
+/investoren
+  Content-Type: text/html; charset=UTF-8
 
-                  /impressum
-                    Content-Type: text/html; charset=UTF-8
+/stimmanalyse
+  Content-Type: text/html; charset=UTF-8
 
-                    /datenschutz
-                      Content-Type: text/html; charset=UTF-8
+/promo
+  Content-Type: text/html; charset=UTF-8
 
-                      /agb
-                        Content-Type: text/html; charset=UTF-8
+/early-access
+  Content-Type: text/html; charset=UTF-8
+
+/en
+  Content-Type: text/html; charset=UTF-8
+
+/tr
+  Content-Type: text/html; charset=UTF-8
+
+/impressum
+  Content-Type: text/html; charset=UTF-8
+
+/datenschutz
+  Content-Type: text/html; charset=UTF-8
+
+/agb
+  Content-Type: text/html; charset=UTF-8
