@@ -1,9 +1,9 @@
-# Vorpage als Startseite
 /  /vorpage.html  302!
 
-# Pretty URL redirects — extensionless → .html
 /science        /about.html         200
 /about          /about.html         200
+/about-en       /about-en.html      200
+/about-tr       /about-tr.html      200
 /main           /main.html          200
 /co-founder     /co-founder.html    200
 /pitch-v2       /pitch-v2.html      200
@@ -18,6 +18,5 @@
 /datenschutz    /datenschutz.html   200
 /agb            /agb.html           200
 
-# React App
 /app            /app/index.html     200
 /app/*          /app/index.html     200
